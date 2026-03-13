@@ -1,0 +1,100 @@
+---
+title: "ZIBE"
+summary: "Aplicación Android de mensajería en tiempo real usada como proyecto principal del portfolio para demostrar modernización incremental, arquitectura por capas y calidad técnica en un repo público."
+language: "es"
+published: true
+featured: true
+year: "2020 - actualidad"
+role: "Android Developer"
+stack:
+  - "Kotlin"
+  - "Jetpack Compose"
+  - "Material 3"
+  - "MVVM"
+  - "Firebase"
+  - "Hilt"
+tags:
+  - "Android"
+  - "Arquitectura"
+  - "Compose"
+  - "Firebase"
+  - "CI"
+---
+
+## Qué es
+
+ZIBE es una app Android de mensajería orientada a chats 1 a 1 y grupos. La uso como proyecto principal del portfolio porque concentra un tipo de problema completo: tiempo real, autenticación, notificaciones, multimedia, persistencia y evolución de arquitectura sin partir de cero.
+
+## Problema que resuelve
+
+El proyecto ataca dos frentes al mismo tiempo:
+
+- ofrecer una experiencia de mensajería moderna sobre Firebase, con conversaciones, grupos, perfiles y push notifications
+- demostrar cómo modernizar una base Android nacida con XML y Activities hacia Kotlin, Jetpack Compose y una estructura más mantenible
+
+## Solución implementada
+
+La solución combina una app Android real con una modernización progresiva y pública del código. En lugar de rehacer todo desde cero, ZIBE convive con capas legacy mientras migra hacia un stack más actual, con foco en claridad de responsabilidades, seguridad y capacidad de evolución.
+
+## Stack principal
+
+- Kotlin
+- Jetpack Compose + Material 3
+- MVVM con `StateFlow` y `SharedFlow`
+- Hilt para dependency injection
+- Firebase Auth, Realtime Database, Storage, FCM y App Check
+- DataStore para persistencia local de configuración
+- Room y utilidades complementarias según el caso
+
+## Arquitectura
+
+La arquitectura sigue un flujo claro de responsabilidades:
+
+- UI
+- ViewModel
+- Domain use cases
+- Data repositories
+- Firebase y DataStore
+
+La modularización visible hoy separa `app`, `core`, `domain` y `data`, con documentación técnica adicional en `docs/`. También existe una carpeta `functions/` reservada para automatizaciones y lógica de soporte del lado backend cuando hace falta complementar el flujo principal.
+
+## Funcionalidades principales
+
+- autenticación con Google y Facebook
+- chat 1 a 1 y grupal en tiempo real
+- notificaciones push con FCM
+- perfiles, favoritos y estado de usuario
+- envío de imágenes y audio en conversaciones
+- onboarding, búsqueda y ajustes base de la app
+
+## Estado actual
+
+Al 13 de marzo de 2026, el repo muestra una etapa activa de modernización y mantenimiento. El proyecto arranca en 2020 y desde octubre de 2025 avanza con una migración sostenida hacia Kotlin, Compose, Material 3 y mejores prácticas de build, seguridad y organización interna.
+
+No lo presento como producto terminado, sino como una base viva que ya evidencia criterio de evolución, disciplina técnica y continuidad.
+
+## Calidad técnica y señales de madurez
+
+- pipeline de GitHub Actions con build, lint, unit tests y compilación de release
+- tests para reglas de Firebase usando emuladores
+- documentación específica de arquitectura, CI y esquema de Firebase
+- archivos de ejemplo para credenciales y configuración segura en repo público
+- estructura modular y decisiones orientadas a mantenimiento incremental
+- commits recientes enfocados en compatibilidad, tooling y estabilidad del build
+
+## Valor profesional
+
+ZIBE me permite mostrar algo más útil que una demo aislada:
+
+- capacidad para trabajar sobre Android moderno sin ignorar deuda técnica previa
+- criterio para mejorar arquitectura sin romper la evolución del producto
+- manejo de integraciones end-to-end con Firebase
+- preocupación por calidad pública del repo, seguridad y automatización del build
+- equilibrio entre señal técnica profunda y entendimiento del valor funcional
+
+## Links relevantes
+
+- [Repositorio público](https://github.com/Zibete/Zibe)
+- [Documento de arquitectura](https://github.com/Zibete/Zibe/blob/main/docs/ARCHITECTURE.md)
+- [Documento de CI](https://github.com/Zibete/Zibe/blob/main/docs/CI.md)
+- [Esquema y reglas de Firebase](https://github.com/Zibete/Zibe/blob/main/docs/FIREBASE_SCHEMA.md)

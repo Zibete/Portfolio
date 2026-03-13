@@ -70,6 +70,22 @@ export async function getProjectEntries() {
   );
 }
 
+export async function getProjectEntryBySlug(slug: string) {
+  return readCollectionEntry<ProjectFrontmatter>("projects", slug);
+}
+
+export async function getPublishedProjectEntries() {
+  const entries = await getProjectEntries();
+
+  return entries.filter((entry) => entry.frontmatter.published !== false);
+}
+
+export async function getFeaturedProjectEntries() {
+  const entries = await getPublishedProjectEntries();
+
+  return entries.filter((entry) => entry.frontmatter.featured);
+}
+
 export async function getExperienceEntries() {
   const slugs = await getCollectionSlugs("experience");
   const entries = await Promise.all(

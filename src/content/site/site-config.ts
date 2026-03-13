@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   locale: "es-AR",
   language: "es",
   description:
-    "Base fundacional del portfolio de Matías Peralta, enfocada en Android, automatización end-to-end y eficiencia operativa.",
+    "Portfolio de Matías Peralta con foco en Android, automatización end-to-end y ZIBE como caso principal para demostrar arquitectura, calidad técnica y criterio de producto.",
   primaryAudience: "Líderes de producto y negocio",
   targetRoles: ["Android Jr/Mid", "Automation Engineer"],
   messageBalance: "50% técnico / 50% negocio",
@@ -20,17 +20,17 @@ export const siteConfig: SiteConfig = {
     { href: "/cv", label: "CV" },
   ],
   hero: {
-    eyebrow: "Base fundacional v0",
-    title: "Android, automatización y mejora continua con foco en resultados.",
+    eyebrow: "Portfolio técnico",
+    title: "Android moderno, automatización y mejora continua con foco en producto.",
     description:
-      "Esta primera iteración deja el portfolio listo para crecer con contenido file-based, MDX local y una narrativa equilibrada entre profundidad técnica y valor de negocio.",
+      "ZIBE ya funciona como primer caso de estudio real del portfolio: una app Android de mensajería que me permite mostrar modernización incremental, arquitectura clara y calidad técnica en un repo público.",
     primaryCta: {
-      href: "/projects",
-      label: "Ver base de proyectos",
+      href: "/projects/zibe",
+      label: "Ver ZIBE",
     },
     secondaryCta: {
-      href: "/cv",
-      label: "Ir a CV",
+      href: "/projects",
+      label: "Ver proyectos",
     },
   },
 };

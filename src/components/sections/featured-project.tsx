@@ -1,0 +1,93 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/shared/container";
+import { Button } from "@/components/ui/button";
+import type { ContentEntry, ProjectFrontmatter } from "@/types/content";
+
+interface FeaturedProjectProps {
+  project: ContentEntry<ProjectFrontmatter>;
+}
+
+export function FeaturedProject({ project }: FeaturedProjectProps) {
+  const stackPreview = (project.frontmatter.stack ?? []).slice(0, 5);
+  const focusPreview = (project.frontmatter.tags ?? []).slice(0, 3);
+
+  return (
+    <section className="pb-16 sm:pb-24">
+      <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <div className="space-y-6 rounded-3xl border border-border/70 bg-card/75 p-6 shadow-sm backdrop-blur sm:p-8">
+          <div className="space-y-4">
+            <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
+              Proyecto principal
+            </p>
+            <div className="space-y-3">
+              <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
+                {project.frontmatter.title}
+              </h2>
+              <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                {project.frontmatter.summary}
+              </p>
+              <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
+                Un caso real para mostrar mensajería en tiempo real, evolución
+                arquitectónica y criterio de mantenimiento sobre una base Android
+                que sigue activa.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {stackPreview.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Button asChild>
+              <Link href={`/projects/${project.slug}`}>
+                Ver caso completo
+                <ArrowRight />
+              </Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/projects">Ver listado</Link>
+            </Button>
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Rol
+            </p>
+            <p className="mt-3 text-sm leading-6 text-foreground">
+              {project.frontmatter.role ?? "Pendiente de definir"}
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Período
+            </p>
+            <p className="mt-3 text-sm leading-6 text-foreground">
+              {project.frontmatter.year ?? "Pendiente de definir"}
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              Foco
+            </p>
+            <p className="mt-3 text-sm leading-6 text-foreground">
+              {focusPreview.join(" / ") || "Arquitectura / producto / calidad"}
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
