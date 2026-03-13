@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Zibe
 
-## Getting Started
+Base fundacional de un portfolio profesional para Matías Peralta.
 
-First, run the development server:
+## Qué es
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este repositorio inicializa la base técnica y documental para construir un portfolio con enfoque spec-driven, contenido local file-based y despliegue futuro en Vercel.
+
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- next-themes
+- MDX para contenido local
+- Supabase preparado para contacto futuro
+
+## Estado actual
+
+El proyecto está en etapa fundacional. Ya incluye:
+
+- app shell mínimo navegable
+- tema dark/light con dark-first
+- estructura de carpetas base
+- scaffold de MDX y Supabase
+- documentos fundacionales y specs v0
+
+## Estructura general
+
+```text
+src/
+  app/
+  components/
+  content/
+  lib/
+  types/
+public/
+  images/
+  og/
+docs/
+specs/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Comandos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+npm run lint
+npm run build
+```
 
-## Learn More
+## Próximos pasos
 
-To learn more about Next.js, take a look at the following resources:
+- definir contenido real de Sobre mí, Proyectos, Experiencia y CV
+- crear los primeros archivos `.mdx` de proyectos y experiencia
+- diseñar la UI final a partir de los specs
+- decidir la implementación mínima del contacto con Supabase
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Nota
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El contenido real del portfolio todavía no está definido en este repo. La fuente de verdad inicial es la documentación en `docs/` y `specs/`.

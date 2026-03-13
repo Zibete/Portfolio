@@ -1,7 +1,5 @@
+import { HomeHero } from "@/components/sections/home-hero";
+
 export default function Home() {
-  return (
-    <main>
-      <div>Hello world!</div>
-    </main>
-  );
+  return <HomeHero />;
 }
