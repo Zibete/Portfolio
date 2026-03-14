@@ -35,4 +35,19 @@ export const siteConfig: SiteConfig = {
       label: "Ver proyectos",
     },
   },
+  stackMarquee: {
+    label: "Stack híbrido",
+    items: [
+      "Kotlin",
+      "Jetpack Compose",
+      "Firebase",
+      "Python",
+      "VBA",
+      "Excel",
+      "SAP FI",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+  },
 };

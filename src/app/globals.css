@@ -194,6 +194,16 @@
   }
 }
 
+@keyframes stack-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 @layer utilities {
   @media (prefers-reduced-motion: no-preference) {
     .hero-enter {
@@ -216,6 +226,28 @@
 
     .hero-enter-delay-4 {
       animation-delay: 300ms;
+    }
+
+    .stack-marquee-track {
+      will-change: transform;
+      animation: stack-marquee 28s linear infinite;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stack-marquee-track {
+      width: 100%;
+      animation: none;
+      transform: none;
+    }
+
+    .stack-marquee-group {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stack-marquee-copy {
+      display: none;
     }
   }
 }

@@ -13,6 +13,11 @@ export interface SiteHeroContent {
   secondaryCta: SiteNavItem;
 }
 
+export interface SiteStackMarqueeContent {
+  label: string;
+  items: string[];
+}
+
 export interface SiteConfig {
   name: string;
   locale: string;
@@ -24,4 +29,5 @@ export interface SiteConfig {
   defaultTheme: "dark" | "light";
   navItems: SiteNavItem[];
   hero: SiteHeroContent;
+  stackMarquee: SiteStackMarqueeContent;
 }
