@@ -4,9 +4,11 @@ export interface SiteNavItem {
 }
 
 export interface SiteHeroContent {
+  statusBadge: string;
   eyebrow: string;
   title: string;
   description: string;
+  supportingNote?: string;
   primaryCta: SiteNavItem;
   secondaryCta: SiteNavItem;
 }

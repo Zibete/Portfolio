@@ -20,13 +20,15 @@ export const siteConfig: SiteConfig = {
     { href: "/cv", label: "CV" },
   ],
   hero: {
+    statusBadge: "Disponible para Android y automatización",
     eyebrow: "Portfolio técnico",
-    title: "Android moderno, automatización y mejora continua con foco en producto.",
+    title: "Android moderno y automatización con foco en producto.",
     description:
-      "ZIBE ya funciona como primer caso de estudio real del portfolio: una app Android de mensajería que me permite mostrar modernización incremental, arquitectura clara y calidad técnica en un repo público.",
+      "Con ZIBE como caso principal, muestro modernización incremental, arquitectura clara y calidad técnica visible en un repo público.",
+    supportingNote: "Caso principal ya disponible: ZIBE.",
     primaryCta: {
       href: "/projects/zibe",
-      label: "Ver ZIBE",
+      label: "Explorar ZIBE",
     },
     secondaryCta: {
       href: "/projects",
