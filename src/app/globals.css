@@ -236,18 +236,8 @@
 
   @media (prefers-reduced-motion: reduce) {
     .stack-marquee-track {
-      width: 100%;
-      animation: none;
-      transform: none;
-    }
-
-    .stack-marquee-group {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .stack-marquee-copy {
-      display: none;
+      will-change: auto;
+      animation: stack-marquee 48s linear infinite;
     }
   }
 }
