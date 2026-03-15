@@ -3,6 +3,11 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { hasProjectMdxModule } from "@/content/projects/registry";
+import {
+  formatGitHubDate,
+  formatGitHubMetric,
+  getGitHubRepoStats,
+} from "@/lib/github";
 import { getPublishedProjectEntries } from "@/lib/mdx";
 
 export const metadata = {
@@ -14,6 +19,14 @@ export const metadata = {
 export default async function ProjectsPage() {
   const entries = (await getPublishedProjectEntries()).filter((entry) =>
     hasProjectMdxModule(entry.slug),
+  );
+  const projectsWithGitHub = await Promise.all(
+    entries.map(async (entry) => ({
+      entry,
+      githubStats: entry.frontmatter.githubRepo
+        ? await getGitHubRepoStats(entry.frontmatter.githubRepo)
+        : null,
+    })),
   );
 
   return (
@@ -36,7 +49,7 @@ export default async function ProjectsPage() {
         </header>
 
         <div className="grid gap-5">
-          {entries.map((entry) => (
+          {projectsWithGitHub.map(({ entry, githubStats }) => (
             <article
               key={entry.slug}
               className="rounded-3xl border border-border/70 bg-card/75 p-6 shadow-sm backdrop-blur sm:p-7"
@@ -90,6 +103,23 @@ export default async function ProjectsPage() {
                       </p>
                     ) : null}
                   </div>
+
+                  {githubStats ? (
+                    <div className="flex flex-wrap gap-2 text-xs text-muted-foreground lg:justify-end">
+                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1 font-medium text-foreground">
+                        GitHub
+                      </span>
+                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1">
+                        Stars {formatGitHubMetric(githubStats.stargazersCount)}
+                      </span>
+                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1">
+                        Forks {formatGitHubMetric(githubStats.forksCount)}
+                      </span>
+                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1">
+                        Push {formatGitHubDate(githubStats.pushedAt)}
+                      </span>
+                    </div>
+                  ) : null}
 
                   <Button asChild>
                     <Link href={`/projects/${entry.slug}`}>

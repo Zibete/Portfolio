@@ -13,6 +13,10 @@ export interface ProjectFrontmatter extends BaseContentFrontmatter {
   role?: string;
   stack?: string[];
   year?: string;
+  githubRepo?: string;
+  githubUrl?: string;
+  demoUrl?: string;
+  githubFeatured?: boolean;
 }
 
 export interface ExperienceFrontmatter extends BaseContentFrontmatter {

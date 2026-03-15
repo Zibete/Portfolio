@@ -15,42 +15,33 @@ Levantar:
 npm run dev
 ```
 
-### Configuración
-- [ ] El proyecto arranca sin `GITHUB_TOKEN`
-- [ ] No aparecen errores visibles en UI cuando falta token
-
 ### Home
-- [ ] El proyecto destacado sigue renderizando
-- [ ] Si hay data de GitHub, se muestran métricas o metadata viva
-- [ ] Si no hay data, el bloque no rompe layout
+- [ ] El proyecto principal muestra metadata viva breve si GitHub responde
+- [ ] Si GitHub no responde, Home sigue renderizando sin errores
 
 ### `/projects`
-- [ ] La lista sigue cargando proyectos MDX
-- [ ] Las cards muestran metadata viva si existe
-- [ ] Sin metadata viva, las cards siguen viéndose bien
+- [ ] Cada card con repo configurado muestra metadata resumida
+- [ ] Si falta metadata, la card no se rompe ni deja placeholders raros
 
 ### `/projects/[slug]`
-- [ ] `/projects/zibe` sigue renderizando el MDX
-- [ ] El aside o bloque secundario muestra repo / métricas / último update si existen
-- [ ] No se rompe el layout en mobile
+- [ ] El detalle del proyecto muestra un bloque ampliado de GitHub
+- [ ] Repo y demo solo aparecen si existen
+- [ ] Sin respuesta de API, la página sigue estable
 
-### Fallbacks
-- [ ] Repo inexistente no rompe render
-- [ ] Token ausente no rompe render
-- [ ] Respuesta nula no genera crash
+### Server-only
+- [ ] No hay uso client-side de la integración GitHub
+- [ ] No se exponen tokens en el browser
 
 ### Técnica
 - [ ] No hay imports rotos
-- [ ] No hay fetch client-side innecesario
-- [ ] No se exponen secretos al browser
-- [ ] La feature no introduce dependencias nuevas evitables
+- [ ] No se rompe MDX como source of truth
+- [ ] Lint y build pasan
 
 ## Criterio de done
 
 La feature se considera terminada cuando:
 
-- [ ] MDX sigue siendo fuente principal
-- [ ] GitHub actúa como enriquecimiento opcional
-- [ ] Home, `/projects` y `/projects/[slug]` muestran datos reales cuando existen
-- [ ] La app funciona también sin token
-- [ ] Lint y build pasan
+- [ ] GitHub enriquece proyectos sin reemplazar MDX
+- [ ] la UI suma señal real sin rediseño grande
+- [ ] el fallback silencioso funciona
+- [ ] lint y build pasan

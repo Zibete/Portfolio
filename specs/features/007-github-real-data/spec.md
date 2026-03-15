@@ -2,123 +2,94 @@
 
 ## Objetivo
 
-Sumar datos reales de GitHub a los proyectos del portfolio para reforzar credibilidad técnica y estado vivo del trabajo mostrado, sin perder el control editorial y narrativo del contenido MDX.
+Enriquecer los proyectos del portfolio con metadata real de GitHub, manteniendo MDX como fuente principal y curada del contenido.
+
+La feature debe:
+- sumar datos vivos útiles sin reemplazar el relato en MDX
+- mantener toda la integración GitHub del lado server-only
+- tolerar ausencia de token, repo o fallas de API sin romper render
+- aportar señal técnica real en Home, `/projects` y `/projects/[slug]`
+- conservar una implementación pequeña y mantenible
 
 ## Contexto
 
 El portfolio ya cuenta con:
+- contenido de proyectos en `.mdx`
+- ZIBE como caso principal real
+- Home, listado de proyectos y detalle por slug
+- arquitectura file-based y server rendering con Next.js
 
-- contenido file-based en MDX
-- un proyecto principal real (`ZIBE`)
-- Home conectada al proyecto destacado
-- listado y detalle de proyectos funcionales
-- sistema visual base suficiente para enriquecer información
+Hasta ahora el contenido de proyectos es completamente curado y estático. Eso funciona bien para narrativa, pero no muestra señales vivas del estado público del repo.
 
-Hoy el contenido de proyectos es curado, pero no incorpora señales vivas del repositorio.
+## Problema que resuelve esta feature
 
-## Problema a resolver
-
-El sitio explica bien el proyecto, pero todavía no muestra de forma automática datos verificables de GitHub como actividad reciente, lenguaje principal o métricas públicas.
-
-Eso deja una oportunidad clara de mejora en:
-
-- credibilidad
-- señal técnica visible
-- percepción de mantenimiento activo
-- conexión entre el portfolio y el repo real
-
-## Fuente de verdad
-
-La fuente principal del proyecto sigue siendo el archivo `.mdx`.
-
-GitHub se usa como fuente secundaria para metadata viva.
-
-### MDX sigue definiendo:
-- título
-- resumen
-- narrativa
-- rol
-- stack
-- tags
-- curado editorial
-
-### GitHub puede aportar:
-- full name del repo
-- url pública
-- descripción pública
-- homepage/demo si existe
+Hoy el portfolio muestra proyectos reales, pero no incorpora metadata pública actualizable como:
 - stars
 - forks
-- watchers/subscribers
-- open issues
-- lenguaje principal
-- licencia
-- último push
-- archived
+- issues abiertas
+- última actividad del repo
+
+Esto limita una señal concreta de madurez y mantenimiento activo, especialmente en ZIBE.
 
 ## Alcance
 
-### Dentro de alcance
-- agregar campos opcionales de GitHub al frontmatter
-- crear helper server-only para GitHub API
-- mostrar metadata viva en Home
-- mostrar metadata viva en `/projects`
-- mostrar metadata viva en `/projects/[slug]`
-- agregar fallback limpio y silencioso
+### Entra en esta feature
 
-### Fuera de alcance
-- importación automática de repositorios
-- CMS
-- scraping
-- sincronización o persistencia
-- rediseño grande de componentes
-- analytics sobre clicks a GitHub
+- extender el frontmatter de proyectos con campos opcionales de GitHub
+- crear una capa server-only mínima para consultar la REST API de GitHub
+- mapear metadata pública a un contrato interno chico
+- aplicar esa metadata en Home, `/projects` y `/projects/[slug]`
+- mantener fallback silencioso cuando la API no responda o falte configuración
+- dejar `GITHUB_TOKEN` documentado en `.env.example`
 
-## Requisitos funcionales
+### No entra en esta feature
 
-1. Un proyecto puede declarar un repositorio GitHub mediante frontmatter.
-2. Si el proyecto tiene repo, el servidor intenta traer metadata viva.
-3. Si falla la consulta, el proyecto sigue renderizando normal.
-4. Home debe poder mostrar señales vivas del proyecto destacado.
-5. `/projects` debe poder mostrar señales vivas por card.
-6. `/projects/[slug]` debe poder mostrar metadata ampliada del repo.
-7. La feature no debe requerir JavaScript del lado cliente para funcionar.
+- reemplazar MDX como source of truth
+- scraping de README o HTML
+- integración client-side con GitHub
+- dashboards de actividad
+- analytics
+- nuevos proyectos
+- rediseño fuerte de la UI
+- dependencias nuevas si `fetch` nativo alcanza
 
-## Requisitos no funcionales
+## Principio de source of truth
 
-- la implementación debe mantenerse simple
-- no agregar dependencias si no son necesarias
-- no romper generación estática existente más de lo imprescindible
-- no exponer tokens al cliente
-- mantener el naming y estructura actuales del repo
+MDX sigue siendo la fuente principal de:
+- título
+- resumen
+- narrativa
+- stack
+- links curados
 
-## Cambios de modelo
+GitHub solo enriquece con metadata viva complementaria.
 
-### Nuevos campos sugeridos en `ProjectFrontmatter`
-- `githubRepo?: string`
-- `githubUrl?: string`
-- `demoUrl?: string`
-- `githubFeatured?: boolean`
+## Entregables visibles
 
-## UI esperada
+- Home con metadata viva breve del proyecto principal
+- `/projects` con metadata viva resumida por card
+- `/projects/[slug]` con un bloque ampliado de metadata viva
+- render estable incluso si GitHub falla
 
-### Home
-Bloque breve de métricas / metadata viva sobre el proyecto principal.
+## Criterios de aceptación
 
-### `/projects`
-Cada proyecto puede mostrar un subconjunto de metadata viva.
+- MDX sigue siendo la fuente principal curada
+- la integración GitHub corre solo del lado servidor
+- sin token o sin respuesta válida, la UI no se rompe
+- ZIBE queda conectado a su repo real
+- la UI agrega señal real sin rediseño grande
+- lint y build pasan
 
-### `/projects/[slug]`
-Aside o card secundaria con metadata completa del repo.
+## Dependencias
 
-## Criterio de done
+Esta feature depende de:
+- `docs/PROJECT_CONSTITUTION.md`
+- `AGENTS.md`
+- `specs/004-data-model.md`
+- `specs/005-content-model.md`
 
-La feature se considera terminada cuando:
+## Riesgos / decisiones abiertas
 
-- existe capa GitHub server-only
-- `ZIBE` ya usa un repo real en frontmatter
-- Home muestra metadata viva sin romper el diseño actual
-- `/projects` muestra metadata viva si está disponible
-- `/projects/[slug]` muestra metadata ampliada si está disponible
-- sin token o sin respuesta de GitHub, el sitio sigue funcionando
-- `npm run lint` y `npm run build` pasan
+- qué volumen de metadata mostrar sin recargar la UI
+- cómo manejar rate limits de GitHub sin agregar complejidad
+- cómo usar links de repo/demo sin desplazar la narrativa principal del proyecto

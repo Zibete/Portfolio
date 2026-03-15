@@ -2,6 +2,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
+import {
+  formatGitHubDate,
+  formatGitHubMetric,
+  getGitHubRepoStats,
+} from "@/lib/github";
 import type { ContentEntry, ProjectFrontmatter } from "@/types/content";
 
 interface FeaturedProjectProps {
@@ -14,9 +19,14 @@ const metadataMotionDelays = [
   "motion-delay-4",
 ] as const;
 
-export function FeaturedProject({ project }: FeaturedProjectProps) {
+export async function FeaturedProject({ project }: FeaturedProjectProps) {
   const stackPreview = (project.frontmatter.stack ?? []).slice(0, 5);
   const focusPreview = (project.frontmatter.tags ?? []).slice(0, 3);
+  const githubStats = project.frontmatter.githubRepo
+    ? await getGitHubRepoStats(project.frontmatter.githubRepo)
+    : null;
+  const shouldShowGitHubStats =
+    project.frontmatter.githubFeatured === true && githubStats;
 
   return (
     <section className="pb-16 sm:pb-20">
@@ -53,6 +63,23 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
                 </span>
               ))}
             </div>
+
+            {shouldShowGitHubStats ? (
+              <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
+                  GitHub vivo
+                </span>
+                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                  Stars {formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}
+                </span>
+                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                  Forks {formatGitHubMetric(shouldShowGitHubStats.forksCount)}
+                </span>
+                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                  Último push {formatGitHubDate(shouldShowGitHubStats.pushedAt)}
+                </span>
+              </div>
+            ) : null}
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild>
