@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { Container } from "@/components/shared/container";
 import { PageAside } from "@/components/shared/page-aside";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { profileContent } from "@/content/site/profile-content";
+import { siteConfig } from "@/content/site/site-config";
 
 const highlightMotionDelays = [
   "motion-delay-2",
@@ -33,61 +35,78 @@ export default function AboutPage() {
         />
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <PageSection
-          eyebrow="Diferencial"
-          title="Base técnica moderna con experiencia operativa real."
-          description="No me defino por un único eje. Mi recorrido cruza desarrollo, automatización, datos y procesos con foco constante en problemas concretos y resultados defendibles."
-          contentClassName="grid gap-4 md:grid-cols-3"
-        >
-            {about.highlights.map((item, index) => (
-              <div
-                key={item.title}
-                className={`motion-enter ${highlightMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
-              >
-                <p className="text-sm font-semibold text-foreground">
-                  {item.title}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </PageSection>
+          <div className="space-y-6">
+            <PageSection
+              eyebrow="Diferencial"
+              title="Base técnica moderna con experiencia operativa real."
+              description="No me defino por un único eje. Mi recorrido cruza desarrollo, automatización, datos y procesos con foco constante en problemas concretos y resultados defendibles."
+              contentClassName="grid gap-4 md:grid-cols-3"
+            >
+              {about.highlights.map((item, index) => (
+                <div
+                  key={item.title}
+                  className={`motion-enter ${highlightMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                >
+                  <p className="text-sm font-semibold text-foreground">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </PageSection>
 
-          <PageAside
-            eyebrow={about.aside.eyebrow}
-            title={about.aside.title}
-            description={about.aside.description}
-            className="lg:sticky lg:top-24"
-          >
-            <div className="space-y-3">
-              {about.aside.items.map((item) => (
+            <PageSection
+              eyebrow="Forma de trabajo"
+              title="Cómo aporto valor en un equipo."
+              description="Empatía, escucha, documentación y respeto por procesos conviven con una base técnica orientada a claridad, mantenimiento y mejora continua."
+              contentClassName="grid gap-4 md:grid-cols-3"
+            >
+              {about.principles.map((item, index) => (
                 <div
                   key={item}
-                  className="rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                  className={`motion-enter ${principleMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
                 >
                   {item}
                 </div>
               ))}
-            </div>
-          </PageAside>
-        </div>
+            </PageSection>
+          </div>
 
-        <PageSection
-          eyebrow="Forma de trabajo"
-          title="Cómo aporto valor en un equipo."
-          description="Empatía, escucha, documentación y respeto por procesos conviven con una base técnica orientada a claridad, mantenimiento y mejora continua."
-          contentClassName="grid gap-4 md:grid-cols-3"
-        >
-          {about.principles.map((item, index) => (
-            <div
-              key={item}
-              className={`motion-enter ${principleMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
-            >
-              {item}
+          <div className="grid gap-4 lg:sticky lg:top-24">
+            <div className="motion-enter motion-delay-3 rounded-[1.75rem] border border-border/70 bg-background/78 p-3 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
+              <div className="overflow-hidden rounded-[1.35rem] border border-border/60 bg-background/70 dark:bg-background/10">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={siteConfig.assets.profileImagePath}
+                    alt={siteConfig.assets.profileImageAlt}
+                    fill
+                    sizes="(min-width: 1024px) 20rem, 100vw"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
             </div>
-          ))}
-        </PageSection>
+
+            <PageAside
+              eyebrow={about.aside.eyebrow}
+              title={about.aside.title}
+              description={about.aside.description}
+            >
+              <div className="space-y-3">
+                {about.aside.items.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </PageAside>
+          </div>
+        </div>
       </Container>
     </section>
   );

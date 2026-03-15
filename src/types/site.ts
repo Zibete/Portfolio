@@ -3,6 +3,12 @@ export interface SiteNavItem {
   label: string;
 }
 
+export interface SiteAssetsContent {
+  profileImagePath: string;
+  profileImageAlt: string;
+  cvFilePath: string;
+}
+
 export interface SiteHeroContent {
   statusBadge: string;
   eyebrow: string;
@@ -55,6 +61,7 @@ export interface SiteConfig {
   locale: string;
   language: string;
   description: string;
+  assets: SiteAssetsContent;
   primaryAudience: string;
   targetRoles: string[];
   messageBalance: string;

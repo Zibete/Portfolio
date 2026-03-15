@@ -13,6 +13,8 @@ export interface ProjectFrontmatter extends BaseContentFrontmatter {
   role?: string;
   stack?: string[];
   year?: string;
+  coverImage?: string;
+  coverImageAlt?: string;
   githubRepo?: string;
   githubUrl?: string;
   demoUrl?: string;
