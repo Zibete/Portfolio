@@ -1,22 +1,109 @@
-import { PagePlaceholder } from "@/components/shared/page-placeholder";
+import Link from "next/link";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { Container } from "@/components/shared/container";
+import { PageAside } from "@/components/shared/page-aside";
+import { PageIntro } from "@/components/shared/page-intro";
+import { PageSection } from "@/components/shared/page-section";
+import { Button } from "@/components/ui/button";
+import { profileContent } from "@/content/site/profile-content";
+
+const contactMethodMotionDelays = [
+  "motion-delay-2",
+  "motion-delay-3",
+  "motion-delay-4",
+] as const;
+
+const topicMotionDelays = [
+  "motion-delay-2",
+  "motion-delay-3",
+  "motion-delay-4",
+] as const;
+
+const contactIcons = {
+  Email: Mail,
+  LinkedIn: Linkedin,
+  GitHub: Github,
+} as const;
 
 export const metadata = {
   title: "Contacto",
 };
 
 export default function ContactPage() {
+  const { contact } = profileContent;
+
   return (
-    <PagePlaceholder
-      eyebrow="Contacto"
-      title="Canal de contacto reservado para una integración mínima y futura."
-      description="Supabase quedó preparado solo como scaffold técnico. No hay formulario funcional ni persistencia real en esta iteración."
-      bullets={[
-        "Cliente JS instalado con configuración pública temporal.",
-        "Validación básica de variables de entorno incluida.",
-        "El objetivo es habilitar contacto más adelante sin sobreconstruir backend hoy.",
-      ]}
-      nextStep="Definir la experiencia de contacto y las restricciones de privacidad antes de conectar un formulario real."
-      sourcePath="src/lib/supabase/"
-    />
+    <section className="py-16 sm:py-24">
+      <Container className="space-y-10">
+        <PageIntro
+          eyebrow={contact.eyebrow}
+          title={contact.title}
+          description={contact.description}
+        />
+
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <PageSection
+          eyebrow="Vías directas"
+          title="Canales simples para conversaciones con contexto."
+          description="Estas vías concentran la forma más directa de contactarme para oportunidades ligadas a Android, automatización, mejora de procesos o roles técnico-funcionales."
+          contentClassName="grid gap-4"
+        >
+            {contact.methods.map((method, index) => {
+              const Icon = contactIcons[method.label as keyof typeof contactIcons];
+
+              return (
+                <div
+                  key={method.label}
+                  className={`motion-enter ${contactMethodMotionDelays[index] ?? "motion-delay-4"} flex flex-col gap-4 rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10 sm:flex-row sm:items-center sm:justify-between`}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                      {Icon ? <Icon className="size-4 text-primary" /> : null}
+                      {method.label}
+                    </div>
+                    <p className="text-base font-medium text-foreground">
+                      {method.value}
+                    </p>
+                    <p className="text-sm leading-6 text-muted-foreground">
+                      {method.description}
+                    </p>
+                  </div>
+
+                  <Button variant="outline" asChild className="w-full sm:w-auto">
+                    <Link href={method.href} target="_blank" rel="noreferrer">
+                      Abrir
+                      <ArrowRight />
+                    </Link>
+                  </Button>
+                </div>
+              );
+            })}
+          </PageSection>
+
+          <PageAside
+            eyebrow={contact.aside.eyebrow}
+            title={contact.aside.title}
+            description={contact.aside.description}
+            className="lg:sticky lg:top-24"
+          />
+        </div>
+
+        <PageSection
+          eyebrow="Áreas de aporte"
+          title="Espacios donde hoy puedo sumar más valor."
+          description="Android junior, automatización, reporting operativo y circuitos técnico-funcionales son los contextos donde mejor se ve mi combinación entre criterio técnico y comprensión de procesos."
+          contentClassName="grid gap-4 md:grid-cols-3"
+        >
+          {contact.topics.map((topic, index) => (
+            <div
+              key={topic}
+              className={`motion-enter ${topicMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+            >
+              {topic}
+            </div>
+          ))}
+        </PageSection>
+      </Container>
+    </section>
   );
 }

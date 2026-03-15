@@ -24,9 +24,19 @@ export default async function ProjectsPage() {
     "motion-delay-4",
     "motion-delay-5",
   ] as const;
-  const entries = (await getPublishedProjectEntries()).filter((entry) =>
-    hasProjectMdxModule(entry.slug),
-  );
+  const entries = (await getPublishedProjectEntries())
+    .filter((entry) => hasProjectMdxModule(entry.slug))
+    .sort((left, right) => {
+      const featuredDiff =
+        Number(Boolean(right.frontmatter.featured)) -
+        Number(Boolean(left.frontmatter.featured));
+
+      if (featuredDiff !== 0) {
+        return featuredDiff;
+      }
+
+      return left.frontmatter.title.localeCompare(right.frontmatter.title);
+    });
   const projectsWithGitHub = await Promise.all(
     entries.map(async (entry) => ({
       entry,

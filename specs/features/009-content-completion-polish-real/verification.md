@@ -1,4 +1,4 @@
-# Verification — Feature 009 Content completion / polish real
+# Verification — Feature 009 Content completion polish real
 
 ## Validación automática
 
@@ -15,51 +15,30 @@ Levantar:
 npm run dev
 ```
 
-### Global
-- [ ] El sitio ya no se siente una base vacía
-- [ ] El contenido habla de Matías y no del scaffold
-- [ ] No quedan frases raras tipo "en esta iteración", "pendiente" o "futuro" donde no deberían
+### Páginas internas
+- [ ] `about`, `contact`, `cv`, `experience` y `skills` ya no hablan de scaffold, iteraciones futuras o placeholders
+- [ ] cada ruta presenta contenido real, breve y recruiter-friendly
+- [ ] el tono se mantiene profesional, claro y sobrio
 
-### About
-- [ ] Presenta perfil profesional real
-- [ ] Comunica foco y propuesta de valor con claridad
-- [ ] Se puede escanear rápido
+### Proyectos
+- [ ] `/projects` muestra ZIBE como proyecto principal y el segundo proyecto público como caso complementario
+- [ ] `/projects/[slug]` sigue renderizando bien con el contenido nuevo
 
-### Skills
-- [ ] Las habilidades están agrupadas con criterio
-- [ ] No parece una lista suelta de buzzwords
-- [ ] Se entiende qué valor aportan
-
-### Experience
-- [ ] La trayectoria real ya está representada
-- [ ] Hay contexto, responsabilidades e impacto
-- [ ] No se siente vacía aunque luego se pueda enriquecer más
-
-### Contact
-- [ ] Hay vías reales de contacto visibles
-- [ ] No depende de backend nuevo
-- [ ] Mantiene tono profesional
-
-### CV
-- [ ] La ruta funciona como página real
-- [ ] La CTA no se siente rota o vacía
-- [ ] El contenido alinea con el posicionamiento general
-
-### README
-- [ ] El estado del repo no contradice lo que hoy existe
-- [ ] No sigue presentándose como etapa demasiado fundacional si ya no aplica
+### Coherencia global
+- [ ] Home sigue funcionando sin rediseño
+- [ ] la CTA hacia CV deja de sonar meta
+- [ ] el portfolio comunica Android, automatización, mejora continua y eficiencia operativa
 
 ### Técnica
-- [ ] No hay imports rotos
-- [ ] No hay regresiones visuales obvias
-- [ ] No se agregaron dependencias innecesarias
-- [ ] Lint y build pasan
+- [ ] no hay imports rotos
+- [ ] no se agregaron dependencias nuevas
+- [ ] el contenido sigue siendo file-based
 
 ## Criterio de done
 
 La feature se considera terminada cuando:
 
-- [ ] Páginas principales con contenido real
-- [ ] Placeholders reducidos al mínimo razonable
-- [ ] Tono consistente y profesional
-- [ ] Repo más cerca de estado publicable
+- [ ] el sitio deja de leerse como base fundacional vacía
+- [ ] las páginas principales hablan de Matías y su valor profesional
+- [ ] el portfolio queda publicable sin promesas funcionales nuevas
+- [ ] lint y build pasan
