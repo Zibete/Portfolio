@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
+import { PageAside } from "@/components/shared/page-aside";
 import { Container } from "@/components/shared/container";
+import { PageIntro } from "@/components/shared/page-intro";
+import { PageSection } from "@/components/shared/page-section";
 import { Button } from "@/components/ui/button";
 import {
   getProjectMdxModule,
@@ -55,6 +58,12 @@ export async function generateMetadata({
 export default async function ProjectDetailPage({
   params,
 }: ProjectDetailPageProps) {
+  const asideMotionDelays = [
+    "motion-delay-2",
+    "motion-delay-3",
+    "motion-delay-4",
+    "motion-delay-5",
+  ] as const;
   const { slug } = await params;
   const [entry, projectModule] = await Promise.all([
     getProjectEntryBySlug(slug),
@@ -71,7 +80,9 @@ export default async function ProjectDetailPage({
     ? await getGitHubRepoStats(entry.frontmatter.githubRepo)
     : null;
   const githubUrl = entry.frontmatter.githubUrl ?? githubStats?.htmlUrl ?? null;
-  const hasGitHubBlock = Boolean(githubStats || githubUrl || entry.frontmatter.demoUrl);
+  const hasGitHubBlock = Boolean(
+    githubStats || githubUrl || entry.frontmatter.demoUrl,
+  );
 
   return (
     <section className="py-16 sm:py-24">
@@ -84,72 +95,59 @@ export default async function ProjectDetailPage({
             </Link>
           </Button>
 
-          <div className="space-y-4">
-            <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-              {entry.frontmatter.featured
+          <PageIntro
+            eyebrow={
+              entry.frontmatter.featured
                 ? "Proyecto principal"
-                : "Caso de estudio"}
-            </p>
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-5xl">
-              {entry.frontmatter.title}
-            </h1>
-            <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              {entry.frontmatter.summary}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
+                : "Caso de estudio"
+            }
+            title={entry.frontmatter.title}
+            description={entry.frontmatter.summary}
+          >
             {taxonomy.slice(0, 8).map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-border/70 bg-card/70 px-3 py-1 text-xs font-medium text-muted-foreground"
+                className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
               >
                 {item}
               </span>
             ))}
-          </div>
+          </PageIntro>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-          <article className="space-y-6 rounded-3xl border border-border/70 bg-card/75 p-6 shadow-sm backdrop-blur sm:p-8">
+          <PageSection contentClassName="space-y-6">
             <ProjectContent />
-          </article>
+          </PageSection>
 
-          <aside className="grid gap-4 lg:sticky lg:top-24">
-            <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Rol
-              </p>
-              <p className="mt-3 text-sm leading-6 text-foreground">
-                {entry.frontmatter.role ?? "Pendiente de definir"}
-              </p>
-            </div>
+          <div className="grid gap-4 lg:sticky lg:top-24">
+            <PageAside
+              eyebrow="Rol"
+              description={entry.frontmatter.role ?? "Pendiente de definir"}
+              delayClassName={`motion-enter ${asideMotionDelays[0]}`}
+            />
 
-            <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Período
-              </p>
-              <p className="mt-3 text-sm leading-6 text-foreground">
-                {entry.frontmatter.year ?? "Pendiente de definir"}
-              </p>
-            </div>
+            <PageAside
+              eyebrow="Período"
+              description={entry.frontmatter.year ?? "Pendiente de definir"}
+              delayClassName={`motion-enter ${asideMotionDelays[1]}`}
+            />
 
-            <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Stack principal
-              </p>
-              <p className="mt-3 text-sm leading-6 text-foreground">
-                {entry.frontmatter.stack?.slice(0, 4).join(" / ") ??
-                  "Pendiente de definir"}
-              </p>
-            </div>
+            <PageAside
+              eyebrow="Stack principal"
+              description={
+                entry.frontmatter.stack?.slice(0, 4).join(" / ") ??
+                "Pendiente de definir"
+              }
+              delayClassName={`motion-enter ${asideMotionDelays[2]}`}
+            />
 
             {hasGitHubBlock ? (
-              <div className="rounded-3xl border border-border/70 bg-card/75 p-5 shadow-sm backdrop-blur">
-                <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                  GitHub
-                </p>
-                <div className="mt-3 space-y-4 text-sm leading-6 text-muted-foreground">
+              <PageAside
+                eyebrow="GitHub"
+                delayClassName={`motion-enter ${asideMotionDelays[3]}`}
+              >
+                <div className="space-y-4 text-sm leading-6 text-muted-foreground">
                   {githubStats ? (
                     <>
                       <p className="font-medium text-foreground">
@@ -205,9 +203,9 @@ export default async function ProjectDetailPage({
                     ) : null}
                   </div>
                 </div>
-              </div>
+              </PageAside>
             ) : null}
-          </aside>
+          </div>
         </div>
       </Container>
     </section>

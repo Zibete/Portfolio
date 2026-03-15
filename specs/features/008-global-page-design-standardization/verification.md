@@ -1,68 +1,51 @@
-# Plan — Feature 008 Global page design standardization
+# Verification — Feature 008 Global page design standardization
 
-## Estrategia
+## Validación automática
 
-Tomar el lenguaje visual ya consolidado en Home y convertirlo en una base coherente para el resto de las rutas principales, sin abrir todavía una reescritura de contenido ni una iniciativa visual gigante.
+Ejecutar:
+```bash
+npm run lint
+npm run build
+```
 
-La implementación debe priorizar:
-1. coherencia visual global
-2. reutilización
-3. simplicidad
-4. continuidad con Home
+## Validación manual
 
-## Fases
+Levantar:
+```bash
+npm run dev
+```
 
-### Fase 1 — Auditoría de rutas internas
-- revisar cómo están resueltas hoy `about`, `contact`, `cv`, `experience` y `skills`
-- detectar qué se siente demasiado placeholder o fuera del sistema visual
-- identificar qué patrones de Home conviene reutilizar
+### Rutas internas
+- [ ] `about`, `contact`, `cv`, `experience` y `skills` comparten el mismo lenguaje visual base
+- [ ] Todas las rutas internas muestran intro, superficie principal y aside con jerarquía consistente
+- [ ] La percepción de placeholder genérico baja respecto de la base anterior
 
-### Fase 2 — Definición del sistema interno
-- decidir una base chica de piezas compartidas para páginas internas
-- unificar superficies, radios, borders, spacing y jerarquía tipográfica
-- decidir cómo reutilizar motion existente sin sobreanimar
+### `/projects`
+- [ ] La página conserva el contenido y el flujo actual
+- [ ] El header y las cards se sienten alineados con el sistema de Home
+- [ ] La metadata viva de GitHub sigue siendo opcional y no desordena la card
 
-### Fase 3 — Implementación
-- crear o refinar componentes compartidos mínimos
-- migrar rutas placeholder al nuevo sistema
-- alinear `/projects` y `/projects/[slug]` solo donde haga falta para coherencia visual
+### `/projects/[slug]`
+- [ ] El detalle mantiene el contenido MDX sin degradarlo
+- [ ] El artículo principal y los paneles laterales comparten el nuevo lenguaje visual
+- [ ] El bloque de GitHub, si aparece, se integra sin sentirse como una pieza ajena
 
-### Fase 4 — Pulido y validación
-- revisar dark mode
-- revisar light mode
-- validar continuidad visual entre Home y rutas internas
-- correr lint/build
+### Motion y tema
+- [ ] `motion-enter` y `motion-reveal` acompañan sin sobreanimar
+- [ ] Reduced motion sigue comportándose de forma compatible
+- [ ] Dark mode sigue siendo el modo fuerte
+- [ ] Light mode se mantiene limpio y legible
 
-## Archivos esperables a tocar
+### Técnica
+- [ ] No hay imports rotos
+- [ ] No se agregaron dependencias nuevas
+- [ ] No se tocaron flujos fuera del alcance de 008
 
-### Probables
-- `src/app/about/page.tsx`
-- `src/app/contact/page.tsx`
-- `src/app/cv/page.tsx`
-- `src/app/experience/page.tsx`
-- `src/app/skills/page.tsx`
-- `src/app/projects/page.tsx`
-- `src/app/projects/[slug]/page.tsx`
-- `src/app/globals.css`
+## Criterio de done
 
-### Nuevos o probables
-- `src/components/shared/page-intro.tsx`
-- `src/components/shared/page-section.tsx`
-- `src/components/shared/page-aside.tsx`
+La feature se considera terminada cuando:
 
-### Posibles, solo si hace falta
-- `src/components/shared/page-placeholder.tsx`
-- `src/components/shared/container.tsx`
-
-## Restricciones
-
-- no rediseñar Home
-- no mezclar con integración de datos reales
-- no reemplazar contenido real por contenido inventado
-- no abrir animaciones complejas
-- no agregar dependencias nuevas salvo necesidad mínima real
-- no convertir esta feature en una reescritura completa del sitio
-
-## Resultado esperado
-
-Al finalizar, el sitio debe sentirse como un solo producto: Home sigue siendo la referencia visual, y el resto de las rutas principales deja de verse como placeholders aislados.
+- [ ] las rutas internas se sienten parte del mismo producto
+- [ ] `PagePlaceholder` deja de ser un placeholder crudo y pasa a apoyarse en piezas compartidas
+- [ ] `/projects` y `/projects/[slug]` quedan visualmente más cerca del sistema global
+- [ ] lint y build pasan

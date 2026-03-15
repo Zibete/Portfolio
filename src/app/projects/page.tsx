@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
+import { PageIntro } from "@/components/shared/page-intro";
 import { Button } from "@/components/ui/button";
 import { hasProjectMdxModule } from "@/content/projects/registry";
 import {
@@ -17,6 +18,12 @@ export const metadata = {
 };
 
 export default async function ProjectsPage() {
+  const cardMotionDelays = [
+    "motion-delay-2",
+    "motion-delay-3",
+    "motion-delay-4",
+    "motion-delay-5",
+  ] as const;
   const entries = (await getPublishedProjectEntries()).filter((entry) =>
     hasProjectMdxModule(entry.slug),
   );
@@ -32,27 +39,17 @@ export default async function ProjectsPage() {
   return (
     <section className="py-16 sm:py-24">
       <Container className="space-y-10">
-        <header className="space-y-4">
-          <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-            Proyectos
-          </p>
-          <div className="space-y-4">
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-5xl">
-              Casos de estudio reales, escritos en MDX local.
-            </h1>
-            <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-              Esta sección prioriza pocos proyectos, bien explicados y con
-              señal técnica suficiente para mostrar criterio de implementación,
-              mantenimiento y foco en producto.
-            </p>
-          </div>
-        </header>
+        <PageIntro
+          eyebrow="Proyectos"
+          title="Casos de estudio reales, escritos en MDX local."
+          description="Esta sección prioriza pocos proyectos, bien explicados y con señal técnica suficiente para mostrar criterio de implementación, mantenimiento y foco en producto."
+        />
 
         <div className="grid gap-5">
-          {projectsWithGitHub.map(({ entry, githubStats }) => (
+          {projectsWithGitHub.map(({ entry, githubStats }, index) => (
             <article
               key={entry.slug}
-              className="rounded-3xl border border-border/70 bg-card/75 p-6 shadow-sm backdrop-blur sm:p-7"
+              className={`motion-enter ${cardMotionDelays[index] ?? "motion-delay-5"} rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7`}
             >
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div className="space-y-4">
@@ -76,7 +73,7 @@ export default async function ProjectsPage() {
                       .map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground"
+                          className="rounded-full border border-border/70 bg-background/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
                         >
                           {item}
                         </span>
@@ -106,16 +103,16 @@ export default async function ProjectsPage() {
 
                   {githubStats ? (
                     <div className="flex flex-wrap gap-2 text-xs text-muted-foreground lg:justify-end">
-                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1 font-medium text-foreground">
+                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
                         GitHub
                       </span>
-                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1">
+                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                         Stars {formatGitHubMetric(githubStats.stargazersCount)}
                       </span>
-                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1">
+                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                         Forks {formatGitHubMetric(githubStats.forksCount)}
                       </span>
-                      <span className="rounded-full border border-border/70 bg-background/70 px-3 py-1">
+                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                         Push {formatGitHubDate(githubStats.pushedAt)}
                       </span>
                     </div>
