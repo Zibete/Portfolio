@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
@@ -92,6 +93,23 @@ export default async function ProjectsPage() {
                 </div>
 
                 <div className="flex min-w-0 flex-col gap-4 lg:w-64 lg:items-end">
+                  {entry.frontmatter.coverImage ? (
+                    <div className="w-full overflow-hidden rounded-[1.5rem] border border-border/70 bg-background/72 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] dark:bg-background/10">
+                      <div className="relative aspect-[16/9] w-full">
+                        <Image
+                          src={entry.frontmatter.coverImage}
+                          alt={
+                            entry.frontmatter.coverImageAlt ??
+                            `Captura del proyecto ${entry.frontmatter.title}`
+                          }
+                          fill
+                          sizes="(min-width: 1024px) 16rem, 100vw"
+                          className="object-cover object-center"
+                        />
+                      </div>
+                    </div>
+                  ) : null}
+
                   <div className="space-y-1 text-sm text-muted-foreground lg:text-right">
                     {entry.frontmatter.role ? (
                       <p>

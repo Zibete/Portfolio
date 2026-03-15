@@ -6,6 +6,11 @@ export const siteConfig: SiteConfig = {
   language: "es",
   description:
     "Portfolio personal con foco en Android, automatización end-to-end y ZIBE como caso principal para mostrar arquitectura, calidad técnica y criterio de producto.",
+  assets: {
+    profileImagePath: "/images/profile/Matías_Peralta.JPG",
+    profileImageAlt: "Retrato profesional de Matías Peralta",
+    cvFilePath: "/files/CV_MATIAS_PERALTA_ANALISTA.pdf",
+  },
   primaryAudience: "Líderes de producto y negocio",
   targetRoles: ["Android Jr/Mid", "Automation Engineer"],
   messageBalance: "50% técnico / 50% negocio",

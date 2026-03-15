@@ -23,6 +23,7 @@ El proyecto ya cuenta con:
 - Home madura con narrativa principal
 - páginas internas con contenido real en español
 - proyectos públicos curados en MDX
+- assets reales para perfil, proyectos y CV
 - integración opcional de metadata viva desde GitHub
 - tema dark/light con dark-first
 - docs y specs por feature
@@ -37,6 +38,7 @@ src/
   lib/
   types/
 public/
+  files/
   images/
   og/
 docs/
@@ -55,7 +57,6 @@ npm run build
 ## Próximos pasos
 
 - seguir ampliando proyectos y experiencia con casos curados
-- publicar una versión descargable del CV cuando el contenido cierre
 - decidir la implementación mínima del contacto con Supabase
 - continuar refinando el portfolio con nuevas features guiadas por specs
 

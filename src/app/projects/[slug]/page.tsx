@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -117,6 +118,22 @@ export default async function ProjectDetailPage({
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
           <PageSection contentClassName="space-y-6">
+            {entry.frontmatter.coverImage ? (
+              <div className="overflow-hidden rounded-[1.75rem] border border-border/70 bg-background/72 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] dark:bg-background/10">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src={entry.frontmatter.coverImage}
+                    alt={
+                      entry.frontmatter.coverImageAlt ??
+                      `Captura del proyecto ${entry.frontmatter.title}`
+                    }
+                    fill
+                    sizes="(min-width: 1024px) 48rem, 100vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+            ) : null}
             <ProjectContent />
           </PageSection>
 

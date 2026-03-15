@@ -234,7 +234,7 @@ export const profileContent = {
       eyebrow: "Accesos",
       title: "Accesos principales",
       description:
-        "Proyectos públicos y contacto directo como referencias principales del perfil.",
+        "CV en PDF listo para compartir, junto con proyectos públicos y contacto directo como referencias principales del perfil.",
     },
   },
 } as const;

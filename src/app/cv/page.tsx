@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, Github, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Mail } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { PageAside } from "@/components/shared/page-aside";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { Button } from "@/components/ui/button";
 import { profileContent } from "@/content/site/profile-content";
+import { siteConfig } from "@/content/site/site-config";
 
 const snapshotMotionDelays = [
   "motion-delay-2",
@@ -33,7 +34,14 @@ export default function CvPage() {
           eyebrow={cv.eyebrow}
           title={cv.title}
           description={cv.description}
-        />
+        >
+          <Button asChild>
+            <a href={siteConfig.assets.cvFilePath} download>
+              Descargar CV en PDF
+              <Download />
+            </a>
+          </Button>
+        </PageIntro>
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         <PageSection
