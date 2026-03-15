@@ -8,6 +8,18 @@ import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
 import { getFeaturedProjectEntries } from "@/lib/mdx";
 
+const projectLeadMotionDelays = [
+  "motion-delay-2",
+  "motion-delay-3",
+  "motion-delay-4",
+] as const;
+
+const credibilityMotionDelays = [
+  "motion-delay-2",
+  "motion-delay-3",
+  "motion-delay-4",
+] as const;
+
 export default async function Home() {
   const [featuredProject] = await getFeaturedProjectEntries();
 
@@ -21,7 +33,7 @@ export default async function Home() {
         <>
           <section className="pb-8 sm:pb-10">
             <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-              <div className="space-y-4">
+              <div className="motion-reveal motion-delay-1 space-y-4">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
                   {siteConfig.homeComposition.projectLead.eyebrow}
                 </p>
@@ -37,10 +49,10 @@ export default async function Home() {
 
               <div className="grid gap-3">
                 {siteConfig.homeComposition.projectLead.highlights.map(
-                  (highlight) => (
+                  (highlight, index) => (
                     <div
                       key={highlight}
-                      className="rounded-[1.5rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-card/70"
+                      className={`motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-card/70`}
                     >
                       {highlight}
                     </div>
@@ -56,7 +68,7 @@ export default async function Home() {
 
       <section className="pb-24 sm:pb-28">
         <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-          <div className="rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8">
+          <div className="motion-reveal motion-delay-1 rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8">
             <div className="space-y-6">
               <div className="space-y-4">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
@@ -73,10 +85,10 @@ export default async function Home() {
               </div>
 
               <div className="grid gap-4 md:grid-cols-3">
-                {siteConfig.homeComposition.credibility.items.map((item) => (
+                {siteConfig.homeComposition.credibility.items.map((item, index) => (
                   <div
                     key={item.title}
-                    className="rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10"
+                    className={`motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
                   >
                     <p className="text-sm font-semibold text-foreground">
                       {item.title}
@@ -90,7 +102,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-border/70 bg-background/78 p-6 shadow-[0_24px_70px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur-xl dark:bg-card/76 sm:p-7">
+          <aside className="motion-enter motion-delay-3 rounded-[2rem] border border-border/70 bg-background/78 p-6 shadow-[0_24px_70px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur-xl dark:bg-card/76 sm:p-7">
             <div className="space-y-5">
               <div className="space-y-3">
                 <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">

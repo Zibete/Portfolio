@@ -4,6 +4,12 @@ import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
 
+const summaryCardMotionDelays = [
+  "motion-delay-4",
+  "motion-delay-5",
+  "motion-delay-6",
+] as const;
+
 const summaryCards = [
   {
     label: "Roles objetivo",
@@ -28,7 +34,7 @@ export function HomeHero() {
           <div className="pointer-events-none absolute -right-12 bottom-0 h-36 w-36 rounded-full bg-primary/10 blur-3xl" />
           <div className="relative space-y-10">
             <div className="space-y-7">
-              <div className="hero-enter hero-enter-delay-1 flex flex-col items-start gap-3">
+              <div className="motion-enter motion-delay-1 flex flex-col items-start gap-3">
                 <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/82 px-3 py-1.5 text-xs font-medium text-foreground shadow-sm dark:bg-background/30">
                   <span className="inline-flex size-2 rounded-full bg-primary shadow-[0_0_0_4px_rgb(84_139_255_/_0.12)]" />
                   {siteConfig.hero.statusBadge}
@@ -39,10 +45,10 @@ export function HomeHero() {
               </div>
 
               <div className="space-y-5">
-                <h1 className="hero-enter hero-enter-delay-2 max-w-4xl text-6xl font-semibold leading-none tracking-[-0.05em] text-foreground [font-family:var(--font-display)] sm:text-7xl lg:text-[5.4rem]">
+                <h1 className="motion-enter motion-delay-2 max-w-4xl text-6xl font-semibold leading-none tracking-[-0.05em] text-foreground [font-family:var(--font-display)] sm:text-7xl lg:text-[5.4rem]">
                   {siteConfig.name}
                 </h1>
-                <div className="hero-enter hero-enter-delay-3 space-y-4">
+                <div className="motion-enter motion-delay-3 space-y-4">
                   <p className="max-w-3xl text-2xl font-medium tracking-tight text-foreground/92 sm:text-3xl">
                     {siteConfig.hero.title}
                   </p>
@@ -53,7 +59,7 @@ export function HomeHero() {
               </div>
             </div>
 
-            <div className="hero-enter hero-enter-delay-4 space-y-4">
+            <div className="motion-enter motion-delay-4 space-y-4">
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button size="lg" asChild className="min-w-[11rem] shadow-[0_16px_42px_-24px_rgb(84_139_255_/_0.7)]">
                   <Link href={siteConfig.hero.primaryCta.href}>
@@ -80,10 +86,10 @@ export function HomeHero() {
         </div>
 
         <div className="grid gap-4 lg:py-6">
-          {summaryCards.map((card) => (
+          {summaryCards.map((card, index) => (
             <div
               key={card.label}
-              className="hero-enter hero-enter-delay-4 rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76"
+              className={`motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}
             >
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
                 {card.label}
