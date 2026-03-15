@@ -31,7 +31,17 @@
 
 ## 🤖 Instrucciones para Creación de Pull Requests (PR)
 
-Siempre que se solicite la creación de un PR, el agente debe generar un archivo `.md` dentro de prs/ en la raíz del proyecto (sugerido: `PR_[nombre_del_repo]_[timestamp].md`) y redactarlo con el estilo real del repo:
+Siempre que se solicite la creación de un PR, el agente debe generar un archivo `.md` dentro de `prs/` en la raíz del proyecto (sugerido: `PR_[nombre_del_repo]_[timestamp].md`) y redactarlo con el estilo real del repo.
+
+### Rol de cada artefacto
+
+- `prs/` contiene **borradores y respaldo editorial** del PR. No reemplaza al PR real.
+- El **PR real** vive en GitHub, asociado a su rama, commits, conversación y merge.
+- `.github/pull_request_template.md` es solo una **plantilla mínima de apoyo** para PRs creados manualmente en GitHub.
+- La fuente de verdad para el formato rico/completo del PR es este `AGENTS.md`.
+- No duplicar en `.github/pull_request_template.md` toda la especificación detallada de esta sección.
+
+### Formato del borrador en `prs/`
 
 - **Idioma:** cuerpo, headings y explicación en **español (es-AR)**. Dejar en inglés solo `type(scope)`, nombres de módulos/paths/clases/comandos y subjects de commit citados literal.
 - **Tono:** técnico, directo y breve. Priorizar bullets concretos; evitar prosa larga, marketing o contexto redundante.
