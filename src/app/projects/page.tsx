@@ -60,7 +60,7 @@ export default async function ProjectsPage() {
           {projectsWithGitHub.map(({ entry, githubStats }, index) => (
             <article
               key={entry.slug}
-              className={`motion-enter ${cardMotionDelays[index] ?? "motion-delay-5"} rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7`}
+              className={`interactive-card motion-enter ${cardMotionDelays[index] ?? "motion-delay-5"} rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7`}
             >
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div className="space-y-4">
@@ -84,7 +84,7 @@ export default async function ProjectsPage() {
                       .map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-border/70 bg-background/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
+                          className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
                         >
                           {item}
                         </span>
@@ -94,7 +94,7 @@ export default async function ProjectsPage() {
 
                 <div className="flex min-w-0 flex-col gap-4 lg:w-64 lg:items-end">
                   {entry.frontmatter.coverImage ? (
-                    <div className="w-full overflow-hidden rounded-[1.5rem] border border-border/70 bg-background/72 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] dark:bg-background/10">
+                    <div className="interactive-card-subtle w-full overflow-hidden rounded-[1.5rem] border border-border/70 bg-background/72 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] dark:bg-background/10">
                       <div className="relative aspect-[16/9] w-full">
                         <Image
                           src={entry.frontmatter.coverImage}
@@ -131,16 +131,16 @@ export default async function ProjectsPage() {
 
                   {githubStats ? (
                     <div className="flex flex-wrap gap-2 text-xs text-muted-foreground lg:justify-end">
-                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
+                      <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
                         GitHub
                       </span>
-                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                      <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                         Stars {formatGitHubMetric(githubStats.stargazersCount)}
                       </span>
-                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                      <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                         Forks {formatGitHubMetric(githubStats.forksCount)}
                       </span>
-                      <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                      <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                         Push {formatGitHubDate(githubStats.pushedAt)}
                       </span>
                     </div>

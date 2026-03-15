@@ -52,7 +52,7 @@ export default async function Home() {
                   (highlight, index) => (
                     <div
                       key={highlight}
-                      className={`motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-card/70`}
+                      className={`interactive-card-subtle motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-card/70`}
                     >
                       {highlight}
                     </div>
@@ -68,7 +68,7 @@ export default async function Home() {
 
       <section className="pb-24 sm:pb-28">
         <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-          <div className="motion-reveal motion-delay-1 rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8">
+          <div className="interactive-card motion-reveal motion-delay-1 rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8">
             <div className="space-y-6">
               <div className="space-y-4">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
@@ -88,7 +88,7 @@ export default async function Home() {
                 {siteConfig.homeComposition.credibility.items.map((item, index) => (
                   <div
                     key={item.title}
-                    className={`motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                    className={`interactive-card-subtle motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
                   >
                     <p className="text-sm font-semibold text-foreground">
                       {item.title}
@@ -102,7 +102,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <aside className="motion-enter motion-delay-3 rounded-[2rem] border border-border/70 bg-background/78 p-6 shadow-[0_24px_70px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur-xl dark:bg-card/76 sm:p-7">
+          <aside className="interactive-card motion-enter motion-delay-3 rounded-[2rem] border border-border/70 bg-background/78 p-6 shadow-[0_24px_70px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur-xl dark:bg-card/76 sm:p-7">
             <div className="space-y-5">
               <div className="space-y-3">
                 <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">

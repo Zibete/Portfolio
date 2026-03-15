@@ -108,7 +108,7 @@ export default async function ProjectDetailPage({
             {taxonomy.slice(0, 8).map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
+                className="interactive-chip rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
               >
                 {item}
               </span>
@@ -119,7 +119,7 @@ export default async function ProjectDetailPage({
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
           <PageSection contentClassName="space-y-6">
             {entry.frontmatter.coverImage ? (
-              <div className="overflow-hidden rounded-[1.75rem] border border-border/70 bg-background/72 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] dark:bg-background/10">
+              <div className="interactive-card-subtle overflow-hidden rounded-[1.75rem] border border-border/70 bg-background/72 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] dark:bg-background/10">
                 <div className="relative aspect-[16/9] w-full">
                   <Image
                     src={entry.frontmatter.coverImage}

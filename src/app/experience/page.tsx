@@ -56,7 +56,7 @@ export default async function ExperiencePage() {
             {entries.map((entry, index) => (
               <article
                 key={entry.slug}
-                className={`motion-enter ${experienceCardMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                className={`interactive-card-subtle motion-enter ${experienceCardMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
               >
                 <div className="space-y-3">
                   {entry.frontmatter.company ? (
@@ -100,7 +100,7 @@ export default async function ExperiencePage() {
               {experience.metrics.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 dark:bg-background/10"
+                  className="interactive-card-subtle rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 dark:bg-background/10"
                 >
                   <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
                     {item.label}
@@ -123,7 +123,7 @@ export default async function ExperiencePage() {
           {experience.repeatableSignals.map((item, index) => (
             <div
               key={item.title}
-              className={`motion-enter ${signalMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+              className={`interactive-card-subtle motion-enter ${signalMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
             >
               <p className="text-sm font-semibold text-foreground">
                 {item.title}

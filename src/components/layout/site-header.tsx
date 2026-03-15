@@ -1,29 +1,52 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/shared/container";
+import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+
   return (
     <header className="border-b border-border/60 bg-background/80 backdrop-blur">
       <Container className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:py-5">
-        <Link href="/" className="flex flex-col">
+        <Link
+          href="/"
+          className="group flex w-fit flex-col transition-transform duration-200 hover:-translate-y-0.5"
+        >
           <span className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
             Portfolio
           </span>
-          <span className="text-sm font-semibold text-foreground">
+          <span className="text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
             {siteConfig.name}
           </span>
         </Link>
 
         <div className="flex flex-col gap-3 md:flex-row md:items-center">
-          <nav className="flex flex-wrap gap-2">
-            {siteConfig.navItems.map((item) => (
-              <Button key={item.href} variant="ghost" size="sm" asChild>
-                <Link href={item.href}>{item.label}</Link>
-              </Button>
-            ))}
+          <nav className="flex flex-wrap gap-1 rounded-full border border-border/60 bg-background/72 p-1 backdrop-blur dark:bg-background/10">
+            {siteConfig.navItems.map((item) => {
+              const isActive =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  data-active={isActive ? "true" : "false"}
+                  className={cn(
+                    "nav-pill text-[0.8rem] font-medium focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
           <ThemeToggle />
         </div>

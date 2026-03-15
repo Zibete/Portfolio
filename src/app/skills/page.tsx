@@ -37,7 +37,7 @@ export default function SkillsPage() {
             {skills.groups.map((group, index) => (
               <div
                 key={group.title}
-                className={`motion-enter ${skillGroupMotionDelays[index] ?? "motion-delay-5"} rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                className={`interactive-card-subtle motion-enter ${skillGroupMotionDelays[index] ?? "motion-delay-5"} rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
               >
                 <p className="text-base font-semibold text-foreground">
                   {group.title}
@@ -69,7 +69,7 @@ export default function SkillsPage() {
               {skills.aside.items.map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                  className="interactive-card-subtle rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
                 >
                   {item}
                 </div>

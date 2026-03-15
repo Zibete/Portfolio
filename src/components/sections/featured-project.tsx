@@ -31,7 +31,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
   return (
     <section className="pb-16 sm:pb-20">
       <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <div className="motion-reveal motion-delay-1 relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.35)] backdrop-blur-xl sm:p-8">
+        <div className="interactive-card motion-reveal motion-delay-1 relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.35)] backdrop-blur-xl sm:p-8">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.12),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)]" />
           <div className="relative space-y-6">
             <div className="space-y-4">
@@ -57,7 +57,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
               {stackPreview.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground"
+                  className="interactive-chip rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground"
                 >
                   {item}
                 </span>
@@ -66,16 +66,16 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
 
             {shouldShowGitHubStats ? (
               <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
+                <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
                   GitHub vivo
                 </span>
-                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                   Stars {formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}
                 </span>
-                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                   Forks {formatGitHubMetric(shouldShowGitHubStats.forksCount)}
                 </span>
-                <span className="rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
+                <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
                   Último push {formatGitHubDate(shouldShowGitHubStats.pushedAt)}
                 </span>
               </div>
@@ -96,7 +96,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
         </div>
 
         <div className="grid gap-4">
-          <div className={`motion-enter ${metadataMotionDelays[0]} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}>
+          <div className={`interactive-card motion-enter ${metadataMotionDelays[0]} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}>
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
               Rol
             </p>
@@ -105,7 +105,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
             </p>
           </div>
 
-          <div className={`motion-enter ${metadataMotionDelays[1]} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}>
+          <div className={`interactive-card motion-enter ${metadataMotionDelays[1]} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}>
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
               Período
             </p>
@@ -114,7 +114,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
             </p>
           </div>
 
-          <div className={`motion-enter ${metadataMotionDelays[2]} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}>
+          <div className={`interactive-card motion-enter ${metadataMotionDelays[2]} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}>
             <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
               Foco
             </p>

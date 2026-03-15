@@ -54,7 +54,7 @@ export default function ContactPage() {
               return (
                 <div
                   key={method.label}
-                  className={`motion-enter ${contactMethodMotionDelays[index] ?? "motion-delay-4"} flex flex-col gap-4 rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10 sm:flex-row sm:items-center sm:justify-between`}
+                  className={`interactive-card-subtle motion-enter ${contactMethodMotionDelays[index] ?? "motion-delay-4"} flex flex-col gap-4 rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10 sm:flex-row sm:items-center sm:justify-between`}
                 >
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
@@ -97,7 +97,7 @@ export default function ContactPage() {
           {contact.topics.map((topic, index) => (
             <div
               key={topic}
-              className={`motion-enter ${topicMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+              className={`interactive-card-subtle motion-enter ${topicMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
             >
               {topic}
             </div>
