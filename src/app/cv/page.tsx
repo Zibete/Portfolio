@@ -53,7 +53,7 @@ export default function CvPage() {
             {cv.snapshots.map((item, index) => (
               <div
                 key={item.label}
-                className={`motion-enter ${snapshotMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                className={`interactive-card-subtle motion-enter ${snapshotMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
               >
                 <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
                   {item.label}
@@ -107,7 +107,7 @@ export default function CvPage() {
           {cv.summary.map((item, index) => (
             <div
               key={item.title}
-              className={`motion-enter ${summaryMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+              className={`interactive-card-subtle motion-enter ${summaryMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
             >
               <p className="text-sm font-semibold text-foreground">
                 {item.title}

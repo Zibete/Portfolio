@@ -45,7 +45,7 @@ export default function AboutPage() {
               {about.highlights.map((item, index) => (
                 <div
                   key={item.title}
-                  className={`motion-enter ${highlightMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                  className={`interactive-card-subtle motion-enter ${highlightMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
                 >
                   <p className="text-sm font-semibold text-foreground">
                     {item.title}
@@ -66,7 +66,7 @@ export default function AboutPage() {
               {about.principles.map((item, index) => (
                 <div
                   key={item}
-                  className={`motion-enter ${principleMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                  className={`interactive-card-subtle motion-enter ${principleMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
                 >
                   {item}
                 </div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-4 lg:sticky lg:top-24">
-            <div className="motion-enter motion-delay-3 rounded-[1.75rem] border border-border/70 bg-background/78 p-3 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
+            <div className="interactive-card-subtle motion-enter motion-delay-3 rounded-[1.75rem] border border-border/70 bg-background/78 p-3 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
               <div className="overflow-hidden rounded-[1.35rem] border border-border/60 bg-background/70 dark:bg-background/10">
                 <div className="relative aspect-[4/5] w-full">
                   <Image
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 {about.aside.items.map((item) => (
                   <div
                     key={item}
-                    className="rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                    className="interactive-card-subtle rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
                   >
                     {item}
                   </div>

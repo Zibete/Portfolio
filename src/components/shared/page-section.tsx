@@ -22,7 +22,7 @@ export function PageSection({
   return (
     <section
       className={cn(
-        "motion-reveal rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8",
+        "interactive-card-subtle motion-reveal rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8",
         delayClassName,
         className,
       )}

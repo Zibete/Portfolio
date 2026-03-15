@@ -20,7 +20,7 @@ export function PageAside({
   return (
     <aside
       className={cn(
-        "rounded-[1.75rem] border border-border/70 bg-background/78 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76",
+        "interactive-card-subtle rounded-[1.75rem] border border-border/70 bg-background/78 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76",
         delayClassName,
         className,
       )}

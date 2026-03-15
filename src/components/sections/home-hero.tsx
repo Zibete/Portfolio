@@ -29,7 +29,7 @@ export function HomeHero() {
   return (
     <section className="py-20 sm:py-28">
       <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-stretch">
-        <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-7 shadow-[0_28px_90px_-56px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-10">
+        <div className="interactive-card relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-7 shadow-[0_28px_90px_-56px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-10">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.16),_transparent)]" />
           <div className="pointer-events-none absolute -right-12 bottom-0 h-36 w-36 rounded-full bg-primary/10 blur-3xl" />
           <div className="relative space-y-10">
@@ -89,7 +89,7 @@ export function HomeHero() {
           {summaryCards.map((card, index) => (
             <div
               key={card.label}
-              className={`motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}
+              className={`interactive-card motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}
             >
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
                 {card.label}
