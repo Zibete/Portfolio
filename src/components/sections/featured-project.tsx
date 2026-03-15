@@ -13,7 +13,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
   const focusPreview = (project.frontmatter.tags ?? []).slice(0, 3);
 
   return (
-    <section className="pb-20 sm:pb-28">
+    <section className="pb-16 sm:pb-20">
       <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.35)] backdrop-blur-xl sm:p-8">
           <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.12),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)]" />

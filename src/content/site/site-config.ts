@@ -50,4 +50,50 @@ export const siteConfig: SiteConfig = {
       "Tailwind CSS",
     ],
   },
+  homeComposition: {
+    projectLead: {
+      eyebrow: "Prueba principal",
+      title: "ZIBE concentra el tipo de trabajo que mejor representa mi perfil.",
+      description:
+        "Después de la identidad y el stack, la Home baja a una prueba concreta: un proyecto Android real donde se ve arquitectura, evolución técnica y criterio de producto.",
+      highlights: [
+        "Arquitectura documentada y visible en repo público",
+        "Modernización incremental sin reescritura total",
+        "Integración end-to-end con foco en mantenibilidad",
+      ],
+    },
+    credibility: {
+      eyebrow: "Señales de credibilidad",
+      title: "Trabajo con claridad técnica, continuidad y foco operativo.",
+      description:
+        "Más allá de un proyecto puntual, el portfolio busca mostrar cómo pienso el trabajo: criterio técnico, mejora continua y capacidad de traducir decisiones en valor entendible para negocio.",
+      items: [
+        {
+          title: "Android + automatización",
+          description:
+            "Combino delivery de producto con automatización para resolver problemas reales y repetitivos.",
+        },
+        {
+          title: "Criterio de mantenimiento",
+          description:
+            "Prioridad en estructura, legibilidad y evolución incremental antes que soluciones vistosas pero frágiles.",
+        },
+        {
+          title: "Equilibrio técnico y negocio",
+          description:
+            "Busco que cada decisión sea defendible tanto por su calidad técnica como por su impacto operativo.",
+        },
+      ],
+    },
+    cvCta: {
+      eyebrow: "Siguiente paso",
+      title: "El CV queda como resumen rápido del perfil.",
+      description:
+        "La descarga final todavía no está publicada, pero esta ruta ya funciona como punto controlado para cerrar el recorrido y preparar esa CTA principal.",
+      action: {
+        href: "/cv",
+        label: "Ir a CV",
+      },
+    },
+  },
 };

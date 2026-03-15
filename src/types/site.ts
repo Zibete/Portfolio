@@ -18,6 +18,38 @@ export interface SiteStackMarqueeContent {
   items: string[];
 }
 
+export interface SiteHomeProjectLeadContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  highlights: string[];
+}
+
+export interface SiteHomeCredibilityItem {
+  title: string;
+  description: string;
+}
+
+export interface SiteHomeCredibilityContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: SiteHomeCredibilityItem[];
+}
+
+export interface SiteHomeCtaContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  action: SiteNavItem;
+}
+
+export interface SiteHomeCompositionContent {
+  projectLead: SiteHomeProjectLeadContent;
+  credibility: SiteHomeCredibilityContent;
+  cvCta: SiteHomeCtaContent;
+}
+
 export interface SiteConfig {
   name: string;
   locale: string;
@@ -30,4 +62,5 @@ export interface SiteConfig {
   navItems: SiteNavItem[];
   hero: SiteHeroContent;
   stackMarquee: SiteStackMarqueeContent;
+  homeComposition: SiteHomeCompositionContent;
 }
