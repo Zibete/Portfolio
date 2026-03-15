@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   locale: "es-AR",
   language: "es",
   description:
-    "Portfolio de Matías Peralta con foco en Android, automatización end-to-end y ZIBE como caso principal para demostrar arquitectura, calidad técnica y criterio de producto.",
+    "Portfolio personal con foco en Android, automatización end-to-end y ZIBE como caso principal para mostrar arquitectura, calidad técnica y criterio de producto.",
   primaryAudience: "Líderes de producto y negocio",
   targetRoles: ["Android Jr/Mid", "Automation Engineer"],
   messageBalance: "50% técnico / 50% negocio",
@@ -71,7 +71,7 @@ export const siteConfig: SiteConfig = {
         {
           title: "Android + automatización",
           description:
-            "Combino delivery de producto con automatización para resolver problemas reales y repetitivos.",
+            "Combino entrega de producto con automatización para resolver problemas reales y repetitivos.",
         },
         {
           title: "Criterio de mantenimiento",
@@ -87,12 +87,12 @@ export const siteConfig: SiteConfig = {
     },
     cvCta: {
       eyebrow: "Siguiente paso",
-      title: "El CV queda como resumen rápido del perfil.",
+      title: "Mi CV reúne experiencia, foco actual y proyectos clave.",
       description:
-        "La descarga final todavía no está publicada, pero esta ruta ya funciona como punto controlado para cerrar el recorrido y preparar esa CTA principal.",
+        "Un resumen breve de mi recorrido antes de pasar a proyectos o contacto.",
       action: {
         href: "/cv",
-        label: "Ir a CV",
+        label: "Ver CV",
       },
     },
   },

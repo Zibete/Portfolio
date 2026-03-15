@@ -5,6 +5,7 @@ type ProjectModule = {
 };
 
 const projectRegistry = {
+  "migrar-sap-portfolio": () => import("./migrar-sap-portfolio.mdx"),
   zibe: () => import("./zibe.mdx"),
 } as const;
 

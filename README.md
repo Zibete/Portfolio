@@ -1,10 +1,10 @@
 # Portfolio Zibe
 
-Base fundacional de un portfolio profesional para Matías Peralta.
+Portfolio profesional de Matías Peralta.
 
 ## Qué es
 
-Este repositorio inicializa la base técnica y documental para construir un portfolio con enfoque spec-driven, contenido local file-based y despliegue futuro en Vercel.
+Este repositorio contiene el portfolio profesional de Matías Peralta con enfoque spec-driven, contenido local file-based y despliegue futuro en Vercel.
 
 ## Stack
 
@@ -18,13 +18,14 @@ Este repositorio inicializa la base técnica y documental para construir un port
 
 ## Estado actual
 
-El proyecto está en etapa fundacional. Ya incluye:
+El proyecto ya cuenta con:
 
-- app shell mínimo navegable
+- Home madura con narrativa principal
+- páginas internas con contenido real en español
+- proyectos públicos curados en MDX
+- integración opcional de metadata viva desde GitHub
 - tema dark/light con dark-first
-- estructura de carpetas base
-- scaffold de MDX y Supabase
-- documentos fundacionales y specs v0
+- docs y specs por feature
 
 ## Estructura general
 
@@ -53,11 +54,11 @@ npm run build
 
 ## Próximos pasos
 
-- definir contenido real de Sobre mí, Proyectos, Experiencia y CV
-- crear los primeros archivos `.mdx` de proyectos y experiencia
-- diseñar la UI final a partir de los specs
+- seguir ampliando proyectos y experiencia con casos curados
+- publicar una versión descargable del CV cuando el contenido cierre
 - decidir la implementación mínima del contacto con Supabase
+- continuar refinando el portfolio con nuevas features guiadas por specs
 
 ## Nota
 
-El contenido real del portfolio todavía no está definido en este repo. La fuente de verdad inicial es la documentación en `docs/` y `specs/`.
+La fuente de verdad del contenido y las decisiones sigue estando en `docs/`, `specs/` y los archivos locales de `src/content/`.
