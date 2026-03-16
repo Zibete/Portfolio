@@ -8,11 +8,11 @@
 - revisar Contact
 - revisar Experience
 - revisar Projects
-- identificar excepción del contenedor del carrusel de skills en Home
+- identificar excepcion del contenedor del carrusel de skills en Home
 
 ## T2. Detectar conflictos motion vs hover
 - ubicar nodos que mezclen `motion-enter` o `motion-reveal` con clases hoverables
-- confirmar qué cards necesitan wrapper externo
+- confirmar que cards necesitan wrapper externo
 
 ## T3. Normalizar Home
 - revisar hero
@@ -32,9 +32,9 @@
 - revisar cards de Projects
 
 ## T5. Ajustar sistema hover
-- mantener una elevación sutil y consistente
+- mantener una elevacion sutil y consistente
 - evitar conflictos con motion
-- evitar excepciones innecesarias
+- promover a `interactive-card` las cards reales que debian elevar
 
 ## T6. Validar consistencia
 - desktop
@@ -42,6 +42,12 @@
 - light/dark
 - reduced motion
 
-## T7. Validación final
+## T7. Validacion final
 - npm run lint
 - npm run build
+
+## T8. Cleanup de cierre
+- revertir cambios shared innecesarios o experimentales
+- dejar en shared solo lo necesario para separar motion y hover en `PageSection` y `PageAside`
+- alinear docs de la feature con el resultado real
+- preparar PR draft fiel al diff final

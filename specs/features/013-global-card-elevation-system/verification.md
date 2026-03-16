@@ -1,12 +1,12 @@
 # Verification - Feature 013 Global card elevation system
 
-## 🧪 Validación automática
+## Validacion automatica
 ```bash
 npm run lint
 npm run build
 ```
 
-## 👁️ Validación manual
+## Validacion manual
 ```bash
 npm run dev
 ```
@@ -14,8 +14,8 @@ npm run dev
 ### Global
 
 - [ ] Las cards reales del sitio elevan al hover
-- [ ] La elevación se siente consistente entre Home e internas
-- [ ] No hay una página con cards planas frente al resto del sistema
+- [ ] La elevacion se siente consistente entre Home e internas
+- [ ] No hay una pagina con cards planas frente al resto del sistema
 - [ ] Light mode se ve correcto
 - [ ] Dark mode se ve correcto
 
@@ -38,9 +38,11 @@ npm run dev
 - [ ] Experience mantiene consistencia
 - [ ] Projects mantiene consistencia
 
-### Técnica
+### Tecnica
 
 - [ ] No hay nodos hoverables peleando con `motion-enter`
 - [ ] No hay nodos hoverables peleando con `motion-reveal`
+- [ ] `PageSection` y `PageAside` solo conservan cambios necesarios para separar motion y hover
+- [ ] No quedaron variantes o props shared experimentales sin uso
 - [ ] No hay imports rotos
 - [ ] No se agregaron dependencias nuevas

@@ -2,26 +2,33 @@
 
 ## Estrategia
 
-Extender el lenguaje de elevación a todo el sitio con una solución sistémica y mínima, tomando como base lo ya aprendido en Home: la elevación debe vivir en el nodo hoverable y no competir con motion de entrada en el mismo elemento.
+Extender el lenguaje de elevacion a todo el sitio con una solucion sistemica y minima, tomando como base lo ya aprendido en Home: la elevacion debe vivir en el nodo hoverable y no competir con motion de entrada en el mismo elemento.
+
+## Ruta implementada
+
+- aplicar fixes locales sobre cards reales de Home, Projects y paginas internas
+- usar shared solo para separar el wrapper con motion de la surface hoverable en `PageSection` y `PageAside`
+- evitar props, variantes o abstracciones extra en shared que no sean necesarias para el resultado final
+- preservar como excepcion el contenedor del carrusel de skills en Home
 
 ## Fases
 
-### Fase 1 - Auditoría global
+### Fase 1 - Auditoria global
 - revisar Home e internas
 - identificar cards reales, cards secundarias y excepciones
-- confirmar exclusión del contenedor del carrusel de skills en Home
+- confirmar exclusion del contenedor del carrusel de skills en Home
 
 ### Fase 2 - Contrato estructural
 - separar motion y hover cuando hoy compartan el mismo nodo
 - dejar el nodo interno como surface hoverable
 - evitar cambios innecesarios de layout
 
-### Fase 3 - Aplicación del sistema
+### Fase 3 - Aplicacion del sistema
 - normalizar cards de Home
 - normalizar cards de About, Skills, CV, Contact, Experience y Projects
 - mantener excluido el contenedor del carrusel de skills en Home
 
-### Fase 4 - Validación
+### Fase 4 - Validacion
 - desktop
 - mobile/tablet
 - light/dark
@@ -37,4 +44,4 @@ Extender el lenguaje de elevación a todo el sitio con una solución sistémica 
 
 ## Resultado esperado
 
-El sitio debe sentirse como un único sistema de cards consistente, con elevación clara y homogénea, sin conflictos entre motion y hover.
+El sitio debe sentirse como un unico sistema de cards consistente, con elevacion clara y homogenea, sin conflictos entre motion y hover.

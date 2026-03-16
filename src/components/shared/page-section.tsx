@@ -7,7 +7,6 @@ interface PageSectionProps extends HTMLAttributes<HTMLElement> {
   description?: string;
   contentClassName?: string;
   delayClassName?: string;
-  surfaceVariant?: "interactive" | "subtle" | "plain";
 }
 
 export function PageSection({
@@ -18,22 +17,11 @@ export function PageSection({
   children,
   contentClassName,
   delayClassName = "motion-delay-2",
-  surfaceVariant = "interactive",
   ...props
 }: PageSectionProps) {
-  const surfaceClassName =
-    surfaceVariant === "plain"
-      ? undefined
-      : cn(
-          surfaceVariant === "subtle"
-            ? "interactive-card-subtle"
-            : "interactive-card",
-          "rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8",
-        );
-
   return (
     <section className={cn("motion-reveal", delayClassName, className)} {...props}>
-      <div className={surfaceClassName}>
+      <div className="interactive-card rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8">
         {eyebrow || title || description ? (
           <div className="space-y-3">
             {eyebrow ? (
