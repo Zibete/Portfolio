@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { PageIntro } from "@/components/shared/page-intro";
+import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
 import { hasProjectMdxModule } from "@/content/projects/registry";
 import {
@@ -83,12 +84,10 @@ export default async function ProjectsPage() {
                       {(entry.frontmatter.stack ?? entry.frontmatter.tags ?? [])
                         .slice(0, 6)
                         .map((item) => (
-                          <span
+                          <TagChip
                             key={item}
-                            className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
-                          >
-                            {item}
-                          </span>
+                            label={item}
+                          />
                         ))}
                     </div>
                   </div>
@@ -132,18 +131,16 @@ export default async function ProjectsPage() {
 
                     {githubStats ? (
                       <div className="flex flex-wrap gap-2 text-xs text-muted-foreground lg:justify-end">
-                        <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
-                          GitHub
-                        </span>
-                        <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
-                          Stars {formatGitHubMetric(githubStats.stargazersCount)}
-                        </span>
-                        <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
-                          Forks {formatGitHubMetric(githubStats.forksCount)}
-                        </span>
-                        <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
-                          Push {formatGitHubDate(githubStats.pushedAt)}
-                        </span>
+                        <TagChip label="GitHub" className="text-foreground" />
+                        <TagChip
+                          label={`Stars ${formatGitHubMetric(githubStats.stargazersCount)}`}
+                        />
+                        <TagChip
+                          label={`Forks ${formatGitHubMetric(githubStats.forksCount)}`}
+                        />
+                        <TagChip
+                          label={`Push ${formatGitHubDate(githubStats.pushedAt)}`}
+                        />
                       </div>
                     ) : null}
 

@@ -372,43 +372,43 @@
       color: var(--foreground);
       transform: translate3d(0, -1px, 0);
       border-color: rgb(84 139 255 / 0.24);
-      background: rgb(255 255 255 / 0.92);
-      box-shadow: 0 16px 30px -24px rgb(84 139 255 / 0.24);
+      background: rgb(255 255 255 / 0.86);
+      box-shadow:
+        0 16px 30px -24px rgb(84 139 255 / 0.2),
+        0 8px 22px -22px rgb(15 23 42 / 0.18);
     }
 
     .dark .interactive-chip:hover {
       border-color: rgb(112 159 255 / 0.28);
-      background: rgb(12 18 34 / 0.32);
-      box-shadow: 0 18px 34px -26px rgb(84 139 255 / 0.28);
+      background: rgb(16 24 42 / 0.46);
+      box-shadow:
+        0 18px 34px -26px rgb(84 139 255 / 0.24),
+        0 10px 26px -24px rgb(8 12 24 / 0.54);
     }
 
     .interactive-card-subtle:hover {
+      background-color: rgb(252 253 255 / 0.84);
       border-color: rgb(84 139 255 / 0.18);
-      box-shadow:
-        0 24px 64px -52px rgb(84 139 255 / 0.2),
-        0 16px 40px -34px rgb(15 23 42 / 0.22);
+      box-shadow: 0 24px 64px -52px rgb(84 139 255 / 0.2);
     }
 
     .dark .interactive-card-subtle:hover {
+      background-color: rgb(19 29 48 / 0.79);
       border-color: rgb(112 159 255 / 0.24);
-      box-shadow:
-        0 24px 68px -52px rgb(84 139 255 / 0.24),
-        0 20px 48px -38px rgb(8 12 24 / 0.6);
+      box-shadow: 0 24px 68px -52px rgb(84 139 255 / 0.24);
     }
 
     .interactive-card:hover {
+      background-color: rgb(253 254 255 / 0.9);
       transform: translate3d(0, -3px, 0) scale(1.006);
       border-color: rgb(84 139 255 / 0.2);
-      box-shadow:
-        0 30px 90px -60px rgb(84 139 255 / 0.24),
-        0 24px 70px -48px rgb(15 23 42 / 0.28);
+      box-shadow: 0 30px 90px -60px rgb(84 139 255 / 0.24);
     }
 
     .dark .interactive-card:hover {
+      background-color: rgb(21 32 52 / 0.85);
       border-color: rgb(112 159 255 / 0.28);
-      box-shadow:
-        0 32px 96px -60px rgb(84 139 255 / 0.28),
-        0 28px 78px -50px rgb(8 12 24 / 0.72);
+      box-shadow: 0 32px 96px -60px rgb(84 139 255 / 0.28);
     }
 
     .nav-pill:hover {
@@ -430,33 +430,46 @@
       animation: none;
     }
 
-    .interactive-card-subtle:hover {
-      border-color: rgb(84 139 255 / 0.18);
+    .interactive-chip:hover {
+      color: var(--foreground);
+      border-color: rgb(84 139 255 / 0.24);
+      background: rgb(255 255 255 / 0.86);
       box-shadow:
-        0 24px 64px -52px rgb(84 139 255 / 0.2),
-        0 16px 40px -34px rgb(15 23 42 / 0.22);
+        0 16px 30px -24px rgb(84 139 255 / 0.2),
+        0 8px 22px -22px rgb(15 23 42 / 0.18);
+    }
+
+    .dark .interactive-chip:hover {
+      border-color: rgb(112 159 255 / 0.28);
+      background: rgb(16 24 42 / 0.46);
+      box-shadow:
+        0 18px 34px -26px rgb(84 139 255 / 0.24),
+        0 10px 26px -24px rgb(8 12 24 / 0.54);
+    }
+
+    .interactive-card-subtle:hover {
+      background-color: rgb(252 253 255 / 0.84);
+      border-color: rgb(84 139 255 / 0.18);
+      box-shadow: 0 24px 64px -52px rgb(84 139 255 / 0.2);
     }
 
     .dark .interactive-card-subtle:hover {
+      background-color: rgb(19 29 48 / 0.79);
       border-color: rgb(112 159 255 / 0.24);
-      box-shadow:
-        0 24px 68px -52px rgb(84 139 255 / 0.24),
-        0 20px 48px -38px rgb(8 12 24 / 0.6);
+      box-shadow: 0 24px 68px -52px rgb(84 139 255 / 0.24);
     }
 
     .interactive-card:hover {
+      background-color: rgb(253 254 255 / 0.9);
       transform: translate3d(0, -3px, 0) scale(1.006);
       border-color: rgb(84 139 255 / 0.2);
-      box-shadow:
-        0 30px 90px -60px rgb(84 139 255 / 0.24),
-        0 24px 70px -48px rgb(15 23 42 / 0.28);
+      box-shadow: 0 30px 90px -60px rgb(84 139 255 / 0.24);
     }
 
     .dark .interactive-card:hover {
+      background-color: rgb(21 32 52 / 0.85);
       border-color: rgb(112 159 255 / 0.28);
-      box-shadow:
-        0 32px 96px -60px rgb(84 139 255 / 0.28),
-        0 28px 78px -50px rgb(8 12 24 / 0.72);
+      box-shadow: 0 32px 96px -60px rgb(84 139 255 / 0.28);
     }
 
     .interactive-card,

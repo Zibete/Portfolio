@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
+import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
 import {
   formatGitHubDate,
@@ -56,29 +57,25 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
 
               <div className="flex flex-wrap gap-2">
                 {stackPreview.map((item) => (
-                  <span
+                  <TagChip
                     key={item}
-                    className="interactive-chip rounded-full border border-border/70 bg-background/70 px-3 py-1 text-xs font-medium text-muted-foreground"
-                  >
-                    {item}
-                  </span>
+                    label={item}
+                  />
                 ))}
               </div>
 
               {shouldShowGitHubStats ? (
                 <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                  <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 font-medium text-foreground dark:bg-background/14">
-                    GitHub vivo
-                  </span>
-                  <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
-                    Stars {formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}
-                  </span>
-                  <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
-                    Forks {formatGitHubMetric(shouldShowGitHubStats.forksCount)}
-                  </span>
-                  <span className="interactive-chip rounded-full border border-border/70 bg-background/72 px-3 py-1 dark:bg-background/14">
-                    Último push {formatGitHubDate(shouldShowGitHubStats.pushedAt)}
-                  </span>
+                  <TagChip label="GitHub vivo" className="text-foreground" />
+                  <TagChip
+                    label={`Stars ${formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}`}
+                  />
+                  <TagChip
+                    label={`Forks ${formatGitHubMetric(shouldShowGitHubStats.forksCount)}`}
+                  />
+                  <TagChip
+                    label={`Último push ${formatGitHubDate(shouldShowGitHubStats.pushedAt)}`}
+                  />
                 </div>
               ) : null}
 
