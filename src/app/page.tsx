@@ -42,21 +42,21 @@ export default async function Home() {
         <>
           <section className="pb-8 sm:pb-10">
             <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
-              <div
-                className={`${homePrimarySurfaceClassName} motion-reveal motion-delay-1 h-full`}
-              >
-                <div className={homeSurfaceAccentClassName} />
-                <div className="relative space-y-4">
-                  <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-                    {siteConfig.homeComposition.projectLead.eyebrow}
-                  </p>
-                  <div className="space-y-4">
-                    <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
-                      {siteConfig.homeComposition.projectLead.title}
-                    </h2>
-                    <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-                      {siteConfig.homeComposition.projectLead.description}
+              <div className="motion-reveal motion-delay-1 h-full">
+                <div className={`${homePrimarySurfaceClassName} h-full`}>
+                  <div className={homeSurfaceAccentClassName} />
+                  <div className="relative space-y-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
+                      {siteConfig.homeComposition.projectLead.eyebrow}
                     </p>
+                    <div className="space-y-4">
+                      <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
+                        {siteConfig.homeComposition.projectLead.title}
+                      </h2>
+                      <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                        {siteConfig.homeComposition.projectLead.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -66,9 +66,13 @@ export default async function Home() {
                   (highlight, index) => (
                     <div
                       key={highlight}
-                      className={`${homeSecondarySurfaceClassName} motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} h-full text-sm leading-6 text-muted-foreground`}
+                      className={`motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} h-full`}
                     >
-                      {highlight}
+                      <div
+                        className={`${homeSecondarySurfaceClassName} h-full text-sm leading-6 text-muted-foreground`}
+                      >
+                        {highlight}
+                      </div>
                     </div>
                   ),
                 )}
@@ -82,63 +86,67 @@ export default async function Home() {
 
       <section className="pb-24 sm:pb-20">
         <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-          <div
-            className={`${homePrimarySurfaceClassName} motion-reveal motion-delay-1`}
-          >
-            <div className={homeSurfaceAccentClassName} />
-            <div className="relative space-y-6">
-              <div className="space-y-4">
-                <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-                  {siteConfig.homeComposition.credibility.eyebrow}
-                </p>
-                <div className="space-y-3">
-                  <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
-                    {siteConfig.homeComposition.credibility.title}
-                  </h2>
-                  <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-                    {siteConfig.homeComposition.credibility.description}
+          <div className="motion-reveal motion-delay-1">
+            <div className={homePrimarySurfaceClassName}>
+              <div className={homeSurfaceAccentClassName} />
+              <div className="relative space-y-6">
+                <div className="space-y-4">
+                  <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
+                    {siteConfig.homeComposition.credibility.eyebrow}
                   </p>
-                </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                {siteConfig.homeComposition.credibility.items.map((item, index) => (
-                  <div
-                    key={item.title}
-                    className={`${homeSecondarySurfaceClassName} motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"}`}
-                  >
-                    <p className="text-sm font-semibold text-foreground">
-                      {item.title}
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                      {item.description}
+                  <div className="space-y-3">
+                    <h2 className="max-w-3xl text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
+                      {siteConfig.homeComposition.credibility.title}
+                    </h2>
+                    <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                      {siteConfig.homeComposition.credibility.description}
                     </p>
                   </div>
-                ))}
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                  {siteConfig.homeComposition.credibility.items.map((item, index) => (
+                    <div
+                      key={item.title}
+                      className={`motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"}`}
+                    >
+                      <div className={homeSecondarySurfaceClassName}>
+                        <p className="text-sm font-semibold text-foreground">
+                          {item.title}
+                        </p>
+                        <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          <aside className="interactive-card motion-enter motion-delay-3 rounded-[1.75rem] border border-border/70 bg-background/72 p-6 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76 sm:p-7 lg:py-6">
-            <div className="space-y-5">
-              <div className="space-y-3">
-                <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
-                  {siteConfig.homeComposition.cvCta.eyebrow}
-                </p>
-                <h2 className="text-2xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
-                  {siteConfig.homeComposition.cvCta.title}
-                </h2>
-                <p className="text-sm leading-6 text-muted-foreground">
-                  {siteConfig.homeComposition.cvCta.description}
-                </p>
-              </div>
+          <aside className="motion-enter motion-delay-3">
+            <div className="interactive-card rounded-[1.75rem] border border-border/70 bg-background/72 p-6 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76 sm:p-7 lg:py-6">
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
+                    {siteConfig.homeComposition.cvCta.eyebrow}
+                  </p>
+                  <h2 className="text-2xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
+                    {siteConfig.homeComposition.cvCta.title}
+                  </h2>
+                  <p className="text-sm leading-6 text-muted-foreground">
+                    {siteConfig.homeComposition.cvCta.description}
+                  </p>
+                </div>
 
-              <Button size="lg" asChild className="w-full">
-                <Link href={siteConfig.homeComposition.cvCta.action.href}>
-                  {siteConfig.homeComposition.cvCta.action.label}
-                  <ArrowRight />
-                </Link>
-              </Button>
+                <Button size="lg" asChild className="w-full">
+                  <Link href={siteConfig.homeComposition.cvCta.action.href}>
+                    {siteConfig.homeComposition.cvCta.action.label}
+                    <ArrowRight />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </aside>
         </Container>

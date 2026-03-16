@@ -54,39 +54,41 @@ export default async function ExperiencePage() {
           contentClassName="grid gap-4"
         >
             {entries.map((entry, index) => (
-              <article
+              <div
                 key={entry.slug}
-                className={`interactive-card-subtle motion-enter ${experienceCardMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                className={`motion-enter ${experienceCardMotionDelays[index] ?? "motion-delay-4"}`}
               >
-                <div className="space-y-3">
-                  {entry.frontmatter.company ? (
-                    <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">
-                      {entry.frontmatter.company}
-                    </p>
-                  ) : null}
-                  <div className="space-y-2">
-                    <h2 className="text-xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
-                      {entry.frontmatter.title}
-                    </h2>
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      {entry.frontmatter.summary}
-                    </p>
+                <article className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
+                  <div className="space-y-3">
+                    {entry.frontmatter.company ? (
+                      <p className="text-xs font-medium uppercase tracking-[0.28em] text-primary">
+                        {entry.frontmatter.company}
+                      </p>
+                    ) : null}
+                    <div className="space-y-2">
+                      <h2 className="text-xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
+                        {entry.frontmatter.title}
+                      </h2>
+                      <p className="text-sm leading-6 text-muted-foreground">
+                        {entry.frontmatter.summary}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {entry.frontmatter.focus?.length ? (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {entry.frontmatter.focus.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-              </article>
+                  {entry.frontmatter.focus?.length ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {entry.frontmatter.focus.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+                </article>
+              </div>
             ))}
           </PageSection>
 
@@ -100,7 +102,7 @@ export default async function ExperiencePage() {
               {experience.metrics.map((item) => (
                 <div
                   key={item.label}
-                  className="interactive-card-subtle rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 dark:bg-background/10"
+                  className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 dark:bg-background/10"
                 >
                   <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
                     {item.label}
@@ -123,14 +125,16 @@ export default async function ExperiencePage() {
           {experience.repeatableSignals.map((item, index) => (
             <div
               key={item.title}
-              className={`interactive-card-subtle motion-enter ${signalMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+              className={`motion-enter ${signalMotionDelays[index] ?? "motion-delay-4"}`}
             >
-              <p className="text-sm font-semibold text-foreground">
-                {item.title}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                {item.description}
-              </p>
+              <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
+                <p className="text-sm font-semibold text-foreground">
+                  {item.title}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </PageSection>
