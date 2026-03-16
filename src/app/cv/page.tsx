@@ -20,8 +20,14 @@ const summaryMotionDelays = [
   "motion-delay-4",
 ] as const;
 
+const cvActionIcons = {
+  projects: ArrowRight,
+  email: Mail,
+  github: Github,
+} as const;
+
 export const metadata = {
-  title: "CV",
+  title: profileContent.cv.eyebrow,
 };
 
 export default function CvPage() {
@@ -37,19 +43,19 @@ export default function CvPage() {
         >
           <Button asChild>
             <a href={siteConfig.assets.cvFilePath} download>
-              Descargar CV en PDF
+              {cv.downloadCtaLabel}
               <Download />
             </a>
           </Button>
         </PageIntro>
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <PageSection
-          eyebrow="Snapshot"
-          title="Tres ejes para leer rápido el perfil."
-          description="Base técnica moderna, automatización end-to-end y experiencia operativa real como síntesis del posicionamiento actual."
-          contentClassName="grid gap-4 md:grid-cols-3"
-        >
+          <PageSection
+            eyebrow={cv.snapshotSection.eyebrow}
+            title={cv.snapshotSection.title}
+            description={cv.snapshotSection.description}
+            contentClassName="grid gap-4 md:grid-cols-3"
+          >
             {cv.snapshots.map((item, index) => (
               <div
                 key={item.label}
@@ -74,36 +80,35 @@ export default function CvPage() {
             className="lg:sticky lg:top-24"
           >
             <div className="flex flex-col gap-2">
-              <Button asChild className="w-full">
-                <Link href="/projects">
-                  Ver proyectos
-                  <ArrowRight />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild className="w-full">
-                <Link href="mailto:matiasabelperalta@gmail.com">
-                  Escribir por email
-                  <Mail />
-                </Link>
-              </Button>
-              <Button variant="ghost" asChild className="w-full">
-                <Link
-                  href="https://github.com/Zibete"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Ver GitHub
-                  <Github />
-                </Link>
-              </Button>
+              {cv.actions.map((action) => {
+                const Icon = cvActionIcons[action.id];
+
+                return (
+                  <Button
+                    key={action.id}
+                    variant={action.variant}
+                    asChild
+                    className="w-full"
+                  >
+                    <Link
+                      href={action.href}
+                      target={action.external ? "_blank" : undefined}
+                      rel={action.external ? "noreferrer" : undefined}
+                    >
+                      {action.label}
+                      <Icon />
+                    </Link>
+                  </Button>
+                );
+              })}
             </div>
           </PageAside>
         </div>
 
         <PageSection
-          eyebrow="Resumen profesional"
-          title="Valor profesional en una lectura corta."
-          description="Combino experiencia en automatización end-to-end, mejora de procesos y desarrollo Android con base moderna. Aporto criterio operativo, foco en mantenimiento y capacidad para traducir necesidades reales en soluciones claras y útiles."
+          eyebrow={cv.summarySection.eyebrow}
+          title={cv.summarySection.title}
+          description={cv.summarySection.description}
           contentClassName="grid gap-4 md:grid-cols-3"
         >
           {cv.summary.map((item, index) => (

@@ -1,3 +1,106 @@
+type ContentSection = {
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
+type ContentCard = {
+  title: string;
+  description: string;
+};
+
+type ContentSnapshot = {
+  label: string;
+  value: string;
+};
+
+type ContentAside = ContentSection & {
+  items?: string[];
+};
+
+type ContactMethodId = "email" | "linkedin" | "github";
+
+type ContactMethod = {
+  id: ContactMethodId;
+  label: string;
+  value: string;
+  href: string;
+  description: string;
+};
+
+type CvActionId = "projects" | "email" | "github";
+
+type CvAction = {
+  id: CvActionId;
+  label: string;
+  href: string;
+  variant: "default" | "outline" | "ghost";
+  external?: boolean;
+};
+
+type AboutContent = ContentSection & {
+  highlightSection: ContentSection;
+  highlights: ContentCard[];
+  principlesSection: ContentSection;
+  principles: string[];
+  aside: ContentAside & {
+    items: string[];
+  };
+};
+
+type ExperienceContent = ContentSection & {
+  rolesSection: ContentSection;
+  repeatableSignalsSection: ContentSection;
+  repeatableSignals: ContentCard[];
+  metrics: ContentSnapshot[];
+  aside: ContentAside;
+};
+
+type SkillGroup = ContentCard & {
+  items: string[];
+};
+
+type SkillsContent = ContentSection & {
+  groupsSection: ContentSection;
+  groups: SkillGroup[];
+  aside: ContentAside & {
+    items: string[];
+  };
+};
+
+type ContactContent = ContentSection & {
+  methodsSection: ContentSection & {
+    actionLabel: string;
+  };
+  methods: ContactMethod[];
+  topicsSection: ContentSection;
+  topics: string[];
+  aside: ContentAside;
+};
+
+type CvContent = ContentSection & {
+  downloadCtaLabel: string;
+  snapshotSection: ContentSection;
+  snapshots: ContentSnapshot[];
+  summarySection: ContentSection;
+  summary: ContentCard[];
+  aside: ContentAside;
+  actions: CvAction[];
+};
+
+type ProfileContent = {
+  about: AboutContent;
+  experience: ExperienceContent;
+  skills: SkillsContent;
+  contact: ContactContent;
+  cv: CvContent;
+};
+
+const emailAddress = "matiasabelperalta@gmail.com";
+const emailHref = `mailto:${emailAddress}`;
+const linkedInHref = "https://www.linkedin.com/in/mat%C3%ADasabelperalta/";
+const githubHref = "https://github.com/Zibete";
+
 export const profileContent = {
   about: {
     eyebrow: "Sobre mí",
@@ -5,6 +108,12 @@ export const profileContent = {
       "Perfil técnico híbrido con foco en Android, automatización y mejora operativa.",
     description:
       "Combino experiencia real en operaciones, cuentas a pagar, automatización y desarrollo. Mi diferencial está en convertir circuitos complejos en soluciones más claras, medibles y sostenibles.",
+    highlightSection: {
+      eyebrow: "Diferencial",
+      title: "Base técnica moderna con experiencia operativa real.",
+      description:
+        "No me defino por un único eje. Mi recorrido cruza desarrollo, automatización, datos y procesos con foco constante en problemas concretos y resultados defendibles.",
+    },
     highlights: [
       {
         title: "Android junior con base moderna",
@@ -22,6 +131,12 @@ export const profileContent = {
           "La experiencia en operación, cuentas a pagar y coordinación entre áreas me lleva a priorizar soluciones que realmente funcionen en el día a día.",
       },
     ],
+    principlesSection: {
+      eyebrow: "Forma de trabajo",
+      title: "Cómo aporto valor en un equipo.",
+      description:
+        "Empatía, escucha, documentación y respeto por procesos conviven con una base técnica orientada a claridad, mantenimiento y mejora continua.",
+    },
     principles: [
       "Equilibrio entre profundidad técnica y claridad para áreas de producto y negocio.",
       "Documentación, pruebas, respeto por procesos y mejora continua como base de trabajo.",
@@ -44,6 +159,12 @@ export const profileContent = {
     title: "Capacidades agrupadas por dominios, no por buzzwords.",
     description:
       "La combinación que mejor me representa cruza Android, automatización, datos y procesos. El valor está en cómo se conectan para resolver trabajo real.",
+    groupsSection: {
+      eyebrow: "Dominios principales",
+      title: "Tecnologías conectadas a producto, operación y mejora de procesos.",
+      description:
+        "Estas son las áreas donde hoy tengo más tracción y donde mejor se ve la combinación entre base técnica moderna, automatización y experiencia operativa.",
+    },
     groups: [
       {
         title: "Android y desarrollo de producto",
@@ -116,6 +237,19 @@ export const profileContent = {
       "Trayectoria resumida desde impacto operativo, ejecución técnica y coordinación.",
     description:
       "Mi experiencia combina operación de alta exigencia, cuentas a pagar, automatización y trabajo transversal con múltiples áreas. Eso me dio criterio funcional y una mirada muy práctica sobre cómo implementar mejoras.",
+    rolesSection: {
+      eyebrow: "Experiencia relevante",
+      title:
+        "Roles que explican mi combinación de criterio operativo y ejecución técnica.",
+      description:
+        "Pan American Energy / AXION, cuentas a pagar, automatización y supervisión operativa forman una base concreta para resolver problemas exigentes con orden y trazabilidad.",
+    },
+    repeatableSignalsSection: {
+      eyebrow: "Capacidades consolidadas",
+      title: "Señales que ya aparecen de forma consistente en mi experiencia.",
+      description:
+        "Procesos complejos, múltiples áreas, presión operativa y necesidad de mejora continua son contextos donde ya trabajé y donde hoy sigo aportando mejor.",
+    },
     repeatableSignals: [
       {
         title: "Procesos completos",
@@ -159,26 +293,42 @@ export const profileContent = {
     title: "Contacto directo para conversaciones profesionales concretas.",
     description:
       "Android junior, automatización de procesos, mejora operativa y roles técnico-funcionales son los espacios donde hoy puedo aportar más valor.",
+    methodsSection: {
+      eyebrow: "Vías directas",
+      title: "Canales simples para conversaciones con contexto.",
+      description:
+        "Estas vías concentran la forma más directa de contactarme para oportunidades ligadas a Android, automatización, mejora de procesos o roles técnico-funcionales.",
+      actionLabel: "Abrir",
+    },
     methods: [
       {
+        id: "email",
         label: "Email",
-        value: "matiasabelperalta@gmail.com",
-        href: "mailto:matiasabelperalta@gmail.com",
+        value: emailAddress,
+        href: emailHref,
         description: "La vía más simple para una conversación directa.",
       },
       {
+        id: "linkedin",
         label: "LinkedIn",
         value: "matíasabelperalta",
-        href: "https://www.linkedin.com/in/mat%C3%ADasabelperalta/",
+        href: linkedInHref,
         description: "Perfil profesional y contexto laboral actualizado.",
       },
       {
+        id: "github",
         label: "GitHub",
         value: "Zibete",
-        href: "https://github.com/Zibete",
+        href: githubHref,
         description: "Repos públicos con foco en Android y automatización.",
       },
     ],
+    topicsSection: {
+      eyebrow: "Áreas de aporte",
+      title: "Espacios donde hoy puedo sumar más valor.",
+      description:
+        "Android junior, automatización, reporting operativo y circuitos técnico-funcionales son los contextos donde mejor se ve mi combinación entre criterio técnico y comprensión de procesos.",
+    },
     topics: [
       "Roles de Android junior con base técnica moderna y repos públicos activos",
       "Automatización end-to-end y mejora de procesos con impacto operativo real",
@@ -196,6 +346,13 @@ export const profileContent = {
     title: "Perfil técnico híbrido con foco en impacto operativo y base moderna.",
     description:
       "Android junior, automatización end-to-end y mejora de procesos sobre contextos reales de operación, datos y circuitos SAP / P2P.",
+    downloadCtaLabel: "Descargar CV en PDF",
+    snapshotSection: {
+      eyebrow: "Snapshot",
+      title: "Tres ejes para leer rápido el perfil.",
+      description:
+        "Base técnica moderna, automatización end-to-end y experiencia operativa real como síntesis del posicionamiento actual.",
+    },
     snapshots: [
       {
         label: "Posicionamiento",
@@ -213,6 +370,12 @@ export const profileContent = {
           "Traducir procesos complejos en soluciones técnicas más claras, trazables y eficientes.",
       },
     ],
+    summarySection: {
+      eyebrow: "Resumen profesional",
+      title: "Valor profesional en una lectura corta.",
+      description:
+        "Combino experiencia en automatización end-to-end, mejora de procesos y desarrollo Android con base moderna. Aporto criterio operativo, foco en mantenimiento y capacidad para traducir necesidades reales en soluciones claras y útiles.",
+    },
     summary: [
       {
         title: "Dónde aporto hoy",
@@ -236,5 +399,26 @@ export const profileContent = {
       description:
         "CV en PDF listo para compartir, junto con proyectos públicos y contacto directo como referencias principales del perfil.",
     },
+    actions: [
+      {
+        id: "projects",
+        label: "Ver proyectos",
+        href: "/projects",
+        variant: "default",
+      },
+      {
+        id: "email",
+        label: "Escribir por email",
+        href: emailHref,
+        variant: "outline",
+      },
+      {
+        id: "github",
+        label: "Ver GitHub",
+        href: githubHref,
+        variant: "ghost",
+        external: true,
+      },
+    ],
   },
-} as const;
+} satisfies ProfileContent;

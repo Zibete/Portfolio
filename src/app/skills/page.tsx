@@ -13,7 +13,7 @@ const skillGroupMotionDelays = [
 ] as const;
 
 export const metadata = {
-  title: "Habilidades",
+  title: profileContent.skills.eyebrow,
 };
 
 export default function SkillsPage() {
@@ -29,12 +29,12 @@ export default function SkillsPage() {
         />
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <PageSection
-          eyebrow="Dominios principales"
-          title="Tecnologías conectadas a producto, operación y mejora de procesos."
-          description="Estas son las áreas donde hoy tengo más tracción y donde mejor se ve la combinación entre base técnica moderna, automatización y experiencia operativa."
-          contentClassName="grid gap-4 md:grid-cols-2"
-        >
+          <PageSection
+            eyebrow={skills.groupsSection.eyebrow}
+            title={skills.groupsSection.title}
+            description={skills.groupsSection.description}
+            contentClassName="grid gap-4 md:grid-cols-2"
+          >
             {skills.groups.map((group, index) => (
               <div
                 key={group.title}
@@ -49,10 +49,7 @@ export default function SkillsPage() {
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {group.items.map((item) => (
-                      <TagChip
-                        key={item}
-                        label={item}
-                      />
+                      <TagChip key={item} label={item} />
                     ))}
                   </div>
                 </div>
@@ -67,13 +64,13 @@ export default function SkillsPage() {
             className="lg:sticky lg:top-24"
           >
             <div className="space-y-3">
-                {skills.aside.items.map((item) => (
-                  <div
-                    key={item}
-                    className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
-                  >
-                    {item}
-                  </div>
+              {skills.aside.items.map((item) => (
+                <div
+                  key={item}
+                  className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                >
+                  {item}
+                </div>
               ))}
             </div>
           </PageAside>

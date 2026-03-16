@@ -20,13 +20,13 @@ const topicMotionDelays = [
 ] as const;
 
 const contactIcons = {
-  Email: Mail,
-  LinkedIn: Linkedin,
-  GitHub: Github,
+  email: Mail,
+  linkedin: Linkedin,
+  github: Github,
 } as const;
 
 export const metadata = {
-  title: "Contacto",
+  title: profileContent.contact.eyebrow,
 };
 
 export default function ContactPage() {
@@ -42,14 +42,14 @@ export default function ContactPage() {
         />
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <PageSection
-          eyebrow="Vías directas"
-          title="Canales simples para conversaciones con contexto."
-          description="Estas vías concentran la forma más directa de contactarme para oportunidades ligadas a Android, automatización, mejora de procesos o roles técnico-funcionales."
-          contentClassName="grid gap-4"
-        >
+          <PageSection
+            eyebrow={contact.methodsSection.eyebrow}
+            title={contact.methodsSection.title}
+            description={contact.methodsSection.description}
+            contentClassName="grid gap-4"
+          >
             {contact.methods.map((method, index) => {
-              const Icon = contactIcons[method.label as keyof typeof contactIcons];
+              const Icon = contactIcons[method.id];
 
               return (
                 <div
@@ -59,7 +59,7 @@ export default function ContactPage() {
                   <div className="interactive-card flex flex-col gap-4 rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10 sm:flex-row sm:items-center sm:justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                        {Icon ? <Icon className="size-4 text-primary" /> : null}
+                        <Icon className="size-4 text-primary" />
                         {method.label}
                       </div>
                       <p className="text-base font-medium text-foreground">
@@ -70,9 +70,13 @@ export default function ContactPage() {
                       </p>
                     </div>
 
-                    <Button variant="outline" asChild className="w-full sm:w-auto">
+                    <Button
+                      variant="outline"
+                      asChild
+                      className="w-full sm:w-auto"
+                    >
                       <Link href={method.href} target="_blank" rel="noreferrer">
-                        Abrir
+                        {contact.methodsSection.actionLabel}
                         <ArrowRight />
                       </Link>
                     </Button>
@@ -91,9 +95,9 @@ export default function ContactPage() {
         </div>
 
         <PageSection
-          eyebrow="Áreas de aporte"
-          title="Espacios donde hoy puedo sumar más valor."
-          description="Android junior, automatización, reporting operativo y circuitos técnico-funcionales son los contextos donde mejor se ve mi combinación entre criterio técnico y comprensión de procesos."
+          eyebrow={contact.topicsSection.eyebrow}
+          title={contact.topicsSection.title}
+          description={contact.topicsSection.description}
           contentClassName="grid gap-4 md:grid-cols-3"
         >
           {contact.topics.map((topic, index) => (
