@@ -168,8 +168,8 @@ export function StackMarquee() {
   }, [prefersReducedMotion]);
 
   return (
-    <section className="-mt-6 pb-14 sm:-mt-8 sm:pb-20">
-      <Container className="space-y-4">
+    <section className="-mt-6 pb-14 sm:-mt-8 sm:pb-15">
+      <Container className="space-y-3">
         <div className="motion-reveal motion-delay-1 flex items-center gap-3 px-1">
           <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
             {siteConfig.stackMarquee.label}

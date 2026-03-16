@@ -3,56 +3,113 @@
 ## Reglas de trabajo
 
 1. Leer primero `docs/PROJECT_CONSTITUTION.md`.
-2. Leer los archivos relevantes de `specs/` antes de proponer o cambiar funcionalidad.
-3. No inventar features fuera del spec actual o del objetivo de la iteración.
+2. Leer la feature activa en `specs/` antes de proponer o cambiar funcionalidad.
+3. No inventar features, refactors o alcance fuera del objetivo de la iteración.
 4. Mantener diffs mínimos, explícitos y fáciles de revisar.
-5. Preservar la estructura de carpetas existente salvo que un cambio sea estrictamente necesario para Next.js o para el spec activo.
-6. Priorizar claridad, mantenibilidad y baja complejidad por encima de abstracciones ingeniosas.
-7. No agregar dependencias sin una justificación breve y concreta.
-8. Mantener el naming en inglés para archivos, carpetas e identificadores de código.
-9. No cambiar copy, tono o posicionamiento del producto sin una razón concreta ligada a los specs.
-10. Reportar todos los archivos creados y modificados en la entrega final.
-11. Cerrar cada tarea con un checklist manual breve de validación o seguimiento.
+5. Preservar la estructura actual del repositorio salvo necesidad técnica real.
+6. Priorizar claridad, mantenibilidad y baja complejidad.
+7. No agregar dependencias sin justificación concreta.
+8. Mantener naming en inglés para archivos, carpetas e identificadores.
+9. No cambiar copy, tono o posicionamiento del producto sin razón ligada al spec.
+10. Reportar siempre los archivos creados y modificados.
+11. Cerrar cada tarea con validación manual breve.
 
-## Expectativas para cambios de código
+## Flujo para trabajar una feature
 
-- Preferir el cambio más pequeño que mantenga coherencia en el repositorio.
-- Evitar romper rutas existentes, utilidades compartidas o convenciones de contenido.
-- Dejar explícitos los placeholders cuando una funcionalidad se difiere intencionalmente.
-- No ampliar alcance hacia auth, admin, analytics o backend no pedido.
+1. Leer `docs/PROJECT_CONSTITUTION.md`.
+2. Leer los archivos relevantes de la feature activa:
+   - `spec.md`
+   - `plan.md`
+   - `tasks.md`
+   - `verification.md`
+3. Revisar solo los archivos de código necesarios para esa iteración.
+4. Confirmar alcance real antes de tocar código:
+   - qué entra
+   - qué no entra
+   - qué archivos probablemente cambian
+5. Implementar el cambio mínimo coherente con el objetivo.
+6. Si cambia una decisión estructural, visual o funcional importante, actualizar la feature activa.
 
-## Expectativas para documentación
+## Reglas de implementación
 
-- Actualizar los specs cuando cambie una decisión estructural o de producto.
-- Mantener el README breve y fiel al estado real del repositorio.
-- Tratar `docs/PROJECT_CONSTITUTION.md` como el principal límite de decisión sobre intención de producto.
+- Preferir el cambio más pequeño que mantenga coherencia en el repo.
+- No tocar rutas, páginas o módulos fuera de alcance.
+- No abrir refactors globales para resolver problemas locales.
+- No mover ni renombrar archivos sin beneficio claro.
+- Reutilizar patrones existentes antes de crear otros nuevos.
+- No introducir abstracciones innecesarias.
+- Dejar placeholders explícitos cuando una decisión se difiere intencionalmente.
 
+## Reglas de documentación
 
+- Actualizar `specs/` cuando el resultado final cambie una decisión relevante.
+- Mantener `README.md` breve y fiel al estado real del repositorio.
+- Tratar `docs/PROJECT_CONSTITUTION.md` como límite principal de intención de producto.
 
-## 🤖 Instrucciones para Creación de Pull Requests (PR)
+## Validación
 
-Siempre que se solicite la creación de un PR, el agente debe generar un archivo `.md` dentro de `prs/` en la raíz del proyecto (sugerido: `PR_[nombre_del_repo]_[timestamp].md`) y redactarlo con el estilo real del repo.
+Antes de cerrar una tarea:
 
-### Rol de cada artefacto
+1. Revisar el diff final.
+2. Confirmar que la implementación coincide con la feature activa.
+3. Ejecutar los checks relevantes del repo.
+4. Verificar manualmente el flujo afectado.
+5. Reportar riesgos, límites o fuera de alcance reales.
 
-- `prs/` contiene **borradores y respaldo editorial** del PR. No reemplaza al PR real.
-- El **PR real** vive en GitHub, asociado a su rama, commits, conversación y merge.
-- `.github/pull_request_template.md` es solo una **plantilla mínima de apoyo** para PRs creados manualmente en GitHub.
-- La fuente de verdad para el formato rico/completo del PR es este `AGENTS.md`.
-- No duplicar en `.github/pull_request_template.md` toda la especificación detallada de esta sección.
+## Comandos del proyecto
 
-### Formato del borrador en `prs/`
+Usar los comandos reales del repo cuando apliquen:
+```bash
+npm run lint
+npm run build
+npm run dev
+```
 
-- **Idioma:** cuerpo, headings y explicación en **español (es-AR)**. Dejar en inglés solo `type(scope)`, nombres de módulos/paths/clases/comandos y subjects de commit citados literal.
-- **Tono:** técnico, directo y breve. Priorizar bullets concretos; evitar prosa larga, marketing o contexto redundante.
-- **Encabezado:** abrir con un título estilo PR real del repo: `# [emoji] type(scope): resumen` o `## [emoji] PR: ...`. Debajo, incluir `Base:` y `Rama:` en líneas separadas.
-- **Secciones base:** incluir siempre `[emoji] Qué se cambió` y `[emoji] Commits incluidos`.
-- **Secciones habituales:** agregar `[emoji] Por qué`, `[emoji] Validación manual` y `[emoji] Fuera de alcance` cuando aporten valor real. No forzar secciones vacías en PRs chicos o de docs.
-- **Secciones opcionales:** usar `[emoji] Validación Local` para comandos realmente ejecutados, `[emoji] Cómo correr los tests` si conviene dejar receta reproducible, `Tests agregados` para aclarar si hubo tests nuevos o no, `Cambios de API/Contratos` cuando cambien interfaces/wiring/source of truth, y `Código muerto/paths duplicados` cuando se haya eliminado o consolidado algo.
-- **Nivel de detalle:** en `[emoji] Qué se cambió`, agrupar por módulo/feature/área y nombrar archivos, clases, contratos o workflows tocados. En `Por qué`, listar el problema resuelto o la razón técnica/operativa. En `Fuera de alcance`, dejar follow-ups reales o límites decididos para mantener foco.
-- **Bullets y checkboxes:** usar bullets cortos por defecto. Reservar checkboxes para validación manual o checklists; fuera de eso, usarlos solo si ordenan mejor el cambio.
-- **Validación:** `Validación manual` debe ser una checklist de flujos concretos y observables. Si hubo validación local automatizable, agregar comandos exactos en bloque `bash`. No duplicar `Validación Local` y `Cómo correr los tests` si muestran lo mismo.
-- **Commits incluidos:** listar `hash corto + subject`. Si el PR es de un solo commit, una sola línea alcanza.
-- **Títulos, ramas y commits:** preferir ramas en minúsculas con prefijo de tipo (`fix/...`, `refactor/...`, `docs/...`, `chore/...`, `feat/...`, `build/...`, `ci/...`, `test/...`, `codex/...` cuando corresponda). Alinear, cuando aplique, título del PR y commits con formato `type(scope): summary`.
-- **Emojis:** usarlos de forma pragmática para mejorar escaneo. No imponer un set fijo de gitmojis ni una correspondencia rígida por sección.
-- **Evitar:** secciones vacías o “Ninguno” repetido sin valor, headings en inglés por estilo, cuerpos largos sin módulos/archivos concretos, y secciones inventadas que no aparezcan de forma recurrente en el repo.
+No inventar pipelines nuevos si el proyecto no los usa.
+
+## Pull Requests
+
+Cuando se solicite un PR, generar un archivo `.md` dentro de `prs/` en la raíz del proyecto. Ese archivo es un borrador/editorial backup y no reemplaza el PR real en GitHub.
+
+### Formato del borrador
+
+- Idioma: español (es-AR), dejando en inglés solo paths, clases, comandos y subjects de commit citados literal.
+- Tono: técnico, directo y breve.
+- Encabezado:
+  - título estilo repo
+  - `Base:`
+  - `Rama:`
+
+### Secciones mínimas
+
+- `## Qué se cambió`
+- `## Commits incluidos`
+
+### Secciones habituales
+
+Agregar solo si aportan valor real:
+
+- `## Por qué`
+- `## Validación local`
+- `## Validación manual`
+- `## Fuera de alcance`
+- `## Cómo correr los tests`
+- `## Cambios de API/Contratos`
+- `## Código muerto/paths duplicados`
+
+### Reglas del PR draft
+
+- No inventar cambios no realizados.
+- No mezclar roadmap futuro con el cambio actual.
+- No forzar secciones vacías.
+- Agrupar por módulo, feature o área.
+- Usar bullets cortos.
+- Usar checkboxes solo para validación o checklist.
+
+### Qué evitar
+
+- Cambios fuera de alcance.
+- Refactors globales no pedidos.
+- Cambios cosméticos innecesarios.
+- Dependencias nuevas sin justificación.
+- Documentación desalineada con el estado real del código.

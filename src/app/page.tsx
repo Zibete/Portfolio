@@ -20,6 +20,15 @@ const credibilityMotionDelays = [
   "motion-delay-4",
 ] as const;
 
+const homePrimarySurfaceClassName =
+  "interactive-card relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8";
+
+const homeSecondarySurfaceClassName =
+  "interactive-card rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76";
+
+const homeSurfaceAccentClassName =
+  "pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.12),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)]";
+
 export default async function Home() {
   const [featuredProject] = await getFeaturedProjectEntries();
 
@@ -32,27 +41,32 @@ export default async function Home() {
       {featuredProject ? (
         <>
           <section className="pb-8 sm:pb-10">
-            <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-              <div className="motion-reveal motion-delay-1 space-y-4">
-                <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-                  {siteConfig.homeComposition.projectLead.eyebrow}
-                </p>
-                <div className="space-y-4">
-                  <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
-                    {siteConfig.homeComposition.projectLead.title}
-                  </h2>
-                  <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
-                    {siteConfig.homeComposition.projectLead.description}
+            <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
+              <div
+                className={`${homePrimarySurfaceClassName} motion-reveal motion-delay-1 h-full`}
+              >
+                <div className={homeSurfaceAccentClassName} />
+                <div className="relative space-y-4">
+                  <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
+                    {siteConfig.homeComposition.projectLead.eyebrow}
                   </p>
+                  <div className="space-y-4">
+                    <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
+                      {siteConfig.homeComposition.projectLead.title}
+                    </h2>
+                    <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
+                      {siteConfig.homeComposition.projectLead.description}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid gap-3">
+              <div className="grid gap-4 lg:h-full lg:grid-rows-3">
                 {siteConfig.homeComposition.projectLead.highlights.map(
                   (highlight, index) => (
                     <div
                       key={highlight}
-                      className={`interactive-card-subtle motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-card/70`}
+                      className={`${homeSecondarySurfaceClassName} motion-enter ${projectLeadMotionDelays[index] ?? "motion-delay-4"} h-full text-sm leading-6 text-muted-foreground`}
                     >
                       {highlight}
                     </div>
@@ -66,10 +80,13 @@ export default async function Home() {
         </>
       ) : null}
 
-      <section className="pb-24 sm:pb-28">
+      <section className="pb-24 sm:pb-20">
         <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-          <div className="interactive-card motion-reveal motion-delay-1 rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8">
-            <div className="space-y-6">
+          <div
+            className={`${homePrimarySurfaceClassName} motion-reveal motion-delay-1`}
+          >
+            <div className={homeSurfaceAccentClassName} />
+            <div className="relative space-y-6">
               <div className="space-y-4">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
                   {siteConfig.homeComposition.credibility.eyebrow}
@@ -88,7 +105,7 @@ export default async function Home() {
                 {siteConfig.homeComposition.credibility.items.map((item, index) => (
                   <div
                     key={item.title}
-                    className={`interactive-card-subtle motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                    className={`${homeSecondarySurfaceClassName} motion-enter ${credibilityMotionDelays[index] ?? "motion-delay-4"}`}
                   >
                     <p className="text-sm font-semibold text-foreground">
                       {item.title}
@@ -102,7 +119,7 @@ export default async function Home() {
             </div>
           </div>
 
-          <aside className="interactive-card motion-enter motion-delay-3 rounded-[2rem] border border-border/70 bg-background/78 p-6 shadow-[0_24px_70px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur-xl dark:bg-card/76 sm:p-7">
+          <aside className="interactive-card motion-enter motion-delay-3 rounded-[1.75rem] border border-border/70 bg-background/72 p-6 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76 sm:p-7 lg:py-6">
             <div className="space-y-5">
               <div className="space-y-3">
                 <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
