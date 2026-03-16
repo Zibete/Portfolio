@@ -37,23 +37,25 @@ export default function SkillsPage() {
             {skills.groups.map((group, index) => (
               <div
                 key={group.title}
-                className={`interactive-card-subtle motion-enter ${skillGroupMotionDelays[index] ?? "motion-delay-5"} rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+                className={`motion-enter ${skillGroupMotionDelays[index] ?? "motion-delay-5"}`}
               >
-                <p className="text-base font-semibold text-foreground">
-                  {group.title}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                  {group.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
+                  <p className="text-base font-semibold text-foreground">
+                    {group.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {group.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -66,13 +68,13 @@ export default function SkillsPage() {
             className="lg:sticky lg:top-24"
           >
             <div className="space-y-3">
-              {skills.aside.items.map((item) => (
-                <div
-                  key={item}
-                  className="interactive-card-subtle rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
-                >
-                  {item}
-                </div>
+                {skills.aside.items.map((item) => (
+                  <div
+                    key={item}
+                    className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                  >
+                    {item}
+                  </div>
               ))}
             </div>
           </PageAside>

@@ -54,27 +54,29 @@ export default function ContactPage() {
               return (
                 <div
                   key={method.label}
-                  className={`interactive-card-subtle motion-enter ${contactMethodMotionDelays[index] ?? "motion-delay-4"} flex flex-col gap-4 rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10 sm:flex-row sm:items-center sm:justify-between`}
+                  className={`motion-enter ${contactMethodMotionDelays[index] ?? "motion-delay-4"}`}
                 >
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-                      {Icon ? <Icon className="size-4 text-primary" /> : null}
-                      {method.label}
+                  <div className="interactive-card flex flex-col gap-4 rounded-[1.5rem] border border-border/70 bg-background/72 p-5 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                        {Icon ? <Icon className="size-4 text-primary" /> : null}
+                        {method.label}
+                      </div>
+                      <p className="text-base font-medium text-foreground">
+                        {method.value}
+                      </p>
+                      <p className="text-sm leading-6 text-muted-foreground">
+                        {method.description}
+                      </p>
                     </div>
-                    <p className="text-base font-medium text-foreground">
-                      {method.value}
-                    </p>
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      {method.description}
-                    </p>
-                  </div>
 
-                  <Button variant="outline" asChild className="w-full sm:w-auto">
-                    <Link href={method.href} target="_blank" rel="noreferrer">
-                      Abrir
-                      <ArrowRight />
-                    </Link>
-                  </Button>
+                    <Button variant="outline" asChild className="w-full sm:w-auto">
+                      <Link href={method.href} target="_blank" rel="noreferrer">
+                        Abrir
+                        <ArrowRight />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               );
             })}
@@ -97,9 +99,11 @@ export default function ContactPage() {
           {contact.topics.map((topic, index) => (
             <div
               key={topic}
-              className={`interactive-card-subtle motion-enter ${topicMotionDelays[index] ?? "motion-delay-4"} rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10`}
+              className={`motion-enter ${topicMotionDelays[index] ?? "motion-delay-4"}`}
             >
-              {topic}
+              <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
+                {topic}
+              </div>
             </div>
           ))}
         </PageSection>

@@ -89,14 +89,16 @@ export function HomeHero() {
               {summaryCards.map((card, index) => (
                 <div
                   key={card.label}
-                  className={`interactive-card motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} flex h-full flex-col justify-center rounded-[1.5rem] border border-border/70 bg-background/72 px-5 py-4 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76`}
+                  className={`motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} h-full`}
                 >
-                  <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                    {card.label}
-                  </p>
-                  <p className="mt-3 text-base font-semibold leading-6 text-foreground">
-                    {card.value}
-                  </p>
+                  <div className="interactive-card flex h-full flex-col justify-center rounded-[1.5rem] border border-border/70 bg-background/72 px-5 py-4 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
+                    <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+                      {card.label}
+                    </p>
+                    <p className="mt-3 text-base font-semibold leading-6 text-foreground">
+                      {card.value}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

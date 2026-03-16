@@ -177,59 +177,61 @@ export function StackMarquee() {
           <div className="h-px flex-1 bg-border/70" />
         </div>
 
-        <div
-          className="stack-marquee-surface interactive-card motion-reveal motion-delay-2 relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-card/72 py-3 shadow-[0_24px_70px_-58px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:py-4"
-          onPointerEnter={() => setIsSurfaceHovered(true)}
-          onPointerLeave={() => {
-            setIsSurfaceHovered(false);
-            setActiveChipId(null);
-          }}
-        >
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-[rgb(245_248_252)] via-[rgb(245_248_252_/_0.94)] to-transparent dark:from-[rgb(12_18_34)] dark:via-[rgb(12_18_34_/_0.94)]" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-[rgb(245_248_252)] via-[rgb(245_248_252_/_0.94)] to-transparent dark:from-[rgb(12_18_34)] dark:via-[rgb(12_18_34_/_0.94)]" />
+        <div className="motion-reveal motion-delay-2">
+          <div
+            className="stack-marquee-surface relative overflow-hidden rounded-[1.75rem] border border-border/70 bg-card/72 py-3 shadow-[0_24px_70px_-58px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:py-4"
+            onPointerEnter={() => setIsSurfaceHovered(true)}
+            onPointerLeave={() => {
+              setIsSurfaceHovered(false);
+              setActiveChipId(null);
+            }}
+          >
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-[rgb(245_248_252)] via-[rgb(245_248_252_/_0.94)] to-transparent dark:from-[rgb(12_18_34)] dark:via-[rgb(12_18_34_/_0.94)]" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-[rgb(245_248_252)] via-[rgb(245_248_252_/_0.94)] to-transparent dark:from-[rgb(12_18_34)] dark:via-[rgb(12_18_34_/_0.94)]" />
 
-          <div ref={trackRef} className="stack-marquee-track flex w-max min-w-full">
-            {[0, 1].map((copyIndex) => (
-              <ul
-                key={copyIndex}
-                aria-hidden={copyIndex === 1}
-                ref={copyIndex === 0 ? groupRef : undefined}
-                className={`stack-marquee-group flex shrink-0 ${
-                  copyIndex === 1 ? "stack-marquee-copy" : ""
-                }`}
-              >
-                {marqueeItems.map((item) => {
-                  const visual = skillVisuals[item];
-                  const Icon = visual?.icon ?? Braces;
-                  const chipId = `${copyIndex}-${item}`;
+            <div ref={trackRef} className="stack-marquee-track flex w-max min-w-full">
+              {[0, 1].map((copyIndex) => (
+                <ul
+                  key={copyIndex}
+                  aria-hidden={copyIndex === 1}
+                  ref={copyIndex === 0 ? groupRef : undefined}
+                  className={`stack-marquee-group flex shrink-0 ${
+                    copyIndex === 1 ? "stack-marquee-copy" : ""
+                  }`}
+                >
+                  {marqueeItems.map((item) => {
+                    const visual = skillVisuals[item];
+                    const Icon = visual?.icon ?? Braces;
+                    const chipId = `${copyIndex}-${item}`;
 
-                  return (
-                    <li
-                      key={`${copyIndex}-${item}`}
-                      className="shrink-0 px-2 sm:px-3"
-                    >
-                      <span
-                        className="marquee-chip inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/82 px-4 py-2 text-sm font-medium text-foreground shadow-sm dark:bg-background/18"
-                        data-active={activeChipId === chipId ? "true" : "false"}
-                        onPointerEnter={() => setActiveChipId(chipId)}
-                        onPointerLeave={() => setActiveChipId(null)}
+                    return (
+                      <li
+                        key={`${copyIndex}-${item}`}
+                        className="shrink-0 px-2 sm:px-3"
                       >
                         <span
-                          className={cn(
-                            "marquee-icon inline-flex size-6 items-center justify-center rounded-full",
-                            visual?.accentClass ??
-                              "bg-primary/12 text-primary dark:bg-primary/16",
-                          )}
+                          className="marquee-chip inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/82 px-4 py-2 text-sm font-medium text-foreground shadow-sm dark:bg-background/18"
+                          data-active={activeChipId === chipId ? "true" : "false"}
+                          onPointerEnter={() => setActiveChipId(chipId)}
+                          onPointerLeave={() => setActiveChipId(null)}
                         >
-                          <Icon className="size-3.5" />
+                          <span
+                            className={cn(
+                              "marquee-icon inline-flex size-6 items-center justify-center rounded-full",
+                              visual?.accentClass ??
+                                "bg-primary/12 text-primary dark:bg-primary/16",
+                            )}
+                          >
+                            <Icon className="size-3.5" />
+                          </span>
+                          {item}
                         </span>
-                        {item}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-            ))}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
       </Container>
