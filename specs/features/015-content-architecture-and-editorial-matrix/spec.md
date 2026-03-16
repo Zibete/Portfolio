@@ -2,48 +2,40 @@
 
 ## Objetivo
 
-Ordenar la arquitectura editorial del portfolio antes de seguir tocando UI o copy final, para que cada ruta tenga un trabajo claro, el mensaje principal del perfil se lea con rapidez y se eliminen repeticiones que hoy diluyen impacto.
+Ordenar la arquitectura editorial del portfolio antes de seguir tocando UI o copy final, y dejar el copy no-MDX principal centralizado en `src/content/site/` para que cada ruta tenga un trabajo claro y editable sin depender de strings hardcodeados en renderers.
 
 ## Alcance
 
 ### Entra en esta feature
-- auditar el contenido real en `src/content/site/site-config.ts`, `src/content/site/profile-content.ts`, rutas principales y MDX de proyectos/experience
 - definir relato principal y relato secundario del portfolio
 - definir la idea madre de cada ruta principal
 - mapear claims actuales del sitio y detectar solapamientos
 - construir una matriz editorial `claim -> dónde vive -> evidencia -> acción`
-- decidir qué mantener, mover, borrar o reescribir
 - identificar headers genéricos que conviene renombrar
-- documentar reglas editoriales para futuras feats de copy y cleanup
-- dejar priorizado el backlog de siguientes ajustes de contenido
-- revisar Contact y CV solo para auditar su función editorial actual
+- centralizar en `src/content/site/` el copy no-MDX principal de:
+  - Home
+  - About
+  - Experience
+  - Skills
+  - Contact
+  - CV
+  - footer
+- mover a la capa de contenido headings, eyebrows, títulos, descripciones, labels de CTA, badges, cards de resumen del hero, títulos/descripciones de secciones y copy de cierre
+- dejar páginas y componentes como renderers, no como fuente de verdad del texto
+- agregar tipado mínimo local si hace falta para dejar clara y segura la capa de contenido
 
 ### No entra en esta feature
-- implementación de copy final página por página
-- cleanup de Contact y CV
-- rediseño visual de CTA o botones
-- ajuste del hero de Home
+- reescritura de MDX de `src/content/projects/*`
+- reescritura de MDX de `src/content/experience/*`
+- cleanup editorial final de Contact y CV
 - unificación de case studies entre proyectos
-- reorganización de Skills
-- cambios en layout, motion o navegación
-- nuevas secciones
+- cambios visuales, de layout, motion o navegación
+- cambios en GitHub API, assets o lógica de datos
 - dependencias nuevas
 
 ## Problema que resuelve
 
-Hoy el portfolio ya tiene una base sólida de contenido, pero varias rutas vuelven a comunicar ideas muy parecidas con distinto phrasing: perfil técnico híbrido, automatización end-to-end, criterio operativo, mejora continua, base moderna, foco en producto.
-
-Eso genera consistencia, pero también pérdida de jerarquía. El sitio comunica mucho, aunque no siempre distribuye bien qué debe decir cada página y qué evidencia corresponde a cada claim.
-
-## Auditoría base del contenido actual
-
-- `Home` hoy vende a la vez posicionamiento, prueba principal, credibilidad general y anticipo de CV. Tiene buena jerarquía visual, pero concentra demasiadas variantes del mismo pitch.
-- `About` vuelve a presentar el perfil completo cuando debería explicar de dónde sale la combinación entre Android, automatización y criterio operativo.
-- `Projects` tiene el contrato más claro: muestra evidencia concreta en formato caso de estudio. El riesgo es que otras rutas le roben trabajo repitiendo claims técnicos sin bajar a prueba.
-- `Experience` ya concentra evidencia útil de contexto real, métricas y criterio operativo. Compite con `About` y `CV` cuando vuelve a reformular el posicionamiento general.
-- `Skills` agrupa capacidades correctamente, pero su intro todavía repite demasiada identidad general en lugar de quedarse en dominios y herramientas.
-- `Contact` y `CV` hoy siguen vendiendo el perfil en vez de cerrar: ambos repiten target roles, diferencial y síntesis general.
-- Los MDX de `Projects` y `Experience` ya contienen la evidencia más fuerte del sitio. El problema principal no es falta de contenido, sino mala distribución del mensaje.
+El portfolio ya tenía una base editorial clara, pero el contenido no-MDX principal estaba repartido entre `site-config.ts`, `profile-content.ts` y múltiples renderers con copy embebido. Eso dificultaba mantener el contrato editorial por ruta, hacía más costosa cualquier iteración de copy y dejaba partes del mensaje fuera de una capa editable única.
 
 ## Marco narrativo definido
 
@@ -57,28 +49,26 @@ Eso genera consistencia, pero también pérdida de jerarquía. El sitio comunica
 
 ### Regla editorial
 
-- el relato principal debe vender el fit profesional en `Home` y quedar respaldado por una síntesis breve en `About` y `CV`
-- el relato secundario debe aparecer como sostén y evidencia, sobre todo en `Experience`, `Skills` y los MDX
-- cada ruta debe sumar jerarquía o prueba; si una sección no agrega contexto ni evidencia nueva, está compitiendo con otra página
+- `Home` vende el fit y deriva a evidencia
+- `About` explica origen y forma de trabajo
+- `Projects` y los MDX prueban claims
+- `Experience` respalda criterio operativo
+- `Skills` ordena capacidades aplicadas
+- `Contact` y `CV` cierran, no reabren el pitch completo
 
 ## Contrato editorial por ruta
 
 | Ruta | Idea madre | Debe hacer | No debe volver a explicar |
 | --- | --- | --- | --- |
-| `Home` | Dar una lectura rápida del fit profesional y derivar a la mejor evidencia. | presentar el relato principal, mostrar que hay prueba concreta y orientar hacia `Projects` o `CV` | trayectoria completa, inventario de skills, cierre de contacto largo |
-| `About` | Explicar cómo se formó el perfil híbrido y cómo trabaja. | conectar Android, automatización, operación y forma de trabajo en una narrativa coherente | vender otra vez todos los proyectos o repetir target roles |
-| `Projects` | Probar claims con casos concretos. | mostrar evidencia técnica y de producto con pocos casos bien explicados | resumir toda la identidad del portfolio |
-| `Experience` | Justificar el criterio operativo y el contexto real que sostiene el perfil. | mostrar volumen, contexto, mejora operativa, coordinación y trazabilidad | listar stack como si fuera una página de habilidades |
+| `Home` | Dar una lectura rápida del fit profesional y derivar a la mejor evidencia. | presentar el relato principal, mostrar prueba concreta y orientar hacia `Projects` o `CV` | trayectoria completa, inventario de skills, cierre de contacto largo |
+| `About` | Explicar cómo se formó el perfil híbrido y cómo trabaja. | conectar Android, automatización, operación y forma de trabajo | vender otra vez todos los proyectos o repetir target roles |
+| `Projects` | Probar claims con casos concretos. | mostrar evidencia técnica y de producto | resumir toda la identidad del portfolio |
+| `Experience` | Justificar el criterio operativo y el contexto real que sostiene el perfil. | mostrar volumen, contexto, mejora operativa y trazabilidad | listar stack como si fuera una página de habilidades |
 | `Skills` | Ordenar capacidades por dominio y lenguaje de trabajo. | mostrar con qué herramientas y dominios se ejecuta el relato principal | funcionar como mini `About` o mini `CV` |
 | `Contact` | Reducir fricción para iniciar una conversación. | concentrar canales y una mención breve del fit actual | reabrir el pitch completo del portfolio |
-| `CV` | Sintetizar el perfil para compartirlo rápido. | dejar una lectura portable, breve y derivable a proyectos/contacto | agregar narrativa nueva o duplicar `Contact` |
+| `CV` | Sintetizar el perfil para compartirlo rápido. | dejar una lectura portable, breve y derivable | agregar narrativa nueva o duplicar `Contact` |
 
-### Rutas de evidencia
-
-- `Projects/[slug]` y sus MDX deben ser la capa de prueba del trabajo técnico y de producto.
-- los MDX de `Experience` deben ser la capa de prueba del criterio operativo, los procesos reales y la mejora aplicada.
-
-## Matriz editorial
+## Matriz editorial mínima
 
 | Claim | Dónde vive mejor | Evidencia concreta | Acción editorial |
 | --- | --- | --- | --- |
@@ -92,85 +82,37 @@ Eso genera consistencia, pero también pérdida de jerarquía. El sitio comunica
 | Roles objetivo y disponibilidad para conversar | badge y CTA de `Home` + `Contact` + CTA de `CV` | `hero.statusBadge`, `contact.methods`, descarga de CV | reescribir |
 | Documentación, testing y colaboración como forma de trabajo | `About` + `Skills` + evidencia en `ZIBE` | principios de `About`, grupo de calidad en `Skills`, sección de calidad técnica en `zibe.mdx` | mantener |
 
-## Repeticiones reales detectadas
+## Implementación resuelta en esta iteración
 
-- `Home`, `About` y `CV` abren con variaciones del mismo pitch general sobre perfil técnico híbrido.
-- `Home`, `About`, `Skills` y `Contact` vuelven a la combinación Android + automatización sin sumar evidencia nueva.
-- `About`, `Experience` y `CV` repiten criterio operativo, procesos complejos y mejora sostenible con poca redistribución funcional.
-- `Home`, `CV` y `Contact` repiten roles objetivo y disponibilidad cuando deberían repartirse entre apertura, síntesis y cierre.
-- `Projects` y los MDX ya concentran la evidencia fuerte; cuando `About`, `CV` o `Contact` repiten demasiado detalle técnico, compiten con esa prueba en lugar de derivar hacia ella.
-
-## Headers genéricos a renombrar
-
-| Header actual | Contexto | Dirección de renombre |
-| --- | --- | --- |
-| `Prueba principal` | `Home` | nombrar la sección como evidencia principal del perfil |
-| `Señales de credibilidad` | `Home` | explicitar qué señales prueban el criterio profesional |
-| `Siguiente paso` | `Home` | dejar claro que el CTA lleva a una síntesis portable del perfil |
-| `Diferencial` | `About` | explicar qué combinación hace distinto al perfil |
-| `Forma de trabajo` | `About` | nombrar cómo trabaja y por qué eso importa |
-| `Experiencia relevante` | `Experience` | explicitar qué tramo de experiencia sostiene el criterio operativo |
-| `Capacidades consolidadas` | `Experience` | bajar el aprendizaje repetible que deja esa experiencia |
-| `Dominios principales` | `Skills` | hablar de capacidades aplicadas, no de categorías genéricas |
-| `Vías directas` | `Contact` | priorizar contacto concreto y simple |
-| `Áreas de aporte` | `Contact` | dejar claro para qué conversaciones conviene escribir |
-| `Snapshot` | `CV` | expresar que es una lectura rápida del perfil |
-| `Resumen profesional` | `CV` | diferenciar síntesis portable de pitch repetido |
-| `Accesos` / `Accesos principales` | `CV` | nombrar recursos para seguir validando el perfil |
-
-## Backlog separado para feats posteriores
-
-- `Home messaging refinement`: ajustar hero, bloque de credibilidad y CTA de CV usando el relato principal/secundario ya fijado.
-- `About/Experience cleanup`: redistribuir la narrativa operativa para que `About` explique origen/forma de trabajo y `Experience` pruebe contexto real.
-- `Contact/CV cleanup`: transformar ambas rutas en cierre y síntesis, sin seguir compitiendo con el pitch de `Home`.
-- `Projects case study unification`: revisar estructura común de listados y case studies de proyectos, fuera de esta feature.
+- `src/content/site/site-config.ts` concentra el contenido global, Home y footer
+- `src/content/site/profile-content.ts` concentra el contenido editorial de About, Experience, Skills, Contact y CV
+- `src/components/sections/home-hero.tsx` y `src/components/sections/featured-project.tsx` dejaron de tener copy editorial como source of truth
+- `src/app/about/page.tsx`, `src/app/experience/page.tsx`, `src/app/skills/page.tsx`, `src/app/contact/page.tsx` y `src/app/cv/page.tsx` leen sus bloques desde la capa de contenido
+- `src/types/site.ts` incorpora el tipado mínimo necesario para sostener la capa centralizada
 
 ## Requisitos funcionales
 
 1. El portfolio debe dejar explícito un relato principal y uno secundario.
-2. Cada ruta principal debe tener una única idea madre.
+2. Cada ruta principal debe tener una idea madre clara.
 3. Los claims relevantes del sitio deben quedar inventariados.
-4. Cada claim debe vincularse con una evidencia concreta o una ruta donde se demuestra.
-5. Cada claim debe tener una acción editorial definida: mantener, mover, borrar o reescribir.
-6. Deben identificarse headers genéricos que hoy no comunican suficiente.
-7. Debe quedar claro qué ajustes pertenecen a feats posteriores.
-8. Deben quedar explicitadas las repeticiones reales entre `Home`, `About`, `Projects`, `Experience`, `Skills`, `Contact` y `CV`.
+4. Debe existir una matriz `claim -> dónde vive -> evidencia -> acción`.
+5. El contenido no-MDX principal debe vivir centralizado en `src/content/site/`.
+6. No deben quedar textos editoriales relevantes hardcodeados en las páginas y componentes principales alcanzados por esta feature.
+7. Home, About, Experience, Skills, Contact y CV deben leer desde esa capa.
 
 ## Requisitos no funcionales
 
-- no tocar código de implementación en esta feature
-- no abrir una reescritura masiva sin mapa previo
 - mantener coherencia con `docs/PROJECT_CONSTITUTION.md`
 - priorizar escaneabilidad y jerarquía antes que cantidad de texto
-- dejar un sistema editorial simple, usable y mantenible
-- evitar ambigüedades entre mensaje principal, apoyo y evidencia
-
-## Resolución esperada
-
-- definir contrato editorial por ruta:
-  - Home
-  - About
-  - Projects
-  - Experience
-  - Skills
-  - Contact
-  - CV
-- dejar documentado el relato principal y el secundario
-- producir una matriz editorial completa
-- listar repeticiones reales del sitio
-- listar headers a renombrar
-- separar claramente lo que se resuelve en próximas feats:
-  - cleanup Contact/CV
-  - refinement de Home
-  - cleanup About/Experience
-  - unificación de case studies
+- no introducir cambios visuales
+- no tocar MDX, assets, GitHub API ni lógica de datos
+- mantener diffs mínimos y responsabilidades claras entre `site-config.ts` y `profile-content.ts`
 
 ## Criterio de done
 
 - existe un relato principal y un relato secundario explícitos
-- cada ruta principal tiene una idea madre definida
-- la matriz editorial está completa
-- las repeticiones principales están identificadas
-- los headers genéricos a revisar están listados
-- el alcance de futuras feats queda separado sin mezcla
-- `spec.md`, `plan.md`, `tasks.md` y `verification.md` quedan alineados
+- la matriz editorial está documentada
+- el copy no-MDX principal vive centralizado en `src/content/site/`
+- los renderers principales no quedan como fuente de verdad del texto
+- `npm run lint` y `npm run build` pasan
+- `spec.md`, `plan.md`, `tasks.md` y `verification.md` quedan alineados con el resultado real
