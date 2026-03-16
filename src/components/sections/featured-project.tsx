@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/content/site/site-config";
 import {
   formatGitHubDate,
   formatGitHubMetric,
@@ -28,6 +29,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
     : null;
   const shouldShowGitHubStats =
     project.frontmatter.githubFeatured === true && githubStats;
+  const featuredProjectContent = siteConfig.homeComposition.featuredProject;
 
   return (
     <section className="pb-8 sm:pb-10">
@@ -38,7 +40,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
             <div className="relative space-y-6">
               <div className="space-y-4">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-                  Proyecto principal
+                  {featuredProjectContent.eyebrow}
                 </p>
                 <div className="space-y-3">
                   <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
@@ -48,33 +50,31 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
                     {project.frontmatter.summary}
                   </p>
                   <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-                    Un caso real para mostrar mensajería en tiempo real, evolución
-                    arquitectónica y criterio de mantenimiento sobre una base Android
-                    que sigue activa.
+                    {featuredProjectContent.description}
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {stackPreview.map((item) => (
-                  <TagChip
-                    key={item}
-                    label={item}
-                  />
+                  <TagChip key={item} label={item} />
                 ))}
               </div>
 
               {shouldShowGitHubStats ? (
                 <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                  <TagChip label="GitHub vivo" className="text-foreground" />
                   <TagChip
-                    label={`Stars ${formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}`}
+                    label={featuredProjectContent.githubBadge}
+                    className="text-foreground"
                   />
                   <TagChip
-                    label={`Forks ${formatGitHubMetric(shouldShowGitHubStats.forksCount)}`}
+                    label={`${featuredProjectContent.statsLabels.stars} ${formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}`}
                   />
                   <TagChip
-                    label={`Último push ${formatGitHubDate(shouldShowGitHubStats.pushedAt)}`}
+                    label={`${featuredProjectContent.statsLabels.forks} ${formatGitHubMetric(shouldShowGitHubStats.forksCount)}`}
+                  />
+                  <TagChip
+                    label={`${featuredProjectContent.statsLabels.lastPush} ${formatGitHubDate(shouldShowGitHubStats.pushedAt)}`}
                   />
                 </div>
               ) : null}
@@ -82,12 +82,14 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild>
                   <Link href={`/projects/${project.slug}`}>
-                    Ver caso completo
+                    {featuredProjectContent.primaryActionLabel}
                     <ArrowRight />
                   </Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/projects">Ver listado</Link>
+                  <Link href={featuredProjectContent.secondaryAction.href}>
+                    {featuredProjectContent.secondaryAction.label}
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -98,10 +100,11 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
           <div className={`motion-enter ${metadataMotionDelays[0]} h-full`}>
             <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Rol
+                {featuredProjectContent.metadata.roleLabel}
               </p>
               <p className="mt-3 text-sm leading-6 text-foreground">
-                {project.frontmatter.role ?? "Pendiente de definir"}
+                {project.frontmatter.role ??
+                  featuredProjectContent.metadata.emptyValue}
               </p>
             </div>
           </div>
@@ -109,10 +112,11 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
           <div className={`motion-enter ${metadataMotionDelays[1]} h-full`}>
             <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Período
+                {featuredProjectContent.metadata.periodLabel}
               </p>
               <p className="mt-3 text-sm leading-6 text-foreground">
-                {project.frontmatter.year ?? "Pendiente de definir"}
+                {project.frontmatter.year ??
+                  featuredProjectContent.metadata.emptyValue}
               </p>
             </div>
           </div>
@@ -120,10 +124,11 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
           <div className={`motion-enter ${metadataMotionDelays[2]} h-full`}>
             <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                Foco
+                {featuredProjectContent.metadata.focusLabel}
               </p>
               <p className="mt-3 text-sm leading-6 text-foreground">
-                {focusPreview.join(" / ") || "Arquitectura / producto / calidad"}
+                {focusPreview.join(" / ") ||
+                  featuredProjectContent.metadata.focusFallback}
               </p>
             </div>
           </div>

@@ -19,7 +19,7 @@ const signalMotionDelays = [
 ] as const;
 
 export const metadata = {
-  title: "Experiencia",
+  title: profileContent.experience.eyebrow,
 };
 
 export default async function ExperiencePage() {
@@ -48,12 +48,12 @@ export default async function ExperiencePage() {
         />
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        <PageSection
-          eyebrow="Experiencia relevante"
-          title="Roles que explican mi combinación de criterio operativo y ejecución técnica."
-          description="Pan American Energy / AXION, cuentas a pagar, automatización y supervisión operativa forman una base concreta para resolver problemas exigentes con orden y trazabilidad."
-          contentClassName="grid gap-4"
-        >
+          <PageSection
+            eyebrow={experience.rolesSection.eyebrow}
+            title={experience.rolesSection.title}
+            description={experience.rolesSection.description}
+            contentClassName="grid gap-4"
+          >
             {entries.map((entry, index) => (
               <div
                 key={entry.slug}
@@ -79,10 +79,7 @@ export default async function ExperiencePage() {
                   {entry.frontmatter.focus?.length ? (
                     <div className="mt-4 flex flex-wrap gap-2">
                       {entry.frontmatter.focus.map((item) => (
-                        <TagChip
-                          key={item}
-                          label={item}
-                        />
+                        <TagChip key={item} label={item} />
                       ))}
                     </div>
                   ) : null}
@@ -116,9 +113,9 @@ export default async function ExperiencePage() {
         </div>
 
         <PageSection
-          eyebrow="Capacidades consolidadas"
-          title="Señales que ya aparecen de forma consistente en mi experiencia."
-          description="Procesos complejos, múltiples áreas, presión operativa y necesidad de mejora continua son contextos donde ya trabajé y donde hoy sigo aportando mejor."
+          eyebrow={experience.repeatableSignalsSection.eyebrow}
+          title={experience.repeatableSignalsSection.title}
+          description={experience.repeatableSignalsSection.description}
           contentClassName="grid gap-4 md:grid-cols-3"
         >
           {experience.repeatableSignals.map((item, index) => (

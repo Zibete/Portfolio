@@ -38,6 +38,20 @@ export const siteConfig: SiteConfig = {
       href: "/projects",
       label: "Ver proyectos",
     },
+    summaryCards: [
+      {
+        label: "Rol objetivo",
+        value: "Android Jr/Mid · Automatización",
+      },
+      {
+        label: "Perfil",
+        value: "Producto, negocio y ejecución técnica",
+      },
+      {
+        label: "Enfoque",
+        value: "Modernización con impacto real",
+      },
+    ],
   },
   stackMarquee: {
     label: "Stack híbrido",
@@ -89,6 +103,29 @@ export const siteConfig: SiteConfig = {
         },
       ],
     },
+    featuredProject: {
+      eyebrow: "Proyecto principal",
+      description:
+        "Un caso real para mostrar mensajería en tiempo real, evolución arquitectónica y criterio de mantenimiento sobre una base Android que sigue activa.",
+      githubBadge: "GitHub vivo",
+      statsLabels: {
+        stars: "Stars",
+        forks: "Forks",
+        lastPush: "Último push",
+      },
+      primaryActionLabel: "Ver caso completo",
+      secondaryAction: {
+        href: "/projects",
+        label: "Ver listado",
+      },
+      metadata: {
+        roleLabel: "Rol",
+        periodLabel: "Período",
+        focusLabel: "Foco",
+        emptyValue: "Pendiente de definir",
+        focusFallback: "Arquitectura / producto / calidad",
+      },
+    },
     cvCta: {
       eyebrow: "Siguiente paso",
       title: "Mi CV reúne experiencia, foco actual y proyectos clave.",
@@ -99,5 +136,10 @@ export const siteConfig: SiteConfig = {
         label: "Ver CV",
       },
     },
+  },
+  footer: {
+    copyrightSuffix: "Base profesional de mi portfolio.",
+    description:
+      "Enfocado en proyectos reales, automatización end-to-end y desarrollo con impacto operativo.",
   },
 };

@@ -19,7 +19,7 @@ const principleMotionDelays = [
 ] as const;
 
 export const metadata = {
-  title: "Sobre mí",
+  title: profileContent.about.eyebrow,
 };
 
 export default function AboutPage() {
@@ -37,9 +37,9 @@ export default function AboutPage() {
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
           <div className="space-y-6">
             <PageSection
-              eyebrow="Diferencial"
-              title="Base técnica moderna con experiencia operativa real."
-              description="No me defino por un único eje. Mi recorrido cruza desarrollo, automatización, datos y procesos con foco constante en problemas concretos y resultados defendibles."
+              eyebrow={about.highlightSection.eyebrow}
+              title={about.highlightSection.title}
+              description={about.highlightSection.description}
               contentClassName="grid gap-4 md:grid-cols-3"
             >
               {about.highlights.map((item, index) => (
@@ -60,9 +60,9 @@ export default function AboutPage() {
             </PageSection>
 
             <PageSection
-              eyebrow="Forma de trabajo"
-              title="Cómo aporto valor en un equipo."
-              description="Empatía, escucha, documentación y respeto por procesos conviven con una base técnica orientada a claridad, mantenimiento y mejora continua."
+              eyebrow={about.principlesSection.eyebrow}
+              title={about.principlesSection.title}
+              description={about.principlesSection.description}
               contentClassName="grid gap-4 md:grid-cols-3"
             >
               {about.principles.map((item, index) => (

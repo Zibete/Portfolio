@@ -10,21 +10,6 @@ const summaryCardMotionDelays = [
   "motion-delay-6",
 ] as const;
 
-const summaryCards = [
-  {
-    label: "Rol objetivo",
-    value: "Android Jr/Mid · Automatización",
-  },
-  {
-    label: "Perfil",
-    value: "Producto, negocio y ejecución técnica",
-  },
-  {
-    label: "Enfoque",
-    value: "Modernización con impacto real",
-  },
-] as const;
-
 export function HomeHero() {
   return (
     <section className="pt-14 pb-8 sm:pt-18 sm:pb-20">
@@ -62,13 +47,22 @@ export function HomeHero() {
 
               <div className="motion-enter motion-delay-4 space-y-3">
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button size="lg" asChild className="min-w-[11rem] shadow-[0_16px_42px_-24px_rgb(84_139_255_/_0.7)]">
+                  <Button
+                    size="lg"
+                    asChild
+                    className="min-w-[11rem] shadow-[0_16px_42px_-24px_rgb(84_139_255_/_0.7)]"
+                  >
                     <Link href={siteConfig.hero.primaryCta.href}>
                       {siteConfig.hero.primaryCta.label}
                       <ArrowRight />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="min-w-[11rem] bg-background/72 dark:bg-background/10">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    asChild
+                    className="min-w-[11rem] bg-background/72 dark:bg-background/10"
+                  >
                     <Link href={siteConfig.hero.secondaryCta.href}>
                       {siteConfig.hero.secondaryCta.label}
                       <Layers3 />
@@ -86,7 +80,7 @@ export function HomeHero() {
             </div>
 
             <div className="grid gap-3 md:grid-cols-3 lg:h-full lg:grid-cols-1 lg:grid-rows-3">
-              {summaryCards.map((card, index) => (
+              {siteConfig.hero.summaryCards.map((card, index) => (
                 <div
                   key={card.label}
                   className={`motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} h-full`}
