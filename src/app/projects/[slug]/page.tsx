@@ -7,6 +7,7 @@ import { PageAside } from "@/components/shared/page-aside";
 import { Container } from "@/components/shared/container";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
+import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
 import {
   getProjectMdxModule,
@@ -106,12 +107,10 @@ export default async function ProjectDetailPage({
             description={entry.frontmatter.summary}
           >
             {taxonomy.slice(0, 8).map((item) => (
-              <span
+              <TagChip
                 key={item}
-                className="interactive-chip rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
-              >
-                {item}
-              </span>
+                label={item}
+              />
             ))}
           </PageIntro>
         </div>

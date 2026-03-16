@@ -2,6 +2,7 @@ import { Container } from "@/components/shared/container";
 import { PageAside } from "@/components/shared/page-aside";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
+import { TagChip } from "@/components/shared/tag-chip";
 import { profileContent } from "@/content/site/profile-content";
 
 const skillGroupMotionDelays = [
@@ -48,12 +49,10 @@ export default function SkillsPage() {
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {group.items.map((item) => (
-                      <span
+                      <TagChip
                         key={item}
-                        className="rounded-full border border-border/70 bg-card/72 px-3 py-1 text-xs font-medium text-muted-foreground dark:bg-background/14"
-                      >
-                        {item}
-                      </span>
+                        label={item}
+                      />
                     ))}
                   </div>
                 </div>

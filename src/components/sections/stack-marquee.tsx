@@ -1,82 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { LucideIcon } from "lucide-react";
-import {
-  Bot,
-  Braces,
-  Building2,
-  FileSpreadsheet,
-  Flame,
-  Layers3,
-  PanelsTopLeft,
-  TableProperties,
-  Wind,
-} from "lucide-react";
+import { TagChip } from "@/components/shared/tag-chip";
 import { Container } from "@/components/shared/container";
-import { cn } from "@/lib/utils";
 import { siteConfig } from "@/content/site/site-config";
 
 const marqueeItems = siteConfig.stackMarquee.items;
 const baseMarqueeSpeed = 34;
 const hoverMarqueeSpeed = 18;
 const activeChipSpeed = 0;
-
-const skillVisuals: Record<
-  string,
-  { icon: LucideIcon; accentClass: string }
-> = {
-  Kotlin: {
-    icon: Braces,
-    accentClass:
-      "bg-indigo-500/12 text-indigo-700 dark:bg-indigo-400/14 dark:text-indigo-200",
-  },
-  "Jetpack Compose": {
-    icon: Layers3,
-    accentClass:
-      "bg-sky-500/12 text-sky-700 dark:bg-sky-400/14 dark:text-sky-200",
-  },
-  Firebase: {
-    icon: Flame,
-    accentClass:
-      "bg-amber-500/14 text-amber-700 dark:bg-amber-400/14 dark:text-amber-200",
-  },
-  Python: {
-    icon: Bot,
-    accentClass:
-      "bg-emerald-500/12 text-emerald-700 dark:bg-emerald-400/14 dark:text-emerald-200",
-  },
-  VBA: {
-    icon: FileSpreadsheet,
-    accentClass:
-      "bg-lime-500/12 text-lime-700 dark:bg-lime-400/14 dark:text-lime-200",
-  },
-  Excel: {
-    icon: TableProperties,
-    accentClass:
-      "bg-green-500/12 text-green-700 dark:bg-green-400/14 dark:text-green-200",
-  },
-  "SAP FI": {
-    icon: Building2,
-    accentClass:
-      "bg-cyan-500/12 text-cyan-700 dark:bg-cyan-400/14 dark:text-cyan-200",
-  },
-  "Next.js": {
-    icon: PanelsTopLeft,
-    accentClass:
-      "bg-slate-500/12 text-slate-700 dark:bg-slate-300/16 dark:text-slate-100",
-  },
-  TypeScript: {
-    icon: Braces,
-    accentClass:
-      "bg-blue-500/12 text-blue-700 dark:bg-blue-400/14 dark:text-blue-200",
-  },
-  "Tailwind CSS": {
-    icon: Wind,
-    accentClass:
-      "bg-teal-500/12 text-teal-700 dark:bg-teal-400/14 dark:text-teal-200",
-  },
-};
 
 export function StackMarquee() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -200,8 +132,6 @@ export function StackMarquee() {
                   }`}
                 >
                   {marqueeItems.map((item) => {
-                    const visual = skillVisuals[item];
-                    const Icon = visual?.icon ?? Braces;
                     const chipId = `${copyIndex}-${item}`;
 
                     return (
@@ -209,23 +139,14 @@ export function StackMarquee() {
                         key={`${copyIndex}-${item}`}
                         className="shrink-0 px-2 sm:px-3"
                       >
-                        <span
-                          className="marquee-chip inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/82 px-4 py-2 text-sm font-medium text-foreground shadow-sm dark:bg-background/18"
+                        <TagChip
+                          label={item}
+                          size="md"
+                          variant="marquee"
                           data-active={activeChipId === chipId ? "true" : "false"}
                           onPointerEnter={() => setActiveChipId(chipId)}
                           onPointerLeave={() => setActiveChipId(null)}
-                        >
-                          <span
-                            className={cn(
-                              "marquee-icon inline-flex size-6 items-center justify-center rounded-full",
-                              visual?.accentClass ??
-                                "bg-primary/12 text-primary dark:bg-primary/16",
-                            )}
-                          >
-                            <Icon className="size-3.5" />
-                          </span>
-                          {item}
-                        </span>
+                        />
                       </li>
                     );
                   })}
