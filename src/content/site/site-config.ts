@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Portfolio personal con foco en Android, automatización end-to-end y ZIBE como caso principal para mostrar arquitectura, calidad técnica y criterio de producto.",
   assets: {
-    profileImagePath: "/images/profile/Matías_Peralta.JPG",
+    profileImagePath: "/images/profile/MatiasPeralta.JPG",
     profileImageAlt: "Retrato profesional de Matías Peralta",
     cvFilePath: "/files/CV_MATIAS_PERALTA_ANALISTA.pdf",
   },
@@ -30,7 +30,6 @@ export const siteConfig: SiteConfig = {
     title: "Android moderno y automatización con foco en producto.",
     description:
       "Con ZIBE como caso principal, muestro modernización incremental, arquitectura clara y calidad técnica visible en un repo público.",
-    supportingNote: "Caso principal ya disponible: ZIBE.",
     primaryCta: {
       href: "/projects/zibe",
       label: "Explorar ZIBE",
