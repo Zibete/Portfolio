@@ -170,20 +170,20 @@ export const profileContent = {
   },
   skills: {
     eyebrow: "Habilidades",
-    title: "Capacidades agrupadas por dominios, no por buzzwords.",
+    title: "Base técnica para construir producto, automatizar procesos y sostener soluciones reales.",
     description:
-      "La combinación que mejor me representa cruza Android, automatización, datos y procesos. El valor está en cómo se conectan para resolver trabajo real.",
+      "Mi perfil combina Android, automatización, datos y calidad de implementación. Más que herramientas aisladas, son capacidades que uso en conjunto para resolver problemas concretos con claridad, trazabilidad y foco en mantenimiento.",
     groupsSection: {
-      eyebrow: "Dominios principales",
-      title: "Tecnologías conectadas a producto, operación y mejora de procesos.",
+      eyebrow: "Capacidades principales",
+      title: "Tecnologías y prácticas que hoy uso con más frecuencia.",
       description:
-        "Estas son las áreas donde hoy tengo más tracción y donde mejor se ve la combinación entre base técnica moderna, automatización y experiencia operativa.",
+        "Estas son las áreas donde hoy tengo más tracción y donde mejor se ve la combinación entre base técnica moderna, automatización y criterio de implementación.",
     },
     groups: [
       {
-        title: "Android y desarrollo de producto",
+        title: "Android y producto",
         description:
-          "Base técnica moderna para construir, corregir y evolucionar aplicaciones con foco en mantenibilidad.",
+          "Base técnica moderna para construir, corregir y evolucionar apps con foco en mantenibilidad.",
         items: [
           "Kotlin",
           "Jetpack Compose",
@@ -194,7 +194,7 @@ export const profileContent = {
         ],
       },
       {
-        title: "Automatización e integraciones",
+        title: "Automatización e integración",
         description:
           "Diseño flujos de punta a punta que combinan reglas de negocio, validaciones y orquestación entre herramientas.",
         items: [
@@ -207,7 +207,7 @@ export const profileContent = {
         ],
       },
       {
-        title: "Datos y control operativo",
+        title: "Datos, validaciones y control",
         description:
           "Trabajo cómodo con reporting, cruces de información, validación de datos y análisis de desvíos para decisiones operativas.",
         items: [
@@ -220,7 +220,7 @@ export const profileContent = {
         ],
       },
       {
-        title: "Testing, calidad y colaboración",
+        title: "Calidad, testing y colaboración",
         description:
           "No separo implementación de calidad: pruebo, documento y busco que el cambio sea claro para quien lo mantiene después.",
         items: [
@@ -229,6 +229,7 @@ export const profileContent = {
           "Instrumented tests",
           "GitHub Actions",
           "Documentación",
+          "Normas y HSE",
           "Capacitación de ingresantes",
         ],
       },
@@ -237,19 +238,19 @@ export const profileContent = {
       eyebrow: "Cómo las aplico",
       title: "La herramienta importa por el problema que ayuda a resolver.",
       description:
-        "Cada tecnología aparece ligada a un resultado concreto: producto, automatización, control operativo, trazabilidad o mejora de productividad.",
+        "Cada tecnología aparece ligada a un resultado concreto: construir producto, automatizar tareas, mejorar controles y sostener procesos con más trazabilidad y productividad.",
       items: [
         {
           title: "Android",
-          description: "Base moderna para productos propios.",
+          description: "Base moderna para productos propios y evolución incremental de aplicaciones.",
         },
         {
           title: "Automatización",
-          description: "Ventaja real sobre procesos complejos y repetitivos.",
+          description: "Integración de herramientas y flujos para reducir trabajo manual y ganar productividad.",
         },
         {
           title: "Datos y validaciones",
-          description: "Soporte para decisiones más confiables.",
+          description: "Soporte para decisiones más confiables, control de procesos y mejor trazabilidad.",
         },
       ],
     },
