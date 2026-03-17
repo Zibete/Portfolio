@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import type { Viewport } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
@@ -55,6 +56,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <ThemeProvider>
           <SiteShell>{children}</SiteShell>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
