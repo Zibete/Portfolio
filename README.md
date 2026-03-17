@@ -68,8 +68,8 @@ A medida que el proyecto fue creciendo, se trabajó en:
 ### Home
 ![Home del portfolio](public/images/readme/home-desktop.png)
 
-### Mobile
-![Vista mobile](public/images/readme/home-mobile.png)
+### Home scroll
+<video src="public/images/readme/home-scroll.mp4" controls muted playsinline width="100%"></video>
 
 ### Projects
 ![Sección de proyectos](public/images/readme/projects.png)
