@@ -158,6 +158,6 @@ export const siteConfig: SiteConfig = {
   footer: {
     copyrightSuffix: "Base profesional de mi portfolio.",
     description:
-      "Enfocado en proyectos reales, automatización end-to-end y desarrollo con impacto operativo.",
+      "Efocado en productos, automatización y soluciones técnicas con impacto operativo real.",
   },
 };
