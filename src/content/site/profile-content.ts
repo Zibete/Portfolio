@@ -41,6 +41,7 @@ type ContactAction = {
 };
 
 type AboutContent = ContentSection & {
+  journeySection: ContentSection;
   highlightSection: ContentSection;
   highlights: ContentCard[];
   principlesSection: ContentSection;
@@ -48,6 +49,7 @@ type AboutContent = ContentSection & {
   aside: ContentAside & {
     items: string[];
   };
+  footer: string;
 };
 
 type ExperienceContent = ContentSection & {
@@ -96,31 +98,36 @@ const githubHref = "https://github.com/Zibete";
 export const profileContent = {
   about: {
     eyebrow: "Sobre mí",
-    title:
-      "Perfil técnico híbrido con foco en Android, automatización y mejora operativa.",
+    title: "Perfil híbrido: desarrollo Android, automatización y mejora de procesos.",
     description:
-      "Combino experiencia real en operaciones, cuentas a pagar, automatización y desarrollo. Mi diferencial está en convertir circuitos complejos en soluciones más claras, medibles y sostenibles.",
+      "Combino experiencia real en operación, cuentas a pagar y automatización con una base técnica visible en Android moderno. Mi diferencial está en convertir circuitos complejos en soluciones más claras, medibles y sostenibles.",
+    journeySection: {
+      eyebrow: "",
+      title: "Cómo llegué hasta acá",
+      description:
+        "Mi recorrido profesional no empezó en desarrollo puro. Se formó en contextos donde había que sostener operación, entender procesos, coordinar con distintas áreas y resolver problemas concretos con impacto diario. Con el tiempo, esa experiencia se convirtió en una base muy valiosa para automatizar, ordenar flujos y construir soluciones más claras. Hoy la combino con una formación técnica más fuerte y con proyectos propios donde sigo profundizando desarrollo Android, arquitectura y producto.",
+    },
     highlightSection: {
       eyebrow: "Diferencial",
-      title: "Base técnica moderna con experiencia operativa real.",
+      title: "Experiencia real aplicada a soluciones técnicas.",
       description:
-        "No me defino por un único eje. Mi recorrido cruza desarrollo, automatización, datos y procesos con foco constante en problemas concretos y resultados defendibles.",
+        "No vengo solo de proyectos personales ni de una única disciplina. Mi recorrido cruza desarrollo, automatización, datos y operación, siempre con foco en problemas concretos, impacto real y decisiones que se puedan sostener.",
     },
     highlights: [
       {
-        title: "Android junior con base moderna",
+        title: "Base Android moderna",
         description:
-          "ZIBE aporta una base visible en Kotlin, Compose, MVVM, Firebase, testing y evolución incremental de arquitectura en un repo público activo.",
+          "ZIBE muestra una base visible en Kotlin, Jetpack Compose, MVVM, Firebase, testing y evolución incremental de arquitectura en un repositorio público activo.",
       },
       {
-        title: "Automatización end-to-end",
+        title: "Automatización de punta a punta",
         description:
-          "Diseña flujos que integran sistemas, archivos, validaciones y salidas automáticas para reducir trabajo manual y aumentar productividad.",
+          "Diseño flujos que integran sistemas, archivos, validaciones y salidas automáticas para reducir trabajo manual, ganar trazabilidad y mejorar productividad.",
       },
       {
-        title: "Criterio operativo real",
+        title: "Contexto operativo real",
         description:
-          "La experiencia en operación, cuentas a pagar y coordinación entre áreas me lleva a priorizar soluciones que realmente funcionen en el día a día.",
+          "La experiencia en operación, cuentas a pagar y trabajo entre áreas me lleva a priorizar soluciones que funcionen de verdad en el día a día.",
       },
     ],
     principlesSection: {
@@ -130,21 +137,23 @@ export const profileContent = {
         "Empatía, escucha, documentación y respeto por procesos conviven con una base técnica orientada a claridad, mantenimiento y mejora continua.",
     },
     principles: [
-      "Equilibrio entre profundidad técnica y claridad para áreas de producto y negocio.",
+      "Claridad técnica y comunicación entre desarrollo, producto y áreas de negocio.",
       "Documentación, pruebas, respeto por procesos y mejora continua como base de trabajo.",
-      "Construyo productos propios mientras avanzo hacia mi próximo rol en Android, automatización o contextos técnico-funcionales.",
+      "Construcción iterativa de productos y automatizaciones con foco en impacto real.",
     ],
     aside: {
       eyebrow: "Hoy",
-      title: "Productos propios y una base técnica cada vez más visible.",
+      title: "Proyectos públicos y una base técnica cada vez más visible.",
       description:
-        "Tras cerrar una etapa profesional, enfoqué mi tiempo en productos públicos, aprendizaje aplicado y consolidación de un perfil técnico híbrido con señal visible.",
+        "Hoy estoy enfocado en consolidar un perfil técnico híbrido a través de proyectos públicos, aprendizaje aplicado y desarrollo con evidencia visible. Busco aportar en roles donde se valore tanto la implementación como la mejora real de procesos.",
       items: [
         "Pilar, Buenos Aires, Argentina",
-        "Roles objetivo: Android Jr/Mid, automatización y mejora de procesos, técnico-funcional en operaciones/finanzas",
-        "Base fuerte en empatía, escucha, documentación y vocación de enseñar",
+        "Roles objetivo: Android Jr, automatización y mejora de procesos, técnico-funcional en operaciones/finanzas",
+        "Fortaleza transversal: empatía, escucha, documentación y vocación de enseñar",
       ],
     },
+    footer:
+      "Enfocado en productos, automatización y soluciones técnicas con impacto real.",
   },
   skills: {
     eyebrow: "Habilidades",

@@ -4,6 +4,11 @@
 
 Cerrar la consistencia narrativa después de FEAT 017, empezando por About y continuando por Experience.
 
+## Estado de la iteración actual
+
+- About implementado en esta iteración
+- Experience queda pendiente para la próxima pasada
+
 ## Enfoque
 
 ### Etapa 1 — About

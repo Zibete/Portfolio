@@ -9,6 +9,11 @@
 - [ ] “Forma de trabajo” no repite Home de manera casi literal
 - [ ] “Hoy” vende mejor el presente profesional
 
+## Estado de esta iteración
+
+- [x] esta iteración valida sólo cambios en About
+- [x] Experience queda fuera de alcance por ahora y pendiente de implementación
+
 ## Verificación de Experience
 
 - [ ] Experience comunica mejor resultados y contexto

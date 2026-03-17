@@ -1,12 +1,12 @@
 # Tasks — FEAT 018
 
 ## About
-- [ ] alinear título y bajada principal con el nuevo discurso de Home
-- [ ] reescribir bloque “Diferencial”
-- [ ] agregar bloque breve más humano/profesional (“Cómo llegué hasta acá” o equivalente)
-- [ ] ajustar bloque “Forma de trabajo” para evitar repetición con Home
-- [ ] reescribir bloque “Hoy”
-- [ ] revisar labels/cards para mantener Android visible sin sobrecargar el discurso
+- [x] alinear título y bajada principal con el nuevo discurso de Home
+- [x] reescribir bloque “Diferencial”
+- [x] agregar bloque breve más humano/profesional (“Cómo llegué hasta acá” o equivalente)
+- [x] ajustar bloque “Forma de trabajo” para evitar repetición con Home
+- [x] reescribir bloque “Hoy”
+- [x] revisar labels/cards para mantener Android visible sin sobrecargar el discurso
 
 ## Experience
 - [ ] revisar el relato general de la página
@@ -17,8 +17,9 @@
 
 ## Cierre
 - [ ] hacer pasada final de consistencia editorial entre About y Experience
+- [x] dejar documentado que esta iteración cubre sólo About y que Experience sigue pendiente
 - [ ] validar que no haya slogans repetidos innecesarios
 - [ ] actualizar spec.md
-- [ ] actualizar plan.md
-- [ ] actualizar tasks.md
-- [ ] actualizar verification.md
+- [x] actualizar plan.md
+- [x] actualizar tasks.md
+- [x] actualizar verification.md

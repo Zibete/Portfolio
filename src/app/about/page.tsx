@@ -34,6 +34,11 @@ export default function AboutPage() {
           description={about.description}
         />
 
+        <PageSection
+          title={about.journeySection.title}
+          description={about.journeySection.description}
+        />
+
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
           <div className="space-y-6">
             <PageSection
@@ -113,6 +118,10 @@ export default function AboutPage() {
             </PageAside>
           </div>
         </div>
+
+        <p className="motion-reveal motion-delay-4 border-t border-border/60 pt-6 text-sm font-medium leading-6 text-muted-foreground">
+          {about.footer}
+        </p>
       </Container>
     </section>
   );
