@@ -27,32 +27,37 @@ export const siteConfig: SiteConfig = {
     { href: cvFilePath, label: "Descargar CV", download: true },
   ],
   hero: {
-    statusBadge: "Disponible para Android y automatización",
-    eyebrow: "Portfolio técnico",
-    title: "Android moderno y automatización con foco en producto.",
+    statusBadge:
+      "Disponible para roles Android, automatización y mejora de procesos",
+    eyebrow: "Desarrollo Android + automatización",
+    title:
+      "Desarrollo soluciones Android y automatizaciones para procesos complejos, con impacto medible",
     description:
-      "Con ZIBE como caso principal, muestro modernización incremental, arquitectura clara y calidad técnica visible en un repo público.",
+      "Vengo de resolver operación real con volumen, trazabilidad y mejora continua, y hoy lo combino con una base técnica visible en Android moderno. Mi foco está en construir soluciones que no solo funcionen, sino que también se puedan entender, mantener y hacer crecer.",
     primaryCta: {
+      href: "/projects",
+      label: "Ver proyectos",
+    },
+    secondaryCta: {
       href: cvFilePath,
       label: "Descargar CV",
       download: true,
     },
-    secondaryCta: {
-      href: "/projects",
-      label: "Ver proyectos",
-    },
     summaryCards: [
       {
-        label: "Rol objetivo",
-        value: "Android Jr/Mid · Automatización",
+        label: "Impacto operativo",
+        value:
+          "De ~60 a más de 500 documentos procesados por día mediante automatización y mejora de flujo.",
       },
       {
         label: "Perfil",
-        value: "Producto, negocio y ejecución técnica",
+        value:
+          "Android junior con base sólida en automatización, integraciones y mejora de procesos.",
       },
       {
-        label: "Enfoque",
-        value: "Modernización con impacto real",
+        label: "Prueba técnica",
+        value:
+          "Proyectos públicos con arquitectura, decisiones y evolución documentada.",
       },
     ],
   },
@@ -73,43 +78,43 @@ export const siteConfig: SiteConfig = {
   },
   homeComposition: {
     projectLead: {
-      eyebrow: "Prueba principal",
-      title: "ZIBE concentra el tipo de trabajo que mejor representa mi perfil.",
+      eyebrow: "Experiencia real aplicada",
+      title: "Experiencia real llevada a soluciones técnicas",
       description:
-        "Después de la identidad y el stack, la Home baja a una prueba concreta: un proyecto Android real donde se ve arquitectura, evolución técnica y criterio de producto.",
+        "Mi perfil no se construyó solo desde proyectos personales. Se formó resolviendo operatorias reales, integrando herramientas, reduciendo trabajo manual y sosteniendo procesos con reglas de negocio, volumen y necesidad de continuidad. Esa experiencia es la base sobre la que hoy desarrollo productos, automatizaciones y herramientas más mantenibles.",
       highlights: [
-        "Arquitectura documentada y visible en repo público",
-        "Modernización incremental sin reescritura total",
-        "Integración end-to-end con foco en mantenibilidad",
+        "Circuitos con múltiples áreas, validaciones, excepciones y necesidad de precisión operativa.",
+        "Integración de herramientas, sistemas, datos y flujos.",
+        "Equilibrio entre velocidad, claridad técnica y sostenibilidad de la solución en el tiempo.",
       ],
     },
     credibility: {
-      eyebrow: "Señales de credibilidad",
-      title: "Trabajo con claridad técnica, continuidad y foco operativo.",
+      eyebrow: "Cómo trabajo",
+      title: "Código claro, iteración guiada y foco en el problema real.",
       description:
-        "Más allá de un proyecto puntual, el portfolio busca mostrar cómo pienso el trabajo: criterio técnico, mejora continua y capacidad de traducir decisiones en valor entendible para negocio.",
+        "Trabajo con especificaciones claras, implementación iterativa y criterio técnico. Codeo, automatizo y me apoyo en agentes y modelos LLM cuando aceleran análisis, ejecución o revisión, sin perder control sobre las decisiones, la validación ni el mantenimiento.",
       items: [
         {
-          title: "Android + automatización",
+          title: "Implementación clara",
           description:
-            "Combino entrega de producto con automatización para resolver problemas reales y repetitivos.",
+            "Priorizo estructuras entendibles, decisiones trazables y soluciones que se puedan mantener, extender y revisar sin fricción.",
         },
         {
-          title: "Criterio de mantenimiento",
+          title: "Iteración con criterio",
           description:
-            "Prioridad en estructura, legibilidad y evolución incremental antes que soluciones vistosas pero frágiles.",
+            "Suelo avanzar con objetivos concretos, pasos acotados, validación frecuente y apoyo de IA cuando aporta velocidad real.",
         },
         {
-          title: "Equilibrio técnico y negocio",
+          title: "Contexto operativo",
           description:
-            "Busco que cada decisión sea defendible tanto por su calidad técnica como por su impacto operativo.",
+            "Diseño pensando en operación diaria, restricciones, errores posibles y continuidad, no solo en la implementación ideal."
         },
       ],
     },
     featuredProject: {
-      eyebrow: "Proyecto principal",
+      eyebrow: "Proyecto Android destacado",
       description:
-        "Un caso real para mostrar mensajería en tiempo real, evolución arquitectónica y criterio de mantenimiento sobre una base Android que sigue activa.",
+        "App Android de mensajería desarrollada como caso técnico principal del portfolio. El proyecto combina modernización progresiva, arquitectura por capas y prácticas actuales de Android para mostrar cómo abordo producto, código y mantenimiento en un contexto realista de evolución continua.",
       githubBadge: "GitHub vivo",
       statsLabels: {
         stars: "Stars",
@@ -124,20 +129,30 @@ export const siteConfig: SiteConfig = {
       metadata: {
         roleLabel: "Rol",
         periodLabel: "Período",
-        focusLabel: "Foco",
+        focusLabel: "Foco técnico",
         emptyValue: "Pendiente de definir",
         focusFallback: "Arquitectura / producto / calidad",
       },
     },
     closingCta: {
-      eyebrow: "Siguiente paso",
-      title: "Contacto y CV en un solo cierre.",
-      description:
-        "La página de contacto concentra la descarga del CV, canales directos y el contexto justo para avanzar rápido.",
-      action: {
-        href: "/contact",
-        label: "Ir a contacto",
-      },
+      eyebrow: "Seguí por acá",
+      title: "Elegí la evidencia que quieras ver",
+      description: "Proyectos, CV o contacto.",
+      actions: [
+        {
+          href: "/contact",
+          label: "Ir a contacto",
+        },
+        {
+          href: cvFilePath,
+          label: "Descargar CV",
+          download: true,
+        },
+        {
+          href: "/projects",
+          label: "Ver proyectos",
+        },
+      ],
     },
   },
   footer: {

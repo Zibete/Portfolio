@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { FeaturedProject } from "@/components/sections/featured-project";
 import { HomeHero } from "@/components/sections/home-hero";
 import { StackMarquee } from "@/components/sections/stack-marquee";
@@ -31,6 +31,47 @@ const homeSurfaceAccentClassName =
 
 export default async function Home() {
   const [featuredProject] = await getFeaturedProjectEntries();
+  const featuredProjectForHome = featuredProject
+    ? {
+        ...featuredProject,
+        frontmatter: {
+          ...featuredProject.frontmatter,
+          summary:
+            "Mensajería en tiempo real, autenticación, notificaciones push y evolución incremental sobre una base Android mantenida con foco en producto y continuidad técnica.",
+          role:
+            "Diseño, implementación y evolución integral del proyecto.",
+          year: "Finalizado en 2020, retomado en octubre de 2025 como base de modernización y consolidación pública del portfolio.",
+          tags: [
+            "Kotlin con foco en arquitectura mantenible, compatibilidad moderna y evolución incremental por PRs.",
+          ],
+        },
+      }
+    : null;
+  const [closingPrimaryAction, ...closingSecondaryActions] =
+    siteConfig.homeComposition.closingCta.actions;
+
+  const renderCtaAction = (
+    action: (typeof siteConfig.homeComposition.closingCta.actions)[number],
+  ) => {
+    const ActionIcon = action.download ? Download : ArrowRight;
+
+    return action.download || action.external ? (
+      <a
+        href={action.href}
+        download={action.download || undefined}
+        target={action.external ? "_blank" : undefined}
+        rel={action.external ? "noreferrer" : undefined}
+      >
+        {action.label}
+        <ActionIcon />
+      </a>
+    ) : (
+      <Link href={action.href}>
+        {action.label}
+        <ActionIcon />
+      </Link>
+    );
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -38,7 +79,7 @@ export default async function Home() {
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 hidden h-[42rem] bg-[radial-gradient(circle_at_16%_0%,_rgb(84_139_255_/_0.18),_transparent_36%),radial-gradient(circle_at_84%_12%,_rgb(14_165_233_/_0.11),_transparent_30%)] dark:block" />
       <HomeHero />
       <StackMarquee />
-      {featuredProject ? (
+      {featuredProjectForHome ? (
         <>
           <section className="pb-8 sm:pb-10">
             <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
@@ -80,7 +121,7 @@ export default async function Home() {
             </Container>
           </section>
 
-          <FeaturedProject project={featuredProject} />
+          <FeaturedProject project={featuredProjectForHome} />
         </>
       ) : null}
 
@@ -140,12 +181,27 @@ export default async function Home() {
                   </p>
                 </div>
 
-                <Button size="lg" asChild className="w-full">
-                  <Link href={siteConfig.homeComposition.closingCta.action.href}>
-                    {siteConfig.homeComposition.closingCta.action.label}
-                    <ArrowRight />
-                  </Link>
-                </Button>
+                {closingPrimaryAction ? (
+                  <Button size="lg" asChild className="w-full">
+                    {renderCtaAction(closingPrimaryAction)}
+                  </Button>
+                ) : null}
+
+                {closingSecondaryActions.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-3">
+                    {closingSecondaryActions.map((action) => (
+                      <Button
+                        key={action.label}
+                        size="lg"
+                        variant="outline"
+                        asChild
+                        className="w-full bg-background/72 dark:bg-background/10"
+                      >
+                        {renderCtaAction(action)}
+                      </Button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           </aside>
