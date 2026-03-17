@@ -12,7 +12,9 @@ const summaryCardMotionDelays = [
 
 export function HomeHero() {
   const primaryCta = siteConfig.hero.primaryCta;
+  const secondaryCta = siteConfig.hero.secondaryCta;
   const PrimaryCtaIcon = primaryCta.download ? Download : ArrowRight;
+  const SecondaryCtaIcon = secondaryCta.download ? Download : Layers3;
 
   return (
     <section className="pt-14 pb-8 sm:pt-18 sm:pb-20">
@@ -78,10 +80,22 @@ export function HomeHero() {
                     asChild
                     className="min-w-[11rem] bg-background/72 dark:bg-background/10"
                   >
-                    <Link href={siteConfig.hero.secondaryCta.href}>
-                      {siteConfig.hero.secondaryCta.label}
-                      <Layers3 />
-                    </Link>
+                    {secondaryCta.download || secondaryCta.external ? (
+                      <a
+                        href={secondaryCta.href}
+                        download={secondaryCta.download || undefined}
+                        target={secondaryCta.external ? "_blank" : undefined}
+                        rel={secondaryCta.external ? "noreferrer" : undefined}
+                      >
+                        {secondaryCta.label}
+                        <SecondaryCtaIcon />
+                      </a>
+                    ) : (
+                      <Link href={secondaryCta.href}>
+                        {secondaryCta.label}
+                        <SecondaryCtaIcon />
+                      </Link>
+                    )}
                   </Button>
                 </div>
 

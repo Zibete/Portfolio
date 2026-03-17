@@ -27,32 +27,37 @@ export const siteConfig: SiteConfig = {
     { href: cvFilePath, label: "Descargar CV", download: true },
   ],
   hero: {
-    statusBadge: "Disponible para Android y automatización",
-    eyebrow: "Portfolio técnico",
-    title: "Android moderno y automatización con foco en producto.",
+    statusBadge:
+      "Disponible para roles Android, automatización y mejora de procesos",
+    eyebrow: "Desarrollo Android + automatización",
+    title:
+      "Desarrollo soluciones Android y automatizaciones para procesos complejos, con impacto medible",
     description:
-      "Con ZIBE como caso principal, muestro modernización incremental, arquitectura clara y calidad técnica visible en un repo público.",
+      "Vengo de resolver operación real con volumen, trazabilidad y mejora continua, y hoy lo combino con una base técnica visible en Android moderno. Mi foco está en construir soluciones que no solo funcionen, sino que también se puedan entender, mantener y hacer crecer.",
     primaryCta: {
+      href: "/projects",
+      label: "Ver proyectos",
+    },
+    secondaryCta: {
       href: cvFilePath,
       label: "Descargar CV",
       download: true,
     },
-    secondaryCta: {
-      href: "/projects",
-      label: "Ver proyectos",
-    },
     summaryCards: [
       {
-        label: "Rol objetivo",
-        value: "Android Jr/Mid · Automatización",
+        label: "Impacto operativo",
+        value:
+          "De ~60 a más de 500 documentos procesados por día mediante automatización y mejora de flujo.",
       },
       {
         label: "Perfil",
-        value: "Producto, negocio y ejecución técnica",
+        value:
+          "Android junior con base sólida en automatización, integraciones y mejora de procesos.",
       },
       {
-        label: "Enfoque",
-        value: "Modernización con impacto real",
+        label: "Prueba técnica",
+        value:
+          "Proyectos públicos con arquitectura, decisiones y evolución documentada.",
       },
     ],
   },
