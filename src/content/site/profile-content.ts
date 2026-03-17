@@ -96,7 +96,7 @@ type ProfileContent = {
 
 const emailAddress = "matiasabelperalta@gmail.com";
 const emailHref = `mailto:${emailAddress}`;
-const linkedInHref = "https://www.linkedin.com/in/mat%C3%ADasabelperalta/";
+const linkedInHref = "https://www.linkedin.com/in/matiasabelperalta/";
 const githubHref = "https://github.com/Zibete";
 
 export const profileContent = {
@@ -257,9 +257,9 @@ export const profileContent = {
   experience: {
     eyebrow: "Experiencia",
     title:
-      "Trayectoria resumida desde impacto operativo, ejecución técnica y coordinación.",
+      "Experiencia real en operación, cuentas a pagar y automatización aplicada a procesos complejos.",
     description:
-      "Mi experiencia combina operación de alta exigencia, cuentas a pagar, automatización y trabajo transversal con múltiples áreas. Eso me dio criterio funcional y una mirada muy práctica sobre cómo implementar mejoras.",
+      "Mi recorrido profesional se formó en contextos de alta exigencia, con volumen, múltiples áreas involucradas y necesidad de trazabilidad. Esa experiencia es la que hoy me permite traducir circuitos operativos en soluciones más claras, medibles y sostenibles.",
     rolesSection: {
       eyebrow: "Experiencia relevante",
       title:
@@ -336,7 +336,7 @@ export const profileContent = {
       {
         id: "linkedin",
         label: "LinkedIn",
-        value: "matíasabelperalta",
+        value: "matiasabelperalta",
         href: linkedInHref,
         description: "Perfil profesional con recorrido y experiencia resumida.",
         actionLabel: "Ver perfil",
