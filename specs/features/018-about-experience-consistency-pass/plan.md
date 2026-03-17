@@ -2,12 +2,15 @@
 
 ## Estrategia
 
-Cerrar la consistencia narrativa después de FEAT 017, empezando por About y continuando por Experience.
+Cerrar la consistencia narrativa después de FEAT 017, empezando por About y extendiendo el ajuste a Experience, Skills y Projects cuando sea necesario para sostener un relato único.
 
-## Estado de la iteración actual
+## Estado final de la feature
 
-- About implementado en esta iteración
-- Experience queda pendiente para la próxima pasada
+- About implementado
+- Experience implementado
+- Skills ajustado editorialmente
+- Projects alineado con la narrativa general
+- fix MDX aplicado para evitar render del frontmatter
 
 ## Enfoque
 
@@ -25,10 +28,16 @@ Cerrar la consistencia narrativa después de FEAT 017, empezando por About y con
 - reducir repeticiones con Home y About
 - dejar más visible la conexión entre operación, automatización y desarrollo
 
-### Etapa 3 — Cierre
-- pasada de consistencia entre About y Experience
+### Etapa 3 — Skills y Projects
+- limpiar meta discurso innecesario
+- alinear títulos y bajadas con el tono general
+- reforzar conexión entre capacidades técnicas y trabajo real
+- ajustar narrativa de Projects para evitar wording editorial/técnico-meta
+
+### Etapa 4 — Cierre
+- pasada de consistencia entre About, Experience, Skills y Projects
 - microajustes de tono y repetición
-- validación visual rápida en ambas pantallas
+- validación visual rápida
 - documentación final alineada al resultado real
 
 ## Principios

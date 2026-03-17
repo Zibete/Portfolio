@@ -9,17 +9,31 @@
 - [x] revisar labels/cards para mantener Android visible sin sobrecargar el discurso
 
 ## Experience
-- [ ] revisar el relato general de la página
-- [ ] reforzar métricas clave
-- [ ] simplificar o reemplazar headers genéricos
-- [ ] limpiar frases repetidas con Home/About
-- [ ] mejorar conexión entre experiencia operativa, automatización y perfil técnico
+- [x] revisar el relato general de la página
+- [x] reforzar métricas clave
+- [x] simplificar o reemplazar headers genéricos
+- [x] limpiar frases repetidas con Home/About
+- [x] mejorar conexión entre experiencia operativa, automatización y perfil técnico
+
+## Skills
+- [x] revisar apertura y bajada principal
+- [x] reducir meta discurso innecesario
+- [x] alinear títulos y bloques con la narrativa general
+- [x] ajustar el bloque final para conectar herramientas con resultados concretos
+
+## Projects
+- [x] alinear la apertura de Projects con el nuevo discurso general
+- [x] ajustar narrativa de ZIBE
+- [x] ajustar narrativa del caso de automatización de cuentas a pagar
+- [x] reducir wording meta/editorial
+
+## Fix técnico
+- [x] corregir configuración MDX para que el frontmatter no se renderice como texto en páginas de detalle
 
 ## Cierre
-- [ ] hacer pasada final de consistencia editorial entre About y Experience
-- [x] dejar documentado que esta iteración cubre sólo About y que Experience sigue pendiente
-- [ ] validar que no haya slogans repetidos innecesarios
-- [ ] actualizar spec.md
+- [x] hacer pasada final de consistencia editorial entre About y Experience
+- [x] validar que no haya slogans repetidos innecesarios
+- [x] actualizar spec.md
 - [x] actualizar plan.md
 - [x] actualizar tasks.md
 - [x] actualizar verification.md

@@ -9,11 +9,6 @@
 - [ ] “Forma de trabajo” no repite Home de manera casi literal
 - [ ] “Hoy” vende mejor el presente profesional
 
-## Estado de esta iteración
-
-- [x] esta iteración valida sólo cambios en About
-- [x] Experience queda fuera de alcance por ahora y pendiente de implementación
-
 ## Verificación de Experience
 
 - [ ] Experience comunica mejor resultados y contexto
@@ -22,16 +17,39 @@
 - [ ] hay menos repetición con Home/About
 - [ ] la página sostiene el mismo tono del resto del portfolio
 
+## Verificación de Skills
+
+- [ ] Skills suena menos meta y más aplicado
+- [ ] los grupos siguen siendo escaneables
+- [ ] el bloque final conecta herramientas con resultados concretos
+
+## Verificación de Projects
+
+- [ ] Projects abre con una narrativa alineada al resto del sitio
+- [ ] ZIBE se presenta con mejor contexto temporal y técnico
+- [ ] el caso de automatización de cuentas a pagar se entiende rápido
+- [ ] no quedan textos meta/editoriales innecesarios
+
+## Verificación técnica
+
+- [ ] las páginas de detalle de proyectos ya no muestran frontmatter como texto
+- [ ] el contenido MDX sigue renderizando correctamente
+- [ ] metadata, summary y datos auxiliares siguen funcionando
+
 ## Verificación visual
 
 - [ ] revisar About en desktop
 - [ ] revisar About en mobile
 - [ ] revisar Experience en desktop
 - [ ] revisar Experience en mobile
+- [ ] revisar Skills en desktop
+- [ ] revisar Skills en mobile
+- [ ] revisar Projects en desktop
+- [ ] revisar Projects en mobile
 - [ ] verificar que textos más largos no rompan cards o ritmo vertical
 
 ## Fuera de alcance confirmado
 
 - [ ] sin cambios grandes de layout
-- [ ] sin rediseño de Projects
-- [ ] sin cambios funcionales en Contact
+- [ ] sin rediseño visual mayor
+- [ ] sin reescritura completa de Contact
