@@ -69,7 +69,7 @@ A medida que el proyecto fue creciendo, se trabajó en:
 ![Home del portfolio](public/images/readme/home-desktop.png)
 
 ### Home scroll
-<video src="public/images/readme/home-scroll.mp4" controls muted playsinline width="100%"></video>
+https://github.com/user-attachments/assets/bc743130-0bef-453b-807e-929d0c60be81
 
 ### Projects
 ![Sección de proyectos](public/images/readme/projects.png)
