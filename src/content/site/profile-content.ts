@@ -14,8 +14,13 @@ type ContentSnapshot = {
   value: string;
 };
 
+type ContentAsideItem = {
+  title: string;
+  description: string;
+};
+
 type ContentAside = ContentSection & {
-  items?: string[];
+  items?: ContentAsideItem[];
 };
 
 type ContactMethodId = "email" | "linkedin" | "github";
@@ -47,7 +52,7 @@ type AboutContent = ContentSection & {
   principlesSection: ContentSection;
   principles: string[];
   aside: ContentAside & {
-    items: string[];
+    items: ContentAsideItem[];
   };
   footer: string;
 };
@@ -68,7 +73,7 @@ type SkillsContent = ContentSection & {
   groupsSection: ContentSection;
   groups: SkillGroup[];
   aside: ContentAside & {
-    items: string[];
+    items: ContentAsideItem[];
   };
 };
 
@@ -131,15 +136,15 @@ export const profileContent = {
       },
     ],
     principlesSection: {
-      eyebrow: "Forma de trabajo",
-      title: "Cómo aporto valor en un equipo.",
+      eyebrow: "Cómo trabajo",
+      title: "Cómo trabajo y cómo aporto valor en un equipo.",
       description:
-        "Empatía, escucha, documentación y respeto por procesos conviven con una base técnica orientada a claridad, mantenimiento y mejora continua.",
+        "Trabajo con alcance claro, implementación iterativa y foco en mantenimiento. Codeo, automatizo y uso agentes o modelos LLM cuando aceleran análisis, ejecución o revisión, manteniendo siempre el criterio técnico, la validación y la decisión final.",
     },
     principles: [
-      "Claridad técnica y comunicación entre desarrollo, producto y áreas de negocio.",
-      "Documentación, pruebas, respeto por procesos y mejora continua como base de trabajo.",
-      "Construcción iterativa de productos y automatizaciones con foco en impacto real.",
+      "Código claro, comunicación efectiva y documentación útil para que el trabajo se entienda y se pueda sostener.",
+      "Proceso spec-driven con iteraciones cortas, validación frecuente y uso de IA cuando aporta velocidad real sin sumar ruido.",
+      "Diseño pensando en uso real: operación diaria, restricciones, errores posibles y mejora continua.",
     ],
     aside: {
       eyebrow: "Hoy",
@@ -147,9 +152,20 @@ export const profileContent = {
       description:
         "Hoy estoy enfocado en consolidar un perfil técnico híbrido a través de proyectos públicos, aprendizaje aplicado y desarrollo con evidencia visible. Busco aportar en roles donde se valore tanto la implementación como la mejora real de procesos.",
       items: [
-        "Pilar, Buenos Aires, Argentina",
-        "Roles objetivo: Android Jr, automatización y mejora de procesos, técnico-funcional en operaciones/finanzas",
-        "Fortaleza transversal: empatía, escucha, documentación y vocación de enseñar",
+        {
+          title: "Ubicación",
+          description: "Pilar, Buenos Aires, Argentina",
+        },
+        {
+          title: "Roles objetivo",
+          description:
+            "Android Jr, automatización y mejora de procesos, técnico-funcional en operaciones/finanzas",
+        },
+        {
+          title: "Fortaleza transversal",
+          description:
+            "Empatía, escucha, documentación y vocación de enseñar",
+        },
       ],
     },
     footer:
@@ -226,9 +242,18 @@ export const profileContent = {
       description:
         "Cada tecnología aparece ligada a un resultado concreto: producto, automatización, control operativo, trazabilidad o mejora de productividad.",
       items: [
-        "Android como base moderna para productos propios",
-        "Automatización como ventaja real sobre procesos complejos y repetitivos",
-        "Datos y validaciones como soporte para decisiones más confiables",
+        {
+          title: "Android",
+          description: "Base moderna para productos propios.",
+        },
+        {
+          title: "Automatización",
+          description: "Ventaja real sobre procesos complejos y repetitivos.",
+        },
+        {
+          title: "Datos y validaciones",
+          description: "Soporte para decisiones más confiables.",
+        },
       ],
     },
   },

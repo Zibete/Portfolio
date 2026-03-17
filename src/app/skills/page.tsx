@@ -66,10 +66,13 @@ export default function SkillsPage() {
             <div className="space-y-3">
               {skills.aside.items.map((item) => (
                 <div
-                  key={item}
-                  className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                  key={item.title}
+                  className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 dark:bg-background/10"
                 >
-                  {item}
+                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>

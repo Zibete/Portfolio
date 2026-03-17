@@ -27,20 +27,20 @@ export default function AboutPage() {
 
   return (
     <section className="py-16 sm:py-24">
-      <Container className="space-y-10">
-        <PageIntro
-          eyebrow={about.eyebrow}
-          title={about.title}
-          description={about.description}
-        />
-
-        <PageSection
-          title={about.journeySection.title}
-          description={about.journeySection.description}
-        />
-
+      <Container>
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-          <div className="space-y-6">
+          <div className="space-y-10">
+            <PageIntro
+              eyebrow={about.eyebrow}
+              title={about.title}
+              description={about.description}
+            />
+
+            <PageSection
+              title={about.journeySection.title}
+              description={about.journeySection.description}
+            />
+
             <PageSection
               eyebrow={about.highlightSection.eyebrow}
               title={about.highlightSection.title}
@@ -81,9 +81,13 @@ export default function AboutPage() {
                 </div>
               ))}
             </PageSection>
+
+            <p className="motion-reveal motion-delay-4 border-t border-border/60 pt-6 text-sm font-medium leading-6 text-muted-foreground">
+              {about.footer}
+            </p>
           </div>
 
-          <div className="grid gap-4 lg:sticky lg:top-24">
+          <div className="grid gap-4">
             <div className="motion-enter motion-delay-3">
               <div className="interactive-card rounded-[1.75rem] border border-border/70 bg-background/78 p-3 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
                 <div className="overflow-hidden rounded-[1.35rem] border border-border/60 bg-background/70 dark:bg-background/10">
@@ -108,20 +112,19 @@ export default function AboutPage() {
               <div className="space-y-3">
                 {about.aside.items.map((item) => (
                   <div
-                    key={item}
-                    className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 text-sm leading-6 text-muted-foreground dark:bg-background/10"
+                    key={item.title}
+                    className="interactive-card rounded-[1.25rem] border border-border/70 bg-background/72 px-4 py-3 dark:bg-background/10"
                   >
-                    {item}
+                    <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
             </PageAside>
           </div>
         </div>
-
-        <p className="motion-reveal motion-delay-4 border-t border-border/60 pt-6 text-sm font-medium leading-6 text-muted-foreground">
-          {about.footer}
-        </p>
       </Container>
     </section>
   );
