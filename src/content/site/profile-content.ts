@@ -54,7 +54,6 @@ type AboutContent = ContentSection & {
   aside: ContentAside & {
     items: ContentAsideItem[];
   };
-  footer: string;
 };
 
 type ExperienceContent = ContentSection & {
@@ -168,8 +167,6 @@ export const profileContent = {
         },
       ],
     },
-    footer:
-      "Enfocado en productos, automatización y soluciones técnicas con impacto real.",
   },
   skills: {
     eyebrow: "Habilidades",

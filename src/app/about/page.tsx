@@ -81,10 +81,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </PageSection>
-
-            <p className="motion-reveal motion-delay-4 border-t border-border/60 pt-6 text-sm font-medium leading-6 text-muted-foreground">
-              {about.footer}
-            </p>
           </div>
 
           <div className="grid gap-4">
