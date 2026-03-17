@@ -26,12 +26,14 @@ type ContactMethod = {
   value: string;
   href: string;
   description: string;
+  actionLabel: string;
+  external?: boolean;
 };
 
-type CvActionId = "projects" | "email" | "github";
+type ContactActionId = "projects" | "email" | "github";
 
-type CvAction = {
-  id: CvActionId;
+type ContactAction = {
+  id: ContactActionId;
   label: string;
   href: string;
   variant: "default" | "outline" | "ghost";
@@ -69,23 +71,14 @@ type SkillsContent = ContentSection & {
 };
 
 type ContactContent = ContentSection & {
-  methodsSection: ContentSection & {
-    actionLabel: string;
-  };
-  methods: ContactMethod[];
-  topicsSection: ContentSection;
-  topics: string[];
-  aside: ContentAside;
-};
-
-type CvContent = ContentSection & {
   downloadCtaLabel: string;
-  snapshotSection: ContentSection;
-  snapshots: ContentSnapshot[];
+  methodsSection: ContentSection;
+  methods: ContactMethod[];
   summarySection: ContentSection;
   summary: ContentCard[];
-  aside: ContentAside;
-  actions: CvAction[];
+  aside: ContentAside & {
+    actions: ContactAction[];
+  };
 };
 
 type ProfileContent = {
@@ -93,7 +86,6 @@ type ProfileContent = {
   experience: ExperienceContent;
   skills: SkillsContent;
   contact: ContactContent;
-  cv: CvContent;
 };
 
 const emailAddress = "matiasabelperalta@gmail.com";
@@ -290,15 +282,16 @@ export const profileContent = {
   },
   contact: {
     eyebrow: "Contacto",
-    title: "Contacto directo para conversaciones profesionales concretas.",
+    title:
+      "Contacto directo para oportunidades en Android, automatización y mejora operativa.",
     description:
-      "Android junior, automatización de procesos, mejora operativa y roles técnico-funcionales son los espacios donde hoy puedo aportar más valor.",
+      "Si querés avanzar con una conversación, acá están mis canales principales, el CV en PDF y el contexto justo para evaluar fit.",
+    downloadCtaLabel: "Descargar CV",
     methodsSection: {
-      eyebrow: "Vías directas",
-      title: "Canales simples para conversaciones con contexto.",
+      eyebrow: "Canales directos",
+      title: "Email, LinkedIn y GitHub.",
       description:
-        "Estas vías concentran la forma más directa de contactarme para oportunidades ligadas a Android, automatización, mejora de procesos o roles técnico-funcionales.",
-      actionLabel: "Abrir",
+        "Las vías más directas para escribirme, revisar mi perfil profesional o ver código público.",
     },
     methods: [
       {
@@ -306,119 +299,78 @@ export const profileContent = {
         label: "Email",
         value: emailAddress,
         href: emailHref,
-        description: "La vía más simple para una conversación directa.",
+        description: "La vía más simple para coordinar una conversación directa.",
+        actionLabel: "Escribir",
       },
       {
         id: "linkedin",
         label: "LinkedIn",
         value: "matíasabelperalta",
         href: linkedInHref,
-        description: "Perfil profesional y contexto laboral actualizado.",
+        description: "Perfil profesional con recorrido y experiencia resumida.",
+        actionLabel: "Ver perfil",
+        external: true,
       },
       {
         id: "github",
         label: "GitHub",
         value: "Zibete",
         href: githubHref,
-        description: "Repos públicos con foco en Android y automatización.",
-      },
-    ],
-    topicsSection: {
-      eyebrow: "Áreas de aporte",
-      title: "Espacios donde hoy puedo sumar más valor.",
-      description:
-        "Android junior, automatización, reporting operativo y circuitos técnico-funcionales son los contextos donde mejor se ve mi combinación entre criterio técnico y comprensión de procesos.",
-    },
-    topics: [
-      "Roles de Android junior con base técnica moderna y repos públicos activos",
-      "Automatización end-to-end y mejora de procesos con impacto operativo real",
-      "Posiciones técnico-funcionales en operaciones, finanzas o circuitos SAP / P2P",
-    ],
-    aside: {
-      eyebrow: "Base de trabajo",
-      title: "Ubicación y foco actual",
-      description:
-        "Pilar, Buenos Aires, Argentina. Actualmente construyo productos propios mientras busco un próximo desafío donde combinar criterio operativo, ejecución técnica y mejora continua.",
-    },
-  },
-  cv: {
-    eyebrow: "CV",
-    title: "Perfil técnico híbrido con foco en impacto operativo y base moderna.",
-    description:
-      "Android junior, automatización end-to-end y mejora de procesos sobre contextos reales de operación, datos y circuitos SAP / P2P.",
-    downloadCtaLabel: "Descargar CV en PDF",
-    snapshotSection: {
-      eyebrow: "Snapshot",
-      title: "Tres ejes para leer rápido el perfil.",
-      description:
-        "Base técnica moderna, automatización end-to-end y experiencia operativa real como síntesis del posicionamiento actual.",
-    },
-    snapshots: [
-      {
-        label: "Posicionamiento",
-        value:
-          "Perfil técnico híbrido con foco en Android, automatización end-to-end y mejora operativa.",
-      },
-      {
-        label: "Foco actual",
-        value:
-          "Productos propios, repos públicos y consolidación de un perfil técnico más visible.",
-      },
-      {
-        label: "Fortaleza diferencial",
-        value:
-          "Traducir procesos complejos en soluciones técnicas más claras, trazables y eficientes.",
-      },
-    ],
-    summarySection: {
-      eyebrow: "Resumen profesional",
-      title: "Valor profesional en una lectura corta.",
-      description:
-        "Combino experiencia en automatización end-to-end, mejora de procesos y desarrollo Android con base moderna. Aporto criterio operativo, foco en mantenimiento y capacidad para traducir necesidades reales en soluciones claras y útiles.",
-    },
-    summary: [
-      {
-        title: "Dónde aporto hoy",
         description:
-          "Desarrollo Android junior, automatización de procesos, reporting operativo, integraciones entre herramientas y roles técnico-funcionales sobre circuitos reales de negocio.",
-      },
-      {
-        title: "Experiencia que lo respalda",
-        description:
-          "Con ZIBE como proyecto principal, un caso público de automatización aplicada a cuentas a pagar y experiencia concreta en entornos de alto volumen, múltiples áreas y foco constante en eficiencia operativa.",
-      },
-      {
-        title: "Fortaleza diferencial",
-        description:
-          "Capacidad para traducir problemas operativos en soluciones técnicas con trazabilidad, validación y foco en productividad.",
-      },
-    ],
-    aside: {
-      eyebrow: "Accesos",
-      title: "Accesos principales",
-      description:
-        "CV en PDF listo para compartir, junto con proyectos públicos y contacto directo como referencias principales del perfil.",
-    },
-    actions: [
-      {
-        id: "projects",
-        label: "Ver proyectos",
-        href: "/projects",
-        variant: "default",
-      },
-      {
-        id: "email",
-        label: "Escribir por email",
-        href: emailHref,
-        variant: "outline",
-      },
-      {
-        id: "github",
-        label: "Ver GitHub",
-        href: githubHref,
-        variant: "ghost",
+          "Repos públicos para revisar código, continuidad y criterio técnico.",
+        actionLabel: "Ver GitHub",
         external: true,
       },
     ],
+    summarySection: {
+      eyebrow: "Perfil",
+      title: "Resumen profesional",
+      description:
+        "Dónde puedo aportar hoy, qué experiencia suma y qué diferencial aporto.",
+    },
+    summary: [
+      {
+        title: "Dónde puedo aportar hoy",
+        description:
+          "Android Jr/Mid, automatización de procesos y roles técnico-funcionales sobre operaciones, finanzas o circuitos SAP / P2P.",
+      },
+      {
+        title: "Qué experiencia suma",
+        description:
+          "Experiencia operativa real, automatización end-to-end y productos propios con base Android moderna y repos públicos activos.",
+      },
+      {
+        title: "Qué diferencial aporto",
+        description:
+          "Capacidad para traducir procesos complejos en soluciones claras, trazables y sostenibles, con foco en mantenimiento y mejora continua.",
+      },
+    ],
+    aside: {
+      eyebrow: "Siguiente paso",
+      title: "Proyectos, email y GitHub",
+      description:
+        "Además del CV, estos son los accesos más útiles para revisar material o seguir la conversación.",
+      actions: [
+        {
+          id: "projects",
+          label: "Ver proyectos",
+          href: "/projects",
+          variant: "default",
+        },
+        {
+          id: "email",
+          label: "Escribir por email",
+          href: emailHref,
+          variant: "outline",
+        },
+        {
+          id: "github",
+          label: "Ver GitHub",
+          href: githubHref,
+          variant: "ghost",
+          external: true,
+        },
+      ],
+    },
   },
 } satisfies ProfileContent;

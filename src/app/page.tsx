@@ -130,19 +130,19 @@ export default async function Home() {
               <div className="space-y-5">
                 <div className="space-y-3">
                   <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
-                    {siteConfig.homeComposition.cvCta.eyebrow}
+                    {siteConfig.homeComposition.closingCta.eyebrow}
                   </p>
                   <h2 className="text-2xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
-                    {siteConfig.homeComposition.cvCta.title}
+                    {siteConfig.homeComposition.closingCta.title}
                   </h2>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    {siteConfig.homeComposition.cvCta.description}
+                    {siteConfig.homeComposition.closingCta.description}
                   </p>
                 </div>
 
                 <Button size="lg" asChild className="w-full">
-                  <Link href={siteConfig.homeComposition.cvCta.action.href}>
-                    {siteConfig.homeComposition.cvCta.action.label}
+                  <Link href={siteConfig.homeComposition.closingCta.action.href}>
+                    {siteConfig.homeComposition.closingCta.action.label}
                     <ArrowRight />
                   </Link>
                 </Button>

@@ -1,53 +1,48 @@
 # Tasks - Feature 016 Contact cleanup and direct CV download
 
-## T1. Auditar uso actual de CV
+## T1. Auditar el cierre actual
 - revisar `site-config.ts`
 - revisar `profile-content.ts`
-- revisar `src/app/cv/page.tsx`
-- revisar CTA de Home
-- revisar navegación principal
-- revisar referencias internas hacia `/cv`
+- revisar `src/app/contact/page.tsx`
+- revisar contenido previo de `src/app/cv/page.tsx`
+- revisar header y CTA de Home
 
-## T2. Definir nuevo contrato editorial
-- `CV` deja de existir como página
-- `Contact` concentra cierre y vías directas
-- Home descarga el PDF directo
-- decidir qué contenido de `CV` realmente vale rescatar
+## T2. Definir el contrato final
+- `/cv` deja de existir como página
+- el CV se mantiene como descarga directa del PDF
+- header, Home y `Contact` comparten el mismo recurso
+- `Contact` pasa a ser el cierre de conversión del sitio
 
-## T3. Limpiar contenido de Contact
-- recortar pitch repetido
-- dejar descripción breve
-- priorizar email, LinkedIn y GitHub
-- mantener ubicación solo si suma
-- integrar señales rápidas solo si ayudan a convertir
+## T3. Reescribir Contact
+- ajustar eyebrow, título y descripción principal
+- renombrar secciones con wording concreto
+- bajar meta-copy y frases autorreferenciales
+- mejorar microcopy de canales y botones
 
-## T4. Integrar lo útil de CV en Contact
-- identificar bloques rescatables
-- mover o adaptar snapshots / señales rápidas si aportan
-- evitar duplicar narrativa ya presente en Home
-- dejar Contact como cierre, no como mini-About
+## T4. Recuperar lo útil de la vieja CV
+- rescatar 2/3 señales útiles del perfil
+- reincorporar un resumen profesional breve
+- recuperar acciones claras hacia proyectos, email y GitHub
+- evitar duplicación con Home y About
 
-## T5. Actualizar CTA principal de CV
-- cambiar label a `Descargar CV`
-- apuntar al PDF directo
-- revisar atributos o patrón de descarga según implementación existente
+## T5. Sostener la descarga directa del CV
+- mantener `Descargar CV` en Home
+- mantener `Descargar CV` en header
+- mantener `Descargar CV` en `Contact`
+- validar que todos apunten al mismo PDF
 
-## T6. Quitar CV de la navegación y del routing principal
-- remover `/cv` de `navItems`
-- eliminar o dejar inaccesible `src/app/cv/page.tsx`
-- revisar links residuales a `/cv`
+## T6. Limpiar referencias residuales
+- asegurar que `/cv` no siga como ruta
+- asegurar que no existan links visibles al path `/cv`
+- revisar que la navegación siga siendo coherente
 
-## T7. Ajustar componentes afectados
-- revisar Home si necesita leer el CTA actualizado
-- revisar Contact para mostrar el nuevo contenido final
-- revisar cualquier componente shared que dependa del bloque `cv`
+## T7. Documentar el alcance final
+- actualizar `spec.md`
+- actualizar `plan.md`
+- actualizar `tasks.md`
+- actualizar `verification.md`
 
-## T8. Validar consistencia
-- asegurar que no queden duplicaciones fuertes entre Home y Contact
-- asegurar que no haya referencias rotas a `/cv`
-- correr lint y build
-- revisar manualmente el recorrido
-
-## T9. Dejar documentado el cambio
-- alinear `spec.md`, `plan.md`, `tasks.md` y `verification.md`
-- dejar claro por qué `/cv` se elimina y qué función absorbe `Contact`
+## T8. Validar
+- correr lint
+- correr build
+- revisar manualmente header, Home, `Contact` y `/cv`

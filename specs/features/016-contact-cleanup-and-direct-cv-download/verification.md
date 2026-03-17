@@ -1,54 +1,50 @@
 # Verification - Feature 016 Contact cleanup and direct CV download
 
-## 🧪 Validación automática
+## Validación automática
 ```bash
 npm run lint
 npm run build
 ```
 
-## 👁️ Validación manual
+## Validación manual
 ```bash
-# levantar el proyecto y revisar Home + Contact + navegación sin la página /cv
+# levantar el proyecto y revisar header, Home, Contact y ausencia de /cv
 ```
 
-### Flujo de CV
+### Descarga de CV
 
-- [ ] El CTA de Home dice `Descargar CV`
-- [ ] El CTA de Home apunta al PDF directo
-- [ ] La descarga del CV funciona correctamente
-- [ ] No quedan CTAs principales que lleven a `/cv`
+- [ ] El header muestra `Descargar CV`
+- [ ] Home muestra `Descargar CV` como CTA principal
+- [ ] `Contact` mantiene `Descargar CV`
+- [ ] Los tres accesos apuntan al mismo PDF
+- [ ] La descarga funciona correctamente
 
-### Navegación
+### Ruta y navegación
 
-- [ ] `/cv` ya no aparece en la navegación principal
-- [ ] No quedan referencias visibles a la página `CV`
-- [ ] No hay links rotos tras la eliminación de la ruta
-- [ ] El recorrido general del sitio sigue siendo coherente
+- [ ] `/cv` ya no existe como página
+- [ ] No quedan links visibles que apunten a `/cv`
+- [ ] La navegación principal sigue siendo coherente
+- [ ] El acceso al CV se conserva como acción utilitaria, no como página
 
 ### Contact
 
-- [ ] `Contact` quedó más corto y más claro
-- [ ] `Contact` prioriza canales directos
-- [ ] `Contact` evita reabrir el pitch completo del portfolio
-- [ ] La ubicación solo se mantiene si realmente aporta
-- [ ] El contenido absorbido desde `CV` suma contexto sin redundancia
+- [ ] `Contact` suena más directo y profesional
+- [ ] No hay headings ambiguos o vacíos
+- [ ] Se redujo el meta-copy
+- [ ] Los canales principales son claros
+- [ ] Se recuperó un resumen breve útil del viejo `CV`
+- [ ] El aside ofrece acciones claras hacia proyectos, email y GitHub
+- [ ] `Contact` no funciona como mini `About`
+- [ ] `Contact` no funciona como mini `CV`
 
-### Limpieza editorial
+### Integración editorial
 
-- [ ] Se redujo la repetición entre Home, Contact y la antigua página CV
-- [ ] El contenido rescatado desde `CV` es mínimo y defendible
-- [ ] `Contact` funciona como página de conversión y no como página explicativa
-- [ ] La eliminación de `/cv` simplifica el recorrido
-
-### Implementación
-
-- [ ] `src/app/cv/page.tsx` fue eliminada o dejó de formar parte del flujo principal
-- [ ] `site-config.ts` quedó alineado con el nuevo CTA y la nueva navegación
-- [ ] `profile-content.ts` quedó alineado con el nuevo contrato de `Contact`
-- [ ] Los componentes afectados consumen el contenido actualizado sin hardcodes nuevos
+- [ ] Lo rescatado del viejo `CV` suma contexto sin duplicar Home
+- [ ] El tono general es claro, directo y consistente
+- [ ] La capa de contenido sigue siendo la fuente de verdad
 
 ### Documentación
 
-- [ ] `spec.md`, `plan.md`, `tasks.md` y `verification.md` están alineados
-- [ ] El alcance de la feature se mantiene acotado
-- [ ] No se mezclaron cambios de Home/About/Projects fuera de este objetivo
+- [ ] `spec.md`, `plan.md`, `tasks.md` y `verification.md` reflejan el alcance final real
+- [ ] El alcance sigue acotado
+- [ ] No se mezclaron cambios fuera del objetivo de la 016
