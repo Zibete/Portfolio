@@ -1,6 +1,8 @@
 export interface SiteNavItem {
   href: string;
   label: string;
+  download?: boolean;
+  external?: boolean;
 }
 
 export interface SiteAssetsContent {
@@ -84,7 +86,7 @@ export interface SiteHomeCompositionContent {
   projectLead: SiteHomeProjectLeadContent;
   credibility: SiteHomeCredibilityContent;
   featuredProject: SiteHomeFeaturedProjectContent;
-  cvCta: SiteHomeCtaContent;
+  closingCta: SiteHomeCtaContent;
 }
 
 export interface SiteFooterContent {

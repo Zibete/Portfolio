@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { PageAside } from "@/components/shared/page-aside";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { Button } from "@/components/ui/button";
 import { profileContent } from "@/content/site/profile-content";
+import { siteConfig } from "@/content/site/site-config";
 
 const contactMethodMotionDelays = [
   "motion-delay-2",
@@ -13,7 +14,7 @@ const contactMethodMotionDelays = [
   "motion-delay-4",
 ] as const;
 
-const topicMotionDelays = [
+const summaryMotionDelays = [
   "motion-delay-2",
   "motion-delay-3",
   "motion-delay-4",
@@ -22,6 +23,12 @@ const topicMotionDelays = [
 const contactIcons = {
   email: Mail,
   linkedin: Linkedin,
+  github: Github,
+} as const;
+
+const contactActionIcons = {
+  projects: ArrowRight,
+  email: Mail,
   github: Github,
 } as const;
 
@@ -39,7 +46,37 @@ export default function ContactPage() {
           eyebrow={contact.eyebrow}
           title={contact.title}
           description={contact.description}
-        />
+        >
+          <Button asChild>
+            <a href={siteConfig.assets.cvFilePath} download>
+              {contact.downloadCtaLabel}
+              <Download />
+            </a>
+          </Button>
+        </PageIntro>
+
+        <PageSection
+          eyebrow={contact.summarySection.eyebrow}
+          title={contact.summarySection.title}
+          description={contact.summarySection.description}
+          contentClassName="grid gap-4 md:grid-cols-3"
+        >
+          {contact.summary.map((item, index) => (
+            <div
+              key={item.title}
+              className={`motion-enter ${summaryMotionDelays[index] ?? "motion-delay-4"}`}
+            >
+              <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
+                <p className="text-sm font-semibold text-foreground">
+                  {item.title}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </PageSection>
 
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
           <PageSection
@@ -75,8 +112,12 @@ export default function ContactPage() {
                       asChild
                       className="w-full sm:w-auto"
                     >
-                      <Link href={method.href} target="_blank" rel="noreferrer">
-                        {contact.methodsSection.actionLabel}
+                      <Link
+                        href={method.href}
+                        target={method.external ? "_blank" : undefined}
+                        rel={method.external ? "noreferrer" : undefined}
+                      >
+                        {method.actionLabel}
                         <ArrowRight />
                       </Link>
                     </Button>
@@ -91,26 +132,32 @@ export default function ContactPage() {
             title={contact.aside.title}
             description={contact.aside.description}
             className="lg:sticky lg:top-24"
-          />
-        </div>
+          >
+            <div className="flex flex-col gap-2">
+              {contact.aside.actions.map((action) => {
+                const Icon = contactActionIcons[action.id];
 
-        <PageSection
-          eyebrow={contact.topicsSection.eyebrow}
-          title={contact.topicsSection.title}
-          description={contact.topicsSection.description}
-          contentClassName="grid gap-4 md:grid-cols-3"
-        >
-          {contact.topics.map((topic, index) => (
-            <div
-              key={topic}
-              className={`motion-enter ${topicMotionDelays[index] ?? "motion-delay-4"}`}
-            >
-              <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
-                {topic}
-              </div>
+                return (
+                  <Button
+                    key={action.id}
+                    variant={action.variant}
+                    asChild
+                    className="w-full"
+                  >
+                    <Link
+                      href={action.href}
+                      target={action.external ? "_blank" : undefined}
+                      rel={action.external ? "noreferrer" : undefined}
+                    >
+                      {action.label}
+                      <Icon />
+                    </Link>
+                  </Button>
+                );
+              })}
             </div>
-          ))}
-        </PageSection>
+          </PageAside>
+        </div>
       </Container>
     </section>
   );

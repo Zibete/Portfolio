@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Dot, Layers3 } from "lucide-react";
+import { ArrowRight, Dot, Download, Layers3 } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
@@ -11,6 +11,9 @@ const summaryCardMotionDelays = [
 ] as const;
 
 export function HomeHero() {
+  const primaryCta = siteConfig.hero.primaryCta;
+  const PrimaryCtaIcon = primaryCta.download ? Download : ArrowRight;
+
   return (
     <section className="pt-14 pb-8 sm:pt-18 sm:pb-20">
       <Container>
@@ -52,10 +55,22 @@ export function HomeHero() {
                     asChild
                     className="min-w-[11rem] shadow-[0_16px_42px_-24px_rgb(84_139_255_/_0.7)]"
                   >
-                    <Link href={siteConfig.hero.primaryCta.href}>
-                      {siteConfig.hero.primaryCta.label}
-                      <ArrowRight />
-                    </Link>
+                    {primaryCta.download || primaryCta.external ? (
+                      <a
+                        href={primaryCta.href}
+                        download={primaryCta.download || undefined}
+                        target={primaryCta.external ? "_blank" : undefined}
+                        rel={primaryCta.external ? "noreferrer" : undefined}
+                      >
+                        {primaryCta.label}
+                        <PrimaryCtaIcon />
+                      </a>
+                    ) : (
+                      <Link href={primaryCta.href}>
+                        {primaryCta.label}
+                        <PrimaryCtaIcon />
+                      </Link>
+                    )}
                   </Button>
                   <Button
                     size="lg"

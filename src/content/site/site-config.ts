@@ -1,5 +1,7 @@
 import type { SiteConfig } from "@/types/site";
 
+const cvFilePath = "/files/CV_MATIAS_PERALTA_ANALISTA.pdf";
+
 export const siteConfig: SiteConfig = {
   name: "Matías Peralta",
   locale: "es-AR",
@@ -9,7 +11,7 @@ export const siteConfig: SiteConfig = {
   assets: {
     profileImagePath: "/images/profile/MatiasPeralta.JPG",
     profileImageAlt: "Retrato profesional de Matías Peralta",
-    cvFilePath: "/files/CV_MATIAS_PERALTA_ANALISTA.pdf",
+    cvFilePath,
   },
   primaryAudience: "Líderes de producto y negocio",
   targetRoles: ["Android Jr/Mid", "Automation Engineer"],
@@ -22,7 +24,7 @@ export const siteConfig: SiteConfig = {
     { href: "/experience", label: "Experiencia" },
     { href: "/skills", label: "Habilidades" },
     { href: "/contact", label: "Contacto" },
-    { href: "/cv", label: "CV" },
+    { href: cvFilePath, label: "Descargar CV", download: true },
   ],
   hero: {
     statusBadge: "Disponible para Android y automatización",
@@ -31,8 +33,9 @@ export const siteConfig: SiteConfig = {
     description:
       "Con ZIBE como caso principal, muestro modernización incremental, arquitectura clara y calidad técnica visible en un repo público.",
     primaryCta: {
-      href: "/projects/zibe",
-      label: "Explorar ZIBE",
+      href: cvFilePath,
+      label: "Descargar CV",
+      download: true,
     },
     secondaryCta: {
       href: "/projects",
@@ -126,14 +129,14 @@ export const siteConfig: SiteConfig = {
         focusFallback: "Arquitectura / producto / calidad",
       },
     },
-    cvCta: {
+    closingCta: {
       eyebrow: "Siguiente paso",
-      title: "Mi CV reúne experiencia, foco actual y proyectos clave.",
+      title: "Contacto y CV en un solo cierre.",
       description:
-        "Un resumen breve de mi recorrido antes de pasar a proyectos o contacto.",
+        "La página de contacto concentra la descarga del CV, canales directos y el contexto justo para avanzar rápido.",
       action: {
-        href: "/cv",
-        label: "Ver CV",
+        href: "/contact",
+        label: "Ir a contacto",
       },
     },
   },
