@@ -229,7 +229,6 @@ export const profileContent = {
           "Instrumented tests",
           "GitHub Actions",
           "Documentación",
-          "Normas y HSE",
           "Capacitación de ingresantes",
         ],
       },
