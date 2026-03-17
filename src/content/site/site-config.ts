@@ -90,31 +90,31 @@ export const siteConfig: SiteConfig = {
     },
     credibility: {
       eyebrow: "Cómo trabajo",
-      title: "Claridad, continuidad y foco en el problema real.",
+      title: "Código claro, iteración guiada y foco en el problema real.",
       description:
-        "Me interesa que una solución resuelva el problema real, pero también que se pueda sostener. Por eso suelo trabajar con foco en claridad, reglas bien definidas, integración entre herramientas y mejoras que tengan sentido operativo además de sentido técnico.",
+        "Trabajo con especificaciones claras, implementación iterativa y criterio técnico. Codeo, automatizo y me apoyo en agentes y modelos LLM cuando aceleran análisis, ejecución o revisión, sin perder control sobre las decisiones, la validación ni el mantenimiento.",
       items: [
         {
-          title: "Claridad",
+          title: "Implementación clara",
           description:
-            "Priorizo estructuras entendibles, decisiones trazables y soluciones que otros puedan seguir manteniendo.",
+            "Priorizo estructuras entendibles, decisiones trazables y soluciones que se puedan mantener, extender y revisar sin fricción.",
         },
         {
-          title: "Evolución",
+          title: "Iteración con criterio",
           description:
-            "Prefiero avanzar con mejoras firmes e iterativas antes que depender de reescrituras grandes difíciles de sostener.",
+            "Suelo avanzar con objetivos concretos, pasos acotados, validación frecuente y apoyo de IA cuando aporta velocidad real.",
         },
         {
-          title: "Contexto real",
+          title: "Contexto operativo",
           description:
-            "No separo implementación de operación: diseño pensando en uso diario, restricciones, errores posibles y continuidad.",
+            "Diseño pensando en operación diaria, restricciones, errores posibles y continuidad, no solo en la implementación ideal."
         },
       ],
     },
     featuredProject: {
-      eyebrow: "Proyecto principal",
+      eyebrow: "Proyecto Android destacado",
       description:
-        "Un caso real para mostrar mensajería en tiempo real, evolución arquitectónica y criterio de mantenimiento sobre una base Android que sigue activa.",
+        "App Android de mensajería desarrollada como caso técnico principal del portfolio. El proyecto combina modernización progresiva, arquitectura por capas y prácticas actuales de Android para mostrar cómo abordo producto, código y mantenimiento en un contexto realista de evolución continua.",
       githubBadge: "GitHub vivo",
       statsLabels: {
         stars: "Stars",
@@ -129,7 +129,7 @@ export const siteConfig: SiteConfig = {
       metadata: {
         roleLabel: "Rol",
         periodLabel: "Período",
-        focusLabel: "Foco",
+        focusLabel: "Foco técnico",
         emptyValue: "Pendiente de definir",
         focusFallback: "Arquitectura / producto / calidad",
       },
