@@ -78,36 +78,36 @@ export const siteConfig: SiteConfig = {
   },
   homeComposition: {
     projectLead: {
-      eyebrow: "Prueba principal",
-      title: "ZIBE concentra el tipo de trabajo que mejor representa mi perfil.",
+      eyebrow: "Experiencia real aplicada",
+      title: "Experiencia real llevada a soluciones técnicas",
       description:
-        "Después de la identidad y el stack, la Home baja a una prueba concreta: un proyecto Android real donde se ve arquitectura, evolución técnica y criterio de producto.",
+        "Mi perfil no se construyó solo desde proyectos personales. Se formó resolviendo operatorias reales, integrando herramientas, reduciendo trabajo manual y sosteniendo procesos con reglas de negocio, volumen y necesidad de continuidad. Esa experiencia es la base sobre la que hoy desarrollo productos, automatizaciones y herramientas más mantenibles.",
       highlights: [
-        "Arquitectura documentada y visible en repo público",
-        "Modernización incremental sin reescritura total",
-        "Integración end-to-end con foco en mantenibilidad",
+        "Circuitos con múltiples áreas, validaciones, excepciones y necesidad de precisión operativa.",
+        "Integración de herramientas, sistemas, datos y flujos.",
+        "Equilibrio entre velocidad, claridad técnica y sostenibilidad de la solución en el tiempo.",
       ],
     },
     credibility: {
-      eyebrow: "Señales de credibilidad",
-      title: "Trabajo con claridad técnica, continuidad y foco operativo.",
+      eyebrow: "Cómo trabajo",
+      title: "Claridad, continuidad y foco en el problema real.",
       description:
-        "Más allá de un proyecto puntual, el portfolio busca mostrar cómo pienso el trabajo: criterio técnico, mejora continua y capacidad de traducir decisiones en valor entendible para negocio.",
+        "Me interesa que una solución resuelva el problema real, pero también que se pueda sostener. Por eso suelo trabajar con foco en claridad, reglas bien definidas, integración entre herramientas y mejoras que tengan sentido operativo además de sentido técnico.",
       items: [
         {
-          title: "Android + automatización",
+          title: "Claridad",
           description:
-            "Combino entrega de producto con automatización para resolver problemas reales y repetitivos.",
+            "Priorizo estructuras entendibles, decisiones trazables y soluciones que otros puedan seguir manteniendo.",
         },
         {
-          title: "Criterio de mantenimiento",
+          title: "Evolución",
           description:
-            "Prioridad en estructura, legibilidad y evolución incremental antes que soluciones vistosas pero frágiles.",
+            "Prefiero avanzar con mejoras firmes e iterativas antes que depender de reescrituras grandes difíciles de sostener.",
         },
         {
-          title: "Equilibrio técnico y negocio",
+          title: "Contexto real",
           description:
-            "Busco que cada decisión sea defendible tanto por su calidad técnica como por su impacto operativo.",
+            "No separo implementación de operación: diseño pensando en uso diario, restricciones, errores posibles y continuidad.",
         },
       ],
     },
@@ -135,14 +135,24 @@ export const siteConfig: SiteConfig = {
       },
     },
     closingCta: {
-      eyebrow: "Siguiente paso",
-      title: "Contacto y CV en un solo cierre.",
-      description:
-        "La página de contacto concentra la descarga del CV, canales directos y el contexto justo para avanzar rápido.",
-      action: {
-        href: "/contact",
-        label: "Ir a contacto",
-      },
+      eyebrow: "Seguí por acá",
+      title: "Elegí la evidencia que quieras ver",
+      description: "Proyectos, CV o contacto.",
+      actions: [
+        {
+          href: "/contact",
+          label: "Ir a contacto",
+        },
+        {
+          href: cvFilePath,
+          label: "Descargar CV",
+          download: true,
+        },
+        {
+          href: "/projects",
+          label: "Ver proyectos",
+        },
+      ],
     },
   },
   footer: {

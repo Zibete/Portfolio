@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { FeaturedProject } from "@/components/sections/featured-project";
 import { HomeHero } from "@/components/sections/home-hero";
 import { StackMarquee } from "@/components/sections/stack-marquee";
@@ -31,6 +31,31 @@ const homeSurfaceAccentClassName =
 
 export default async function Home() {
   const [featuredProject] = await getFeaturedProjectEntries();
+  const [closingPrimaryAction, ...closingSecondaryActions] =
+    siteConfig.homeComposition.closingCta.actions;
+
+  const renderCtaAction = (
+    action: (typeof siteConfig.homeComposition.closingCta.actions)[number],
+  ) => {
+    const ActionIcon = action.download ? Download : ArrowRight;
+
+    return action.download || action.external ? (
+      <a
+        href={action.href}
+        download={action.download || undefined}
+        target={action.external ? "_blank" : undefined}
+        rel={action.external ? "noreferrer" : undefined}
+      >
+        {action.label}
+        <ActionIcon />
+      </a>
+    ) : (
+      <Link href={action.href}>
+        {action.label}
+        <ActionIcon />
+      </Link>
+    );
+  };
 
   return (
     <div className="relative overflow-hidden">
@@ -140,12 +165,27 @@ export default async function Home() {
                   </p>
                 </div>
 
-                <Button size="lg" asChild className="w-full">
-                  <Link href={siteConfig.homeComposition.closingCta.action.href}>
-                    {siteConfig.homeComposition.closingCta.action.label}
-                    <ArrowRight />
-                  </Link>
-                </Button>
+                {closingPrimaryAction ? (
+                  <Button size="lg" asChild className="w-full">
+                    {renderCtaAction(closingPrimaryAction)}
+                  </Button>
+                ) : null}
+
+                {closingSecondaryActions.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-3">
+                    {closingSecondaryActions.map((action) => (
+                      <Button
+                        key={action.label}
+                        size="lg"
+                        variant="outline"
+                        asChild
+                        className="w-full bg-background/72 dark:bg-background/10"
+                      >
+                        {renderCtaAction(action)}
+                      </Button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           </aside>

@@ -79,7 +79,7 @@ export interface SiteHomeCtaContent {
   eyebrow: string;
   title: string;
   description: string;
-  action: SiteNavItem;
+  actions: SiteNavItem[];
 }
 
 export interface SiteHomeCompositionContent {
