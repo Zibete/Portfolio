@@ -1,59 +1,52 @@
-# Verification — FEAT 019
+# Verification - FEAT 019
 
-## Verificación de fixes públicos
+## Source of truth
 
-- [ ] ya no aparece “Proyecto Proyecto …” en `/projects`
-- [ ] ya no aparece “Efocado” en el footer
-- [ ] no quedan errores visibles equivalentes en los archivos tocados
+- [x] Home ya no overridea manualmente el contenido del featured project
+- [x] summary / role / year / tags salen de una sola fuente de verdad
+- [x] el proyecto destacado mantiene coherencia con su contenido real
+- [x] el resultado final no depende de duplicacion editorial entre Home y el contenido del proyecto
 
-## Verificación de source of truth
+## Orden
 
-- [ ] Home ya no overridea manualmente el contenido del featured project
-- [ ] summary / role / year / tags (o equivalentes) salen de una sola fuente de verdad
-- [ ] el proyecto destacado mantiene coherencia con su contenido real
-- [ ] el resultado final no depende de duplicación editorial entre Home y el contenido del proyecto
+- [x] proyectos se ordenan mediante `order`
+- [x] el orden ya no depende solo de heuristicas implicitas
+- [x] featured project y listado general no entran en conflicto
+- [x] experiencia fue revisada y tambien usa `order`
 
-## Verificación de orden
+## Metadata publica
 
-- [ ] proyectos se ordenan mediante un criterio explícito y entendible
-- [ ] el orden ya no depende solo de heurísticas implícitas
-- [ ] featured project y listado general no entran en conflicto
-- [ ] experiencia fue revisada y quedó correctamente justificada aunque no cambie o aunque sí cambie
+- [x] metadata global incluye `metadataBase`
+- [x] `openGraph` esta presente y consistente
+- [x] `twitter` esta presente y consistente
+- [x] el detalle de proyecto agrega canonical e imagen de preview
+- [x] la metadata no rompe el build
 
-## Verificación de metadata pública
+## Base publica
 
-- [ ] metadata global incluye `metadataBase`
-- [ ] `openGraph` está presente y consistente
-- [ ] `twitter` está presente y consistente
-- [ ] la metadata no rompe el build
-- [ ] el sitio queda mejor preparado para compartir enlaces
+- [x] existe `sitemap.ts`
+- [x] existe `robots.ts`
+- [x] existe `not-found.tsx`
+- [x] las nuevas piezas respetan la arquitectura file-based
 
-## Verificación de base pública
+## Documentacion
 
-- [ ] existe `sitemap.ts`
-- [ ] existe `robots.ts`
-- [ ] existe `not-found.tsx`
-- [ ] las nuevas piezas respetan el estándar del proyecto
-- [ ] no introducen ruido visual ni de arquitectura
+- [x] `README.md` refleja el estado real actual
+- [x] `docs/PROJECT_CONSTITUTION.md` quedo alineado con el producto real
+- [x] `spec.md`, `plan.md`, `tasks.md` y `verification.md` reflejan el alcance final real
 
-## Verificación documental
+## Validacion tecnica y manual
 
-- [ ] `README.md` refleja el estado real actual
-- [ ] `docs/PROJECT_CONSTITUTION.md` no mantiene referencias desalineadas con el producto actual
-- [ ] `spec.md`, `plan.md`, `tasks.md` y `verification.md` reflejan el alcance final real
-
-## Verificación visual/técnica
-
-- [ ] revisar Home en desktop
-- [ ] revisar Home en mobile
-- [ ] revisar Projects en desktop
-- [ ] revisar Projects en mobile
-- [ ] ejecutar lint
-- [ ] ejecutar build
+- [x] revisar Home
+- [x] revisar Projects
+- [x] revisar Experience
+- [x] ejecutar lint
+- [x] ejecutar build
 
 ## Fuera de alcance confirmado
 
-- [ ] sin rediseño visual mayor
-- [ ] sin nuevas secciones
-- [ ] sin cambios profundos de narrativa transversal
-- [ ] sin backend/contact form
+- [x] sin rediseño visual mayor
+- [x] sin nuevas secciones
+- [x] sin cambios profundos de narrativa transversal
+- [x] sin backend ni contact form
+- [x] sin assets OG o iconos nuevos

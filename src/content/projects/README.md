@@ -1,7 +1,8 @@
 # Contenido de proyectos
 
-Guardá un archivo `.mdx` por proyecto en este directorio.
+Guardar un archivo `.mdx` por proyecto en este directorio.
 
-- Usá el nombre del archivo como slug público.
-- Mantené el frontmatter alineado con `specs/005-content-model.md`.
-- Guardá las imágenes de proyecto en `public/images/projects/`.
+- Usar el nombre del archivo como slug publico.
+- Mantener el frontmatter alineado con `specs/005-content-model.md`.
+- Definir `order` para controlar el orden del listado publico.
+- Guardar las imagenes de proyecto en `public/images/projects/`.
