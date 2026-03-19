@@ -69,7 +69,7 @@ export default async function ProjectsPage() {
                     <div className="space-y-2">
                       <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
                         {entry.frontmatter.featured
-                          ? "Proyecto Proyecto Android destacado"
+                          ? "Proyecto Android destacado"
                           : "Automatización aplicada a procesos reales"}
                       </p>
                       <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
