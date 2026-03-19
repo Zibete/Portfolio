@@ -22,6 +22,7 @@ import {
   getProjectEntryBySlug,
   getPublishedProjectEntries,
 } from "@/lib/mdx";
+import { getAbsoluteUrl } from "@/lib/site";
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -51,9 +52,32 @@ export async function generateMetadata({
     };
   }
 
+  const image = entry.frontmatter.coverImage ?? "/images/profile/MatiasPeralta.JPG";
+
   return {
     title: entry.frontmatter.title,
     description: entry.frontmatter.summary,
+    alternates: {
+      canonical: `/projects/${entry.slug}`,
+    },
+    openGraph: {
+      title: entry.frontmatter.title,
+      description: entry.frontmatter.summary,
+      url: getAbsoluteUrl(`/projects/${entry.slug}`),
+      images: [
+        {
+          url: image,
+          alt:
+            entry.frontmatter.coverImageAlt ??
+            `Captura del proyecto ${entry.frontmatter.title}`,
+        },
+      ],
+    },
+    twitter: {
+      title: entry.frontmatter.title,
+      description: entry.frontmatter.summary,
+      images: [image],
+    },
   };
 }
 
