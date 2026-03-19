@@ -26,19 +26,9 @@ export default async function ProjectsPage() {
     "motion-delay-4",
     "motion-delay-5",
   ] as const;
-  const entries = (await getPublishedProjectEntries())
-    .filter((entry) => hasProjectMdxModule(entry.slug))
-    .sort((left, right) => {
-      const featuredDiff =
-        Number(Boolean(right.frontmatter.featured)) -
-        Number(Boolean(left.frontmatter.featured));
-
-      if (featuredDiff !== 0) {
-        return featuredDiff;
-      }
-
-      return left.frontmatter.title.localeCompare(right.frontmatter.title);
-    });
+  const entries = (await getPublishedProjectEntries()).filter((entry) =>
+    hasProjectMdxModule(entry.slug),
+  );
   const projectsWithGitHub = await Promise.all(
     entries.map(async (entry) => ({
       entry,
@@ -69,7 +59,7 @@ export default async function ProjectsPage() {
                     <div className="space-y-2">
                       <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
                         {entry.frontmatter.featured
-                          ? "Proyecto Proyecto Android destacado"
+                          ? "Proyecto Android destacado"
                           : "Automatización aplicada a procesos reales"}
                       </p>
                       <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">

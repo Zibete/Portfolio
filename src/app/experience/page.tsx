@@ -24,19 +24,9 @@ export const metadata = {
 
 export default async function ExperiencePage() {
   const { experience } = profileContent;
-  const entries = (await getExperienceEntries())
-    .filter((entry) => entry.frontmatter.published !== false)
-    .sort((left, right) => {
-      const featuredDiff =
-        Number(Boolean(right.frontmatter.featured)) -
-        Number(Boolean(left.frontmatter.featured));
-
-      if (featuredDiff !== 0) {
-        return featuredDiff;
-      }
-
-      return left.frontmatter.title.localeCompare(right.frontmatter.title);
-    });
+  const entries = (await getExperienceEntries()).filter(
+    (entry) => entry.frontmatter.published !== false,
+  );
 
   return (
     <section className="py-16 sm:py-24">

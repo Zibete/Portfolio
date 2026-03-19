@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import type {
+  BaseContentFrontmatter,
   ContentCollection,
   ContentEntry,
   ExperienceFrontmatter,
@@ -51,6 +52,29 @@ async function readCollectionEntry<TFrontmatter>(
   }
 }
 
+function sortContentEntries<TFrontmatter extends BaseContentFrontmatter>(
+  entries: ContentEntry<TFrontmatter>[],
+) {
+  return [...entries].sort((left, right) => {
+    const leftOrder = left.frontmatter.order ?? Number.MAX_SAFE_INTEGER;
+    const rightOrder = right.frontmatter.order ?? Number.MAX_SAFE_INTEGER;
+
+    if (leftOrder !== rightOrder) {
+      return leftOrder - rightOrder;
+    }
+
+    const featuredDiff =
+      Number(Boolean(right.frontmatter.featured)) -
+      Number(Boolean(left.frontmatter.featured));
+
+    if (featuredDiff !== 0) {
+      return featuredDiff;
+    }
+
+    return left.frontmatter.title.localeCompare(right.frontmatter.title);
+  });
+}
+
 export async function getCollectionSlugs(collection: ContentCollection) {
   const files = await getCollectionFiles(collection);
 
@@ -77,13 +101,17 @@ export async function getProjectEntryBySlug(slug: string) {
 export async function getPublishedProjectEntries() {
   const entries = await getProjectEntries();
 
-  return entries.filter((entry) => entry.frontmatter.published !== false);
+  return sortContentEntries(
+    entries.filter((entry) => entry.frontmatter.published !== false),
+  );
 }
 
 export async function getFeaturedProjectEntries() {
   const entries = await getPublishedProjectEntries();
 
-  return entries.filter((entry) => entry.frontmatter.featured);
+  return sortContentEntries(
+    entries.filter((entry) => entry.frontmatter.featured),
+  );
 }
 
 export async function getExperienceEntries() {
@@ -94,7 +122,9 @@ export async function getExperienceEntries() {
     ),
   );
 
-  return entries.filter(
-    (entry): entry is ContentEntry<ExperienceFrontmatter> => Boolean(entry),
+  return sortContentEntries(
+    entries.filter(
+      (entry): entry is ContentEntry<ExperienceFrontmatter> => Boolean(entry),
+    ),
   );
 }

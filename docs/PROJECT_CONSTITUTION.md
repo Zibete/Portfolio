@@ -28,7 +28,7 @@ El mensaje debe sostener un balance cercano a 50% técnico y 50% negocio.
 - La estructura va antes que el polish.
 - El contenido debe ser escaneable antes de ser exhaustivo.
 - El sitio debe mantenerse file-based y fácil de evolucionar sin herramientas admin.
-- Cada incorporación debe reforzar la CTA principal futura: descargar el CV.
+- Cada incorporación debe reforzar la CTA principal pública: descargar el CV.
 
 ## Principios de diseño
 
@@ -40,7 +40,7 @@ El mensaje debe sostener un balance cercano a 50% técnico y 50% negocio.
 
 ## Límites de alcance de v1
 
-La primera versión puede incluir:
+La v1 pública incluye:
 
 - home
 - about
@@ -68,7 +68,7 @@ La primera versión no debe incluir:
 - Base de UI: shadcn/ui
 - Manejo de tema: next-themes
 - Arquitectura de contenido: contenido local file-based con MDX
-- Postura de backend: Supabase reservado solo para contacto futuro
+- Postura de backend: sin backend obligatorio en v1; Supabase queda reservado para iteraciones futuras si el contacto lo necesita
 - Destino de deploy: Vercel
 - Idioma inicial: español
 

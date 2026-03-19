@@ -41,8 +41,9 @@ Actualmente el proyecto incluye:
 - ✅ Proyectos públicos curados con contenido local
 - ✅ Perfil, experiencia y recorrido con foco técnico-profesional
 - ✅ Assets reales para perfil, proyectos y CV
+- ✅ Descarga directa de CV sin página intermedia
 - ✅ Soporte dark/light con criterio visual consistente
-- ✅ Metadata opcional preparada para futuras integraciones
+- ✅ Metadata pública base lista para compartir el sitio (Open Graph, Twitter, sitemap y robots)
 - ✅ Documentación y specs por feature para acompañar la evolución del proyecto
 
 ---
@@ -60,6 +61,7 @@ A medida que el proyecto fue creciendo, se trabajó en:
 - consistencia entre páginas y componentes
 - documentación por features
 - una base preparada para crecer sin perder orden
+- evolución cuidada del modelo de contenido y de la capa pública del sitio
 
 ---
 
@@ -101,7 +103,6 @@ src/
 public/
   files/
   images/
-  og/
 docs/
 specs/
 ```

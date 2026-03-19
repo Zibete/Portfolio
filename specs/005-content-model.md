@@ -14,6 +14,8 @@ Reglas:
 - el nombre del archivo se convierte en el slug
 - el contenido debe priorizar contexto, decisiones y resultados
 - evitar introducciones largas de relleno
+- usar `featured` para el caso destacado
+- usar `order` para definir el orden publico del listado
 
 ## Experiencia
 
@@ -23,7 +25,8 @@ Reglas:
 
 - un archivo `.mdx` por entrada de experiencia
 - escribir primero para escaneabilidad
-- enfatizar impacto, alcance y colaboración
+- enfatizar impacto, alcance y colaboracion
+- usar `order` cuando haga falta un orden explicito y mantenible
 
 ## Copy del sitio
 
@@ -36,6 +39,6 @@ Reglas:
 
 ## Reglas iniciales de escritura
 
-- el idioma inicial es español
-- el mensaje debe sostener equilibrio entre profundidad técnica y valor de negocio
-- los placeholders deben ser explícitos cuando el contenido siga pendiente
+- el idioma inicial es espanol
+- el mensaje debe sostener equilibrio entre profundidad tecnica y valor de negocio
+- los placeholders deben ser explicitos cuando el contenido siga pendiente
