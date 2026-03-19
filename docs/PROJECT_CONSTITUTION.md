@@ -49,6 +49,7 @@ La v1 pública incluye:
 - experience
 - skills
 - contact
+- cv
 
 La primera versión no debe incluir:
 

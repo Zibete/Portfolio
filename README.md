@@ -103,7 +103,6 @@ src/
 public/
   files/
   images/
-  og/
 docs/
 specs/
 ```
