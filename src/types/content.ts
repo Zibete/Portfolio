@@ -6,6 +6,7 @@ export interface BaseContentFrontmatter {
   language?: "es" | "en";
   published?: boolean;
   featured?: boolean;
+  order?: number;
   tags?: string[];
 }
 
