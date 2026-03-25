@@ -8,6 +8,8 @@ export interface SiteNavItem {
 export interface SiteAssetsContent {
   profileImagePath: string;
   profileImageAlt: string;
+  ogImagePath: string;
+  ogImageAlt: string;
   cvFilePath: string;
 }
 

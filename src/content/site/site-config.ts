@@ -11,6 +11,8 @@ export const siteConfig: SiteConfig = {
   assets: {
     profileImagePath: "/images/profile/MatiasPeralta.JPG",
     profileImageAlt: "Retrato profesional de Matías Peralta",
+    ogImagePath: "/og/preview.png",
+    ogImageAlt: "Preview del portfolio de Matías Peralta",
     cvFilePath,
   },
   primaryAudience: "Líderes de producto y negocio",

@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: siteConfig.assets.profileImagePath,
-        alt: siteConfig.assets.profileImageAlt,
+        url: siteConfig.assets.ogImagePath,
+        alt: siteConfig.assets.ogImageAlt,
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Portfolio`,
     description: siteConfig.description,
-    images: [siteConfig.assets.profileImagePath],
+    images: [siteConfig.assets.ogImagePath],
   },
 };
 
