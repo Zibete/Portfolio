@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Dot, Download, Layers3 } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, BriefcaseBusiness, Download, Layers3, Sparkles } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
@@ -17,12 +18,13 @@ export function HomeHero() {
   const SecondaryCtaIcon = secondaryCta.download ? Download : Layers3;
 
   return (
-    <section className="pt-14 pb-8 sm:pt-18 sm:pb-20">
+    <section className="overflow-hidden pt-14 pb-8 sm:pt-18 sm:pb-20">
       <Container>
-        <div className="interactive-card relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-56px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-8 lg:p-9">
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.16),_transparent)]" />
-          <div className="pointer-events-none absolute -right-12 bottom-0 h-36 w-36 rounded-full bg-primary/10 blur-3xl" />
-          <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-stretch">
+        <div className="relative">
+          <div className="pointer-events-none absolute -left-10 top-6 h-56 w-56 rounded-full bg-primary/8 blur-3xl dark:bg-primary/12" />
+          <div className="pointer-events-none absolute -right-10 top-20 h-72 w-72 rounded-full bg-cyan-400/8 blur-3xl dark:bg-cyan-300/10" />
+
+          <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(20rem,0.72fr)] lg:items-center">
             <div className="min-w-0 space-y-8">
               <div className="space-y-6">
                 <div className="motion-enter motion-delay-1 flex flex-col items-start gap-3">
@@ -36,11 +38,11 @@ export function HomeHero() {
                 </div>
 
                 <div className="space-y-4">
-                  <h1 className="motion-enter motion-delay-2 max-w-4xl text-6xl font-semibold leading-none tracking-[-0.05em] text-foreground [font-family:var(--font-display)] sm:text-7xl lg:text-[5.3rem]">
+                  <h1 className="motion-enter motion-delay-2 max-w-4xl text-6xl font-semibold leading-none text-foreground [font-family:var(--font-display)] sm:text-7xl lg:text-[5.6rem]">
                     {siteConfig.name}
                   </h1>
                   <div className="motion-enter motion-delay-3 space-y-4">
-                    <p className="max-w-3xl text-2xl font-medium tracking-tight text-foreground/92 sm:text-3xl">
+                    <p className="max-w-3xl text-2xl font-medium text-foreground/92 sm:text-3xl">
                       {siteConfig.hero.title}
                     </p>
                     <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
@@ -101,29 +103,57 @@ export function HomeHero() {
 
                 {siteConfig.hero.supportingNote ? (
                   <p className="flex items-center text-sm text-muted-foreground">
-                    <Dot className="-mx-1 size-4 text-primary" />
                     {siteConfig.hero.supportingNote}
                   </p>
                 ) : null}
               </div>
-            </div>
 
-            <div className="grid gap-3 md:grid-cols-3 lg:h-full lg:grid-cols-1 lg:grid-rows-3">
-              {siteConfig.hero.summaryCards.map((card, index) => (
-                <div
-                  key={card.label}
-                  className={`motion-enter ${summaryCardMotionDelays[index] ?? "motion-delay-4"} h-full`}
-                >
-                  <div className="interactive-card flex h-full flex-col justify-center rounded-[1.5rem] border border-border/70 bg-background/72 px-5 py-4 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
-                    <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
+              <div className="motion-enter motion-delay-5 grid gap-3 sm:grid-cols-3">
+                {siteConfig.hero.summaryCards.map((card, index) => (
+                  <div
+                    key={card.label}
+                    className={`rounded-2xl border border-border/70 bg-card/64 px-4 py-3 shadow-[0_18px_54px_-48px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-card/42 ${summaryCardMotionDelays[index] ?? "motion-delay-4"}`}
+                  >
+                    <p className="text-[0.68rem] font-medium uppercase text-muted-foreground">
                       {card.label}
                     </p>
-                    <p className="mt-3 text-base font-semibold leading-6 text-foreground">
+                    <p className="mt-2 text-sm font-semibold leading-5 text-foreground">
                       {card.value}
                     </p>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="motion-enter motion-delay-4 relative mx-auto w-full max-w-[25rem] lg:max-w-none">
+              <div className="pointer-events-none absolute inset-6 rounded-[2rem] bg-primary/16 blur-3xl dark:bg-primary/18" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/72 p-2 shadow-[0_34px_110px_-64px_rgb(15_23_42_/_0.5)] backdrop-blur-xl dark:bg-card/54">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.55rem] bg-muted">
+                  <Image
+                    src={siteConfig.assets.profileImagePath}
+                    alt={siteConfig.assets.profileImageAlt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 38vw, (min-width: 640px) 58vw, 92vw"
+                    className="object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,_transparent_55%,_rgb(8_12_24_/_0.32))] dark:bg-[linear-gradient(180deg,_transparent_58%,_rgb(8_12_24_/_0.42))]" />
                 </div>
-              ))}
+              </div>
+
+              <div className="absolute -left-2 top-8 rounded-2xl border border-border/70 bg-background/90 px-4 py-3 shadow-[0_22px_64px_-46px_rgb(15_23_42_/_0.38)] backdrop-blur dark:bg-background/72 sm:-left-6">
+                <p className="flex items-center gap-2 text-xs font-medium text-foreground">
+                  <BriefcaseBusiness className="size-4 text-primary" />
+                  Android + automatización
+                </p>
+              </div>
+
+              <div className="absolute -right-2 bottom-8 rounded-2xl border border-border/70 bg-background/90 px-4 py-3 shadow-[0_22px_64px_-46px_rgb(15_23_42_/_0.38)] backdrop-blur dark:bg-background/72 sm:-right-5">
+                <p className="flex items-center gap-2 text-xs font-medium text-foreground">
+                  <Sparkles className="size-4 text-primary" />
+                  Impacto medible
+                </p>
+              </div>
             </div>
           </div>
         </div>

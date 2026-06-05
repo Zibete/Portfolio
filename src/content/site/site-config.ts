@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Portfolio personal con foco en Android, automatización end-to-end y ZIBE como caso principal para mostrar arquitectura, calidad técnica y criterio de producto.",
   assets: {
-    profileImagePath: "/images/profile/MatiasPeralta.JPG",
+    profileImagePath: "/images/profile/matias-peralta-2026-profile.webp",
     profileImageAlt: "Retrato profesional de Matías Peralta",
     ogImagePath: "/og/preview.png",
     ogImageAlt: "Preview del portfolio de Matías Peralta",
