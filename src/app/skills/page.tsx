@@ -4,6 +4,7 @@ import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { TagChip } from "@/components/shared/tag-chip";
 import { profileContent } from "@/content/site/profile-content";
+import { createPageMetadata } from "@/lib/site";
 
 const skillGroupMotionDelays = [
   "motion-delay-2",
@@ -12,11 +13,11 @@ const skillGroupMotionDelays = [
   "motion-delay-5",
 ] as const;
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: profileContent.skills.eyebrow,
   description: profileContent.skills.description,
-  alternates: { canonical: "/skills" },
-};
+  pathname: "/skills",
+});
 
 export default function SkillsPage() {
   const { skills } = profileContent;

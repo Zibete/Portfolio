@@ -5,9 +5,10 @@ import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Pagina no encontrada",
+  title: "Página no encontrada",
+  robots: { index: false, follow: false },
   description:
-    "La ruta solicitada no existe o ya no esta disponible dentro del portfolio.",
+    "La ruta solicitada no existe o ya no está disponible dentro del portfolio.",
 };
 
 export default function NotFound() {
@@ -22,11 +23,11 @@ export default function NotFound() {
                 Error 404
               </p>
               <h1 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
-                Esta pagina no forma parte del portfolio.
+                Esta página no forma parte del portfolio.
               </h1>
               <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                La ruta que intentaste abrir no esta publicada o ya no existe.
-                Podes volver al inicio o revisar los proyectos vigentes.
+                La ruta que intentaste abrir no está publicada o ya no existe.
+                Podés volver al inicio o revisar los proyectos vigentes.
               </p>
             </div>
 

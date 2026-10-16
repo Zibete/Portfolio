@@ -23,6 +23,7 @@ import {
   getPublishedProjectEntries,
 } from "@/lib/mdx";
 import { getAbsoluteUrl } from "@/lib/site";
+import { siteConfig } from "@/content/site/site-config";
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -67,9 +68,10 @@ export async function generateMetadata({
       images: [
         {
           url: image,
-          alt:
-            entry.frontmatter.coverImageAlt ??
-            `Captura del proyecto ${entry.frontmatter.title}`,
+          alt: entry.frontmatter.coverImage
+            ? (entry.frontmatter.coverImageAlt ??
+              `Vista del proyecto ${entry.frontmatter.title}`)
+            : siteConfig.assets.ogImageAlt,
         },
       ],
     },

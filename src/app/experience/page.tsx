@@ -4,6 +4,7 @@ import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { TagChip } from "@/components/shared/tag-chip";
 import { profileContent } from "@/content/site/profile-content";
+import { createPageMetadata } from "@/lib/site";
 import { getExperienceEntries } from "@/lib/mdx";
 
 const experienceCardMotionDelays = [
@@ -18,11 +19,11 @@ const signalMotionDelays = [
   "motion-delay-4",
 ] as const;
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: profileContent.experience.eyebrow,
   description: profileContent.experience.description,
-  alternates: { canonical: "/experience" },
-};
+  pathname: "/experience",
+});
 
 export default async function ExperiencePage() {
   const { experience } = profileContent;
