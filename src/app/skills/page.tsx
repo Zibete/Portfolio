@@ -14,6 +14,8 @@ const skillGroupMotionDelays = [
 
 export const metadata = {
   title: profileContent.skills.eyebrow,
+  description: profileContent.skills.description,
+  alternates: { canonical: "/skills" },
 };
 
 export default function SkillsPage() {

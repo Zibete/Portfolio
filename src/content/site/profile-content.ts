@@ -102,54 +102,54 @@ const githubHref = "https://github.com/Zibete";
 export const profileContent = {
   about: {
     eyebrow: "Sobre mí",
-    title: "Perfil híbrido: desarrollo Android, automatización y mejora de procesos.",
+    title: "De las operaciones al desarrollo de automatizaciones.",
     description:
-      "Combino experiencia real en operación, cuentas a pagar y automatización con una base técnica visible en Android moderno. Mi diferencial está en convertir circuitos complejos en soluciones más claras, medibles y sostenibles.",
+      "Trabajo en Finanzas y desarrollo herramientas para automatizar tareas, integrar información y mejorar controles. Mi experiencia en cuentas a pagar y operaciones me permite entender reglas y excepciones antes de construir una solución técnica.",
     journeySection: {
       eyebrow: "",
       title: "Cómo llegué hasta acá",
       description:
-        "Mi recorrido profesional no empezó en desarrollo puro. Se formó en contextos donde había que sostener operación, entender procesos, coordinar con distintas áreas y resolver problemas concretos con impacto diario. Con el tiempo, esa experiencia se convirtió en una base muy valiosa para automatizar, ordenar flujos y construir soluciones más claras. Hoy la combino con una formación técnica más fuerte y con proyectos propios donde sigo profundizando desarrollo Android, arquitectura y producto.",
+        "Mi recorrido empezó en estaciones de servicio AXION, donde incorporé experiencia operativa y de coordinación. Trabajé en cuentas a pagar entre 2016 y 2019, supervisé equipos entre 2019 y 2023 y regresé a cuentas a pagar de 2023 a 2025 en Pan American Energy. En paralelo cursé la Tecnicatura Superior en Programación en Teclab (2022–2024). Desde 2026 trabajo en Finanzas en Cabify y sigo desarrollando automatizaciones con Python y Excel/VBA.",
     },
     highlightSection: {
       eyebrow: "Diferencial",
-      title: "Experiencia real aplicada a soluciones técnicas.",
+      title: "Entender el negocio y construir la herramienta.",
       description:
-        "No vengo solo de proyectos personales ni de una única disciplina. Mi recorrido cruza desarrollo, automatización, datos y operación, siempre con foco en problemas concretos, impacto real y decisiones que se puedan sostener.",
+        "Combino relevamiento de procesos, controles y trabajo con usuarios con programación e integraciones. Esa perspectiva me ayuda a priorizar soluciones prácticas y mantenibles.",
     },
     highlights: [
       {
-        title: "Base Android moderna",
+        title: "Automatización financiera",
         description:
-          "ZIBE muestra una base visible en Kotlin, Jetpack Compose, MVVM, Firebase, testing y evolución incremental de arquitectura en un repositorio público activo.",
+          "Experiencia en SAP, facturación, cobranzas, conciliaciones y cuentas a pagar; traducción de tareas repetitivas a flujos programados.",
       },
       {
-        title: "Automatización de punta a punta",
+        title: "Desarrollo e integraciones",
         description:
-          "Diseño flujos que integran sistemas, archivos, validaciones y salidas automáticas para reducir trabajo manual, ganar trazabilidad y mejorar productividad.",
+          "Python, Excel/VBA, automatización web y tratamiento de datos, con atención a excepciones, consistencia y pruebas.",
       },
       {
-        title: "Contexto operativo real",
+        title: "Ingeniería y aprendizaje",
         description:
-          "La experiencia en operación, cuentas a pagar y trabajo entre áreas me lleva a priorizar soluciones que funcionen de verdad en el día a día.",
+          "Formación en programación, proyectos públicos y uso de IA para apoyar el diseño, la implementación y la revisión técnica.",
       },
     ],
     principlesSection: {
       eyebrow: "Cómo trabajo",
-      title: "Cómo trabajo y cómo aporto valor en un equipo.",
+      title: "Alcance claro, iteraciones cortas y validación.",
       description:
-        "Trabajo con alcance claro, implementación iterativa y foco en mantenimiento. Codeo, automatizo y uso agentes o modelos LLM cuando aceleran análisis, ejecución o revisión, manteniendo siempre el criterio técnico, la validación y la decisión final.",
+        "Empiezo por el proceso y sus restricciones. Después implemento y compruebo resultados. Utilizo ChatGPT, Claude y Gemini como asistentes de análisis y desarrollo; las decisiones y verificaciones técnicas siguen bajo mi responsabilidad.",
     },
     principles: [
-      "Código claro, comunicación efectiva y documentación útil para que el trabajo se entienda y se pueda sostener.",
-      "Proceso spec-driven con iteraciones cortas, validación frecuente y uso de IA cuando aporta velocidad real sin sumar ruido.",
-      "Diseño pensando en uso real: operación diaria, restricciones, errores posibles y mejora continua.",
+      "Identificar entradas, reglas y excepciones antes de automatizar.",
+      "Separar responsabilidades, registrar errores y validar resultados con casos concretos.",
+      "Distinguir IA asistiendo desarrollo de productos que integren modelos LLM.",
     ],
     aside: {
-      eyebrow: "Hoy",
-      title: "Proyectos públicos y una base técnica cada vez más visible.",
+      eyebrow: "Perfil actual",
+      title: "Automatización, software y contexto financiero.",
       description:
-        "Hoy estoy enfocado en consolidar un perfil técnico híbrido a través de proyectos públicos, aprendizaje aplicado y desarrollo con evidencia visible. Busco aportar en roles donde se valore tanto la implementación como la mejora real de procesos.",
+        "Busco contribuir en desarrollo de herramientas e integraciones para equipos con procesos complejos. Sigo fortaleciendo capacidades de ingeniería aplicada con proyectos verificables.",
       items: [
         {
           title: "Ubicación",
@@ -158,12 +158,12 @@ export const profileContent = {
         {
           title: "Roles objetivo",
           description:
-            "Android Jr, automatización y mejora de procesos, técnico-funcional en operaciones/finanzas",
+            "Automation Developer, Software Developer y Solutions Engineer",
         },
         {
-          title: "Fortaleza transversal",
+          title: "Formación",
           description:
-            "Empatía, escucha, documentación y vocación de enseñar",
+            "Tecnicatura Superior en Programación · Teclab · 2022–2024",
         },
       ],
     },
@@ -341,9 +341,9 @@ export const profileContent = {
   contact: {
     eyebrow: "Contacto",
     title:
-      "Contacto directo para oportunidades en Android, automatización y mejora operativa.",
+      "Conversemos sobre automatización, software e integraciones.",
     description:
-      "Si querés avanzar con una conversación, acá están mis canales principales, el CV en PDF y el contexto justo para evaluar fit.",
+      "Podés escribirme, revisar proyectos públicos o descargar mi CV con la experiencia profesional y formación actualizadas.",
     downloadCtaLabel: "Descargar CV",
     methodsSection: {
       eyebrow: "Canales directos",
@@ -384,23 +384,23 @@ export const profileContent = {
       eyebrow: "Perfil",
       title: "Resumen profesional",
       description:
-        "Dónde puedo aportar hoy, qué experiencia suma y qué diferencial aporto.",
+        "Experiencia y capacidades relevantes para equipos de automatización y desarrollo.",
     },
     summary: [
       {
         title: "Dónde puedo aportar hoy",
         description:
-          "Android Jr/Mid, automatización de procesos y roles técnico-funcionales sobre operaciones, finanzas o circuitos SAP / P2P.",
+          "Automatización de procesos, desarrollo con Python y Excel/VBA e integraciones para equipos de Finanzas u Operaciones.",
       },
       {
         title: "Qué experiencia suma",
         description:
-          "Experiencia operativa real, automatización end-to-end y productos propios con base Android moderna y repos públicos activos.",
+          "Finanzas en Cabify, cuentas a pagar y supervisión en PAE / AXION, con formación en programación y proyectos técnicos públicos.",
       },
       {
         title: "Qué diferencial aporto",
         description:
-          "Capacidad para traducir procesos complejos en soluciones claras, trazables y sostenibles, con foco en mantenimiento y mejora continua.",
+          "Combino conocimiento funcional y desarrollo de software, con validaciones, documentación y uso supervisado de herramientas de IA.",
       },
     ],
     aside: {

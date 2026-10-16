@@ -22,7 +22,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: `${siteConfig.name} | Portfolio`,
+    default: `${siteConfig.name} | Automatización y software`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -32,17 +32,20 @@ export const metadata: Metadata = {
   },
   keywords: [
     siteConfig.name,
-    "Portfolio",
-    "Android",
-    "Automation Engineer",
-    "Next.js",
+    "Automation Developer",
+    "Software Developer",
+    "Automatización financiera",
+    "Python",
+    "Excel VBA",
+    "Integraciones empresariales",
+    "Finance Operations",
   ],
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: getAbsoluteUrl("/"),
-    siteName: `${siteConfig.name} | Portfolio`,
-    title: `${siteConfig.name} | Portfolio`,
+    siteName: `${siteConfig.name} | Automatización y software`,
+    title: `${siteConfig.name} | Automatización y software`,
     description: siteConfig.description,
     images: [
       {
@@ -53,7 +56,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Portfolio`,
+    title: `${siteConfig.name} | Automatización y software`,
     description: siteConfig.description,
     images: [siteConfig.assets.ogImagePath],
   },

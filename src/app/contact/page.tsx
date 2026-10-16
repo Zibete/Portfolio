@@ -34,6 +34,8 @@ const contactActionIcons = {
 
 export const metadata = {
   title: profileContent.contact.eyebrow,
+  description: profileContent.contact.description,
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
