@@ -8,15 +8,16 @@ El autor indicó explícitamente **usar su documento**, sin sustituirlo por el b
 
 `9b7b49f89c36d79fa5fd441d2259da4eb29fc668591af0c8e43cc7518cc369ed`
 
-**Estado de este PR:** PDF nuevo **pendiente de subir**. El archivo anterior sigue siendo el destino de descarga hasta completar la carga; NO fusionar la iteración como finalizada.
+**Estado:** PDF original subido a `public/files/CV_PERALTA_MATIAS_2026.pdf` en la rama `feat/028-cv-contact-seo`. El Git blob SHA publicado es `0ede6c17f54ade6677886c3ccc5f29fb189142ee`, que coincide con el Git blob SHA calculado sobre el PDF original adjunto (726.187 bytes). No se modificó ni reexportó el documento. El enlace de descarga central fue actualizado. El PDF previo sigue disponible para enlaces históricos.
 
-## Dónde colocarlo
+## Verificaciones de publicación
 
-1. Subir el PDF del autor, sin editarlo, a `public/files/CV_PERALTA_MATIAS_2026.pdf` en la rama `feat/028-cv-contact-seo`.
-2. Comprobar que se mantiene 1 página y la descarga de GitHub coincide con el SHA-256 anterior.
-3. Actualizar **solo** `cvFilePath` en `src/content/site/site-config.ts` a `/files/CV_PERALTA_MATIAS_2026.pdf`.
-4. Verificar que Header, Home y Contact descargan el mismo documento y no generan 404.
-5. Verificar Vercel en el último SHA y aprobar el PR.
+1. [x] PDF original en `public/files/CV_PERALTA_MATIAS_2026.pdf` y **únicamente en la rama de la feature** antes del merge.
+2. [x] PDF de 1 página, 726.187 bytes; SHA-256 `9b7b49f89c36d79fa5fd441d2259da4eb29fc668591af0c8e43cc7518cc369ed`. Git blob verificado contra el archivo original.
+3. [x] `cvFilePath` de `src/content/site/site-config.ts` actualizado a `/files/CV_PERALTA_MATIAS_2026.pdf`.
+4. [x] Header, Home y Contact consumen la misma ruta central en el código.
+5. [ ] Confirmar descarga de PDF sin 404 en la preview de Vercel tras el último commit.
+6. [ ] Verificar Vercel verde en último SHA y revisar/autorizar el merge.
 
 No borrar `public/files/CV_MATIAS_PERALTA_ANALISTA.pdf`, porque URLs anteriores pueden seguir utilizándolo.
 

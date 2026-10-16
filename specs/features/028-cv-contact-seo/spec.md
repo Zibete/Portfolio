@@ -8,8 +8,8 @@ Alinear la narrativa pública con automatización, desarrollo de software e inte
 
 - El autor adjuntó el PDF `CV_PERALTA_MATÍAS.pdf` (septiembre 2026) y pidió expresamente **usar ese archivo**.
 - No reeditar ni regenerar el PDF; cambiar solamente su nombre en el repositorio a una forma ASCII.
-- La conexión actual de GitHub permite commits de texto y blobs con contenido codificado, pero no admite transferir directamente el PDF binario adjunto. La carga a `public/files/` queda como paso manual antes de la finalización.
-- **No cambiar el enlace de descarga** hasta confirmar que el archivo nuevo está realmente publicado en la rama.
+- El PDF fue cargado por el autor en `public/files/CV_PERALTA_MATIAS_2026.pdf` dentro de la rama. Se comprobó que su Git blob SHA coincide con el PDF original adjunto.
+- Tras esa comprobación, `cvFilePath` se actualizó a la ruta del nuevo PDF. La descarga debe comprobarse en la preview antes del merge.
 - Mantener el PDF histórico para URLs existentes. Instrucciones en `docs/CV_PUBLICATION.md`.
 
 ## Alcance implementado
@@ -19,7 +19,7 @@ Alinear la narrativa pública con automatización, desarrollo de software e inte
 - Corregir fechas y empresa de experiencias anteriores conforme al CV.
 - Sustituir el posicionamiento Android-first en title, Open Graph, Twitter y keywords de `src/app/layout.tsx`.
 - Añadir canonicals específicos y descripciones a las páginas About, Contact, Experience, Skills y Projects.
-- Mantener `site-config.ts` sin cambio de PDF hasta que se suba el nuevo archivo.
+- `site-config.ts` centraliza el enlace de descarga que utilizan Home, Header y Contact.
 
 ## Hechos respaldados
 

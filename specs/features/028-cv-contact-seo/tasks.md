@@ -8,8 +8,9 @@
 - [x] Incorporar educación y fechas respaldadas por el CV.
 - [x] Ajustar títulos, keywords y canonical por ruta.
 - [x] Documentar instrucciones de publicación y bloqueo.
-- [ ] Subir PDF original `CV_PERALTA_MATIAS_2026.pdf` en `public/files/`.
-- [ ] Actualizar `cvFilePath` al nuevo documento verificado.
-- [ ] Verificar descarga del PDF en Home, Header y Contact.
+- [x] Subir PDF original `CV_PERALTA_MATIAS_2026.pdf` en `public/files/`.
+- [x] Verificar integridad del PDF original con su Git blob SHA y actualizar `cvFilePath`.
+- [x] Comprobar que Home, Header y Contact usan el path central actualizado en código.
+- [ ] Verificar descarga real en la preview de Vercel.
 - [ ] Comprobar Vercel en SHA final.
 - [ ] Aprobar y fusionar PR.

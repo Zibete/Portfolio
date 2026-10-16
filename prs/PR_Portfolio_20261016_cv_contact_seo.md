@@ -10,7 +10,7 @@ Rama: `feat/028-cv-contact-seo`
 - Títulos, Open Graph, Twitter y keywords globales reflejan el perfil actualizado.
 - Se agregaron descripciones y canonicals a About, Contact, Experience, Skills y Projects.
 - Se documentó la decisión explícita del autor: **usar su PDF original**, sin reescribirlo, mediante `docs/CV_PUBLICATION.md`.
-- Specs 028 registran el paso restante: subida del PDF a la rama, actualización de la ruta central y comprobación de descarga.
+- PDF original incorporado a la rama por el autor, verificado mediante Git blob SHA y conectado al path central de descarga; specs 028 actualizadas.
 
 ## Commits incluidos
 
@@ -18,11 +18,11 @@ Rama: `feat/028-cv-contact-seo`
 - `394e395` — `docs(cv): record selected original PDF and publication gate`
 - Commit de este borrador editorial.
 
-## Bloqueante de publicación
+## Publicación del CV
 
-**El PDF adjunto todavía no está en GitHub.** El conector utilizado no permite transferir binarios locales a GitHub. La copia disponible se llama `CV_PERALTA_MATIAS_2026.pdf`; subir a `public/files/` en esta misma rama. Una vez cargado, actualizar `cvFilePath` en `site-config.ts`. El sitio conserva mientras tanto su ruta previa, evitando links rotos.
+**Resuelto:** el autor subió `CV_PERALTA_MATIAS_2026.pdf` a `public/files/` en `feat/028-cv-contact-seo`, sin modificar el contenido. Git blob SHA `0ede6c17f54ade6677886c3ccc5f29fb189142ee` coincide con el archivo original (726.187 bytes). La ruta `cvFilePath` ahora apunta al nuevo PDF.
 
-No fusionar hasta completar esos pasos y validar descarga en Home, Header y Contact.
+**Pendiente:** comprobar descarga desde la preview de Vercel y revisar el estado del último deploy antes del merge.
 
 ## Validación
 
@@ -39,8 +39,8 @@ No fusionar hasta completar esos pasos y validar descarga en Home, Header y Cont
 
 ## Validación manual
 
-- [ ] Subir PDF original intacto a la rama.
-- [ ] Actualizar ruta de descarga central.
-- [ ] Verificar enlace PDF y contenido en los tres accesos.
+- [x] PDF original intacto en la rama.
+- [x] Ruta de descarga central actualizada.
+- [ ] Confirmar descarga del PDF en la preview desde los tres accesos.
 - [ ] Comprobar Vercel verde del SHA final.
 - [ ] Revisar About/Contacto y mergear previa aprobación.

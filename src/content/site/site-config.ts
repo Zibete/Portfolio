@@ -1,6 +1,6 @@
 import type { SiteConfig } from "@/types/site";
 
-const cvFilePath = "/files/CV_MATIAS_PERALTA_ANALISTA.pdf";
+const cvFilePath = "/files/CV_PERALTA_MATIAS_2026.pdf";
 
 export const siteConfig: SiteConfig = {
   name: "Matías Peralta",
