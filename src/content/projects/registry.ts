@@ -7,6 +7,7 @@ type ProjectModule = {
 const projectRegistry = {
   "finance-toolkit": () => import("./finance-toolkit.mdx"),
   "migrar-sap-portfolio": () => import("./migrar-sap-portfolio.mdx"),
+  reportbridge: () => import("./reportbridge.mdx"),
   zibe: () => import("./zibe.mdx"),
 } as const;
 

@@ -1,0 +1,62 @@
+---
+title: "ReportBridge"
+summary: "Herramienta local en desarrollo para consultar, consolidar y exportar reportes de una plataforma de BI. El MVP se concentra en un solo tipo de reporte financiero, con controles de consistencia y pruebas iniciales; ampliar la cobertura y validar todos los escenarios sigue pendiente."
+language: "es"
+published: true
+featured: false
+order: 3
+year: "2026 · MVP en validación"
+role: "Diseño y desarrollo de herramienta de datos"
+stack:
+  - "Python"
+  - "Streamlit"
+  - "APIs REST"
+  - "CSV / XLSX"
+  - "Testing"
+tags:
+  - "Integraciones"
+  - "Reporting automatizado"
+  - "Calidad de datos"
+---
+
+## Problema que aborda
+
+Los reportes financieros utilizados para análisis suelen requerir operaciones repetitivas: consultar una fuente, aplicar una selección, exportar archivos, comprobar que estén completos y dejarlos en un formato útil para continuar trabajando.
+
+ReportBridge explora cómo reunir esos pasos en una herramienta local, de forma que **consultar un reporte y comprobar su resultado** sean partes del mismo flujo. Es un proyecto distinto de Finance Toolkit: su foco específico está en el acceso, la consolidación y la validación de reportes de una plataforma de BI.
+
+## Mi contribución y enfoque
+
+Definí el alcance del MVP, revisé resultados obtenidos de fuentes reales y fui ajustando requisitos de selección, exportación y consistencia. El desarrollo combina una interfaz local con procesamiento Python y comunicación con una fuente de reportes a través de APIs.
+
+La construcción es iterativa y cuenta con apoyo de herramientas de IA para explorar alternativas e implementar cambios, manteniendo la revisión funcional y técnica de los resultados.
+
+## Decisiones de diseño
+
+- **Un reporte primero:** limitar el MVP a un tipo de exportación ya contrastado, antes de habilitar otros reportes con comportamiento diferente.
+- **Interfaz local:** facilitar la selección y consulta sin requerir una plataforma web desplegada para múltiples usuarios.
+- **Separar obtención y validación:** revisar integridad de registros, estructura y valores antes de considerar confiable una salida.
+- **Formatos de trabajo habituales:** contemplar archivos tabulares utilizables en Excel y otros procesos, con controles de compatibilidad.
+- **Evidencia antes de ampliar:** usar pruebas y muestras contrastadas para descubrir diferencias, en lugar de interpretar una exportación exitosa como garantía general.
+
+## Estado comprobado y pendientes
+
+**Octubre de 2026: MVP en desarrollo y validación.** La consulta y descarga del reporte priorizado —Sales Invoiceables— se probaron con datos reales en un período concreto. El proyecto incorpora controles de consistencia y pruebas offline, pero **no se ha validado exhaustivamente toda la historia de datos, todas las combinaciones de filtros ni todos los escenarios de volumen**.
+
+Las demás vistas o tipos de reporte quedan en espera. Continúan pendientes de validación aspectos como compatibilidad de archivos en Excel, selecciones complejas, estabilidad ante grandes volúmenes y uso en otra instalación.
+
+No presento el proyecto como un servicio distribuido, una integración corporativa oficialmente desplegada ni un sistema con disponibilidad garantizada.
+
+## Qué demuestra
+
+- Traducir necesidades de análisis financiero a una herramienta acotada.
+- Integrar una interfaz con consultas y procesamiento de datos.
+- Definir controles para detectar resultados incompletos o inconsistentes.
+- Reducir alcance deliberadamente cuando faltan pruebas suficientes.
+- Iterar entre requisitos funcionales, software y comprobación de resultados.
+
+## Límites de esta publicación
+
+Este texto es un **caso descriptivo**, no una demo pública. No se comparte el repositorio de trabajo, información extraída de sistemas, capturas, parámetros específicos, reglas internas, credenciales ni detalles de acceso a fuentes corporativas.
+
+Tampoco hay resultados públicos medidos sobre ahorro de tiempo, adopción por terceros o ejecución en producción. Las pruebas citadas corresponden al desarrollo del MVP y no pueden reproducirse desde este portfolio.
