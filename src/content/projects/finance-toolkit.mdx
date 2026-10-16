@@ -1,0 +1,76 @@
+---
+title: "Finance Toolkit"
+summary: "Herramienta de automatización financiera en desarrollo activo. Combina Excel/VBA como interfaz de trabajo con Python para procesar información, validar reglas e integrar sistemas. Documenta un enfoque modular e iterativo; las capacidades se encuentran en distintos estados de uso y validación."
+language: "es"
+published: true
+featured: false
+order: 2
+year: "2026 · desarrollo y evolución"
+role: "Diseño y desarrollo de herramientas de automatización"
+stack:
+  - "Python"
+  - "Excel"
+  - "VBA"
+  - "Google Apps Script"
+  - "Selenium"
+  - "Git / GitHub"
+tags:
+  - "Automatización"
+  - "Finanzas"
+  - "Integraciones"
+  - "Validación de datos"
+---
+
+## El problema
+
+En procesos financieros, una misma tarea puede exigir archivos de distintas fuentes, controles de consistencia, consultas a sistemas y preparación de resultados para otras personas. Cuando cada paso se resuelve manualmente o con scripts aislados, aumentan las oportunidades de error y el costo de mantener el proceso.
+
+Finance Toolkit surge para reunir esas necesidades en una herramienta de trabajo coherente. El desafío no es reemplazar la operación financiera, sino **hacer repetibles las tareas técnicas** sin perder las validaciones que requieren criterio funcional.
+
+## Mi contribución
+
+Trabajo en el análisis de los flujos, la definición de reglas y el desarrollo de la herramienta: desde la interacción en Excel hasta el procesamiento en Python y las integraciones que requiere cada caso.
+
+El proyecto también implica decidir qué conviene automatizar, cómo separar lo reutilizable de lo específico de un proceso y cómo explicar al usuario qué ocurrió cuando una ejecución termina o falla.
+
+## Decisiones técnicas
+
+- **Excel/VBA como interfaz:** aprovechar una herramienta familiar para operar procesos, configurar entradas y consultar resultados.
+- **Python para el procesamiento:** concentrar transformaciones, validaciones y lógica reutilizable fuera de las macros de interfaz.
+- **Intercambio de datos explícito:** definir estructuras de entrada y salida entre las capas, en lugar de depender de supuestos implícitos.
+- **Integraciones desacopladas:** separar la comunicación con sistemas externos de las reglas propias de cada proceso.
+- **Ejecuciones y errores identificables:** facilitar la revisión de resultados y el diagnóstico cuando algo no funciona.
+- **Evolución incremental:** incorporar capacidades por etapas y reutilizar componentes solo cuando exista una necesidad concreta.
+
+Estas decisiones describen la arquitectura general, no los contratos, mecanismos de acceso ni configuraciones de los sistemas internos.
+
+## Cómo funciona, a grandes rasgos
+
+1. El usuario inicia una tarea desde una interfaz basada en Excel.
+2. La herramienta prepara los datos necesarios para esa ejecución.
+3. Python procesa información, aplica reglas y, cuando corresponde, consulta fuentes externas.
+4. La salida vuelve a presentarse de manera revisable para quien opera el proceso.
+
+La implementación distingue la interacción con el usuario de las operaciones técnicas, para que cada flujo pueda evolucionar sin duplicar toda la infraestructura.
+
+## Estado y validación
+
+**Estado en octubre de 2026: desarrollo activo.** El proyecto reúne capacidades que ya se utilizan y continúan evolucionando, junto con otras que están en prueba o construcción. No es un producto comercial ni una plataforma completamente desplegada.
+
+Hay avances en consulta y preparación de información, documentos y reportes. Otros flujos de mayor complejidad siguen en validación: **no se afirma la emisión automática de documentación fiscal ni un cierre financiero real realizado íntegramente por la herramienta**.
+
+Las pruebas de componentes y de flujos individuales deben distinguirse de una validación integral con usuarios y sistemas corporativos. Todavía no publico una métrica atribuible de ahorro de horas, adopción generalizada o reducción porcentual de errores.
+
+## Qué demuestra
+
+- Traducción de necesidades financieras a reglas y flujos de software.
+- Separación entre interfaz, procesamiento, integraciones y responsabilidades compartidas.
+- Atención a fallos, consistencia de datos, mantenibilidad y experiencia de usuario.
+- Decisiones de arquitectura guiadas por restricciones operativas reales.
+- Uso de herramientas de IA como apoyo al análisis y al desarrollo, con revisión y validación humana; **no se presenta como un sistema basado en LLMs**.
+
+## Alcance de esta publicación
+
+Esta es una **descripción conceptual y deliberadamente limitada** de un proyecto interno. El repositorio fuente es privado y no se publica ni enlaza. Tampoco se incluyen código, capturas corporativas, archivos de trabajo, datos de clientes, endpoints, credenciales, mecanismos de autenticación ni reglas operativas internas.
+
+El propósito de este caso es explicar el problema y las decisiones de ingeniería sin afirmar una reproducibilidad pública que hoy no existe.
