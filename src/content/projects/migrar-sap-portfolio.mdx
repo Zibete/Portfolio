@@ -1,14 +1,14 @@
 ---
 title: "Automatización de cuentas a pagar"
-summary: "Automatización de cuentas a pagar basada en problemas reales de operación, donde integré Excel, VBA, Python, Outlook, lectura de PDFs, validaciones de negocio, reporting automático y flujos SAP para reducir trabajo manual y mejorar productividad. El proyecto resume mi forma de abordar procesos exigentes: combinar criterio operativo, integración de herramientas y soluciones técnicas claras, medibles y sostenibles."
+summary: "Caso de automatización de facturas en un proceso real de cuentas a pagar: Excel/VBA, Python, Power Query y conexiones con sistemas empresariales. Separé reglas verificables de integraciones dependientes del entorno; el resultado histórico reportado fue pasar de unos 60 a unos 500 documentos por día."
 language: "es"
 published: true
 featured: true
 order: 1
-year: "marzo de 2023 - octubre de 2025 • 2026 (release pública)"
-role: "Automatización / mejora de procesos"
+year: "2023–2025 · versión pública en 2026"
+role: "Automatización de procesos / desarrollo de herramientas"
 coverImage: "/images/projects/migrar-AP.png"
-coverImageAlt: "Diagrama visual del flujo de automatización de Migrar SAP desde correo y validaciones hasta SAP"
+coverImageAlt: "Diagrama del proceso de documentos, validaciones e integración con SAP"
 githubRepo: "Zibete/Migrar-SAP-Portfolio"
 githubUrl: "https://github.com/Zibete/Migrar-SAP-Portfolio"
 githubFeatured: false
@@ -27,55 +27,57 @@ tags:
   - "Testing"
 ---
 
-## Qué es
+## Contexto y problema
 
-"Migrar SAP Portfolio" resume una automatización real de cuentas a pagar llevada a una versión pública segura. El objetivo no es mostrar solo macros o scripts sueltos, sino un flujo completo donde documentos, datos, reglas y acciones operativas quedan conectados.
+El trabajo en cuentas a pagar exigía revisar facturas en PDF, cruzarlas con información operativa, interpretar reglas fiscales y de negocio y preparar acciones posteriores en SAP. El volumen y las excepciones hacían costosa la repetición manual de verificaciones, copias entre sistemas y seguimiento de estados.
 
-## Problema que resuelve
+Mi contribución fue combinar conocimiento del circuito operativo con desarrollo de automatizaciones para convertir esas tareas en pasos más consistentes, trazables y fáciles de revisar.
 
-El caso parte de un escenario típico de AP: alto volumen, múltiples validaciones, cruce entre sistemas y necesidad de sostener productividad sin perder control.
+## Decisiones de solución
 
-El reto técnico y funcional es transformar ese circuito en un flujo más confiable, repetible y menos manual.
+- **Excel/VBA como interfaz de operación:** aprovechar una herramienta familiar para quienes procesaban los documentos, sin exigir una aplicación nueva para cada tarea.
+- **Power Query y parsers de PDF:** transformar documentos en datos estructurados que pudieran contrastarse con otras fuentes.
+- **Python y automatización de sistemas:** complementar las capacidades de Office y reducir operaciones manuales repetidas.
+- **Reglas separadas de integraciones:** aislar clasificación, tolerancias y decisiones determinísticas de conexiones dependientes de SAP, correo o portales.
+- **Estados y comentarios por registro:** dejar claro qué se validó, qué requiere revisión y qué acción corresponde.
 
-## Solución implementada
+La solución fue incremental: adaptar herramientas y controles al proceso existente en lugar de reemplazar de golpe todo el circuito.
 
-La solución combina Excel y VBA como base operativa con apoyo de Python, Power Query, automatización web y scripting sobre SAP GUI. La versión pública conserva arquitectura, reglas determinísticas y evidencia reproducible, sin exponer datos sensibles ni integraciones corporativas reales.
+## Flujo de trabajo
 
-## Stack principal
+1. Ingresar y organizar documentos PDF.
+2. Extraer y normalizar campos relevantes.
+3. Cruzar información con reportes operativos.
+4. Aplicar validaciones y tolerancias de negocio.
+5. Generar estados, mensajes y salidas que apoyan el trabajo del operador.
 
-- Excel + VBA
-- Python
-- Power Query
-- SAP GUI scripting
-- Selenium
-- tooling de testing y export para versión pública
+Las acciones sobre sistemas empresariales reales dependen del entorno corporativo y **no se ejecutan** desde el repositorio público.
 
-## Flujo end-to-end
+## Resultado y atribución
 
-- ingreso y organización de documentos PDF
-- extracción y normalización de datos
-- cruce con reportes y sistemas internos
-- aplicación de validaciones fiscales y de negocio
-- generación de salidas operativas y evidencia reproducible
+En el caso histórico documentado, la productividad reportada pasó de **aproximadamente 60 a 500 documentos procesados por día** (alrededor de ocho veces el volumen inicial). Es un resultado asociado al flujo de cuentas a pagar en el período analizado, no una medición reciente de Cabify ni un benchmark de las pruebas públicas.
 
-## Qué demuestra
+La principal lección fue que automatizar no consiste en agregar macros: consiste en identificar decisiones repetibles, conservar controles y reservar las excepciones para revisión humana.
 
-- automatización end-to-end con impacto operativo real
-- integración entre sistemas, archivos y reglas de negocio
-- diseño orientado a trazabilidad, validación y reducción de errores
-- criterio para publicar un caso sensible en formato portfolio-safe
+## Qué puede verificarse públicamente
 
-## Estado actual
+El repositorio [Migrar-SAP-Portfolio](https://github.com/Zibete/Migrar-SAP-Portfolio) publica una versión preparada para portfolio, con:
 
-Actualmente, el repositorio presenta una release pública enfocada en arquitectura, reglas y evidencia. Deja visible la lógica, la estructura modular y el valor técnico del caso sin exponer el entorno corporativo completo.
+- motor VBA de reglas y decisiones en `src/vba/core/`;
+- pruebas del núcleo en `src/vba/tests/` y un runner desde PowerShell;
+- separación de componentes operativos e integraciones con efectos externos;
+- parsers anonimizados y documentación de contratos;
+- scripts de análisis previo y exportación de una versión pública.
 
-## Valor profesional
+Las [pruebas del core](https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/TESTING.md) requieren Windows y Excel para ejecutarse. Su existencia no verifica por sí sola la ejecución de SAP, Outlook ni del portal de la empresa. El código y los datos internos originales no forman parte de esta publicación.
 
-Este proyecto muestra la parte menos visible pero más diferencial de mi perfil: entender procesos complejos, convertirlos en automatizaciones sostenibles y balancear contexto funcional con ejecución técnica.
+## Qué aporta a mi perfil
 
-## Links relevantes
+Este caso conecta varias capacidades relevantes para ingeniería aplicada al negocio: entender una operación, transformar reglas en software, diseñar controles, separar responsabilidades, documentar resultados y preparar evidencia técnica revisable fuera del entorno que originó la solución.
+
+## Documentación y evidencia
 
 - [Repositorio público](https://github.com/Zibete/Migrar-SAP-Portfolio)
 - [Case study técnico](https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/CASE_STUDY.md)
-- [Descripción general del proyecto](https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/PORTFOLIO_OVERVIEW.md)
-- [Testing y evidencia reproducible](https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/TESTING.md)
+- [Mapa de arquitectura pública](https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/PORTFOLIO_OVERVIEW.md)
+- [Pruebas y límites de ejecución](https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/TESTING.md)

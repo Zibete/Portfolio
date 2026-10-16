@@ -1,14 +1,14 @@
 ---
 title: "ZIBE"
-summary: "App de mensajería Android iniciada en 2020 y publicada en Play Store tras cerca de un año de desarrollo. Desde octubre de 2025, retomé el proyecto como base de modernización, refactor y consolidación pública del portfolio, trabajando con Kotlin, Jetpack Compose, Material 3, MVVM, Hilt, repositorios, DataStore y Firebase sobre una arquitectura pensada para evolución incremental y mantenimiento real."
+summary: "Aplicación Android de mensajería iniciada en 2020 y retomada para modernización desde 2025. Es un caso complementario de desarrollo de producto: evolución incremental de una base existente con Kotlin, Compose, arquitectura modular, Firebase y validaciones automatizadas."
 language: "es"
 published: true
 featured: false
 order: 2
-year: "2020 - 2021 • 2025 - Presente"
-role: "Desarrollo Android"
+year: "2020–2021 · modernización desde 2025"
+role: "Desarrollo Android / evolución de producto"
 coverImage: "/images/projects/demo-zibe-gemini.png"
-coverImageAlt: "Capturas de ZIBE mostrando login, listado de chats y conversación"
+coverImageAlt: "Imagen ilustrativa de la interfaz de mensajería ZIBE"
 githubRepo: "Zibete/Zibe"
 githubUrl: "https://github.com/Zibete/Zibe"
 githubFeatured: true
@@ -27,80 +27,51 @@ tags:
   - "CI"
 ---
 
-## Qué es
+## Contexto y problema
 
-ZIBE es una app Android de mensajería orientada a chats 1 a 1 y grupos. La incluyo como caso técnico de desarrollo de producto porque concentra un tipo de problema completo: tiempo real, autenticación, notificaciones, multimedia, persistencia y evolución de arquitectura sin partir de cero.
+ZIBE nació como una app Android de mensajería con conversaciones individuales y grupales. El desafío técnico posterior fue **modernizar una aplicación existente sin descartar todo lo anterior**: convivir con pantallas heredadas, ordenar responsabilidades y mantener contratos coherentes entre interfaz, datos y servicios.
 
-## Problema que resuelve
+Hoy lo presento como un proyecto de ingeniería de producto complementario a mi foco profesional en automatización empresarial.
 
-El proyecto ataca dos frentes al mismo tiempo:
+## Decisiones de implementación
 
-- ofrecer una experiencia de mensajería moderna sobre Firebase, con conversaciones, grupos, perfiles y push notifications
-- demostrar cómo modernizar una base Android nacida con XML y Activities hacia Kotlin, Jetpack Compose y una estructura más mantenible
+- **Migración incremental:** convivencia controlada de vistas Android tradicionales y pantallas desarrolladas con Jetpack Compose y Material 3.
+- **Módulos y dependencias claras:** separación entre `app`, `data`, `domain` y `core`, con contratos que reducen el acoplamiento con Firebase.
+- **Estado y efectos de UI:** uso de ViewModels, `StateFlow` y mecanismos de eventos adecuados para cada interacción.
+- **Backend y persistencia:** Firebase Authentication, Realtime Database, Storage, FCM y DataStore, con reglas y contratos específicos.
+- **Compatibilidad y evolución:** refactors acotados, documentación de decisiones y atención a los límites entre lógica de negocio y servicios externos.
 
-## Solución implementada
+## Alcance funcional
 
-La solución combina una app Android real con una modernización progresiva y pública del código. En lugar de rehacer todo desde cero, ZIBE convive con capas legacy mientras migra hacia un stack más actual, con foco en claridad de responsabilidades, seguridad y capacidad de evolución.
+La base de código contempla autenticación, conversaciones directas, salas, perfiles, multimedia y notificaciones. La documentación actual del repositorio describe también contratos para mensajes directos y una evolución de salas denominada **RoomsV2**.
 
-## Stack principal
+Esto describe capacidades y arquitectura del proyecto; **no implica que todos los flujos estén validados en producción con usuarios reales**.
 
-- Kotlin
-- Jetpack Compose + Material 3
-- MVVM con `StateFlow` y `SharedFlow`
-- Hilt para dependency injection
-- Firebase Auth, Realtime Database, Storage, FCM y App Check
-- DataStore para persistencia local de configuración
-- Room y utilidades complementarias según el caso
+## Calidad y validación
 
-## Arquitectura
+El [repositorio público](https://github.com/Zibete/Zibe) incluye un workflow de integración continua y herramientas de comprobación para:
 
-La arquitectura sigue un flujo claro de responsabilidades:
+- límites de arquitectura y contratos entre módulos;
+- tests unitarios y compilación Android;
+- pruebas de reglas de Firebase mediante emuladores;
+- contratos auxiliares en Python;
+- compilaciones de debug y controles de lint.
 
-- UI
-- ViewModel
-- Domain use cases
-- Data repositories
-- Firebase y DataStore
+La configuración pública permite compilar con credenciales ficticias. Ese entorno es útil para reproducir verificaciones de código, pero **no prueba conectividad a un Firebase real ni valida por sí solo notificaciones y flujos entre dispositivos físicos**. Esas pruebas requieren configuración y verificación adicionales.
 
-La modularización visible hoy separa `app`, `core`, `domain` y `data`, con documentación técnica adicional en `docs/`. También existe una carpeta `functions/` reservada para automatizaciones y lógica de soporte del lado backend cuando hace falta complementar el flujo principal.
+## Estado del proyecto
 
-## Funcionalidades principales
+ZIBE tuvo su etapa inicial entre 2020 y 2021; la modernización se retomó en 2025. La referencia revisada es la rama pública `main` con actividad hasta **septiembre de 2026**.
 
-- autenticación con Google y Facebook
-- chat 1 a 1 y grupal en tiempo real
-- notificaciones push con FCM
-- perfiles, favoritos y estado de usuario
-- envío de imágenes y audio en conversaciones
-- onboarding, búsqueda y ajustes base de la app
+No presento la modernización como un producto terminado ni afirmo despliegues del backend que no estén demostrados. La publicación documenta una arquitectura en evolución y sus mecanismos de validación.
 
-## Estado actual
+## Qué aporta a mi perfil
 
-Al 13 de marzo de 2026, el repo muestra una etapa activa de modernización y mantenimiento. El proyecto arranca en 2020 y desde octubre de 2025 avanza con una migración sostenida hacia Kotlin, Compose, Material 3 y mejores prácticas de build, seguridad y organización interna.
+Aunque Android no es mi especialidad principal actual, ZIBE complementa mis casos de automatización: evidencia trabajo sobre una base de código de mayor tamaño, límites modulares, integraciones con servicios, mantenimiento incremental y pruebas automatizadas.
 
-No lo presento como producto terminado, sino como una base viva que ya evidencia criterio de evolución, disciplina técnica y continuidad.
-
-## Calidad técnica y señales de madurez
-
-- pipeline de GitHub Actions con build, lint, unit tests y compilación de release
-- tests para reglas de Firebase usando emuladores
-- documentación específica de arquitectura, CI y esquema de Firebase
-- archivos de ejemplo para credenciales y configuración segura en repo público
-- estructura modular y decisiones orientadas a mantenimiento incremental
-- commits recientes enfocados en compatibilidad, tooling y estabilidad del build
-
-## Valor profesional
-
-ZIBE me permite mostrar algo más útil que una demo aislada:
-
-- capacidad para trabajar sobre Android moderno sin ignorar deuda técnica previa
-- criterio para mejorar arquitectura sin romper la evolución del producto
-- manejo de integraciones end-to-end con Firebase
-- preocupación por calidad pública del repo, seguridad y automatización del build
-- equilibrio entre señal técnica profunda y entendimiento del valor funcional
-
-## Links relevantes
+## Documentación y evidencia
 
 - [Repositorio público](https://github.com/Zibete/Zibe)
-- [Documento de arquitectura](https://github.com/Zibete/Zibe/blob/main/docs/ARCHITECTURE.md)
-- [Documento de CI](https://github.com/Zibete/Zibe/blob/main/docs/CI.md)
-- [Esquema y reglas de Firebase](https://github.com/Zibete/Zibe/blob/main/docs/FIREBASE_SCHEMA.md)
+- [Arquitectura y límites modulares](https://github.com/Zibete/Zibe/blob/main/docs/ARCHITECTURE.md)
+- [Matriz de CI y validaciones adicionales](https://github.com/Zibete/Zibe/blob/main/docs/CI.md)
+- [Contratos de datos y reglas Firebase](https://github.com/Zibete/Zibe/blob/main/docs/FIREBASE_SCHEMA.md)
