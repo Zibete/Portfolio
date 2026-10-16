@@ -69,7 +69,6 @@ export interface SiteHomeFeaturedProjectMetadataContent {
 
 export interface SiteHomeFeaturedProjectContent {
   eyebrow: string;
-  description: string;
   githubBadge: string;
   statsLabels: SiteHomeFeaturedProjectStatsLabelsContent;
   primaryActionLabel: string;

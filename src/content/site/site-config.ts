@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   locale: "es-AR",
   language: "es",
   description:
-    "Portfolio personal con foco en Android, automatización end-to-end y ZIBE como caso principal para mostrar arquitectura, calidad técnica y criterio de producto.",
+    "Portfolio de Matías Peralta: automatización de procesos, desarrollo de software e integraciones empresariales con Python, Excel/VBA e IA asistiendo ingeniería.",
   assets: {
     profileImagePath: "/images/profile/matias-peralta-2026-profile.webp",
     profileImageAlt: "Retrato profesional de Matías Peralta",
@@ -15,9 +15,9 @@ export const siteConfig: SiteConfig = {
     ogImageAlt: "Preview del portfolio de Matías Peralta",
     cvFilePath,
   },
-  primaryAudience: "Líderes de producto y negocio",
-  targetRoles: ["Android Jr/Mid", "Automation Engineer"],
-  messageBalance: "50% técnico / 50% negocio",
+  primaryAudience: "Equipos de ingeniería, automatización y transformación digital",
+  targetRoles: ["Automation Developer", "Software Developer", "Solutions Engineer"],
+  messageBalance: "Evidencia técnica conectada a problemas de negocio",
   defaultTheme: "dark",
   navItems: [
     { href: "/", label: "Inicio" },
@@ -30,12 +30,12 @@ export const siteConfig: SiteConfig = {
   ],
   hero: {
     statusBadge:
-      "Disponible para roles Android, automatización y mejora de procesos",
-    eyebrow: "Desarrollo Android + automatización",
+      "Abierto a oportunidades en automatización e integraciones",
+    eyebrow: "Automation & Software Developer",
     title:
-      "Desarrollo soluciones Android y automatizaciones para procesos complejos, con impacto medible",
+      "Convierto procesos financieros y operativos en herramientas de software y automatización.",
     description:
-      "Vengo de resolver operación real con volumen, trazabilidad y mejora continua, y hoy lo combino con una base técnica visible en Android moderno. Mi foco está en construir soluciones que no solo funcionen, sino que también se puedan entender, mantener y hacer crecer.",
+      "Combino experiencia en Finanzas con Python, Excel/VBA e integraciones para reducir tareas manuales, mejorar controles y hacer los procesos más confiables. Uso herramientas de IA para acelerar análisis, desarrollo y revisión, y valido personalmente el resultado.",
     primaryCta: {
       href: "/projects",
       label: "Ver proyectos",
@@ -47,77 +47,76 @@ export const siteConfig: SiteConfig = {
     },
     summaryCards: [
       {
-        label: "Impacto operativo",
+        label: "Impacto demostrado",
         value:
-          "De ~60 a más de 500 documentos procesados por día mediante automatización y mejora de flujo.",
+          "En un caso de cuentas a pagar: de ~60 a más de 500 documentos procesados por día.",
       },
       {
-        label: "Perfil",
+        label: "Stack principal",
         value:
-          "Android junior con base sólida en automatización, integraciones y mejora de procesos.",
+          "Python, Excel/VBA, automatización web e integración de sistemas.",
       },
       {
-        label: "Prueba técnica",
+        label: "IA asistiendo el desarrollo",
         value:
-          "Proyectos públicos con arquitectura, decisiones y evolución documentada.",
+          "Apoyo para analizar, programar y revisar, con pruebas y criterio técnico.",
       },
     ],
   },
   stackMarquee: {
-    label: "Stack híbrido",
+    label: "Tecnologías que aplico",
     items: [
-      "Kotlin",
-      "Jetpack Compose",
-      "Firebase",
       "Python",
       "VBA",
       "Excel",
+      "Power Query",
+      "Selenium",
+      "Google Apps Script",
       "SAP FI",
-      "Next.js",
+      "Git / GitHub",
+      "Kotlin",
       "TypeScript",
-      "Tailwind CSS",
+      "Next.js",
     ],
   },
   homeComposition: {
     projectLead: {
-      eyebrow: "Experiencia real aplicada",
-      title: "Experiencia real llevada a soluciones técnicas",
+      eyebrow: "Experiencia aplicada",
+      title: "Entiendo el proceso y después construyo la solución.",
       description:
-        "Mi perfil no se construyó solo desde proyectos personales. Se formó resolviendo operatorias reales, integrando herramientas, reduciendo trabajo manual y sosteniendo procesos con reglas de negocio, volumen y necesidad de continuidad. Esa experiencia es la base sobre la que hoy desarrollo productos, automatizaciones y herramientas más mantenibles.",
+        "Trabajé con circuitos de cuentas a pagar, facturación y conciliación donde conviven reglas, sistemas y excepciones. Ese contexto guía cómo diseño automatizaciones: datos claros, validaciones explícitas y decisiones que puedan revisarse.",
       highlights: [
-        "Circuitos con múltiples áreas, validaciones, excepciones y necesidad de precisión operativa.",
-        "Integración de herramientas, sistemas, datos y flujos.",
-        "Equilibrio entre velocidad, claridad técnica y sostenibilidad de la solución en el tiempo.",
+        "Necesidades de usuarios, controles y excepciones de negocio.",
+        "Integración entre Excel, Python y sistemas empresariales.",
+        "Arquitectura simple, trazabilidad y mejora iterativa.",
       ],
     },
     credibility: {
       eyebrow: "Cómo trabajo",
-      title: "Código claro, iteración guiada y foco en el problema real.",
+      title: "Ingeniería guiada por el problema, no por la herramienta.",
       description:
-        "Trabajo con especificaciones claras, implementación iterativa y criterio técnico. Codeo, automatizo y me apoyo en agentes y modelos LLM cuando aceleran análisis, ejecución o revisión, sin perder control sobre las decisiones, la validación ni el mantenimiento.",
+        "Parto del relevamiento, defino un alcance comprobable y avanzo con entregas pequeñas. Uso ChatGPT, Claude y Gemini como apoyo para analizar, desarrollar y revisar; el criterio técnico y la validación permanecen bajo mi responsabilidad.",
       items: [
         {
-          title: "Implementación clara",
+          title: "Descubrir y delimitar",
           description:
-            "Priorizo estructuras entendibles, decisiones trazables y soluciones que se puedan mantener, extender y revisar sin fricción.",
+            "Comprendo reglas, entradas, salidas, riesgos y necesidades de quienes usan el proceso.",
         },
         {
-          title: "Iteración con criterio",
+          title: "Construir y probar",
           description:
-            "Suelo avanzar con objetivos concretos, pasos acotados, validación frecuente y apoyo de IA cuando aporta velocidad real.",
+            "Organizo código, manejo errores y verifico resultados con pruebas y casos concretos.",
         },
         {
-          title: "Contexto operativo",
+          title: "IA con criterio técnico",
           description:
-            "Diseño pensando en operación diaria, restricciones, errores posibles y continuidad, no solo en la implementación ideal."
+            "Uso modelos de IA para explorar alternativas y revisar soluciones sin delegar la validación.",
         },
       ],
     },
     featuredProject: {
-      eyebrow: "Proyecto Android destacado",
-      description:
-        "App Android de mensajería desarrollada como caso técnico principal del portfolio. El proyecto combina modernización progresiva, arquitectura por capas y prácticas actuales de Android para mostrar cómo abordo producto, código y mantenimiento en un contexto realista de evolución continua.",
-      githubBadge: "GitHub vivo",
+      eyebrow: "Caso de automatización destacado",
+      githubBadge: "Repositorio público",
       statsLabels: {
         stars: "Stars",
         forks: "Forks",
@@ -126,20 +125,20 @@ export const siteConfig: SiteConfig = {
       primaryActionLabel: "Ver caso completo",
       secondaryAction: {
         href: "/projects",
-        label: "Ver listado",
+        label: "Ver proyectos",
       },
       metadata: {
         roleLabel: "Rol",
         periodLabel: "Período",
         focusLabel: "Foco técnico",
         emptyValue: "Pendiente de definir",
-        focusFallback: "Arquitectura / producto / calidad",
+        focusFallback: "Software / automatización / integración",
       },
     },
     closingCta: {
       eyebrow: "Seguí por acá",
-      title: "Elegí la evidencia que quieras ver",
-      description: "Proyectos, CV o contacto.",
+      title: "Conocé cómo resuelvo problemas",
+      description: "Casos públicos, decisiones de implementación y CV.",
       actions: [
         {
           href: "/contact",
@@ -160,6 +159,6 @@ export const siteConfig: SiteConfig = {
   footer: {
     copyrightSuffix: "Base profesional de mi portfolio.",
     description:
-      "Enfocado en productos, automatización y soluciones técnicas con impacto operativo real.",
+      "Desarrollo y automatización para resolver problemas operativos reales.",
   },
 };
