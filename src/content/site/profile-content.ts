@@ -170,86 +170,113 @@ export const profileContent = {
   },
   skills: {
     eyebrow: "Habilidades",
-    title: "Base técnica para construir producto, automatizar procesos y sostener soluciones reales.",
+    title: "Software, automatización e integraciones con criterio de negocio.",
     description:
-      "Mi perfil combina Android, automatización, datos y calidad de implementación. Más que herramientas aisladas, son capacidades que uso en conjunto para resolver problemas concretos con claridad, trazabilidad y foco en mantenimiento.",
+      "Mi experiencia más aplicada está en Python, Excel/VBA y sistemas empresariales. También desarrollo productos propios y uso herramientas de IA para analizar y revisar soluciones. Distingo estas capacidades de las tecnologías que todavía estoy aprendiendo para avanzar hacia FDE.",
     groupsSection: {
-      eyebrow: "Capacidades principales",
-      title: "Tecnologías y prácticas que hoy uso con más frecuencia.",
+      eyebrow: "Stack y prácticas",
+      title: "Qué aplico hoy y qué estoy desarrollando.",
       description:
-        "Estas son las áreas donde hoy tengo más tracción y donde mejor se ve la combinación entre base técnica moderna, automatización y criterio de implementación.",
+        "Las tecnologías están agrupadas según su uso real: trabajo aplicado, desarrollo complementario y aprendizaje. Una herramienta mencionada no implica dominio experto ni uso en producción.",
     },
     groups: [
       {
-        title: "Android y producto",
+        title: "Automatización y desarrollo aplicado",
         description:
-          "Base técnica moderna para construir, corregir y evolucionar apps con foco en mantenibilidad.",
-        items: [
-          "Kotlin",
-          "Jetpack Compose",
-          "Material 3",
-          "MVVM",
-          "Firebase",
-          "Git / GitHub",
-        ],
-      },
-      {
-        title: "Automatización e integración",
-        description:
-          "Diseño flujos de punta a punta que combinan reglas de negocio, validaciones y orquestación entre herramientas.",
+          "Construyo flujos que transforman datos, aplican reglas de negocio y reducen tareas manuales. Excel/VBA funciona como interfaz operativa cuando resulta conveniente; Python concentra procesamiento e integraciones.",
         items: [
           "Python",
           "VBA",
           "Excel",
           "Power Query",
+          "Selenium",
+          "Google Apps Script",
+        ],
+      },
+      {
+        title: "Sistemas empresariales y datos",
+        description:
+          "Trabajo con información financiera, cruces, validaciones y conexiones entre archivos, herramientas de Google Workspace y sistemas de gestión. Mi fortaleza está en entender qué necesita controlar cada proceso.",
+        items: [
+          "NetSuite",
+          "SAP FI",
           "SAP GUI scripting",
-          "Task Scheduler",
-        ],
-      },
-      {
-        title: "Datos, validaciones y control",
-        description:
-          "Trabajo cómodo con reporting, cruces de información, validación de datos y análisis de desvíos para decisiones operativas.",
-        items: [
-          "Reporting automatizado",
-          "ETL liviano",
-          "KPIs",
+          "Google Sheets",
+          "CSV / XLSX",
           "Conciliaciones",
-          "Calidad de datos",
-          "SQL básico práctico",
         ],
       },
       {
-        title: "Calidad, testing y colaboración",
+        title: "Ingeniería, calidad y colaboración",
         description:
-          "No separo implementación de calidad: pruebo, documento y busco que el cambio sea claro para quien lo mantiene después.",
+          "Organizo soluciones por responsabilidades, versiono cambios, documento decisiones y compruebo resultados. Aplico pruebas funcionales y herramientas de automatización del desarrollo según el proyecto.",
         items: [
-          "Pruebas manuales y funcionales",
-          "Unit tests",
-          "Instrumented tests",
+          "Git / GitHub",
+          "uv",
+          "Pruebas funcionales",
           "GitHub Actions",
           "Documentación",
-          "Capacitación de ingresantes",
+          "Validación de datos",
+        ],
+      },
+      {
+        title: "IA asistiendo ingeniería",
+        description:
+          "Uso ChatGPT, Claude y Gemini para explorar requisitos, comparar enfoques, desarrollar y revisar código. Verifico salidas, decisiones y comportamiento: esto no equivale a haber desplegado un producto con LLMs.",
+        items: [
+          "ChatGPT",
+          "Claude",
+          "Gemini",
+          "Especificaciones",
+          "Revisión de código",
+          "Validación humana",
+        ],
+      },
+      {
+        title: "Desarrollo de producto (complementario)",
+        description:
+          "Proyectos propios en Android y web me permiten trabajar sobre interfaces, estado, arquitectura y mantenimiento. Amplían mi base de software, pero no son el foco principal de mi posicionamiento actual.",
+        items: [
+          "Kotlin",
+          "Jetpack Compose",
+          "Firebase",
+          "TypeScript",
+          "Next.js",
+        ],
+      },
+      {
+        title: "En desarrollo hacia FDE",
+        description:
+          "Son objetivos de aprendizaje y práctica, no competencias expertas acreditadas: fortalecer SQL y diseño de APIs, desplegar soluciones completas e integrar LLMs con pruebas, evaluaciones y manejo de fallos.",
+        items: [
+          "SQL (básico)",
+          "Diseño de APIs (en desarrollo)",
+          "Despliegue cloud (objetivo)",
+          "LLM APIs (objetivo)",
+          "Evaluaciones LLM (objetivo)",
         ],
       },
     ],
     aside: {
-      eyebrow: "Cómo las aplico",
-      title: "La herramienta importa por el problema que ayuda a resolver.",
+      eyebrow: "Criterio de uso",
+      title: "La evidencia importa más que la lista de tecnologías.",
       description:
-        "Cada tecnología aparece ligada a un resultado concreto: construir producto, automatizar tareas, mejorar controles y sostener procesos con más trazabilidad y productividad.",
+        "Cada habilidad debe poder vincularse a un problema, una implementación, una validación o un proyecto verificable.",
       items: [
         {
-          title: "Android",
-          description: "Base moderna para productos propios y evolución incremental de aplicaciones.",
+          title: "Aplicado a procesos reales",
+          description:
+            "Python, Excel/VBA e integraciones respaldan automatizaciones sobre reglas y necesidades financieras u operativas.",
         },
         {
-          title: "Automatización",
-          description: "Integración de herramientas y flujos para reducir trabajo manual y ganar productividad.",
+          title: "IA con supervisión técnica",
+          description:
+            "Utilizo modelos como asistentes de ingeniería; reviso los resultados y asumo la responsabilidad de probarlos.",
         },
         {
-          title: "Datos y validaciones",
-          description: "Soporte para decisiones más confiables, control de procesos y mejor trazabilidad.",
+          title: "Siguiente nivel: FDE",
+          description:
+            "Estoy construyendo evidencia en APIs, despliegue e IA integrada en software. No presento esos objetivos como experiencia adquirida.",
         },
       ],
     },
