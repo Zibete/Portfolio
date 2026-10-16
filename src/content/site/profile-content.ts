@@ -257,58 +257,58 @@ export const profileContent = {
   experience: {
     eyebrow: "Experiencia",
     title:
-      "Experiencia real en operación, cuentas a pagar y automatización aplicada a procesos complejos.",
+      "Finanzas, automatización y desarrollo aplicado a procesos empresariales.",
     description:
-      "Mi recorrido profesional se formó en contextos de alta exigencia, con volumen, múltiples áreas involucradas y necesidad de trazabilidad. Esa experiencia es la que hoy me permite traducir circuitos operativos en soluciones más claras, medibles y sostenibles.",
+      "Mi recorrido combina análisis financiero, cuentas a pagar, facturación, cobranzas y experiencia operativa. En cada etapa busco entender las reglas del proceso, mejorar controles y aplicar programación donde aporta valor real.",
     rolesSection: {
-      eyebrow: "Experiencia relevante",
+      eyebrow: "Trayectoria",
       title:
-        "Roles que explican mi combinación de criterio operativo y ejecución técnica.",
+        "De la operación al desarrollo de herramientas para Finanzas.",
       description:
-        "Pan American Energy / AXION, cuentas a pagar, automatización y supervisión operativa forman una base concreta para resolver problemas exigentes con orden y trazabilidad.",
+        "Actualmente trabajo en Cabify, en funciones de Finanzas y automatización de procesos. Mi etapa anterior en Pan American Energy / AXION aportó experiencia en cuentas a pagar, SAP y mejoras de productividad sobre grandes volúmenes de información.",
     },
     repeatableSignalsSection: {
-      eyebrow: "Capacidades consolidadas",
-      title: "Señales que ya aparecen de forma consistente en mi experiencia.",
+      eyebrow: "Cómo aporto",
+      title: "Capacidades que conectan negocio e implementación.",
       description:
-        "Procesos complejos, múltiples áreas, presión operativa y necesidad de mejora continua son contextos donde ya trabajé y donde hoy sigo aportando mejor.",
+        "La experiencia funcional permite construir herramientas a partir de necesidades y restricciones reales, no solo a partir de una especificación técnica aislada.",
     },
     repeatableSignals: [
       {
-        title: "Procesos completos",
+        title: "Entender el proceso",
         description:
-          "Entiendo circuitos punta a punta y traduzco reglas operativas en soluciones técnicas que se pueden sostener.",
+          "Identifico entradas, reglas de negocio, excepciones y controles antes de automatizar una tarea.",
       },
       {
-        title: "Comunicación transversal",
+        title: "Integrar herramientas",
         description:
-          "Trabajo de forma constante con finanzas, operación, sistemas y distintos usuarios finales, siempre buscando claridad y trazabilidad.",
+          "Conecto información y flujos de trabajo con Excel, programación y sistemas empresariales.",
       },
       {
-        title: "Orden bajo presión",
+        title: "Validar y documentar",
         description:
-          "Aprendí a coordinar múltiples objetivos, documentar, probar y sostener calidad incluso en contextos con alto volumen y exigencia.",
+          "Trabajo por iteraciones, reviso resultados y documento decisiones para facilitar el mantenimiento.",
       },
     ],
     metrics: [
       {
-        label: "Productividad",
+        label: "PAE / AXION · Productividad histórica",
         value: "de ~60 a más de 500 documentos por día",
       },
       {
-        label: "Volumen del área",
-        value: "más del 50 % gestionado en el período validado",
+        label: "PAE / AXION · Volumen analizado",
+        value: "más del 50 % de los documentos del área en el período validado",
       },
       {
-        label: "Importe total",
-        value: "alrededor del 70 % del monto total del período",
+        label: "PAE / AXION · Importe analizado",
+        value: "alrededor del 70 % del monto total del período validado",
       },
     ],
     aside: {
-      eyebrow: "Lo que se repite",
-      title: "Operación, automatización y criterio funcional en el mismo perfil.",
+      eyebrow: "Evidencia histórica",
+      title: "Resultados de un caso de cuentas a pagar.",
       description:
-        "La combinación entre experiencia operativa y ejecución técnica explica por qué hoy puedo traducir procesos complejos en mejoras claras y sostenibles.",
+        "Estas métricas corresponden exclusivamente a un período analizado en PAE / AXION. No representan resultados obtenidos en Cabify ni de proyectos actuales en desarrollo.",
     },
   },
   contact: {

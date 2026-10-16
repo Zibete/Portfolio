@@ -57,6 +57,11 @@ export default async function ExperiencePage() {
                       </p>
                     ) : null}
                     <div className="space-y-2">
+                      {entry.frontmatter.period ? (
+                        <p className="text-xs font-medium text-muted-foreground">
+                          {entry.frontmatter.period}
+                        </p>
+                      ) : null}
                       <h2 className="text-xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
                         {entry.frontmatter.title}
                       </h2>
