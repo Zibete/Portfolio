@@ -146,14 +146,14 @@ export function HomeHero() {
               <div className="absolute -left-2 top-8 rounded-2xl border border-border/58 bg-background/86 px-4 py-3 shadow-[0_22px_64px_-46px_rgb(15_23_42_/_0.42)] backdrop-blur-xl dark:bg-background/58 sm:-left-6">
                 <p className="flex items-center gap-2 text-xs font-medium text-foreground">
                   <BriefcaseBusiness className="size-4 text-primary" />
-                  Android + automatización
+                  Software + automatización
                 </p>
               </div>
 
               <div className="absolute -right-2 bottom-8 rounded-2xl border border-primary/22 bg-background/86 px-4 py-3 shadow-[0_22px_64px_-46px_rgb(34_188_255_/_0.36)] backdrop-blur-xl dark:bg-background/58 sm:-right-5">
                 <p className="flex items-center gap-2 text-xs font-medium text-foreground">
                   <Sparkles className="size-4 text-primary" />
-                  Impacto medible
+                  IA asistida y validación
                 </p>
               </div>
             </div>

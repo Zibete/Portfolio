@@ -49,9 +49,6 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
                   <p className="max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg">
                     {project.frontmatter.summary}
                   </p>
-                  <p className="max-w-3xl text-sm leading-6 text-muted-foreground">
-                    {featuredProjectContent.description}
-                  </p>
                 </div>
               </div>
 
