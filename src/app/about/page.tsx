@@ -4,6 +4,7 @@ import { PageAside } from "@/components/shared/page-aside";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { profileContent } from "@/content/site/profile-content";
+import { createPageMetadata } from "@/lib/site";
 import { siteConfig } from "@/content/site/site-config";
 
 const highlightMotionDelays = [
@@ -18,11 +19,11 @@ const principleMotionDelays = [
   "motion-delay-4",
 ] as const;
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: profileContent.about.eyebrow,
   description: profileContent.about.description,
-  alternates: { canonical: "/about" },
-};
+  pathname: "/about",
+});
 
 export default function AboutPage() {
   const { about } = profileContent;

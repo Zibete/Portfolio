@@ -6,6 +6,7 @@ import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { Button } from "@/components/ui/button";
 import { profileContent } from "@/content/site/profile-content";
+import { createPageMetadata } from "@/lib/site";
 import { siteConfig } from "@/content/site/site-config";
 
 const contactMethodMotionDelays = [
@@ -32,11 +33,11 @@ const contactActionIcons = {
   github: Github,
 } as const;
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: profileContent.contact.eyebrow,
   description: profileContent.contact.description,
-  alternates: { canonical: "/contact" },
-};
+  pathname: "/contact",
+});
 
 export default function ContactPage() {
   const { contact } = profileContent;

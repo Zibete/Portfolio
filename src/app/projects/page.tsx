@@ -12,13 +12,14 @@ import {
   getGitHubRepoStats,
 } from "@/lib/github";
 import { getPublishedProjectEntries } from "@/lib/mdx";
+import { createPageMetadata } from "@/lib/site";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Proyectos",
   description:
     "Casos de estudio de automatización financiera, integraciones y desarrollo de software, con resultados y límites explícitos.",
-  alternates: { canonical: "/projects" },
-};
+  pathname: "/projects",
+});
 
 export default async function ProjectsPage() {
   const cardMotionDelays = [

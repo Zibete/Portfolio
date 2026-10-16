@@ -13,7 +13,6 @@
 ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-111827?logo=vercel&logoColor=white)
 ![MDX](https://img.shields.io/badge/MDX-1B1F23?logo=mdx&logoColor=white)
 ![next-themes](https://img.shields.io/badge/next--themes-0F172A?logo=vercel&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=white)
 
 ---
@@ -38,12 +37,12 @@ Actualmente el proyecto incluye:
 
 - ✅ Home madura con narrativa profesional principal
 - ✅ Páginas internas con contenido real en español
-- ✅ Proyectos públicos curados con contenido local
+- ✅ Cuatro casos de estudio: dos con repositorios públicos y dos descripciones conceptuales de proyectos internos, sin enlaces ni código privados
 - ✅ Perfil, experiencia y recorrido con foco técnico-profesional
 - ✅ Assets reales para perfil, proyectos y CV
-- ✅ Descarga directa de CV sin página intermedia
+- ✅ Descarga directa del CV actualizado aportado por el autor, sin página intermedia
 - ✅ Soporte dark/light con criterio visual consistente
-- ✅ Metadata pública base lista para compartir el sitio (Open Graph, Twitter, sitemap y robots)
+- ✅ Metadata por ruta (canónicas, Open Graph, Twitter, sitemap y robots), con URL canónica estable
 - ✅ Documentación y specs por feature para acompañar la evolución del proyecto
 
 ---
