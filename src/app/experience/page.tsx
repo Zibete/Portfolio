@@ -20,6 +20,8 @@ const signalMotionDelays = [
 
 export const metadata = {
   title: profileContent.experience.eyebrow,
+  description: profileContent.experience.description,
+  alternates: { canonical: "/experience" },
 };
 
 export default async function ExperiencePage() {

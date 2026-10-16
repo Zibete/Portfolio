@@ -17,6 +17,7 @@ export const metadata = {
   title: "Proyectos",
   description:
     "Casos de estudio de automatización financiera, integraciones y desarrollo de software, con resultados y límites explícitos.",
+  alternates: { canonical: "/projects" },
 };
 
 export default async function ProjectsPage() {

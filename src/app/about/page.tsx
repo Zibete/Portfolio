@@ -20,6 +20,8 @@ const principleMotionDelays = [
 
 export const metadata = {
   title: profileContent.about.eyebrow,
+  description: profileContent.about.description,
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
