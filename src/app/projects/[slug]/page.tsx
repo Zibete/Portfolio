@@ -52,7 +52,7 @@ export async function generateMetadata({
     };
   }
 
-  const image = entry.frontmatter.coverImage ?? "/images/profile/MatiasPeralta.JPG";
+  const image = entry.frontmatter.coverImage ?? "/og/preview.png";
 
   return {
     title: entry.frontmatter.title,

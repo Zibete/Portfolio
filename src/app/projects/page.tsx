@@ -16,7 +16,7 @@ import { getPublishedProjectEntries } from "@/lib/mdx";
 export const metadata = {
   title: "Proyectos",
   description:
-    "Casos de estudio reales del portfolio, escritos en MDX local y centrados en criterio técnico con impacto de producto.",
+    "Casos de estudio de automatización financiera, integraciones y desarrollo de software, con resultados y límites explícitos.",
 };
 
 export default async function ProjectsPage() {
@@ -44,7 +44,7 @@ export default async function ProjectsPage() {
         <PageIntro
           eyebrow="Proyectos"
           title="Casos de estudio reales."
-          description="Dos proyectos que muestran cómo trabajo, qué construyo y qué tipo de problemas sé resolver. Acá concentro los casos que mejor representan mi perfil hoy: desarrollo Android moderno y automatización aplicada a procesos complejos."
+          description="Casos de automatización, integración de sistemas y desarrollo de software. Cada proyecto explica el problema, las decisiones técnicas, la evidencia disponible y sus límites."
         />
 
         <div className="grid gap-5">
@@ -59,8 +59,8 @@ export default async function ProjectsPage() {
                     <div className="space-y-2">
                       <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
                         {entry.frontmatter.featured
-                          ? "Proyecto Android destacado"
-                          : "Automatización aplicada a procesos reales"}
+                          ? "Caso destacado"
+                          : "Caso de estudio"}
                       </p>
                       <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
                         {entry.frontmatter.title}
