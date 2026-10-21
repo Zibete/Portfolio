@@ -13,7 +13,13 @@ interface EngineeringTraceProps {
   content: SiteEngineeringTraceContent;
 }
 
-function ArtifactPanel({ stage }: { stage: SiteEngineeringTraceStage }) {
+function ArtifactPanel({
+  stage,
+  interactive = true,
+}: {
+  stage: SiteEngineeringTraceStage;
+  interactive?: boolean;
+}) {
   const { artifact } = stage;
 
   return (
@@ -45,6 +51,7 @@ function ArtifactPanel({ stage }: { stage: SiteEngineeringTraceStage }) {
 
       {artifact.href ? (
         <a
+          tabIndex={interactive ? 0 : -1}
           className="inline-flex min-h-10 items-center gap-2 border-t border-border/70 px-4 py-3 text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           href={artifact.href}
           target="_blank"
@@ -62,7 +69,13 @@ function ArtifactPanel({ stage }: { stage: SiteEngineeringTraceStage }) {
   );
 }
 
-function TraceScene({ stage }: { stage: SiteEngineeringTraceStage }) {
+function TraceScene({
+  stage,
+  interactive = true,
+}: {
+  stage: SiteEngineeringTraceStage;
+  interactive?: boolean;
+}) {
   return (
     <div className="space-y-5">
       <div className="space-y-3">
@@ -76,7 +89,7 @@ function TraceScene({ stage }: { stage: SiteEngineeringTraceStage }) {
           {stage.description}
         </p>
       </div>
-      <ArtifactPanel stage={stage} />
+      <ArtifactPanel stage={stage} interactive={interactive} />
       <p className="inline-flex items-center gap-2 text-xs font-medium text-foreground/85">
         <CheckCircle2 aria-hidden="true" className="size-4 text-primary" />
         {stage.outcome}
@@ -139,7 +152,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
       frameRef.current = window.requestAnimationFrame(update);
     };
 
-    update();
+    schedule();
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
 
@@ -254,7 +267,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
                     className="trace-scene absolute left-1/2 top-1/2 w-[min(82%,35rem)] rounded-2xl border border-border/70 bg-card/95 p-5 shadow-[0_32px_120px_-65px_rgb(0_0_0_/_0.6)] xl:p-7"
                     aria-hidden={activeIndex !== index}
                   >
-                    <TraceScene stage={stage} />
+                    <TraceScene stage={stage} interactive={activeIndex === index} />
                   </article>
                 ))}
               </div>
