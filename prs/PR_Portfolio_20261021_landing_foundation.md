@@ -1,22 +1,28 @@
-# feat: landing foundation (030)
+# refactor(home): simplify landing composition
 
 Base: master
 Rama: feat/030-landing-foundation
 
 ## Qué se cambió
-- Hero editorial simplificado; fotografía original más pequeña, sin halos ni superposiciones.
-- Eliminado el carrusel continuo y las secciones redundantes de Home.
-- Cierre de navegación más breve; proyecto destacado preservado hasta Feature 032.
-- Fuente de verdad, tipos, CSS y README alineados con el nuevo alcance.
-- Spec 030 añadida para continuar luego con el recorrido Engineering Trace.
+
+- Home: composición reducida a hero, proyecto destacado y cierre con enlaces a contacto y CV.
+- HomeHero: fotografía original limitada a 320 px, sin overlays ni elementos flotantes.
+- Contenido: eliminación del carrusel de tecnologías y de bloques redundantes; ajuste de tipos y configuración.
+- CSS: limpieza de estilos específicos del carrusel; retiro de overflow oculto en el contenedor raíz.
+- README y feature 030: documentación alineada con la implementación.
 
 ## Commits incluidos
+
 - feat(home): establish engineering trace landing foundation
+- docs(home): align technical documentation and PR description
 
-## Validación manual
-- [ ] Abrir preview desktop y mobile; revisar foto, CTAs y contraste light/dark.
-- [ ] Ejecutar npm run lint y npm run build.
-- [ ] Confirmar enlaces a Proyectos, Contacto y CV.
+## Contratos y compatibilidad
 
-## Fuera de alcance
-Cinco escenas de Engineering Trace, dependencia Motion, incorporación de ZIBE al teaser y demo funcional.
+- Sin modificaciones de rutas, datos MDX, imagen de perfil o CV.
+- Sin cambios de dependencias ni integraciones de red.
+- Se conservan los enlaces a proyectos, contacto y descarga del CV.
+
+## Verificación registrada
+
+- Diff de implementación revisado contra master.
+- Vercel SUCCESS reportado para el commit de implementación a5cb4d9.

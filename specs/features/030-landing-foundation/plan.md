@@ -1,8 +1,15 @@
 # Plan — Feature 030
 
-1. Crear rama desde master y releer AGENTS.md y constitución.
-2. Reorganizar hero y Home sin añadir componentes o dependencias.
-3. Eliminar contenido duplicado y referencias al carrusel.
-4. Sincronizar tipos y fuente editorial.
-5. Revisar diff, ejecutar validaciones disponibles y abrir PR sin mergear.
-6. Continuar con Feature 031 (Engineering Trace completo) únicamente en otra iteración.
+## Implementación
+
+1. Simplificar el componente HomeHero y mantener la imagen de perfil original.
+2. Reducir la composición de Inicio a hero, caso destacado y cierre de navegación.
+3. Retirar el componente StackMarquee y las referencias editoriales y CSS asociadas.
+4. Actualizar contratos TypeScript de Home para reflejar el contenido renderizado.
+5. Alinear README, especificación técnica y registro de cambios con el diff.
+
+## Restricciones
+
+- Sin dependencias nuevas.
+- Sin cambios en rutas internas ni integraciones.
+- Sin modificación de imágenes, PDF o casos de estudio MDX.

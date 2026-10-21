@@ -1,9 +1,7 @@
 # Tasks — Feature 030
 
-- [x] Revisar constitución, reglas del repositorio y estado base.
-- [x] Simplificar hero, foto y CTA.
-- [x] Quitar narrativa duplicada y carrusel de Inicio.
-- [x] Sincronizar fuente de contenido, tipos, estilos y README.
-- [ ] Ejecutar lint/build en un entorno con dependencias instaladas.
-- [ ] Revisar visualmente desktop y mobile en preview.
-- [ ] Confirmar revisión y merge del PR.
+- [x] Reorganizar HomeHero sin modificar el asset de perfil.
+- [x] Reducir el layout de Home y preservar el caso destacado.
+- [x] Eliminar StackMarquee y sus estilos asociados.
+- [x] Consolidar el contenido y contratos TypeScript utilizados por Inicio.
+- [x] Actualizar documentación técnica y descripción del cambio.

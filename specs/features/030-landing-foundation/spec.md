@@ -1,32 +1,34 @@
 # Feature 030 — Landing foundation
 
 ## Objetivo
-Simplificar Inicio antes de desarrollar Engineering Trace, preservando el posicionamiento actual, la foto original, la accesibilidad y las páginas internas.
 
-## Decisiones aprobadas
-- Audiencia principal: líderes técnicos y Engineering Managers.
-- Próxima experiencia: cinco escenas de ingeniería conectadas por scroll con profundidad y paneles técnicos.
-- Evidencia final: Migrar SAP como caso principal y ZIBE como complementario.
-- No desarrollar una demo funcional, backend ni servicio de IA.
+Reducir complejidad visual y duplicación de contenido en Inicio sin alterar la arquitectura general ni las rutas públicas.
 
-## Alcance de este PR
-- Reducir fotografía sin modificar el archivo original y eliminar halos, overlays y etiquetas sobre ella.
-- Retirar carrusel tecnológico y bloques duplicados de proceso/credibilidad en Inicio.
-- Simplificar el hero y cierre; conservar acceso a proyectos, CV y contacto.
-- Preparar el contenedor de Inicio para un futuro componente sticky (sin overflow oculto global).
-- Retirar contratos editoriales y estilos del carrusel que quedaron sin uso.
-- Conservar temporalmente el caso destacado existente hasta la iteración de evidencia.
+## Cambios funcionales
 
-## Fuera de alcance
-- Engineering Trace, sus cinco escenas, Motion, navegación por etapas.
-- Cambios en otras rutas, MDX de proyectos, CV o archivos de imagen.
-- Incorporación de dependencias o servicios nuevos.
-- Demo de validación de documentos.
+- Hero editorial con título, propuesta profesional, acciones hacia proyectos y CV, y una referencia breve al impacto histórico documentado.
+- Fotografía original mantenida sin edición del asset, con ancho máximo de 320 px y sin overlays ni elementos flotantes.
+- Eliminación del carrusel continuo de tecnologías y de los bloques de contenido repetidos de Home.
+- Conservación del proyecto destacado desde el registro existente de casos MDX.
+- Cierre compacto con enlaces a contacto y CV.
+
+## Decisiones técnicas
+
+- El contenedor raíz de Home deja de aplicar overflow oculto para permitir el uso futuro de position: sticky en secciones locales.
+- Se eliminan el componente del carrusel, sus estilos y su configuración editorial, sin introducir dependencias.
+- El contenido sigue ubicado en src/content/site/site-config.ts y sus contratos en src/types/site.ts.
+- Se mantienen el sistema de temas, los componentes compartidos y las rutas existentes.
+
+## Alcance
+
+Afecta exclusivamente a Home, contratos de contenido vinculados a Home, CSS del carrusel sin uso y documentación del repositorio.
+
+No modifica páginas internas, código o archivos de proyectos, PDF del CV, imagen de perfil ni integraciones externas.
 
 ## Criterios de aceptación
-1. La Home conserva posicionamiento y enlaces públicos funcionales.
-2. La foto es la misma, más pequeña y sin overlays ni halos.
-3. El carrusel y los bloques repetidos dejan de renderizarse.
-4. Ningún enlace apunta a escenas que aún no existen.
-5. El cierre mantiene CTA de contacto y CV.
-6. lint, build y revisión visual responsive quedan registrados según ejecución real.
+
+1. El hero presenta el perfil y las acciones principales sin duplicación de contenido.
+2. La fotografía original se renderiza a un tamaño controlado y sin capas de iluminación.
+3. El carrusel eliminado no permanece en el árbol de componentes ni en la configuración de contenido.
+4. Los enlaces a proyectos, contacto y CV utilizan rutas existentes.
+5. La página no añade dependencias ni modifica contratos de servicios externos.

@@ -1,15 +1,14 @@
 # Verification — Feature 030
 
-## Inspección del cambio
-- [x] No se modifica el asset de la fotografía, CV ni MDX de proyectos.
-- [x] Los enlaces existentes de Inicio continúan apuntando a rutas reales.
-- [x] El contenedor de Home deja de aplicar overflow oculto, preparando sticky.
-- [x] Se elimina el carrusel del render y su configuración sin uso.
-- [x] No se incorporan dependencias ni animaciones continuas.
+## Revisión estática
 
-## Validación pendiente
-- [ ] Ejecutar npm run lint y npm run build en clon local o CI con dependencias. No disponibles desde este conector de GitHub.
-- [ ] Probar desktop/mobile, tema claro/oscuro, navegación, descarga del CV y enlaces de proyectos.
-- [ ] Verificar Vercel Preview si hay despliegue configurado.
+- La comparación de commits identifica exclusivamente cambios en Home, su configuración, estilos asociados y documentación.
+- No se modifican los archivos de la fotografía, CV ni casos de estudio MDX.
+- Se mantienen las rutas de proyectos y contacto, además del enlace configurado para descarga del CV.
+- La eliminación del carrusel incluye el componente, referencias de configuración, contratos y reglas CSS específicas.
+- El contenedor de Inicio no aplica overflow oculto a toda la página.
+- package.json y package-lock.json permanecen sin cambios.
 
-No se afirmará CI verde ni validación visual hasta comprobarlas.
+## Despliegue
+
+La revisión del commit de implementación a5cb4d9 registró estado Vercel SUCCESS. Este estado corresponde al despliegue reportado por el proveedor y no sustituye pruebas locales o verificación visual.
