@@ -28,7 +28,7 @@ El sitio conserva la mayor parte del renderizado del lado del servidor. Las func
 
 ## Inicio
 
-La página principal ofrece presentación profesional, fotografía original, evidencia histórica de impacto y un recorrido interactivo Engineering Trace de cinco etapas. En desktop, el scroll mueve paneles dentro de un espacio CSS 3D; en mobile y con movimiento reducido se presenta una versión estática y legible. Los artefactos distinguen enlaces a fuentes públicas de ejemplos didácticos. Un índice técnico conecta el recorrido con código y pruebas públicas de Migrar SAP y ZIBE, además de sus casos completos. Los resultados históricos y las limitaciones de validación se explicitan por separado.
+La página principal ofrece presentación profesional, fotografía original, evidencia histórica de impacto y un recorrido interactivo Engineering Trace de cinco etapas. En desktop con espacio vertical suficiente, el scroll mueve paneles dentro de un espacio CSS 3D; en mobile, pantallas bajas y con movimiento reducido se presenta una versión estática y legible. Los artefactos distinguen enlaces a fuentes públicas de ejemplos didácticos. Un índice técnico conecta el recorrido con código y pruebas públicas de Migrar SAP y ZIBE, además de sus casos completos. Los resultados históricos y las limitaciones de validación se explicitan por separado.
 
 ## Proyectos
 
