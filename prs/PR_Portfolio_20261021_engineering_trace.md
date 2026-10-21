@@ -12,6 +12,7 @@ Rama: feat/031-engineering-trace
 
 ## Commits incluidos
 - feat(home): add continuous Engineering Trace experience
+- fix(home): keep inactive trace artifacts out of keyboard navigation
 
 ## Decisiones técnicas
 - Sin Motion, GSAP ni video: transformaciones CSS controladas por un listener pasivo y frames bajo demanda evitan agregar runtime/dependencia al stack.
