@@ -62,12 +62,13 @@ export const siteConfig: SiteConfig = {
           "Reconocer qué necesita el usuario, qué puede fallar y qué decisiones deben mantenerse bajo control humano.",
         outcome: "Resultado: límites y necesidades definidos",
         artifact: {
-          file: "problem-brief.md",
-          kind: "example",
+          file: "docs/CASE_STUDY.md",
+          kind: "public",
+          href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/CASE_STUDY.md",
           lines: [
-            "Necesidad: reducir trabajo repetitivo",
-            "Restricción: las excepciones requieren revisión",
-            "Criterio: cada decisión debe ser explicable",
+            "Problema: validar facturas sin repetir controles",
+            "Proceso: extraer, verificar, clasificar y registrar estados",
+            "Límite: las integraciones reales requieren entorno privado",
           ],
         },
       },
@@ -79,13 +80,13 @@ export const siteConfig: SiteConfig = {
           "Separar objetivos, restricciones y criterios de aceptación antes de modificar el software.",
         outcome: "Resultado: alcance comprobable",
         artifact: {
-          file: "specs/features/030-landing-foundation/spec.md",
+          file: "docs/adr/0001-module-boundaries.md",
           kind: "public",
-          href: "https://github.com/Zibete/Portfolio/blob/master/specs/features/030-landing-foundation/spec.md",
+          href: "https://github.com/Zibete/Zibe/blob/main/docs/adr/0001-module-boundaries.md",
           lines: [
-            "Objetivo: reducir duplicación en Inicio",
-            "Límite: conservar rutas y archivos públicos",
-            "Aceptación: contratos y navegación coherentes",
+            "domain: modelos y contratos sin Firebase ni Android",
+            "data: implementaciones de los repositorios",
+            "app: integración Hilt e interfaz Android",
           ],
         },
       },
@@ -119,8 +120,8 @@ export const siteConfig: SiteConfig = {
           href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/src/vba/core/modCoreValidation.bas",
           lines: [
             "CoreIsSiteMismatch(siteSB, siteFC)",
-            "Validación de diferencias por tolerancia",
-            "Reglas puras sin SAP ni acceso a Excel",
+            "CoreShouldMarkPendienteRevisar(..., montoTolerancia)",
+            "Funciones puras sin acceso a Excel ni SAP",
           ],
         },
       },
@@ -143,6 +144,56 @@ export const siteConfig: SiteConfig = {
         },
       },
     ],
+    evidence: {
+      eyebrow: "Source index / revisión técnica",
+      title: "Del recorrido al código.",
+      cases: [
+        {
+          id: "migrar-sap",
+          label: "Caso principal · automatización",
+          title: "Migrar SAP",
+          summary:
+            "Reglas VBA independientes de SAP y un runner de pruebas del núcleo ejecutable localmente con Windows y Excel.",
+          boundary:
+            "El aumento histórico de ~60 a ~500 documentos por día es un resultado reportado del proceso original; no una métrica de los tests públicos.",
+          caseHref: "/projects/migrar-sap-portfolio",
+          sources: [
+            {
+              label: "Reglas puras de validación",
+              href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/src/vba/core/modCoreValidation.bas",
+            },
+            {
+              label: "Runner y alcance de las pruebas",
+              href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/TESTING.md",
+            },
+          ],
+        },
+        {
+          id: "zibe",
+          label: "Caso complementario · producto Android",
+          title: "ZIBE",
+          summary:
+            "Modernización modular Android/Kotlin con contratos de dependencias, checker de arquitectura y CI pública.",
+          boundary:
+            "El workflow comprueba compilación y reglas con configuración ficticia; no acredita uso real de Firebase ni flujos en dispositivos.",
+          caseHref: "/projects/zibe",
+          sources: [
+            {
+              label: "ADR de límites modulares",
+              href: "https://github.com/Zibete/Zibe/blob/main/docs/adr/0001-module-boundaries.md",
+            },
+            {
+              label: "Checker de arquitectura",
+              href: "https://github.com/Zibete/Zibe/blob/main/scripts/check_architecture.py",
+            },
+            {
+              label: "Workflow Android CI",
+              href: "https://github.com/Zibete/Zibe/blob/main/.github/workflows/android-ci.yml",
+            },
+          ],
+        },
+      ],
+    },
   },
   homeComposition: {
     featuredProject: {
