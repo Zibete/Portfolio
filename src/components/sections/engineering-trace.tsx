@@ -100,7 +100,7 @@ function TraceScene({
 
 export function EngineeringTrace({ content }: EngineeringTraceProps) {
   const railRef = useRef<HTMLDivElement>(null);
-  const sceneRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sceneRefs = useRef<(HTMLElement | null)[]>([]);
   const progressRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
   const activeRef = useRef(0);
