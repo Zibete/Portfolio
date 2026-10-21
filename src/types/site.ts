@@ -21,36 +21,7 @@ export interface SiteHeroContent {
   supportingNote?: string;
   primaryCta: SiteNavItem;
   secondaryCta: SiteNavItem;
-  summaryCards: SiteHomeSummaryCardContent[];
-}
-
-export interface SiteStackMarqueeContent {
-  label: string;
-  items: string[];
-}
-
-export interface SiteHomeProjectLeadContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  highlights: string[];
-}
-
-export interface SiteHomeCredibilityItem {
-  title: string;
-  description: string;
-}
-
-export interface SiteHomeCredibilityContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  items: SiteHomeCredibilityItem[];
-}
-
-export interface SiteHomeSummaryCardContent {
-  label: string;
-  value: string;
+  impactStatement: string;
 }
 
 export interface SiteHomeFeaturedProjectStatsLabelsContent {
@@ -84,8 +55,6 @@ export interface SiteHomeCtaContent {
 }
 
 export interface SiteHomeCompositionContent {
-  projectLead: SiteHomeProjectLeadContent;
-  credibility: SiteHomeCredibilityContent;
   featuredProject: SiteHomeFeaturedProjectContent;
   closingCta: SiteHomeCtaContent;
 }
@@ -107,7 +76,6 @@ export interface SiteConfig {
   defaultTheme: "dark" | "light";
   navItems: SiteNavItem[];
   hero: SiteHeroContent;
-  stackMarquee: SiteStackMarqueeContent;
   homeComposition: SiteHomeCompositionContent;
   footer: SiteFooterContent;
 }

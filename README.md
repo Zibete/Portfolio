@@ -35,7 +35,7 @@ No está planteado como un sitio de autopromoción vacía, sino como un **portfo
 
 Actualmente el proyecto incluye:
 
-- ✅ Home madura con narrativa profesional principal
+- ✅ Home simplificada y preparada para el recorrido interactivo Engineering Trace (en desarrollo)
 - ✅ Páginas internas con contenido real en español
 - ✅ Cuatro casos de estudio: dos con repositorios públicos y dos descripciones conceptuales de proyectos internos, sin enlaces ni código privados
 - ✅ Perfil, experiencia y recorrido con foco técnico-profesional
@@ -66,10 +66,10 @@ A medida que el proyecto fue creciendo, se trabajó en:
 
 ## 🖼️ Preview
 
-### Home
-![Home del portfolio](public/images/readme/home-desktop.png)
+### Home (captura anterior al rediseño)
+![Home anterior del portfolio](public/images/readme/home-desktop.png)
 
-### Home scroll
+### Home scroll (registro anterior al rediseño)
 https://github.com/user-attachments/assets/bc743130-0bef-453b-807e-929d0c60be81
 
 ### Projects

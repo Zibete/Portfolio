@@ -45,75 +45,10 @@ export const siteConfig: SiteConfig = {
       label: "Descargar CV",
       download: true,
     },
-    summaryCards: [
-      {
-        label: "Impacto demostrado",
-        value:
-          "En un caso de cuentas a pagar: de ~60 a más de 500 documentos procesados por día.",
-      },
-      {
-        label: "Stack principal",
-        value:
-          "Python, Excel/VBA, automatización web e integración de sistemas.",
-      },
-      {
-        label: "IA asistiendo el desarrollo",
-        value:
-          "Apoyo para analizar, programar y revisar, con pruebas y criterio técnico.",
-      },
-    ],
-  },
-  stackMarquee: {
-    label: "Tecnologías que aplico",
-    items: [
-      "Python",
-      "VBA",
-      "Excel",
-      "Power Query",
-      "Selenium",
-      "Google Apps Script",
-      "SAP FI",
-      "Git / GitHub",
-      "Kotlin",
-      "TypeScript",
-      "Next.js",
-    ],
+    impactStatement:
+      "Caso histórico de cuentas a pagar: de ~60 a ~500 documentos procesados por día.",
   },
   homeComposition: {
-    projectLead: {
-      eyebrow: "Experiencia aplicada",
-      title: "Entiendo el proceso y después construyo la solución.",
-      description:
-        "Trabajé con circuitos de cuentas a pagar, facturación y conciliación donde conviven reglas, sistemas y excepciones. Ese contexto guía cómo diseño automatizaciones: datos claros, validaciones explícitas y decisiones que puedan revisarse.",
-      highlights: [
-        "Necesidades de usuarios, controles y excepciones de negocio.",
-        "Integración entre Excel, Python y sistemas empresariales.",
-        "Arquitectura simple, trazabilidad y mejora iterativa.",
-      ],
-    },
-    credibility: {
-      eyebrow: "Cómo trabajo",
-      title: "Ingeniería guiada por el problema, no por la herramienta.",
-      description:
-        "Parto del relevamiento, defino un alcance comprobable y avanzo con entregas pequeñas. Uso ChatGPT, Claude y Gemini como apoyo para analizar, desarrollar y revisar; el criterio técnico y la validación permanecen bajo mi responsabilidad.",
-      items: [
-        {
-          title: "Descubrir y delimitar",
-          description:
-            "Comprendo reglas, entradas, salidas, riesgos y necesidades de quienes usan el proceso.",
-        },
-        {
-          title: "Construir y probar",
-          description:
-            "Organizo código, manejo errores y verifico resultados con pruebas y casos concretos.",
-        },
-        {
-          title: "IA con criterio técnico",
-          description:
-            "Uso modelos de IA para explorar alternativas y revisar soluciones sin delegar la validación.",
-        },
-      ],
-    },
     featuredProject: {
       eyebrow: "Caso de automatización destacado",
       githubBadge: "Repositorio público",
@@ -148,10 +83,6 @@ export const siteConfig: SiteConfig = {
           href: cvFilePath,
           label: "Descargar CV",
           download: true,
-        },
-        {
-          href: "/projects",
-          label: "Ver proyectos",
         },
       ],
     },
