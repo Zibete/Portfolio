@@ -40,11 +40,31 @@ export interface SiteEngineeringTraceStage {
   artifact: SiteEngineeringTraceArtifact;
 }
 
+export interface SiteEngineeringEvidenceSource {
+  label: string;
+  href: string;
+}
+
+export interface SiteEngineeringEvidenceCase {
+  id: string;
+  label: string;
+  title: string;
+  summary: string;
+  boundary: string;
+  caseHref: string;
+  sources: SiteEngineeringEvidenceSource[];
+}
+
 export interface SiteEngineeringTraceContent {
   eyebrow: string;
   title: string;
   description: string;
   stages: SiteEngineeringTraceStage[];
+  evidence: {
+    eyebrow: string;
+    title: string;
+    cases: SiteEngineeringEvidenceCase[];
+  };
 }
 
 export interface SiteHomeFeaturedProjectStatsLabelsContent {

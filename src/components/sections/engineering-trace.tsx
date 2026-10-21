@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowUpRight, CheckCircle2, FileCode2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowDown, ArrowRight, ArrowUpRight, CheckCircle2, FileCode2 } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import type {
   SiteEngineeringTraceContent,
@@ -276,6 +277,72 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
             <div className="h-1 bg-border/40" aria-hidden="true">
               <div ref={progressRef} className="h-full w-0 bg-primary" />
             </div>
+          </div>
+        </div>
+
+        <div
+          id="engineering-evidence"
+          className="mt-14 scroll-mt-28 border-t border-border/70 pt-10 sm:mt-20"
+          aria-labelledby="engineering-evidence-title"
+        >
+          <div className="mb-7 space-y-2">
+            <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
+              {content.evidence.eyebrow}
+            </p>
+            <h3
+              id="engineering-evidence-title"
+              className="text-2xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-3xl"
+            >
+              {content.evidence.title}
+            </h3>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {content.evidence.cases.map((item) => (
+              <article
+                key={item.id}
+                className="flex h-full flex-col rounded-2xl border border-border/70 bg-card/75 p-6 sm:p-7"
+              >
+                <div className="space-y-3">
+                  <p className="font-mono text-xs text-primary">{item.label}</p>
+                  <h4 className="text-xl font-semibold text-foreground [font-family:var(--font-display)] sm:text-2xl">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm leading-7 text-muted-foreground">
+                    {item.summary}
+                  </p>
+                </div>
+                <div className="mt-6 border-t border-border/70 pt-5">
+                  <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                    Evidencia pública
+                  </p>
+                  <ul className="space-y-3">
+                    {item.sources.map((source) => (
+                      <li key={source.href}>
+                        <a
+                          href={source.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm text-foreground underline-offset-4 hover:text-primary hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                        >
+                          <ArrowUpRight aria-hidden="true" className="size-4 shrink-0 text-primary" />
+                          {source.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="mt-6 border-l-2 border-border pl-3 text-xs leading-6 text-muted-foreground">
+                  {item.boundary}
+                </p>
+                <Link
+                  href={item.caseHref}
+                  className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                >
+                  Leer caso completo
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </Container>
