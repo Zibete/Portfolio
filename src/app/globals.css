@@ -434,3 +434,60 @@
     }
   }
 }
+
+
+/* Engineering Trace: one scroll-linked 3D workspace, static fallback on mobile. */
+.trace-scroller {
+  display: none;
+}
+
+.trace-world {
+  perspective: 1100px;
+  perspective-origin: 50% 44%;
+  background-image:
+    linear-gradient(to right, rgb(125 150 170 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(125 150 170 / 0.07) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.trace-floor {
+  background-image:
+    linear-gradient(to right, rgb(95 145 190 / 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(95 145 190 / 0.16) 1px, transparent 1px);
+  background-size: 52px 52px;
+  transform: perspective(460px) rotateX(62deg) translateY(35%);
+  transform-origin: bottom;
+  mask-image: linear-gradient(to bottom, transparent, black 65%);
+}
+
+.trace-scene {
+  transform: translate3d(-50%, -50%, 0);
+  transform-style: preserve-3d;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  backface-visibility: hidden;
+}
+
+.trace-scene:first-of-type {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .trace-scroller {
+    display: block;
+  }
+  .trace-static {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-scene,
+  .trace-world,
+  .trace-floor {
+    transition: none;
+    animation: none;
+  }
+}

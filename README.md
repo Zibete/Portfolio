@@ -28,7 +28,7 @@ El sitio conserva la mayor parte del renderizado del lado del servidor. Las func
 
 ## Inicio
 
-La página principal ofrece presentación profesional, fotografía original, evidencia histórica de impacto y acceso al caso destacado de automatización de cuentas a pagar (Migrar SAP). El resto de los proyectos y la trayectoria se desarrollan en rutas independientes, para evitar duplicación.
+La página principal ofrece presentación profesional, fotografía original, evidencia histórica de impacto y un recorrido interactivo Engineering Trace de cinco etapas. En desktop, el scroll mueve paneles dentro de un espacio CSS 3D; en mobile y con movimiento reducido se presenta una versión estática y legible. Los artefactos distinguen enlaces a fuentes públicas de ejemplos didácticos. El caso principal sigue siendo Migrar SAP.
 
 ## Proyectos
 

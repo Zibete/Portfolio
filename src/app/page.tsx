@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import { FeaturedProject } from "@/components/sections/featured-project";
 import { HomeHero } from "@/components/sections/home-hero";
+import { EngineeringTrace } from "@/components/sections/engineering-trace";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
@@ -14,6 +15,7 @@ export default async function Home() {
   return (
     <div className="relative">
       <HomeHero />
+      <EngineeringTrace content={siteConfig.engineeringTrace} />
 
       {featuredProject ? <FeaturedProject project={featuredProject} /> : null}
 

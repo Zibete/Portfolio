@@ -24,6 +24,29 @@ export interface SiteHeroContent {
   impactStatement: string;
 }
 
+export interface SiteEngineeringTraceArtifact {
+  file: string;
+  kind: "public" | "example";
+  lines: string[];
+  href?: string;
+}
+
+export interface SiteEngineeringTraceStage {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  outcome: string;
+  artifact: SiteEngineeringTraceArtifact;
+}
+
+export interface SiteEngineeringTraceContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+  stages: SiteEngineeringTraceStage[];
+}
+
 export interface SiteHomeFeaturedProjectStatsLabelsContent {
   stars: string;
   forks: string;
@@ -77,5 +100,6 @@ export interface SiteConfig {
   navItems: SiteNavItem[];
   hero: SiteHeroContent;
   homeComposition: SiteHomeCompositionContent;
+  engineeringTrace: SiteEngineeringTraceContent;
   footer: SiteFooterContent;
 }
