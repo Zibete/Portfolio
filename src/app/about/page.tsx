@@ -1,10 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/shared/container";
 import { PageAside } from "@/components/shared/page-aside";
 import { PageIntro } from "@/components/shared/page-intro";
 import { PageSection } from "@/components/shared/page-section";
 import { profileContent } from "@/content/site/profile-content";
 import { createPageMetadata } from "@/lib/site";
+import { getExperienceEntries } from "@/lib/mdx";
 import { siteConfig } from "@/content/site/site-config";
 
 const highlightMotionDelays = [
@@ -25,8 +27,9 @@ export const metadata = createPageMetadata({
   pathname: "/about",
 });
 
-export default function AboutPage() {
+export default async function AboutPage() {
   const { about } = profileContent;
+  const milestones = await getExperienceEntries();
 
   return (
     <section className="py-12 sm:py-16">
@@ -42,18 +45,44 @@ export default function AboutPage() {
             <PageSection
               title={about.journeySection.title}
               description={about.journeySection.description}
-            />
+              contentClassName="border-l border-border/75 pl-6"
+            >
+              <ol className="space-y-5">
+                {milestones.map((entry) => (
+                  <li key={entry.slug} className="relative">
+                    <span
+                      aria-hidden="true"
+                      className="absolute -left-[31px] top-1 size-3 rounded-full border-2 border-primary bg-card"
+                    />
+                    {entry.frontmatter.period ? (
+                      <p className="text-xs font-medium text-primary">
+                        {entry.frontmatter.period}
+                      </p>
+                    ) : null}
+                    <p className="mt-1 text-sm font-semibold text-foreground">
+                      {entry.frontmatter.title}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+              <Link
+                href="/experience"
+                className="mt-6 inline-flex text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                Ver trayectoria completa →
+              </Link>
+            </PageSection>
 
             <PageSection
               eyebrow={about.highlightSection.eyebrow}
               title={about.highlightSection.title}
               description={about.highlightSection.description}
-              contentClassName="grid gap-4 md:grid-cols-3"
+              contentClassName="grid gap-4 sm:grid-cols-2"
             >
               {about.highlights.map((item, index) => (
                 <div
                   key={item.title}
-                  className={`motion-enter ${highlightMotionDelays[index] ?? "motion-delay-4"}`}
+                  className={`motion-enter ${highlightMotionDelays[index] ?? "motion-delay-4"} ${index === 0 ? "sm:col-span-2" : ""}`}
                 >
                   <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-4 shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
                     <p className="text-sm font-semibold text-foreground">
@@ -71,12 +100,12 @@ export default function AboutPage() {
               eyebrow={about.principlesSection.eyebrow}
               title={about.principlesSection.title}
               description={about.principlesSection.description}
-              contentClassName="grid gap-4 md:grid-cols-3"
+              contentClassName="grid gap-4 sm:grid-cols-2"
             >
               {about.principles.map((item, index) => (
                 <div
                   key={item}
-                  className={`motion-enter ${principleMotionDelays[index] ?? "motion-delay-4"}`}
+                  className={`motion-enter ${principleMotionDelays[index] ?? "motion-delay-4"} ${index === 0 ? "sm:col-span-2" : ""}`}
                 >
                   <div className="interactive-card rounded-[1.5rem] border border-border/70 bg-background/72 p-4 text-sm leading-6 text-muted-foreground shadow-[0_18px_48px_-42px_rgb(15_23_42_/_0.28)] backdrop-blur dark:bg-background/10">
                     {item}

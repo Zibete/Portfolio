@@ -55,7 +55,9 @@ export default async function ProjectsPage() {
               key={entry.slug}
               className={`motion-enter ${cardMotionDelays[index] ?? "motion-delay-5"}`}
             >
-              <article className="interactive-card rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7">
+              <article
+                className={`interactive-card rounded-[2rem] border p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7 ${entry.frontmatter.featured ? "border-primary/35 bg-card/90" : "border-border/70 bg-card/78"}`}
+              >
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="space-y-4">
                     <div className="space-y-2">
@@ -64,10 +66,12 @@ export default async function ProjectsPage() {
                           ? "Caso destacado"
                           : "Caso de estudio"}
                       </p>
-                      <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)]">
+                      <h2
+                        className={`font-semibold tracking-tight text-foreground [font-family:var(--font-display)] ${entry.frontmatter.featured ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"}`}
+                      >
                         {entry.frontmatter.title}
                       </h2>
-                      <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+                      <p className="max-w-3xl text-base leading-7 text-muted-foreground">
                         {entry.frontmatter.summary}
                       </p>
                     </div>
