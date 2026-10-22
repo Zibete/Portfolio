@@ -12,6 +12,8 @@ export function ComplementaryEvidence({
 
   if (!cases.length) return null;
 
+  const singleCase = cases.length === 1;
+
   return (
     <section className="py-10 sm:py-12" aria-labelledby="complementary-evidence-title">
       <Container>
@@ -26,15 +28,21 @@ export function ComplementaryEvidence({
             {content.title}
           </h2>
         </div>
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className={`grid gap-5 ${singleCase ? "" : "lg:grid-cols-2"}`}>
           {cases.map((item) => (
-            <article key={item.id} className="rounded-2xl border border-border/70 bg-card/75 p-6 sm:p-7">
+            <article
+              key={item.id}
+              className={`rounded-2xl border border-border/70 bg-card/75 p-6 sm:p-7 ${singleCase ? "lg:grid lg:grid-cols-2 lg:items-start lg:gap-10" : ""}`}
+            >
+              <div>
               <p className="font-mono text-xs text-primary">{item.label}</p>
               <h3 className="mt-3 text-xl font-semibold text-foreground [font-family:var(--font-display)]">
                 {item.title}
               </h3>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.summary}</p>
-              <ul className="mt-5 space-y-2 border-t border-border/70 pt-5">
+              </div>
+              <div className={singleCase ? "mt-6 lg:mt-0" : ""}>
+                <ul className={`mt-5 space-y-2 border-t border-border/70 pt-5 ${singleCase ? "lg:mt-0 lg:border-t-0 lg:pt-0" : ""}`}>
                 {item.sources.map((source) => (
                   <li key={source.href}>
                     <a
@@ -57,6 +65,7 @@ export function ComplementaryEvidence({
                 Leer caso completo
                 <ArrowRight aria-hidden="true" className="size-4" />
               </Link>
+              </div>
             </article>
           ))}
         </div>
