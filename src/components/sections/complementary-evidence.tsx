@@ -35,36 +35,36 @@ export function ComplementaryEvidence({
               className={`rounded-2xl border border-border/70 bg-card/75 p-6 sm:p-7 ${singleCase ? "lg:grid lg:grid-cols-2 lg:items-start lg:gap-10" : ""}`}
             >
               <div>
-              <p className="font-mono text-xs text-primary">{item.label}</p>
-              <h3 className="mt-3 text-xl font-semibold text-foreground [font-family:var(--font-display)]">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.summary}</p>
+                <p className="font-mono text-xs text-primary">{item.label}</p>
+                <h3 className="mt-3 text-xl font-semibold text-foreground [font-family:var(--font-display)]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.summary}</p>
               </div>
-              <div className={singleCase ? "mt-6 lg:mt-0" : ""}>
+              <div>
                 <ul className={`mt-5 space-y-2 border-t border-border/70 pt-5 ${singleCase ? "lg:mt-0 lg:border-t-0 lg:pt-0" : ""}`}>
-                {item.sources.map((source) => (
-                  <li key={source.href}>
-                    <a
-                      href={source.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                    >
-                      <ArrowUpRight aria-hidden="true" className="size-4" />
-                      {source.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-border pl-3 text-xs leading-6 text-muted-foreground">{item.boundary}</p>
-              <Link
-                href={item.caseHref}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
-                Leer caso completo
-                <ArrowRight aria-hidden="true" className="size-4" />
-              </Link>
+                  {item.sources.map((source) => (
+                    <li key={source.href}>
+                      <a
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      >
+                        <ArrowUpRight aria-hidden="true" className="size-4" />
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 border-l-2 border-border pl-3 text-xs leading-6 text-muted-foreground">{item.boundary}</p>
+                <Link
+                  href={item.caseHref}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                >
+                  Leer caso completo
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </Link>
               </div>
             </article>
           ))}
