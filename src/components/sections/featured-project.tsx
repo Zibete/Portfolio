@@ -116,7 +116,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
           </div>
         </div>
 
-        <div className="grid gap-3 lg:h-full lg:grid-rows-3">
+        <div className="grid gap-3 sm:grid-cols-3 lg:h-full lg:grid-cols-1 lg:grid-rows-3">
           <div className={`motion-enter ${metadataMotionDelays[0]} h-full`}>
             <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">

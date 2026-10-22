@@ -80,7 +80,7 @@ export function HomeHero() {
           </p>
         </div>
 
-        <div className="motion-enter motion-delay-4 mx-auto w-full max-w-[19rem] lg:max-w-[20rem]">
+        <div className="motion-enter motion-delay-4 mx-auto w-full max-w-[16rem] sm:max-w-[19rem] lg:max-w-[20rem]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-border/70 bg-muted shadow-[0_20px_60px_-42px_rgb(15_23_42_/_0.4)]">
             <Image
               src={siteConfig.assets.profileImagePath}

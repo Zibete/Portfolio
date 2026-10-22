@@ -29,10 +29,10 @@ export default function AboutPage() {
   const { about } = profileContent;
 
   return (
-    <section className="py-16 sm:py-24">
+    <section className="py-12 sm:py-16">
       <Container>
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-          <div className="space-y-10">
+          <div className="space-y-8">
             <PageIntro
               eyebrow={about.eyebrow}
               title={about.title}
