@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowUpRight, CheckCircle2, FileCode2 } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, FileCode2 } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import type {
   SiteEngineeringTraceContent,
@@ -139,10 +139,10 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
         if (!scene) return;
         const offset = index - position;
         const distance = Math.abs(offset);
-        const scale = Math.max(0.78, 1 - distance * 0.1);
-        const x = offset * 104;
-        const depth = -Math.min(2, distance) * 230;
-        const rotate = -Math.max(-1.5, Math.min(1.5, offset)) * 13;
+        const scale = Math.max(0.84, 1 - distance * 0.08);
+        const x = offset * 100;
+        const depth = -Math.min(2, distance) * 180;
+        const rotate = -Math.max(-1.5, Math.min(1.5, offset)) * 10;
 
         scene.style.transform =
           "translate3d(calc(-50% + " + x + "%), -50%, " + depth +
@@ -236,16 +236,36 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
           ))}
         </div>
 
-        <div className="trace-scroller relative mt-8 h-[340svh]" ref={railRef}>
+        <div className="trace-scroller relative mt-8 h-[300svh]" ref={railRef}>
           <div className="sticky top-28 flex h-[calc(100svh-9rem)] min-h-[27rem] flex-col overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-[0_24px_90px_-70px_rgb(15_23_42_/_0.65)]">
             <div className="flex items-center justify-between gap-3 border-b border-border/70 px-6 py-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Engineering / 0{activeIndex + 1} — 0{content.stages.length}
+                Evidence inspector / 0{activeIndex + 1} — 0{content.stages.length}
               </p>
-              <p className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-                Scroll para explorar
-                <ArrowDown aria-hidden="true" className="size-4" />
-              </p>
+              <div className="flex items-center gap-2">
+                <span className="hidden items-center gap-1.5 text-xs text-muted-foreground xl:inline-flex">
+                  Scroll o elegí una etapa
+                  <ArrowDown aria-hidden="true" className="size-3.5" />
+                </span>
+                <button
+                  type="button"
+                  onClick={() => navigateTo(activeIndex - 1)}
+                  disabled={activeIndex === 0}
+                  aria-label="Etapa anterior"
+                  className="inline-flex size-9 items-center justify-center rounded-lg border border-border/70 text-foreground transition-colors hover:border-primary/50 hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-35"
+                >
+                  <ArrowLeft aria-hidden="true" className="size-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => navigateTo(activeIndex + 1)}
+                  disabled={activeIndex === lastIndex}
+                  aria-label="Etapa siguiente"
+                  className="inline-flex size-9 items-center justify-center rounded-lg border border-border/70 text-foreground transition-colors hover:border-primary/50 hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-35"
+                >
+                  <ArrowRight aria-hidden="true" className="size-4" />
+                </button>
+              </div>
             </div>
 
             <div className="grid min-h-0 flex-1 grid-cols-[12.5rem_minmax(0,1fr)] xl:grid-cols-[15rem_minmax(0,1fr)]">
@@ -263,11 +283,11 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
                     className={cn(
                       "group flex min-h-14 items-center gap-3 rounded-xl border px-3 py-3 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
                       activeIndex === index
-                        ? "border-primary/45 bg-primary/10 text-foreground"
+                        ? "border-signal/55 bg-signal/10 text-foreground"
                         : "border-transparent text-muted-foreground hover:border-border/70 hover:bg-muted/60 hover:text-foreground",
                     )}
                   >
-                    <span className="font-mono text-xs tabular-nums text-primary">
+                    <span className={cn("font-mono text-xs tabular-nums", activeIndex === index ? "text-signal" : "text-primary")}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="text-xs font-medium xl:text-sm">
