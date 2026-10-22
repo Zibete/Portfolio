@@ -32,7 +32,7 @@ function ArtifactPanel({
           </span>
         </div>
         <span className="shrink-0 rounded-full border border-border/70 px-2 py-1 text-[0.65rem] text-muted-foreground">
-          {artifact.kind === "public" ? "Fuente pública" : "Ejemplo didáctico"}
+          {artifact.origin} · fuente pública
         </span>
       </div>
 
@@ -49,22 +49,16 @@ function ArtifactPanel({
         ))}
       </div>
 
-      {artifact.href ? (
-        <a
-          tabIndex={interactive ? 0 : -1}
-          className="inline-flex min-h-10 items-center gap-2 border-t border-border/70 px-4 py-3 text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-          href={artifact.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Inspeccionar archivo público
-          <ArrowUpRight aria-hidden="true" className="size-3.5" />
-        </a>
-      ) : (
-        <p className="border-t border-border/70 px-4 py-3 text-xs text-muted-foreground">
-          Escenario ilustrativo. No representa un registro real.
-        </p>
-      )}
+      <a
+        tabIndex={interactive ? 0 : -1}
+        className="inline-flex min-h-10 items-center gap-2 border-t border-border/70 px-4 py-3 text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        href={artifact.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Inspeccionar evidencia pública
+        <ArrowUpRight aria-hidden="true" className="size-3.5" />
+      </a>
     </div>
   );
 }

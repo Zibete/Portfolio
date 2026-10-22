@@ -46,13 +46,13 @@ export const siteConfig: SiteConfig = {
       download: true,
     },
     impactStatement:
-      "Caso histórico de cuentas a pagar: de ~60 a ~500 documentos procesados por día.",
+      "Conocimiento funcional, desarrollo y validación: decisiones que se pueden inspeccionar.",
   },
   engineeringTrace: {
     eyebrow: "Engineering trace / proceso",
-    title: "Del problema a la evidencia.",
+    title: "Decisiones de ingeniería, con fuentes.",
     description:
-      "Cinco momentos de ingeniería aplicada: criterio funcional, especificaciones, asistencia con IA, implementación y verificación. Los artefactos se identifican según su origen.",
+      "Cinco prácticas ilustradas con archivos públicos de distintos proyectos, no un único proceso de entrega. Cada etapa identifica su fuente y qué permite comprobar.",
     stages: [
       {
         id: "discovery",
@@ -63,7 +63,7 @@ export const siteConfig: SiteConfig = {
         outcome: "Resultado: límites y necesidades definidos",
         artifact: {
           file: "docs/CASE_STUDY.md",
-          kind: "public",
+          origin: "Migrar SAP",
           href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/CASE_STUDY.md",
           lines: [
             "Problema: validar facturas sin repetir controles",
@@ -81,7 +81,7 @@ export const siteConfig: SiteConfig = {
         outcome: "Resultado: alcance comprobable",
         artifact: {
           file: "docs/adr/0001-module-boundaries.md",
-          kind: "public",
+          origin: "ZIBE",
           href: "https://github.com/Zibete/Zibe/blob/main/docs/adr/0001-module-boundaries.md",
           lines: [
             "domain: modelos y contratos sin Firebase ni Android",
@@ -93,17 +93,18 @@ export const siteConfig: SiteConfig = {
       {
         id: "ai-assisted-engineering",
         label: "AI-assisted",
-        title: "Usar IA sin delegar el criterio",
+        title: "Asistencia de IA con verificación humana",
         description:
-          "Los modelos ayudan a explorar enfoques y revisar propuestas; las decisiones, pruebas y publicación siguen siendo responsabilidad del desarrollador.",
-        outcome: "Resultado: alternativas evaluadas",
+          "Utilizo modelos para explorar soluciones y revisar cambios. El PR enlazado demuestra el código, la corrección y el build; por sí solo no registra las interacciones con los modelos.",
+        outcome: "Evidencia: error de tipos corregido y build validado",
         artifact: {
-          file: "ai-review.md",
-          kind: "example",
+          file: "PR #29 · Engineering Trace",
+          origin: "Portfolio",
+          href: "https://github.com/Zibete/Portfolio/pull/29",
           lines: [
-            "Asistencia: explorar alternativas técnicas",
-            "Revisión humana: evaluar límites y riesgos",
-            "Decisión: validar antes de incorporar cambios",
+            "Cambio: recorrido de ingeniería en cinco etapas",
+            "Fallo: ref de article tipado como HTMLDivElement",
+            "Corrección: HTMLElement; Vercel SUCCESS",
           ],
         },
       },
@@ -116,7 +117,7 @@ export const siteConfig: SiteConfig = {
         outcome: "Resultado: código inspeccionable",
         artifact: {
           file: "src/vba/core/modCoreValidation.bas",
-          kind: "public",
+          origin: "Migrar SAP",
           href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/src/vba/core/modCoreValidation.bas",
           lines: [
             "CoreIsSiteMismatch(siteSB, siteFC)",
@@ -134,7 +135,7 @@ export const siteConfig: SiteConfig = {
         outcome: "Resultado: evidencia y límites explícitos",
         artifact: {
           file: "docs/TESTING.md",
-          kind: "public",
+          origin: "Migrar SAP",
           href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/TESTING.md",
           lines: [
             "Pruebas del núcleo VBA",

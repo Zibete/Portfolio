@@ -26,9 +26,9 @@ export interface SiteHeroContent {
 
 export interface SiteEngineeringTraceArtifact {
   file: string;
-  kind: "public" | "example";
+  origin: string;
   lines: string[];
-  href?: string;
+  href: string;
 }
 
 export interface SiteEngineeringTraceStage {
