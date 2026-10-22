@@ -203,7 +203,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
   return (
     <section
       id="engineering-trace"
-      className="relative border-y border-border/50 bg-card/20 py-16 scroll-mt-24 sm:py-20"
+      className="relative border-y border-border/50 bg-card/20 py-12 scroll-mt-24 sm:py-14"
       aria-labelledby="engineering-trace-title"
     >
       <Container>
@@ -222,7 +222,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
           </p>
         </div>
 
-        <div className="trace-static mt-10 grid gap-5">
+        <div className="trace-static mt-8 grid gap-5">
           {content.stages.map((stage, index) => (
             <article
               className="rounded-2xl border border-border/70 bg-card/65 p-5 sm:p-7"
@@ -236,7 +236,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
           ))}
         </div>
 
-        <div className="trace-scroller relative mt-10 h-[340svh]" ref={railRef}>
+        <div className="trace-scroller relative mt-8 h-[340svh]" ref={railRef}>
           <div className="sticky top-28 flex h-[calc(100svh-9rem)] min-h-[27rem] flex-col overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-[0_24px_90px_-70px_rgb(15_23_42_/_0.65)]">
             <div className="flex items-center justify-between gap-3 border-b border-border/70 px-6 py-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">

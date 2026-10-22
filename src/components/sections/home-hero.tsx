@@ -9,10 +9,10 @@ export function HomeHero() {
   const { primaryCta, secondaryCta } = siteConfig.hero;
 
   return (
-    <section className="pb-14 pt-14 sm:pb-20 sm:pt-24">
-      <Container className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,20rem)] lg:items-center lg:gap-16">
-        <div className="min-w-0 space-y-8">
-          <div className="space-y-5">
+    <section className="pb-10 pt-10 sm:pb-12 sm:pt-16">
+      <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,20rem)] lg:items-center lg:gap-12">
+        <div className="min-w-0 space-y-6">
+          <div className="space-y-4">
             <div className="motion-enter motion-delay-1 space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
                 {siteConfig.hero.eyebrow}
@@ -80,7 +80,7 @@ export function HomeHero() {
           </p>
         </div>
 
-        <div className="motion-enter motion-delay-4 mx-auto w-full max-w-[19rem] lg:max-w-[20rem]">
+        <div className="motion-enter motion-delay-4 mx-auto w-full max-w-[16rem] sm:max-w-[19rem] lg:max-w-[20rem]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-border/70 bg-muted shadow-[0_20px_60px_-42px_rgb(15_23_42_/_0.4)]">
             <Image
               src={siteConfig.assets.profileImagePath}

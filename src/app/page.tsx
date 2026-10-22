@@ -20,9 +20,9 @@ export default async function Home() {
       <EngineeringTrace content={siteConfig.engineeringTrace} />
       <ComplementaryEvidence content={siteConfig.projectEvidence} />
 
-      <section className="pb-20 pt-10 sm:pb-24 sm:pt-16">
+      <section className="pb-14 pt-8 sm:pb-16 sm:pt-10">
         <Container>
-          <div className="flex flex-col gap-6 border-t border-border/70 pt-10 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-6 border-t border-border/70 pt-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-xl space-y-3">
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-primary">
                 {eyebrow}
