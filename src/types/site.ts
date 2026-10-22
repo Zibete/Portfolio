@@ -60,11 +60,12 @@ export interface SiteEngineeringTraceContent {
   title: string;
   description: string;
   stages: SiteEngineeringTraceStage[];
-  evidence: {
-    eyebrow: string;
-    title: string;
-    cases: SiteEngineeringEvidenceCase[];
-  };
+}
+
+export interface SiteProjectEvidenceContent {
+  eyebrow: string;
+  title: string;
+  cases: SiteEngineeringEvidenceCase[];
 }
 
 export interface SiteHomeFeaturedProjectStatsLabelsContent {
@@ -121,5 +122,6 @@ export interface SiteConfig {
   hero: SiteHeroContent;
   homeComposition: SiteHomeCompositionContent;
   engineeringTrace: SiteEngineeringTraceContent;
+  projectEvidence: SiteProjectEvidenceContent;
   footer: SiteFooterContent;
 }

@@ -37,8 +37,8 @@ export const siteConfig: SiteConfig = {
     description:
       "Combino experiencia en Finanzas con Python, Excel/VBA e integraciones para reducir tareas manuales, mejorar controles y hacer los procesos más confiables. Uso herramientas de IA para acelerar análisis, desarrollo y revisión, y valido personalmente el resultado.",
     primaryCta: {
-      href: "#engineering-trace",
-      label: "Explorar cómo trabajo",
+      href: "#featured-project",
+      label: "Ver evidencia técnica",
     },
     secondaryCta: {
       href: cvFilePath,
@@ -144,9 +144,10 @@ export const siteConfig: SiteConfig = {
         },
       },
     ],
-    evidence: {
-      eyebrow: "Source index / revisión técnica",
-      title: "Del recorrido al código.",
+  },
+  projectEvidence: {
+    eyebrow: "Evidencia complementaria",
+    title: "Arquitectura y evolución de producto.",
       cases: [
         {
           id: "migrar-sap",
@@ -193,7 +194,6 @@ export const siteConfig: SiteConfig = {
           ],
         },
       ],
-    },
   },
   homeComposition: {
     featuredProject: {

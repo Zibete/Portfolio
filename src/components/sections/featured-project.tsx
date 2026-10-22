@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
@@ -24,15 +24,16 @@ const metadataMotionDelays = [
 export async function FeaturedProject({ project }: FeaturedProjectProps) {
   const stackPreview = (project.frontmatter.stack ?? []).slice(0, 5);
   const focusPreview = (project.frontmatter.tags ?? []).slice(0, 3);
-  const githubStats = project.frontmatter.githubRepo
+  const githubStats = project.frontmatter.githubFeatured && project.frontmatter.githubRepo
     ? await getGitHubRepoStats(project.frontmatter.githubRepo)
     : null;
   const shouldShowGitHubStats =
     project.frontmatter.githubFeatured === true && githubStats;
   const featuredProjectContent = siteConfig.homeComposition.featuredProject;
+  const evidence = siteConfig.projectEvidence.cases.find((item) => item.caseHref === `/projects/${project.slug}`);
 
   return (
-    <section className="pb-8 sm:pb-10">
+    <section id="featured-project" className="scroll-mt-28 py-10 sm:py-14">
       <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
         <div className="motion-reveal motion-delay-1 h-full">
           <div className="interactive-card relative h-full overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.35)] backdrop-blur-xl sm:p-8">
@@ -73,6 +74,28 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
                   <TagChip
                     label={`${featuredProjectContent.statsLabels.lastPush} ${formatGitHubDate(shouldShowGitHubStats.pushedAt)}`}
                   />
+                </div>
+              ) : null}
+
+              {evidence ? (
+                <div className="space-y-2 border-t border-border/70 pt-5">
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                    Evidencia inspeccionable
+                  </p>
+                  <div className="flex flex-wrap gap-x-5 gap-y-2">
+                    {evidence.sources.map((source) => (
+                      <a
+                        key={source.href}
+                        href={source.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      >
+                        {source.label}
+                        <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               ) : null}
 

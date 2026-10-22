@@ -3,6 +3,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { FeaturedProject } from "@/components/sections/featured-project";
 import { HomeHero } from "@/components/sections/home-hero";
 import { EngineeringTrace } from "@/components/sections/engineering-trace";
+import { ComplementaryEvidence } from "@/components/sections/complementary-evidence";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/content/site/site-config";
@@ -15,9 +16,9 @@ export default async function Home() {
   return (
     <div className="relative">
       <HomeHero />
-      <EngineeringTrace content={siteConfig.engineeringTrace} />
-
       {featuredProject ? <FeaturedProject project={featuredProject} /> : null}
+      <EngineeringTrace content={siteConfig.engineeringTrace} />
+      <ComplementaryEvidence content={siteConfig.projectEvidence} />
 
       <section className="pb-20 pt-10 sm:pb-24 sm:pt-16">
         <Container>
