@@ -225,10 +225,8 @@
   .interactive-card {
     position: relative;
     transition:
-      transform 220ms ease,
       border-color 220ms ease,
-      box-shadow 260ms ease,
-      background-color 220ms ease;
+      box-shadow 260ms ease;
   }
 
   .interactive-card-subtle {
@@ -362,16 +360,17 @@
     }
 
     .interactive-card:hover {
-      background-color: rgb(253 254 255 / 0.9);
-      transform: translate3d(0, -3px, 0) scale(1.006);
-      border-color: rgb(84 139 255 / 0.2);
-      box-shadow: 0 30px 90px -60px rgb(84 139 255 / 0.24);
+      border-color: rgb(84 139 255 / 0.28);
+      box-shadow:
+        0 22px 64px -45px rgb(84 139 255 / 0.24),
+        0 0 0 1px rgb(84 139 255 / 0.06);
     }
 
     .dark .interactive-card:hover {
-      background-color: rgb(21 32 52 / 0.85);
-      border-color: rgb(112 159 255 / 0.28);
-      box-shadow: 0 32px 96px -60px rgb(84 139 255 / 0.28);
+      border-color: rgb(112 159 255 / 0.34);
+      box-shadow:
+        0 26px 82px -54px rgb(84 139 255 / 0.31),
+        0 0 0 1px rgb(112 159 255 / 0.06);
     }
 
     .nav-pill:hover {
@@ -417,16 +416,17 @@
     }
 
     .interactive-card:hover {
-      background-color: rgb(253 254 255 / 0.9);
-      transform: translate3d(0, -3px, 0) scale(1.006);
-      border-color: rgb(84 139 255 / 0.2);
-      box-shadow: 0 30px 90px -60px rgb(84 139 255 / 0.24);
+      border-color: rgb(84 139 255 / 0.28);
+      box-shadow:
+        0 22px 64px -45px rgb(84 139 255 / 0.24),
+        0 0 0 1px rgb(84 139 255 / 0.06);
     }
 
     .dark .interactive-card:hover {
-      background-color: rgb(21 32 52 / 0.85);
-      border-color: rgb(112 159 255 / 0.28);
-      box-shadow: 0 32px 96px -60px rgb(84 139 255 / 0.28);
+      border-color: rgb(112 159 255 / 0.34);
+      box-shadow:
+        0 26px 82px -54px rgb(84 139 255 / 0.31),
+        0 0 0 1px rgb(112 159 255 / 0.06);
     }
 
     .interactive-card,

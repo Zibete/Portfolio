@@ -23,7 +23,7 @@ export default function SkillsPage() {
   const { skills } = profileContent;
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="pt-10 pb-12 sm:pt-12 sm:pb-16">
       <Container className="space-y-8">
         <PageIntro
           eyebrow={skills.eyebrow}
