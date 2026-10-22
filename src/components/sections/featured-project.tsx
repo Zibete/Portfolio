@@ -79,7 +79,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
 
               {evidence ? (
                 <div className="space-y-2 border-t border-border/70 pt-5">
-                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  <p className="text-xs font-medium uppercase tracking-[0.16em] text-signal">
                     Evidencia inspeccionable
                   </p>
                   <div className="flex flex-wrap gap-x-5 gap-y-2">

@@ -52,7 +52,7 @@ export default async function ExperiencePage() {
             >
               <span
                 aria-hidden="true"
-                className="absolute -left-[31px] top-6 size-3 rounded-full border-2 border-primary bg-card sm:-left-[39px]"
+                className="absolute -left-[31px] top-6 size-3 rounded-full border-2 border-signal bg-card sm:-left-[39px]"
               />
               <article className="rounded-2xl border border-border/70 bg-background/72 p-5 dark:bg-background/10 sm:p-6">
                 {entry.frontmatter.company ? (

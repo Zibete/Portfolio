@@ -56,7 +56,7 @@ export default async function ProjectsPage() {
               className={`motion-enter ${cardMotionDelays[index] ?? "motion-delay-5"}`}
             >
               <article
-                className={`interactive-card rounded-[2rem] border p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7 ${entry.frontmatter.featured ? "border-primary/35 bg-card/90" : "border-border/70 bg-card/78"}`}
+                className={`interactive-card rounded-[2rem] border p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.34)] backdrop-blur-xl sm:p-7 ${entry.frontmatter.featured ? "border-signal/35 bg-card/90" : "border-border/70 bg-card/78"}`}
               >
                 <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                   <div className="space-y-4">

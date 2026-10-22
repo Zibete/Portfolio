@@ -75,7 +75,7 @@ export function HomeHero() {
             </Button>
           </div>
 
-          <p className="motion-enter motion-delay-5 max-w-xl border-l-2 border-primary/55 pl-4 text-sm leading-6 text-muted-foreground">
+          <p className="motion-enter motion-delay-5 max-w-xl border-l-2 border-signal/70 pl-4 text-sm leading-6 text-muted-foreground">
             {siteConfig.hero.impactStatement}
           </p>
         </div>

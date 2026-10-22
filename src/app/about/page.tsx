@@ -52,7 +52,7 @@ export default async function AboutPage() {
                   <li key={entry.slug} className="relative">
                     <span
                       aria-hidden="true"
-                      className="absolute -left-[31px] top-1 size-3 rounded-full border-2 border-primary bg-card"
+                      className="absolute -left-[31px] top-1 size-3 rounded-full border-2 border-signal bg-card"
                     />
                     {entry.frontmatter.period ? (
                       <p className="text-xs font-medium text-primary">
