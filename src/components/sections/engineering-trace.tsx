@@ -85,7 +85,7 @@ function TraceScene({
       </div>
       <ArtifactPanel stage={stage} interactive={interactive} />
       <p className="inline-flex items-center gap-2 text-xs font-medium text-foreground/85">
-        <CheckCircle2 aria-hidden="true" className="size-4 text-primary" />
+        <CheckCircle2 aria-hidden="true" className="size-4 text-signal" />
         {stage.outcome}
       </p>
     </div>
@@ -294,7 +294,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
             </div>
 
             <div className="h-1 bg-border/40" aria-hidden="true">
-              <div ref={progressRef} className="h-full w-0 bg-primary" />
+              <div ref={progressRef} className="h-full w-0 bg-signal" />
             </div>
           </div>
         </div>
