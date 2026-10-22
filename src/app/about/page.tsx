@@ -32,7 +32,7 @@ export default async function AboutPage() {
   const milestones = await getExperienceEntries();
 
   return (
-    <section className="py-12 sm:py-16">
+    <section className="pt-10 pb-12 sm:pt-12 sm:pb-16">
       <Container>
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
           <div className="space-y-8">
