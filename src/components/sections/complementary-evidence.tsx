@@ -13,9 +13,9 @@ export function ComplementaryEvidence({
   if (!cases.length) return null;
 
   return (
-    <section className="py-14 sm:py-20" aria-labelledby="complementary-evidence-title">
+    <section className="py-10 sm:py-12" aria-labelledby="complementary-evidence-title">
       <Container>
-        <div className="mb-7 max-w-2xl space-y-3">
+        <div className="mb-6 max-w-2xl space-y-3">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             {content.eyebrow}
           </p>

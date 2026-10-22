@@ -33,12 +33,12 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
   const evidence = siteConfig.projectEvidence.cases.find((item) => item.caseHref === `/projects/${project.slug}`);
 
   return (
-    <section id="featured-project" className="scroll-mt-28 py-10 sm:py-14">
-      <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
+    <section id="featured-project" className="scroll-mt-28 py-8 sm:py-10">
+      <Container className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
         <div className="motion-reveal motion-delay-1 h-full">
           <div className="interactive-card relative h-full overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.35)] backdrop-blur-xl sm:p-8">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.12),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)]" />
-            <div className="relative space-y-6">
+            <div className="relative space-y-5">
               <div className="space-y-4">
                 <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
                   {featuredProjectContent.eyebrow}
@@ -116,7 +116,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
           </div>
         </div>
 
-        <div className="grid gap-4 lg:h-full lg:grid-rows-3">
+        <div className="grid gap-3 lg:h-full lg:grid-rows-3">
           <div className={`motion-enter ${metadataMotionDelays[0]} h-full`}>
             <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
