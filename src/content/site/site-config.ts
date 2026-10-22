@@ -149,7 +149,7 @@ export const siteConfig: SiteConfig = {
   projectEvidence: {
     eyebrow: "Evidencia complementaria",
     title: "Arquitectura y evolución de producto.",
-      cases: [
+    cases: [
         {
           id: "migrar-sap",
           label: "Caso principal · automatización",
@@ -194,7 +194,7 @@ export const siteConfig: SiteConfig = {
             },
           ],
         },
-      ],
+    ],
   },
   homeComposition: {
     featuredProject: {
@@ -219,9 +219,9 @@ export const siteConfig: SiteConfig = {
       },
     },
     closingCta: {
-      eyebrow: "Seguí por acá",
-      title: "Conocé cómo resuelvo problemas",
-      description: "Casos públicos, decisiones de implementación y CV.",
+      eyebrow: "Contacto y CV",
+      title: "Hablemos de automatización e ingeniería aplicada.",
+      description: "Revisá mi experiencia en el CV o escribime para conversar sobre soluciones concretas.",
       actions: [
         {
           href: "/contact",

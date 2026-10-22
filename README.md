@@ -7,7 +7,7 @@ Portfolio técnico desarrollado con Next.js, React y TypeScript. Presenta experi
 - Next.js 16 (App Router), React 19 y TypeScript.
 - Tailwind CSS 4, shadcn/ui, Lucide y next-themes.
 - MDX y contenido versionado en el repositorio.
-- Integración de lectura con GitHub API para metadatos de repositorios públicos.
+- Consulta opcional de metadatos públicos de GitHub cuando la vista los muestra.
 - Despliegue en Vercel.
 
 ## Arquitectura
@@ -28,7 +28,7 @@ El sitio conserva la mayor parte del renderizado del lado del servidor. Las func
 
 ## Inicio
 
-La página principal ofrece presentación profesional, fotografía original, evidencia histórica de impacto y un recorrido interactivo Engineering Trace de cinco etapas. En desktop con espacio vertical suficiente, el scroll mueve paneles dentro de un espacio CSS 3D; en mobile, pantallas bajas y con movimiento reducido se presenta una versión estática y legible. Los artefactos distinguen enlaces a fuentes públicas de ejemplos didácticos. Un índice técnico conecta el recorrido con código y pruebas públicas de Migrar SAP y ZIBE, además de sus casos completos. Los resultados históricos y las limitaciones de validación se explicitan por separado.
+El orden de Inicio es: perfil y CV → caso principal de cuentas a pagar con enlaces a código y pruebas → Engineering Trace → caso complementario ZIBE → contacto. Engineering Trace presenta cinco prácticas sobre fuentes públicas **de distintos proyectos**, sin simular que forman una única ejecución ni que un PR pruebe por sí mismo el uso de modelos de IA. El desplazamiento CSS 3D ocupa un tramo acotado en pantallas desktop con altura suficiente; en mobile, pantallas bajas y movimiento reducido se usan tarjetas estáticas. Los resultados históricos se distinguen de las pruebas reproducibles.
 
 ## Proyectos
 
@@ -50,6 +50,6 @@ npm run build
 ## Convenciones
 
 - Contenido editorial centralizado en src/content/site/ y casos en MDX.
-- Configuración sensible mediante variables de entorno, sin secretos versionados.
+- Configuración sensible mediante variables de entorno, sin secretos versionados; no se utiliza Supabase.
 - Cambios acotados y documentados según AGENTS.md y docs/PROJECT_CONSTITUTION.md.
 - Rutas, metadata, CV y contenido público versionados junto al código.

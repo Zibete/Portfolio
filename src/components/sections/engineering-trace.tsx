@@ -298,7 +298,6 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
             </div>
           </div>
         </div>
-
       </Container>
     </section>
   );
