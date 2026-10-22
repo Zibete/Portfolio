@@ -102,6 +102,7 @@ function TraceScene({
 export function EngineeringTrace({ content }: EngineeringTraceProps) {
   const railRef = useRef<HTMLDivElement>(null);
   const sceneRefs = useRef<(HTMLElement | null)[]>([]);
+  const navRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const progressRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
   const activeRef = useRef(0);
@@ -112,15 +113,27 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
     const rail = railRef.current;
     if (!rail || lastIndex <= 0) return;
 
+    const motionQuery = window.matchMedia(
+      "(min-width: 1024px) and (min-height: 720px) and (prefers-reduced-motion: no-preference)",
+    );
+
     const update = () => {
       frameRef.current = null;
+      if (!motionQuery.matches) return;
+
       const rect = rail.getBoundingClientRect();
+      if (rect.top > window.innerHeight || rect.bottom < 0) return;
+
       const travel = Math.max(1, rail.offsetHeight - window.innerHeight);
       const unit = Math.max(0, Math.min(1, -rect.top / travel));
       const position = unit * lastIndex;
       const current = Math.round(position);
 
       if (activeRef.current !== current) {
+        const previousScene = sceneRefs.current[activeRef.current];
+        if (document.activeElement && previousScene?.contains(document.activeElement)) {
+          navRefs.current[current]?.focus({ preventScroll: true });
+        }
         activeRef.current = current;
         setActiveIndex(current);
       }
@@ -149,19 +162,31 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
     };
 
     const schedule = () => {
-      if (frameRef.current !== null) return;
+      if (!motionQuery.matches || frameRef.current !== null) return;
       frameRef.current = window.requestAnimationFrame(update);
     };
 
-    schedule();
+    const syncMotionMode = () => {
+      if (motionQuery.matches) {
+        schedule();
+      } else if (frameRef.current !== null) {
+        window.cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+      }
+    };
+
+    syncMotionMode();
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
+    motionQuery.addEventListener("change", syncMotionMode);
 
     return () => {
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
+      motionQuery.removeEventListener("change", syncMotionMode);
       if (frameRef.current !== null) {
         window.cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
       }
     };
   }, [lastIndex]);
@@ -239,6 +264,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
                   <button
                     key={stage.id}
                     type="button"
+                    ref={(node) => { navRefs.current[index] = node; }}
                     onClick={() => navigateTo(index)}
                     aria-current={activeIndex === index ? "step" : undefined}
                     className={cn(
