@@ -109,7 +109,7 @@ export const profileContent = {
       eyebrow: "",
       title: "Cómo llegué hasta acá",
       description:
-        "Mi recorrido empezó en estaciones de servicio AXION, donde incorporé experiencia operativa y de coordinación. Trabajé en cuentas a pagar entre 2016 y 2019, supervisé equipos entre 2019 y 2023 y regresé a cuentas a pagar de 2023 a 2025 en Pan American Energy. En paralelo cursé la Tecnicatura Superior en Programación en Teclab (2022–2024). Desde 2026 trabajo en Finanzas en Cabify y sigo desarrollando automatizaciones con Python y Excel/VBA.",
+        "Mi recorrido conecta experiencia operativa, cuentas a pagar y desarrollo de herramientas. En paralelo cursé la Tecnicatura Superior en Programación en Teclab (2022–2024). Estos son los principales hitos de mi trayectoria profesional.",
     },
     highlightSection: {
       eyebrow: "Diferencial",
