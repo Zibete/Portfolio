@@ -139,10 +139,10 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
         if (!scene) return;
         const offset = index - position;
         const distance = Math.abs(offset);
-        const scale = Math.max(0.78, 1 - distance * 0.1);
-        const x = offset * 104;
-        const depth = -Math.min(2, distance) * 230;
-        const rotate = -Math.max(-1.5, Math.min(1.5, offset)) * 13;
+        const scale = Math.max(0.84, 1 - distance * 0.08);
+        const x = offset * 100;
+        const depth = -Math.min(2, distance) * 180;
+        const rotate = -Math.max(-1.5, Math.min(1.5, offset)) * 10;
 
         scene.style.transform =
           "translate3d(calc(-50% + " + x + "%), -50%, " + depth +
@@ -236,11 +236,11 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
           ))}
         </div>
 
-        <div className="trace-scroller relative mt-8 h-[340svh]" ref={railRef}>
+        <div className="trace-scroller relative mt-8 h-[300svh]" ref={railRef}>
           <div className="sticky top-28 flex h-[calc(100svh-9rem)] min-h-[27rem] flex-col overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-[0_24px_90px_-70px_rgb(15_23_42_/_0.65)]">
             <div className="flex items-center justify-between gap-3 border-b border-border/70 px-6 py-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Engineering / 0{activeIndex + 1} — 0{content.stages.length}
+                Evidence inspector / 0{activeIndex + 1} — 0{content.stages.length}
               </p>
               <div className="flex items-center gap-2">
                 <span className="hidden items-center gap-1.5 text-xs text-muted-foreground xl:inline-flex">
