@@ -41,15 +41,15 @@ export default async function ProjectsPage() {
   );
 
   return (
-    <section className="pt-10 pb-12 sm:pt-12 sm:pb-16">
-      <Container className="space-y-8">
+    <section className="pt-8 pb-10 sm:pt-10 sm:pb-13">
+      <Container className="space-y-6">
         <PageIntro
           eyebrow="Proyectos"
           title="Casos de estudio reales."
           description="Casos de automatización, integración de sistemas y desarrollo de software. Cada proyecto explica el problema, las decisiones técnicas, la evidencia disponible y sus límites."
         />
 
-        <div className="grid gap-5">
+        <div className="grid gap-4">
           {projectsWithGitHub.map(({ entry, githubStats }, index) => (
             <div
               key={entry.slug}
@@ -63,7 +63,7 @@ export default async function ProjectsPage() {
                     <div className="space-y-2">
                       <p className="text-xs font-medium uppercase tracking-[0.3em] text-primary">
                         {entry.frontmatter.featured
-                          ? "Caso destacado"
+                          ? "Caso de automatización"
                           : "Caso de estudio"}
                       </p>
                       <h2
@@ -97,7 +97,7 @@ export default async function ProjectsPage() {
                             }
                             fill
                             sizes="(min-width: 1024px) 16rem, 100vw"
-                            className="object-cover object-center"
+                            className={`${entry.frontmatter.coverImageFit === "contain" ? "object-contain" : "object-cover"} object-center`}
                           />
                         </div>
                       </div>

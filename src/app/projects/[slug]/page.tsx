@@ -113,8 +113,8 @@ export default async function ProjectDetailPage({
   );
 
   return (
-    <section className="py-16 sm:py-24">
-      <Container className="space-y-10">
+    <section className="py-12 sm:py-20">
+      <Container className="space-y-8">
         <div className="space-y-6">
           <Button variant="ghost" asChild className="w-fit">
             <Link href="/projects">
@@ -154,7 +154,7 @@ export default async function ProjectDetailPage({
                     }
                     fill
                     sizes="(min-width: 1024px) 48rem, 100vw"
-                    className="object-cover object-center"
+                    className={`${entry.frontmatter.coverImageFit === "contain" ? "object-contain" : "object-cover"} object-center`}
                   />
                 </div>
               </div>
