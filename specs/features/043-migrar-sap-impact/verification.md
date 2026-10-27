@@ -24,5 +24,5 @@
 - HTML de Home, Proyectos, detalle Migrar SAP y Experiencia: valores SAP FI y estimaciones aparecen renderizados. El MDX importó el modelo tipado correctamente.
 - Revisión técnica independiente: sin defectos críticos/importantes; refinados `role=meter`, lectura accesible `150 s a 21 s`, denominador visible y estilo del enlace en MDX.
 - QA visual en navegador: no realizada en este entorno, requiere inspección de escritorio y móvil.
-- CV PDF publicado: contiene las métricas históricas «60 a 500 documentos/día (×8)». Documento original preservado deliberadamente; la decisión de actualizarlo está fuera de esta feature.
-- Push a `master` y CI remoto: pendientes por la decisión editorial sobre la coherencia con el CV PDF.
+- CV PDF publicado: contiene las métricas históricas «60 a 500 documentos/día (×8)». La actualización del CV quedó expresamente fuera del alcance de esta iteración por decisión del propietario.
+- Push a `master` y CI remoto: pendientes de publicación.

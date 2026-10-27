@@ -5,4 +5,4 @@
 - [x] Coherencia de contenido Home, Proyectos y Experiencia.
 - [x] Tests, lint, build y revisión de HTML prerenderizado.
 - [ ] QA visual de viewport en navegador.
-- [ ] Push a master y CI remoto, pendiente de decidir alcance del CV PDF existente.
+- [ ] Push a master y comprobación de CI remoto.

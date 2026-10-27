@@ -26,3 +26,4 @@ Dar prioridad a resultados relevantes del caso Migrar SAP sobre metadatos secund
 - Conservar el rol y período en el detalle del caso, donde contextualizan; no repetirlos como bloque prominente en el Home.
 - No presentar aumentos históricos `~60 → ~500 documentos/día` ni porcentajes `~70 % del importe` como métricas vigentes en páginas públicas.
 - No modificar el README de `Migrar-SAP-Portfolio`; se tratará en una iniciativa separada.
+- No modificar el CV PDF histórico; su actualización se tratará fuera de esta iteración.
