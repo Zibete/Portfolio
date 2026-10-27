@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Route } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import type { SiteProjectEvidenceContent } from "@/types/site";
 
@@ -20,7 +21,7 @@ export function ComplementaryEvidence({
         <div className="mb-6 max-w-2xl space-y-3">
           <div className="flex items-center gap-2.5">
             <svg
-              viewBox="0 0 960 960"
+              viewBox="0 -960 960 960"
               fill="currentColor"
               aria-hidden="true"
               focusable="false"
@@ -47,9 +48,26 @@ export function ComplementaryEvidence({
             >
               <div>
                 <p className="font-mono text-xs text-primary">{item.label}</p>
-                <h3 className="mt-3 text-xl font-semibold text-foreground [font-family:var(--font-display)]">
-                  {item.title}
-                </h3>
+                <div className="mt-3 flex items-center gap-3">
+                  {item.id === "zibe" || item.id === "viaje-rentable-ar" ? (
+                    <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-border/70 bg-background/70" aria-hidden="true">
+                      {item.id === "zibe" ? (
+                        <Image
+                          src="/images/projects/zibe-icon.svg"
+                          alt=""
+                          width={28}
+                          height={28}
+                          unoptimized
+                        />
+                      ) : (
+                        <Route className="size-5 text-primary" />
+                      )}
+                    </span>
+                  ) : null}
+                  <h3 className="text-xl font-semibold text-foreground [font-family:var(--font-display)]">
+                    {item.title}
+                  </h3>
+                </div>
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.summary}</p>
               </div>
               <div>
