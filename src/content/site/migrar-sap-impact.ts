@@ -1,7 +1,6 @@
 // Datos editoriales del caso Migrar SAP, referidos a un corte histórico de PAE / AXION.
 // El alcance observado no representa porcentaje de automatización ni benchmark público.
 export const migrarSapImpact = {
-  sourceUrl: "https://github.com/Zibete/Zibete/blob/main/README.md",
   observed: {
     label: "Alcance observado · SAP FI",
     period: "PAE / AXION · corte mensual",

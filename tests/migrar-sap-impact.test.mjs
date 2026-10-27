@@ -17,7 +17,7 @@ test("La fuente tipada conserva alcance SAP FI observado y eficiencia estimada s
   assert.equal(migrarSapImpact.estimated.before, "150 s");
   assert.equal(migrarSapImpact.estimated.after, "21 s");
   assert.match(migrarSapImpact.estimated.boundary, /estimación|estimado/i);
-  assert.equal(migrarSapImpact.sourceUrl, "https://github.com/Zibete/Zibete/blob/main/README.md");
+  assert.equal(Object.hasOwn(migrarSapImpact, "sourceUrl"), false);
 });
 
 test("Home reemplaza las tres fichas de metadata por dos bloques de impacto accesibles", async () => {
@@ -41,8 +41,7 @@ test("Proyectos presenta el mismo impacto sin sustituir metadatos útiles de los
   assert.match(detail, /import \{ migrarSapImpact \} from/);
   assert.match(detail, /migrarSapImpact\.observed\.invoices/);
   assert.match(detail, /migrarSapImpact\.estimated\.before/);
-  assert.match(detail, /migrarSapImpact\.sourceUrl/);
-  assert.match(detail, /className="font-medium text-foreground underline underline-offset-4/);
+  assert.doesNotMatch(detail, /migrarSapImpact\.sourceUrl|Fuente editorial de las métricas/);
   assert.doesNotMatch(detail, /(?:60\s*(?:a|→)\s*500|ocho veces|~60|~500)/i);
   assert.match(list, /entry\.frontmatter\.role/);
 });

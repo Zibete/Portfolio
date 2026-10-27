@@ -68,16 +68,8 @@ export interface SiteProjectEvidenceContent {
   cases: SiteEngineeringEvidenceCase[];
 }
 
-export interface SiteHomeFeaturedProjectStatsLabelsContent {
-  stars: string;
-  forks: string;
-  lastPush: string;
-}
-
 export interface SiteHomeFeaturedProjectContent {
   eyebrow: string;
-  githubBadge: string;
-  statsLabels: SiteHomeFeaturedProjectStatsLabelsContent;
   primaryActionLabel: string;
   secondaryAction: SiteNavItem;
 }

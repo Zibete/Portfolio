@@ -115,15 +115,15 @@ export const siteConfig: SiteConfig = {
         title: "Separar reglas e integraciones",
         description:
           "Aislar lógica determinística de dependencias externas para construir soluciones que puedan revisarse y mantenerse.",
-        outcome: "Resultado: código inspeccionable",
+        outcome: "Resultado: separación modular documentada",
         artifact: {
-          file: "src/vba/core/modCoreValidation.bas",
+          file: "docs/MANIFEST.md",
           origin: "Migrar SAP",
-          href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/src/vba/core/modCoreValidation.bas",
+          href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/MANIFEST.md",
           lines: [
-            "CoreIsSiteMismatch(siteSB, siteFC)",
-            "CoreShouldMarkPendienteRevisar(..., montoTolerancia)",
-            "Funciones puras sin acceso a Excel ni SAP",
+            "core/: reglas independientes de Excel y SAP",
+            "integrations/: adaptadores con efectos externos",
+            "excel/ y validation/: orquestación y controles",
           ],
         },
       },
@@ -162,8 +162,8 @@ export const siteConfig: SiteConfig = {
           caseHref: "/projects/migrar-sap-portfolio",
           sources: [
             {
-              label: "Reglas puras de validación",
-              href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/src/vba/core/modCoreValidation.bas",
+              label: "Arquitectura y módulos",
+              href: "https://github.com/Zibete/Migrar-SAP-Portfolio/blob/main/docs/PORTFOLIO_OVERVIEW.md",
             },
             {
               label: "Runner y alcance de las pruebas",
@@ -224,12 +224,6 @@ export const siteConfig: SiteConfig = {
   homeComposition: {
     featuredProject: {
       eyebrow: "Caso de automatización",
-      githubBadge: "Repositorio público",
-      statsLabels: {
-        stars: "Stars",
-        forks: "Forks",
-        lastPush: "Último push",
-      },
       primaryActionLabel: "Ver caso completo",
       secondaryAction: {
         href: "/projects",

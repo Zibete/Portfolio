@@ -5,24 +5,14 @@ import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
 import { migrarSapImpact } from "@/content/site/migrar-sap-impact";
 import { siteConfig } from "@/content/site/site-config";
-import {
-  formatGitHubDate,
-  formatGitHubMetric,
-  getGitHubRepoStats,
-} from "@/lib/github";
 import type { ContentEntry, ProjectFrontmatter } from "@/types/content";
 
 interface FeaturedProjectProps {
   project: ContentEntry<ProjectFrontmatter>;
 }
 
-export async function FeaturedProject({ project }: FeaturedProjectProps) {
+export function FeaturedProject({ project }: FeaturedProjectProps) {
   const stackPreview = (project.frontmatter.stack ?? []).slice(0, 5);
-  const githubStats = project.frontmatter.githubFeatured && project.frontmatter.githubRepo
-    ? await getGitHubRepoStats(project.frontmatter.githubRepo)
-    : null;
-  const shouldShowGitHubStats =
-    project.frontmatter.githubFeatured === true && githubStats;
   const featuredProjectContent = siteConfig.homeComposition.featuredProject;
   const evidence = siteConfig.projectEvidence.cases.find((item) => item.caseHref === `/projects/${project.slug}`);
 
@@ -55,24 +45,6 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
                   <TagChip key={item} label={item} />
                 ))}
               </div>
-
-              {shouldShowGitHubStats ? (
-                <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                  <TagChip
-                    label={featuredProjectContent.githubBadge}
-                    className="text-foreground"
-                  />
-                  <TagChip
-                    label={`${featuredProjectContent.statsLabels.stars} ${formatGitHubMetric(shouldShowGitHubStats.stargazersCount)}`}
-                  />
-                  <TagChip
-                    label={`${featuredProjectContent.statsLabels.forks} ${formatGitHubMetric(shouldShowGitHubStats.forksCount)}`}
-                  />
-                  <TagChip
-                    label={`${featuredProjectContent.statsLabels.lastPush} ${formatGitHubDate(shouldShowGitHubStats.pushedAt)}`}
-                  />
-                </div>
-              ) : null}
 
               {evidence ? (
                 <div className="space-y-2 border-t border-border/70 pt-5">
@@ -156,14 +128,6 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
               </p>
               <p className="mt-1 text-sm text-muted-foreground">{migrarSapImpact.estimated.unit}</p>
               <p className="mt-2 text-xs leading-5 text-muted-foreground">{migrarSapImpact.estimated.boundary}</p>
-              <a
-                href={migrarSapImpact.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex w-fit items-center gap-1.5 pt-3 text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
-                Fuente de las métricas <ArrowUpRight aria-hidden="true" className="size-3.5" />
-              </a>
             </div>
           </div>
         </div>
