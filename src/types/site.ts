@@ -95,11 +95,6 @@ export interface SiteHomeCompositionContent {
   featuredProject: SiteHomeFeaturedProjectContent;
 }
 
-export interface SiteFooterContent {
-  copyrightSuffix: string;
-  description: string;
-}
-
 export interface SiteConfig {
   name: string;
   locale: string;
@@ -115,5 +110,4 @@ export interface SiteConfig {
   homeComposition: SiteHomeCompositionContent;
   engineeringTrace: SiteEngineeringTraceContent;
   projectEvidence: SiteProjectEvidenceContent;
-  footer: SiteFooterContent;
 }

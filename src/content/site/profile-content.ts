@@ -96,8 +96,8 @@ type ProfileContent = {
 
 const emailAddress = "matiasabelperalta@gmail.com";
 const emailHref = `mailto:${emailAddress}`;
-const linkedInHref = "https://www.linkedin.com/in/matiasabelperalta/";
-const githubHref = "https://github.com/Zibete";
+export const linkedInHref = "https://www.linkedin.com/in/matiasabelperalta/";
+export const githubHref = "https://github.com/Zibete";
 
 export const profileContent = {
   about: {

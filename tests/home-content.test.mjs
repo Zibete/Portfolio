@@ -2,6 +2,7 @@ import { strict as assert } from "node:assert";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
 import { siteConfig } from "../src/content/site/site-config.ts";
+import { profileContent } from "../src/content/site/profile-content.ts";
 
 const complementaryEvidence = await readFile(
   new URL("../src/components/sections/complementary-evidence.tsx", import.meta.url),
@@ -9,6 +10,10 @@ const complementaryEvidence = await readFile(
 );
 const engineeringTrace = await readFile(
   new URL("../src/components/sections/engineering-trace.tsx", import.meta.url),
+  "utf8",
+);
+const siteFooter = await readFile(
+  new URL("../src/components/layout/site-footer.tsx", import.meta.url),
   "utf8",
 );
 
@@ -82,4 +87,20 @@ test("El Trace reduce aire solo con altura suficiente y preserva scroll y clippi
   assert.match(engineeringTrace, /w-\[min\(88%,38rem\)\]/);
   assert.match(engineeringTrace, /trace-world relative min-w-0 overflow-hidden/);
   assert.match(engineeringTrace, /\"translate3d\(calc\(-50% \+ \" \+ x \+ \"%\), -50%, \"/);
+});
+
+test("El footer muestra el nombre y enlaces funcionales sin repetir el eslogan", () => {
+  assert.match(siteFooter, /\{siteConfig\.name\}/);
+  assert.match(siteFooter, /<nav\b[^>]*aria-label="Enlaces del pie de página"/);
+  assert.match(siteFooter, /GitHub/);
+  assert.match(siteFooter, /LinkedIn/);
+  assert.match(siteFooter, /Contacto/);
+  assert.match(siteFooter, /focus-visible:outline-2/);
+  assert.doesNotMatch(siteFooter, /getFullYear|copyrightSuffix|footer\.description/);
+  assert.equal(Object.hasOwn(siteConfig, "footer"), false);
+  const social = profileContent.contact.methods.filter(({ id }) => id === "github" || id === "linkedin");
+  assert.deepEqual(social.map(({ href }) => href).sort(), [
+    "https://github.com/Zibete",
+    "https://www.linkedin.com/in/matiasabelperalta/",
+  ]);
 });

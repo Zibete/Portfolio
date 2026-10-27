@@ -243,9 +243,4 @@ export const siteConfig: SiteConfig = {
       },
     },
   },
-  footer: {
-    copyrightSuffix: "Base profesional de mi portfolio.",
-    description:
-      "Desarrollo y automatización para resolver problemas operativos reales.",
-  },
 };
