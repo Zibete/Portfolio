@@ -436,6 +436,23 @@
       transition: none;
     }
   }
+
+  /* Project cards share one accent only on interaction; other site cards keep their palette. */
+  .project-card.interactive-card:hover,
+  .project-card.interactive-card:focus-within {
+    border-color: color-mix(in srgb, var(--signal) 64%, transparent);
+    box-shadow:
+      0 22px 64px -45px color-mix(in srgb, var(--signal) 24%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--signal) 10%, transparent);
+  }
+
+  .dark .project-card.interactive-card:hover,
+  .dark .project-card.interactive-card:focus-within {
+    border-color: color-mix(in srgb, var(--signal) 48%, transparent);
+    box-shadow:
+      0 22px 64px -45px color-mix(in srgb, var(--signal) 18%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--signal) 7%, transparent);
+  }
 }
 
 
