@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MonitorCog } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
@@ -40,9 +40,12 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
             <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.12),_transparent)] dark:bg-[linear-gradient(180deg,_rgb(84_139_255_/_0.14),_transparent)]" />
             <div className="relative space-y-5">
               <div className="space-y-4">
-                <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
-                  {featuredProjectContent.eyebrow}
-                </p>
+                <div className="flex items-center gap-2.5">
+                  <MonitorCog aria-hidden="true" className="size-6 shrink-0 text-signal" />
+                  <p className="text-xs font-medium uppercase tracking-[0.32em] text-primary">
+                    {featuredProjectContent.eyebrow}
+                  </p>
+                </div>
                 <div className="space-y-3">
                   <h2 className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-4xl">
                     {project.frontmatter.title}

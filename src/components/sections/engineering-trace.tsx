@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, FileCode2 } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, FileCode2, Workflow } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import type {
   SiteEngineeringTraceContent,
@@ -208,9 +208,12 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
     >
       <Container>
         <div className="w-full space-y-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-            {content.eyebrow}
-          </p>
+          <div className="flex items-center gap-2.5">
+            <Workflow aria-hidden="true" className="size-6 shrink-0 text-signal" />
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              {content.eyebrow}
+            </p>
+          </div>
           <h2
             id="engineering-trace-title"
             className="text-3xl font-semibold tracking-tight text-foreground [font-family:var(--font-display)] sm:text-5xl"

@@ -8,6 +8,10 @@ const complementaryEvidence = await readFile(
   new URL("../src/components/sections/complementary-evidence.tsx", import.meta.url),
   "utf8",
 );
+const featuredProject = await readFile(
+  new URL("../src/components/sections/featured-project.tsx", import.meta.url),
+  "utf8",
+);
 const engineeringTrace = await readFile(
   new URL("../src/components/sections/engineering-trace.tsx", import.meta.url),
   "utf8",
@@ -56,6 +60,13 @@ test("Se retira la CTA duplicada sin quitar navegación a Contacto y CV", () => 
 
 test("La cabecera Android usa el viewBox correspondiente al dibujo original", () => {
   assert.match(complementaryEvidence, /viewBox="0 -960 960 960"/);
+});
+
+test("Las cabeceras de automatización y Trace replican escala, color y accesibilidad del icono Android", () => {
+  assert.match(featuredProject, /<MonitorCog aria-hidden="true" className="size-6 shrink-0 text-signal"\s*\/>/);
+  assert.match(engineeringTrace, /<Workflow aria-hidden="true" className="size-6 shrink-0 text-signal"\s*\/>/);
+  assert.match(featuredProject, /flex items-center gap-2\.5[\s\S]*\{featuredProjectContent\.eyebrow\}/);
+  assert.match(engineeringTrace, /flex items-center gap-2\.5[\s\S]*\{content\.eyebrow\}/);
 });
 
 test("ZIBE usa un SVG vectorial local sin imagen raster incrustada", async () => {
