@@ -22,7 +22,8 @@ test("El quinto proyecto está publicado, utiliza fuente pública y conserva el 
   assert.equal(data.order, 5);
   assert.equal(data.published, true);
   assert.equal(data.featured, false);
-  assert.equal(data.githubRepo, "Zibete/viaje-rentable-ar");
+  assert.equal(data.githubUrl, "https://github.com/Zibete/viaje-rentable-ar");
+  assert.equal(Object.hasOwn(data, "githubRepo"), false);
   assert.equal(data.coverImageFit, "contain");
   assert.match(data.coverImage, /\.webp$/);
   assert.match(data.year, /alpha experimental/i);

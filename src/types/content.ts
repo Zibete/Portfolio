@@ -17,10 +17,8 @@ export interface ProjectFrontmatter extends BaseContentFrontmatter {
   coverImage?: string;
   coverImageAlt?: string;
   coverImageFit?: "cover" | "contain";
-  githubRepo?: string;
   githubUrl?: string;
   demoUrl?: string;
-  githubFeatured?: boolean;
 }
 
 export interface ExperienceFrontmatter extends BaseContentFrontmatter {

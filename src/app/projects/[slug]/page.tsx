@@ -14,11 +14,6 @@ import {
   hasProjectMdxModule,
 } from "@/content/projects/registry";
 import {
-  formatGitHubDate,
-  formatGitHubMetric,
-  getGitHubRepoStats,
-} from "@/lib/github";
-import {
   getProjectEntryBySlug,
   getPublishedProjectEntries,
 } from "@/lib/mdx";
@@ -104,13 +99,8 @@ export default async function ProjectDetailPage({
 
   const ProjectContent = projectModule.default;
   const taxonomy = entry.frontmatter.stack ?? entry.frontmatter.tags ?? [];
-  const githubStats = entry.frontmatter.githubRepo
-    ? await getGitHubRepoStats(entry.frontmatter.githubRepo)
-    : null;
-  const githubUrl = entry.frontmatter.githubUrl ?? githubStats?.htmlUrl ?? null;
-  const hasGitHubBlock = Boolean(
-    githubStats || githubUrl || entry.frontmatter.demoUrl,
-  );
+  const githubUrl = entry.frontmatter.githubUrl;
+  const hasGitHubBlock = Boolean(githubUrl || entry.frontmatter.demoUrl);
 
   return (
     <section className="py-12 sm:py-20">
@@ -190,40 +180,6 @@ export default async function ProjectDetailPage({
                 delayClassName={`motion-enter ${asideMotionDelays[3]}`}
               >
                 <div className="space-y-4 text-sm leading-6 text-muted-foreground">
-                  {githubStats ? (
-                    <>
-                      <p className="font-medium text-foreground">
-                        {githubStats.fullName}
-                      </p>
-                      <div className="space-y-2">
-                        <p>
-                          <span className="font-medium text-foreground">
-                            Stars:
-                          </span>{" "}
-                          {formatGitHubMetric(githubStats.stargazersCount)}
-                        </p>
-                        <p>
-                          <span className="font-medium text-foreground">
-                            Forks:
-                          </span>{" "}
-                          {formatGitHubMetric(githubStats.forksCount)}
-                        </p>
-                        <p>
-                          <span className="font-medium text-foreground">
-                            Issues abiertas:
-                          </span>{" "}
-                          {formatGitHubMetric(githubStats.openIssuesCount)}
-                        </p>
-                        <p>
-                          <span className="font-medium text-foreground">
-                            Último push:
-                          </span>{" "}
-                          {formatGitHubDate(githubStats.pushedAt)}
-                        </p>
-                      </div>
-                    </>
-                  ) : null}
-
                   <div className="flex flex-col gap-2">
                     {githubUrl ? (
                       <Button variant="outline" asChild className="w-full">
