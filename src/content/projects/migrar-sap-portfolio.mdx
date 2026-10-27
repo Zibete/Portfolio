@@ -1,6 +1,6 @@
 ---
 title: "Automatización de cuentas a pagar"
-summary: "Caso de automatización de facturas en un proceso real de cuentas a pagar: Excel/VBA, Python, Power Query y conexiones con sistemas empresariales. Separé reglas verificables de integraciones dependientes del entorno; el resultado histórico reportado fue pasar de unos 60 a unos 500 documentos por día."
+summary: "Automatización de cuentas a pagar con Excel/VBA, Python, Power Query y conexiones empresariales. Reglas verificables separadas de integraciones privadas, alcance mensual de SAP FI observado y eficiencia de procesamiento estimada con límites explícitos."
 language: "es"
 published: true
 featured: true
@@ -26,6 +26,8 @@ tags:
   - "Datos"
   - "Testing"
 ---
+
+import { migrarSapImpact } from "@/content/site/migrar-sap-impact";
 
 ## Contexto y problema
 
@@ -55,7 +57,19 @@ Las acciones sobre sistemas empresariales reales dependen del entorno corporativ
 
 ## Resultado y atribución
 
-En el caso histórico documentado, la productividad reportada pasó de **aproximadamente 60 a 500 documentos procesados por día** (alrededor de ocho veces el volumen inicial). Es un resultado asociado al flujo de cuentas a pagar en el período analizado, no una medición reciente de Cabify ni un benchmark de las pruebas públicas.
+### Alcance observado · SAP FI
+
+- **Participación mensual:** {migrarSapImpact.observed.share} del volumen de la unidad, en un corte histórico de PAE / AXION.
+- **Documentos contabilizados:** {migrarSapImpact.observed.invoices} de {migrarSapImpact.observed.totalInvoices} en SAP FI.
+- **Proveedores gestionados:** {migrarSapImpact.observed.suppliers}.
+
+{migrarSapImpact.observed.boundary} Estas cifras describen el alcance operativo del período, no una tasa de automatización, una capacidad máxima ni un resultado de Cabify.
+
+### Eficiencia estimada · casos comparables
+
+De **{migrarSapImpact.estimated.before}** a **{migrarSapImpact.estimated.after}** por comprobante, aproximadamente **{migrarSapImpact.estimated.reduction}** menos tiempo. Es una estimación para casos comparables, no una medición general de todos los documentos ni una prueba de rendimiento del repositorio público.
+
+<a href={migrarSapImpact.sourceUrl} target="_blank" rel="noopener noreferrer">Fuente editorial de las métricas y su atribución</a>.
 
 La principal lección fue que automatizar no consiste en agregar macros: consiste en identificar decisiones repetibles, conservar controles y reservar las excepciones para revisión humana.
 
@@ -78,7 +92,8 @@ Este caso conecta varias capacidades relevantes para ingeniería aplicada al neg
 ## Evidencia y pendientes
 
 - **Verificable en público:** código del núcleo de reglas, pruebas documentadas, separación de integraciones y scripts de publicación segura en el repositorio abierto.
-- **Resultado histórico reportado:** aumento aproximado de 60 a 500 documentos diarios en el proceso original. No es una métrica producida por el runner público.
+- **Alcance observado:** corte mensual SAP FI de PAE / AXION, con volumen y proveedores reportados. No mide la proporción automatizada.
+- **Eficiencia estimada:** tiempo por comprobante comparable; no se reproduce con el runner público.
 - **No verificable desde este portfolio:** ejecución integral contra los sistemas corporativos, adopción y resultados posteriores al período analizado.
 
 ## Documentación y evidencia

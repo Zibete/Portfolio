@@ -1,4 +1,5 @@
 import type { SiteConfig } from "@/types/site";
+import { migrarSapImpact } from "./migrar-sap-impact.ts";
 
 const cvFilePath = "/files/CV_PERALTA_MATIAS_2026.pdf";
 
@@ -157,7 +158,7 @@ export const siteConfig: SiteConfig = {
           summary:
             "Reglas VBA independientes de SAP y un runner de pruebas del núcleo ejecutable localmente con Windows y Excel.",
           boundary:
-            "El aumento histórico de ~60 a ~500 documentos por día es un resultado reportado del proceso original; no una métrica de los tests públicos.",
+            `Alcance observado: ${migrarSapImpact.observed.share} del volumen mensual SAP FI de PAE / AXION (no porcentaje automatizado); la reducción ${migrarSapImpact.estimated.reduction} de tiempo es estimada. Ninguna cifra surge de las pruebas públicas.`,
           caseHref: "/projects/migrar-sap-portfolio",
           sources: [
             {

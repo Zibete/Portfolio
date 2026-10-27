@@ -5,6 +5,7 @@ import { Container } from "@/components/shared/container";
 import { PageIntro } from "@/components/shared/page-intro";
 import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
+import { migrarSapImpact } from "@/content/site/migrar-sap-impact";
 import { hasProjectMdxModule } from "@/content/projects/registry";
 import {
   formatGitHubDate,
@@ -74,6 +75,18 @@ export default async function ProjectsPage() {
                       <p className="max-w-3xl text-base leading-7 text-muted-foreground">
                         {entry.frontmatter.summary}
                       </p>
+                      {entry.slug === "migrar-sap-portfolio" ? (
+                        <div className="grid gap-2 pt-2 sm:grid-cols-2">
+                          <div className="rounded-xl border border-border/70 bg-background/65 px-4 py-3">
+                            <p className="font-mono text-2xl font-semibold tabular-nums text-foreground">{migrarSapImpact.observed.share}</p>
+                            <p className="mt-1 text-xs leading-5 text-muted-foreground">Alcance mensual observado en SAP FI · PAE / AXION</p>
+                          </div>
+                          <div className="rounded-xl border border-border/70 bg-background/65 px-4 py-3">
+                            <p className="font-mono text-2xl font-semibold tabular-nums text-foreground">{migrarSapImpact.estimated.reduction}</p>
+                            <p className="mt-1 text-xs leading-5 text-muted-foreground">Menos tiempo estimado por caso comparable · {migrarSapImpact.estimated.before} → {migrarSapImpact.estimated.after}</p>
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
 
                     <div className="flex flex-wrap gap-2">

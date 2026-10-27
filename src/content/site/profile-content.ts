@@ -1,3 +1,5 @@
+import { migrarSapImpact } from "./migrar-sap-impact.ts";
+
 type ContentSection = {
   eyebrow: string;
   title: string;
@@ -319,23 +321,23 @@ export const profileContent = {
     ],
     metrics: [
       {
-        label: "PAE / AXION · Productividad histórica",
-        value: "de ~60 a más de 500 documentos por día",
+        label: "PAE / AXION · Alcance mensual observado",
+        value: `${migrarSapImpact.observed.share} del volumen de la unidad en SAP FI`,
       },
       {
-        label: "PAE / AXION · Volumen analizado",
-        value: "más del 50 % de los documentos del área en el período validado",
+        label: "PAE / AXION · Documentos y proveedores",
+        value: `${migrarSapImpact.observed.invoices} de ${migrarSapImpact.observed.totalInvoices} documentos · ${migrarSapImpact.observed.suppliers} proveedores`,
       },
       {
-        label: "PAE / AXION · Importe analizado",
-        value: "alrededor del 70 % del monto total del período validado",
+        label: "PAE / AXION · Eficiencia estimada",
+        value: `${migrarSapImpact.estimated.before} → ${migrarSapImpact.estimated.after} por comprobante (${migrarSapImpact.estimated.reduction} menos tiempo estimado)`,
       },
     ],
     aside: {
-      eyebrow: "Evidencia histórica",
-      title: "Resultados de un caso de cuentas a pagar.",
+      eyebrow: "Alcance y estimación",
+      title: "Resultados contextualizados del caso de cuentas a pagar.",
       description:
-        "Estas métricas corresponden exclusivamente a un período analizado en PAE / AXION. No representan resultados obtenidos en Cabify ni de proyectos actuales en desarrollo.",
+        "El corte mensual observado corresponde a PAE / AXION y no mide el porcentaje automatizado. La reducción por comprobante es una estimación para casos comparables, no un benchmark del código público. Estos resultados no pertenecen a Cabify.",
     },
   },
   contact: {
