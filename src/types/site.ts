@@ -74,21 +74,12 @@ export interface SiteHomeFeaturedProjectStatsLabelsContent {
   lastPush: string;
 }
 
-export interface SiteHomeFeaturedProjectMetadataContent {
-  roleLabel: string;
-  periodLabel: string;
-  focusLabel: string;
-  emptyValue: string;
-  focusFallback: string;
-}
-
 export interface SiteHomeFeaturedProjectContent {
   eyebrow: string;
   githubBadge: string;
   statsLabels: SiteHomeFeaturedProjectStatsLabelsContent;
   primaryActionLabel: string;
   secondaryAction: SiteNavItem;
-  metadata: SiteHomeFeaturedProjectMetadataContent;
 }
 
 export interface SiteHomeCompositionContent {

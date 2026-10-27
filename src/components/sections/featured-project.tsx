@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, MonitorCog } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { TagChip } from "@/components/shared/tag-chip";
 import { Button } from "@/components/ui/button";
+import { migrarSapImpact } from "@/content/site/migrar-sap-impact";
 import { siteConfig } from "@/content/site/site-config";
 import {
   formatGitHubDate,
@@ -15,15 +16,8 @@ interface FeaturedProjectProps {
   project: ContentEntry<ProjectFrontmatter>;
 }
 
-const metadataMotionDelays = [
-  "motion-delay-2",
-  "motion-delay-3",
-  "motion-delay-4",
-] as const;
-
 export async function FeaturedProject({ project }: FeaturedProjectProps) {
   const stackPreview = (project.frontmatter.stack ?? []).slice(0, 5);
-  const focusPreview = (project.frontmatter.tags ?? []).slice(0, 3);
   const githubStats = project.frontmatter.githubFeatured && project.frontmatter.githubRepo
     ? await getGitHubRepoStats(project.frontmatter.githubRepo)
     : null;
@@ -119,40 +113,57 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-3 lg:h-full lg:grid-cols-1 lg:grid-rows-3">
-          <div className={`motion-enter ${metadataMotionDelays[0]} h-full`}>
-            <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                {featuredProjectContent.metadata.roleLabel}
+        <div className="grid gap-3 sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-2">
+          <div className="motion-enter motion-delay-2 h-full">
+            <div className="interactive-card flex h-full flex-col rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-primary">
+                {migrarSapImpact.observed.label}
               </p>
+              <p className="mt-1 text-xs text-muted-foreground">{migrarSapImpact.observed.period}</p>
+              <p className="mt-3 font-mono text-4xl font-semibold tabular-nums tracking-tight text-foreground">
+                {migrarSapImpact.observed.share}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{migrarSapImpact.observed.shareDescription}</p>
+              <div
+                role="progressbar"
+                aria-label="Participación de documentos SAP FI en el volumen mensual de la unidad"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={migrarSapImpact.observed.shareValue}
+                className="mt-4 h-2 overflow-hidden rounded-full bg-border/70"
+              >
+                <div className="h-full rounded-full bg-signal" style={{ width: `${migrarSapImpact.observed.shareValue}%` }} />
+              </div>
               <p className="mt-3 text-sm leading-6 text-foreground">
-                {project.frontmatter.role ??
-                  featuredProjectContent.metadata.emptyValue}
+                <span className="font-semibold tabular-nums">{migrarSapImpact.observed.invoices} / {migrarSapImpact.observed.totalInvoices}</span> documentos · <span className="font-semibold tabular-nums">{migrarSapImpact.observed.suppliers}</span> proveedores
               </p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">{migrarSapImpact.observed.boundary}</p>
             </div>
           </div>
 
-          <div className={`motion-enter ${metadataMotionDelays[1]} h-full`}>
-            <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                {featuredProjectContent.metadata.periodLabel}
+          <div className="motion-enter motion-delay-3 h-full">
+            <div className="interactive-card flex h-full flex-col rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-primary">
+                {migrarSapImpact.estimated.label}
               </p>
-              <p className="mt-3 text-sm leading-6 text-foreground">
-                {project.frontmatter.year ??
-                  featuredProjectContent.metadata.emptyValue}
+              <p className="mt-1 text-xs text-muted-foreground">PAE / AXION · casos comparables</p>
+              <p className="mt-3 font-mono text-4xl font-semibold tabular-nums tracking-tight text-foreground">
+                {migrarSapImpact.estimated.reduction}
               </p>
-            </div>
-          </div>
-
-          <div className={`motion-enter ${metadataMotionDelays[2]} h-full`}>
-            <div className="interactive-card h-full rounded-[1.75rem] border border-border/70 bg-background/72 p-5 shadow-[0_22px_64px_-54px_rgb(15_23_42_/_0.3)] backdrop-blur dark:bg-card/76">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-muted-foreground">
-                {featuredProjectContent.metadata.focusLabel}
+              <p className="mt-1 text-sm text-muted-foreground">menos tiempo estimado</p>
+              <p className="mt-4 text-base font-medium tabular-nums text-foreground">
+                {migrarSapImpact.estimated.before} <span aria-hidden="true" className="text-signal">→</span> {migrarSapImpact.estimated.after}
               </p>
-              <p className="mt-3 text-sm leading-6 text-foreground">
-                {focusPreview.join(" / ") ||
-                  featuredProjectContent.metadata.focusFallback}
-              </p>
+              <p className="mt-1 text-sm text-muted-foreground">{migrarSapImpact.estimated.unit}</p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">{migrarSapImpact.estimated.boundary}</p>
+              <a
+                href={migrarSapImpact.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex w-fit items-center gap-1.5 pt-3 text-xs font-medium text-primary underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                Fuente de las métricas <ArrowUpRight aria-hidden="true" className="size-3.5" />
+              </a>
             </div>
           </div>
         </div>

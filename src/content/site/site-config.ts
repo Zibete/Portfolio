@@ -234,13 +234,6 @@ export const siteConfig: SiteConfig = {
         href: "/projects",
         label: "Ver proyectos",
       },
-      metadata: {
-        roleLabel: "Rol",
-        periodLabel: "Período",
-        focusLabel: "Foco técnico",
-        emptyValue: "Pendiente de definir",
-        focusFallback: "Software / automatización / integración",
-      },
     },
   },
 };
