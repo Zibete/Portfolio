@@ -9,8 +9,8 @@ export function HomeHero() {
   const { primaryCta, secondaryCta } = siteConfig.hero;
 
   return (
-    <section className="pb-10 pt-10 sm:pb-12 sm:pt-16">
-      <Container className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,20rem)] lg:items-center lg:gap-12">
+    <section className="pb-8 pt-8 sm:pb-10 sm:pt-13">
+      <Container className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,20rem)] lg:items-center lg:gap-x-12 lg:gap-y-6">
         <div className="min-w-0 space-y-6">
           <div className="space-y-4">
             <div className="motion-enter motion-delay-1 space-y-3">
@@ -75,12 +75,13 @@ export function HomeHero() {
             </Button>
           </div>
 
-          <p className="motion-enter motion-delay-5 max-w-xl border-l-2 border-signal/70 pl-4 text-sm leading-6 text-muted-foreground">
-            {siteConfig.hero.impactStatement}
-          </p>
         </div>
 
-        <div className="motion-enter motion-delay-4 mx-auto w-full max-w-[16rem] sm:max-w-[19rem] lg:max-w-[20rem]">
+        <p className="motion-enter motion-delay-5 w-full border-l-2 border-signal/70 pl-4 text-sm leading-6 text-muted-foreground lg:col-span-2 lg:row-start-2">
+          {siteConfig.hero.impactStatement}
+        </p>
+
+        <div className="motion-enter motion-delay-4 mx-auto w-full max-w-[16rem] sm:max-w-[19rem] lg:col-start-2 lg:row-start-1 lg:max-w-[20rem]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-border/70 bg-muted shadow-[0_20px_60px_-42px_rgb(15_23_42_/_0.4)]">
             <Image
               src={siteConfig.assets.profileImagePath}
@@ -92,6 +93,7 @@ export function HomeHero() {
             />
           </div>
         </div>
+
       </Container>
     </section>
   );

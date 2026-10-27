@@ -33,7 +33,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
   const evidence = siteConfig.projectEvidence.cases.find((item) => item.caseHref === `/projects/${project.slug}`);
 
   return (
-    <section id="featured-project" className="scroll-mt-28 py-8 sm:py-10">
+    <section id="featured-project" className="scroll-mt-28 py-6 sm:py-8">
       <Container className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-stretch">
         <div className="motion-reveal motion-delay-1 h-full">
           <div className="interactive-card relative h-full overflow-hidden rounded-[2rem] border border-border/70 bg-card/78 p-6 shadow-[0_28px_90px_-60px_rgb(15_23_42_/_0.35)] backdrop-blur-xl sm:p-8">

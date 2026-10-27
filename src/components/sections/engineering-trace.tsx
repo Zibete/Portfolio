@@ -203,11 +203,11 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
   return (
     <section
       id="engineering-trace"
-      className="relative border-y border-border/50 bg-card/20 py-12 scroll-mt-24 sm:py-14"
+      className="relative scroll-mt-24 border-y border-border/50 bg-card/20 py-10 sm:py-11"
       aria-labelledby="engineering-trace-title"
     >
       <Container>
-        <div className="max-w-3xl space-y-4">
+        <div className="w-full space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             {content.eyebrow}
           </p>
