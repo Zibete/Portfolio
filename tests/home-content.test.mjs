@@ -64,7 +64,8 @@ test("ZIBE usa un SVG vectorial local sin imagen raster incrustada", async () =>
     "utf8",
   );
   assert.match(icon, /<svg\b[^>]*xmlns="http:\/\/www\.w3\.org\/2000\/svg"/);
-  assert.match(icon, /<path\b/);
+  assert.equal((icon.match(/<path\b/g) ?? []).length, 3);
+  assert.match(icon, /fill="#ffffff"/); // Mantiene el contorno blanco del PNG original.
   assert.doesNotMatch(icon, /<image\b|data:image|(?:href|xlink:href)="https?:\/\//i);
   assert.match(complementaryEvidence, /item\.id === "zibe"/);
   assert.match(complementaryEvidence, /src="\/images\/projects\/zibe-icon\.svg"/);
