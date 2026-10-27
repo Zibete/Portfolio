@@ -24,8 +24,9 @@ test("Home reemplaza las tres fichas de metadata por dos bloques de impacto acce
   const featured = await source("src/components/sections/featured-project.tsx");
   assert.match(featured, /migrarSapImpact\.observed\.share/);
   assert.match(featured, /migrarSapImpact\.estimated\.reduction/);
-  assert.match(featured, /role="progressbar"/);
+  assert.match(featured, /role="meter"/);
   assert.match(featured, /aria-valuenow=\{migrarSapImpact\.observed\.shareValue\}/);
+  assert.match(featured, /className="sr-only"> a <\/span>/);
   assert.match(featured, /lg:grid-rows-2/);
   assert.doesNotMatch(featured, /featuredProjectContent\.metadata|metadataMotionDelays|focusPreview/);
 });
@@ -35,11 +36,13 @@ test("Proyectos presenta el mismo impacto sin sustituir metadatos útiles de los
   const detail = await source("src/content/projects/migrar-sap-portfolio.mdx");
   assert.match(list, /entry\.slug === "migrar-sap-portfolio"/);
   assert.match(list, /migrarSapImpact\.observed\.share/);
+  assert.match(list, /del volumen mensual de la unidad/i);
   assert.match(list, /migrarSapImpact\.estimated\.reduction/);
   assert.match(detail, /import \{ migrarSapImpact \} from/);
   assert.match(detail, /migrarSapImpact\.observed\.invoices/);
   assert.match(detail, /migrarSapImpact\.estimated\.before/);
   assert.match(detail, /migrarSapImpact\.sourceUrl/);
+  assert.match(detail, /className="font-medium text-foreground underline underline-offset-4/);
   assert.doesNotMatch(detail, /(?:60\s*(?:a|→)\s*500|ocho veces|~60|~500)/i);
   assert.match(list, /entry\.frontmatter\.role/);
 });

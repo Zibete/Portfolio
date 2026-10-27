@@ -79,7 +79,7 @@ export default async function ProjectsPage() {
                         <div className="grid gap-2 pt-2 sm:grid-cols-2">
                           <div className="rounded-xl border border-border/70 bg-background/65 px-4 py-3">
                             <p className="font-mono text-2xl font-semibold tabular-nums text-foreground">{migrarSapImpact.observed.share}</p>
-                            <p className="mt-1 text-xs leading-5 text-muted-foreground">Alcance mensual observado en SAP FI · PAE / AXION</p>
+                            <p className="mt-1 text-xs leading-5 text-muted-foreground">Del volumen mensual de la unidad en SAP FI · PAE / AXION</p>
                           </div>
                           <div className="rounded-xl border border-border/70 bg-background/65 px-4 py-3">
                             <p className="font-mono text-2xl font-semibold tabular-nums text-foreground">{migrarSapImpact.estimated.reduction}</p>

@@ -125,7 +125,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
               </p>
               <p className="mt-1 text-sm text-muted-foreground">{migrarSapImpact.observed.shareDescription}</p>
               <div
-                role="progressbar"
+                role="meter"
                 aria-label="Participación de documentos SAP FI en el volumen mensual de la unidad"
                 aria-valuemin={0}
                 aria-valuemax={100}
@@ -152,7 +152,7 @@ export async function FeaturedProject({ project }: FeaturedProjectProps) {
               </p>
               <p className="mt-1 text-sm text-muted-foreground">menos tiempo estimado</p>
               <p className="mt-4 text-base font-medium tabular-nums text-foreground">
-                {migrarSapImpact.estimated.before} <span aria-hidden="true" className="text-signal">→</span> {migrarSapImpact.estimated.after}
+                {migrarSapImpact.estimated.before} <span aria-hidden="true" className="text-signal">→</span><span className="sr-only"> a </span> {migrarSapImpact.estimated.after}
               </p>
               <p className="mt-1 text-sm text-muted-foreground">{migrarSapImpact.estimated.unit}</p>
               <p className="mt-2 text-xs leading-5 text-muted-foreground">{migrarSapImpact.estimated.boundary}</p>
