@@ -1,0 +1,72 @@
+---
+title: "Viaje Rentable AR"
+summary: "Asistente Android experimental para evaluar la rentabilidad de solicitudes de viaje con captura de pantalla autorizada, OCR local, reglas configurables y recomendaciones visuales."
+language: "es"
+published: true
+featured: false
+order: 5
+year: "2026 · alpha experimental"
+role: "Desarrollo Android / producto personal"
+coverImage: "/images/projects/viaje-rentable-ar-preview.webp"
+coverImageAlt: "Vista previa ilustrativa de Viaje Rentable AR, con ejemplo de interfaz y recomendaciones"
+coverImageFit: "contain"
+githubRepo: "Zibete/viaje-rentable-ar"
+githubUrl: "https://github.com/Zibete/viaje-rentable-ar"
+stack:
+  - "Kotlin"
+  - "Jetpack Compose"
+  - "Material 3"
+  - "ML Kit OCR"
+  - "MediaProjection"
+  - "DataStore"
+tags:
+  - "Android"
+  - "OCR"
+  - "Reglas de negocio"
+  - "Pruebas unitarias"
+---
+
+## Contexto y problema
+
+Al recibir una solicitud de viaje, un conductor necesita estimar rápidamente si la tarifa compensa la distancia, el tiempo y los costos de operación. **Viaje Rentable AR** explora cómo convertir esa información visible en una recomendación que el conductor pueda revisar antes de decidir.
+
+Es una aplicación personal, gratuita y de código abierto en etapa **alpha experimental**. No presento sus recomendaciones como resultados verificados en condiciones de trabajo reales.
+
+## Decisiones de implementación
+
+- **Captura con consentimiento:** Android `MediaProjection` permite analizar información visible en pantalla únicamente después de una autorización explícita del usuario.
+- **Procesamiento local:** `ML Kit Text Recognition` extrae el texto sin enviarlo a un servidor; un parser transforma resultados OCR potencialmente incompletos en datos utilizables.
+- **Reglas y cálculo separados:** la lógica estima rendimiento por kilómetro y hora, costos y ganancia neta a partir de parámetros configurables. El núcleo se puede probar sin ejecutar una interfaz Android.
+- **Recomendación visible:** un overlay muestra estados como aceptar, revisar, rechazar o datos incompletos. **La aplicación no acepta ni rechaza viajes automáticamente** ni utiliza APIs privadas de otras plataformas.
+- **Preferencias persistentes:** DataStore conserva localmente los umbrales y costos definidos por el usuario.
+
+El recorrido principal es **captura autorizada → OCR → interpretación → reglas → cálculo → recomendación visual**. El procesamiento de imágenes incorpora controles para reducir trabajo repetido entre capturas.
+
+## Alcance funcional
+
+El repositorio contiene una base de interfaz Android en Kotlin, Jetpack Compose y Material 3; monitoreo autorizado, análisis de solicitudes y una tarjeta de recomendación superpuesta. La configuración contempla costos y mínimos de rentabilidad.
+
+La recomendación es **informativa**: no sustituye el criterio de quien conduce ni automatiza interacciones con otras aplicaciones.
+
+## Calidad y validación
+
+El código público incluye pruebas unitarias para el motor de rentabilidad, el pipeline de decisión y el control de procesamiento de capturas. La existencia de estas pruebas permite inspeccionar las reglas, pero **no demuestra por sí sola que el OCR funcione con precisión en todas las plataformas, pantallas y dispositivos**.
+
+No atribuyo tasas de acierto, ahorros ni uso productivo que todavía no estén medidos. Las pruebas prolongadas en dispositivos Android y la validación de precisión OCR siguen pendientes.
+
+## Estado del proyecto
+
+La versión pública de referencia es la **v0.1.0-alpha**. Hay una compilación experimental disponible en las releases, pero no una versión estable ni una validación de campo documentada.
+
+## Qué aporta a mi perfil
+
+Este proyecto complementa mis desarrollos de automatización con una interfaz móvil y un flujo de datos imperfectos. Muestra cómo separo captura, interpretación y reglas de negocio para que una recomendación sea explicable, ajustable y testeable.
+
+## Documentación y evidencia
+
+- [Repositorio público](https://github.com/Zibete/viaje-rentable-ar)
+- [Arquitectura y responsabilidades](https://github.com/Zibete/viaje-rentable-ar/blob/main/docs/ARCHITECTURE.md)
+- [Pipeline de decisión](https://github.com/Zibete/viaje-rentable-ar/blob/main/app/src/main/java/com/zibete/driverassistant/ocr/TripOfferDecisionPipeline.kt)
+- [Cálculo de rentabilidad y reglas](https://github.com/Zibete/viaje-rentable-ar/blob/main/app/src/main/java/com/zibete/driverassistant/calculator/DriverProfitCalculator.kt)
+- [Pruebas unitarias del cálculo](https://github.com/Zibete/viaje-rentable-ar/blob/main/app/src/test/java/com/zibete/driverassistant/calculator/DriverProfitCalculatorTest.kt)
+- [Versión experimental v0.1.0-alpha](https://github.com/Zibete/viaje-rentable-ar/releases/tag/v0.1.0-alpha)

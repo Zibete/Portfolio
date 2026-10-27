@@ -16,6 +16,7 @@ export interface ProjectFrontmatter extends BaseContentFrontmatter {
   year?: string;
   coverImage?: string;
   coverImageAlt?: string;
+  coverImageFit?: "cover" | "contain";
   githubRepo?: string;
   githubUrl?: string;
   demoUrl?: string;

@@ -194,6 +194,30 @@ export const siteConfig: SiteConfig = {
             },
           ],
         },
+        {
+          id: "viaje-rentable-ar",
+          label: "Proyecto personal · asistente Android",
+          title: "Viaje Rentable AR",
+          summary:
+            "Asistente experimental para conductores: captura autorizada, OCR local, cálculo de rentabilidad y recomendaciones visuales configurables.",
+          boundary:
+            "Alpha experimental: el cálculo tiene pruebas unitarias en el repositorio, pero faltan pruebas prolongadas en dispositivos y validación de precisión OCR en situaciones reales.",
+          caseHref: "/projects/viaje-rentable-ar",
+          sources: [
+            {
+              label: "Arquitectura y flujo de datos",
+              href: "https://github.com/Zibete/viaje-rentable-ar/blob/main/docs/ARCHITECTURE.md",
+            },
+            {
+              label: "Motor de rentabilidad",
+              href: "https://github.com/Zibete/viaje-rentable-ar/blob/main/app/src/main/java/com/zibete/driverassistant/calculator/DriverProfitCalculator.kt",
+            },
+            {
+              label: "Pruebas del cálculo",
+              href: "https://github.com/Zibete/viaje-rentable-ar/blob/main/app/src/test/java/com/zibete/driverassistant/calculator/DriverProfitCalculatorTest.kt",
+            },
+          ],
+        },
     ],
   },
   homeComposition: {
