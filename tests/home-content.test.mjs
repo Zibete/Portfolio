@@ -7,6 +7,10 @@ const complementaryEvidence = await readFile(
   new URL("../src/components/sections/complementary-evidence.tsx", import.meta.url),
   "utf8",
 );
+const engineeringTrace = await readFile(
+  new URL("../src/components/sections/engineering-trace.tsx", import.meta.url),
+  "utf8",
+);
 
 test("Home presenta desarrollo e IA con decisiones y validación técnicas", () => {
   assert.match(siteConfig.hero.description, /^Desarrollo herramientas y automatizaciones con Python y VBA/);
@@ -66,4 +70,16 @@ test("Viaje Rentable AR muestra una ruta con el mismo marco visual que ZIBE", ()
   assert.match(complementaryEvidence, /item\.id === "viaje-rentable-ar"/);
   assert.match(complementaryEvidence, /<Route\s/);
   assert.match(complementaryEvidence, /size-9.*rounded-lg/);
+});
+
+test("El texto introductorio del Trace aprovecha el ancho del contenedor", () => {
+  assert.match(engineeringTrace, /className="w-full text-pretty text-base leading-7 text-muted-foreground sm:text-lg"/);
+});
+
+test("El Trace reduce aire solo con altura suficiente y preserva scroll y clipping", () => {
+  assert.match(engineeringTrace, /className="trace-scroller relative mt-6 h-\[300svh\]"/);
+  assert.match(engineeringTrace, /\[@media\(min-height:800px\)\]:h-\[calc\(100svh-11rem\)\]/);
+  assert.match(engineeringTrace, /w-\[min\(88%,38rem\)\]/);
+  assert.match(engineeringTrace, /trace-world relative min-w-0 overflow-hidden/);
+  assert.match(engineeringTrace, /\"translate3d\(calc\(-50% \+ \" \+ x \+ \"%\), -50%, \"/);
 });

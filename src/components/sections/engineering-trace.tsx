@@ -203,7 +203,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
   return (
     <section
       id="engineering-trace"
-      className="relative scroll-mt-24 border-y border-border/50 bg-card/20 py-10 sm:py-11"
+      className="relative scroll-mt-24 border-y border-border/50 bg-card/20 py-8 sm:py-9"
       aria-labelledby="engineering-trace-title"
     >
       <Container>
@@ -217,12 +217,12 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
           >
             {content.title}
           </h2>
-          <p className="max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+          <p className="w-full text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
             {content.description}
           </p>
         </div>
 
-        <div className="trace-static mt-8 grid gap-5">
+        <div className="trace-static mt-6 grid gap-5">
           {content.stages.map((stage, index) => (
             <article
               className="rounded-2xl border border-border/70 bg-card/65 p-5 sm:p-7"
@@ -236,8 +236,8 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
           ))}
         </div>
 
-        <div className="trace-scroller relative mt-8 h-[300svh]" ref={railRef}>
-          <div className="sticky top-28 flex h-[calc(100svh-9rem)] min-h-[27rem] flex-col overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-[0_24px_90px_-70px_rgb(15_23_42_/_0.65)]">
+        <div className="trace-scroller relative mt-6 h-[300svh]" ref={railRef}>
+          <div className="sticky top-28 flex h-[calc(100svh-9rem)] min-h-[27rem] flex-col overflow-hidden rounded-3xl border border-border/70 bg-card/70 shadow-[0_24px_90px_-70px_rgb(15_23_42_/_0.65)] [@media(min-height:800px)]:h-[calc(100svh-11rem)]">
             <div className="flex items-center justify-between gap-3 border-b border-border/70 px-6 py-4">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Evidence inspector / 0{activeIndex + 1} — 0{content.stages.length}
@@ -304,7 +304,7 @@ export function EngineeringTrace({ content }: EngineeringTraceProps) {
                   <article
                     key={stage.id}
                     ref={(node) => { sceneRefs.current[index] = node; }}
-                    className="trace-scene absolute left-1/2 top-1/2 w-[min(82%,35rem)] rounded-2xl border border-border/70 bg-card/95 p-5 shadow-[0_32px_120px_-65px_rgb(0_0_0_/_0.6)] xl:p-7"
+                    className="trace-scene absolute left-1/2 top-1/2 w-[min(88%,38rem)] rounded-2xl border border-border/70 bg-card/95 p-5 shadow-[0_32px_120px_-65px_rgb(0_0_0_/_0.6)] xl:p-7"
                     aria-hidden={activeIndex !== index}
                   >
                     <TraceScene stage={stage} interactive={activeIndex === index} />
