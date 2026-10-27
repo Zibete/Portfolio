@@ -91,16 +91,8 @@ export interface SiteHomeFeaturedProjectContent {
   metadata: SiteHomeFeaturedProjectMetadataContent;
 }
 
-export interface SiteHomeCtaContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  actions: SiteNavItem[];
-}
-
 export interface SiteHomeCompositionContent {
   featuredProject: SiteHomeFeaturedProjectContent;
-  closingCta: SiteHomeCtaContent;
 }
 
 export interface SiteFooterContent {

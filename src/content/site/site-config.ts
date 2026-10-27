@@ -35,7 +35,7 @@ export const siteConfig: SiteConfig = {
     title:
       "Convierto procesos financieros y operativos en herramientas de software y automatización.",
     description:
-      "Combino experiencia en Finanzas con Python, Excel/VBA e integraciones para reducir tareas manuales, mejorar controles y hacer los procesos más confiables. Uso herramientas de IA para acelerar análisis, desarrollo y revisión, y valido personalmente el resultado.",
+      "Desarrollo herramientas y automatizaciones con Python y VBA para resolver problemas concretos de Finanzas e integrar sistemas. Uso herramientas de IA para analizar alternativas y acelerar la implementación; tomo decisiones técnicas, reviso el código y verifico los resultados con pruebas.",
     primaryCta: {
       href: "#featured-project",
       label: "Ver evidencia técnica",
@@ -46,13 +46,13 @@ export const siteConfig: SiteConfig = {
       download: true,
     },
     impactStatement:
-      "Conocimiento funcional, desarrollo y validación: decisiones que se pueden inspeccionar.",
+      "Del problema operativo al código: automatización, integraciones y controles verificables.",
   },
   engineeringTrace: {
     eyebrow: "Engineering trace / proceso",
     title: "Decisiones de ingeniería, con fuentes.",
     description:
-      "Cinco prácticas ilustradas con archivos públicos de distintos proyectos, no un único proceso de entrega. Cada etapa identifica su fuente y qué permite comprobar.",
+      "A lo largo de mis proyectos fui incorporando prácticas que hoy guían mi forma de desarrollar: entender el problema, definir el alcance, apoyarme en IA, implementar y validar resultados.",
     stages: [
       {
         id: "discovery",
@@ -147,8 +147,8 @@ export const siteConfig: SiteConfig = {
     ],
   },
   projectEvidence: {
-    eyebrow: "Evidencia complementaria",
-    title: "Arquitectura y evolución de producto.",
+    eyebrow: "Android / Kotlin",
+    title: "Desarrollo de aplicaciones",
     cases: [
         {
           id: "migrar-sap",
@@ -172,7 +172,7 @@ export const siteConfig: SiteConfig = {
         },
         {
           id: "zibe",
-          label: "Caso complementario · producto Android",
+          label: "Proyecto personal · mensajería Android",
           title: "ZIBE",
           summary:
             "Modernización modular Android/Kotlin con contratos de dependencias, checker de arquitectura y CI pública.",
@@ -198,7 +198,7 @@ export const siteConfig: SiteConfig = {
   },
   homeComposition: {
     featuredProject: {
-      eyebrow: "Caso de automatización destacado",
+      eyebrow: "Caso de automatización",
       githubBadge: "Repositorio público",
       statsLabels: {
         stars: "Stars",
@@ -217,22 +217,6 @@ export const siteConfig: SiteConfig = {
         emptyValue: "Pendiente de definir",
         focusFallback: "Software / automatización / integración",
       },
-    },
-    closingCta: {
-      eyebrow: "Contacto y CV",
-      title: "Hablemos de automatización e ingeniería aplicada.",
-      description: "Revisá mi experiencia en el CV o escribime para conversar sobre soluciones concretas.",
-      actions: [
-        {
-          href: "/contact",
-          label: "Ir a contacto",
-        },
-        {
-          href: cvFilePath,
-          label: "Descargar CV",
-          download: true,
-        },
-      ],
     },
   },
   footer: {
